@@ -45,6 +45,9 @@ menus:
     - name: "Talks"
       pageRef: "/talks"
       weight: 30
+    - name: "Work I Love"
+      pageRef: "/work-i-love"
+      weight: 40
     - name: "About"
       pageRef: "/about"
-      weight: 40
+      weight: 50
