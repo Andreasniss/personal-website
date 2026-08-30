@@ -25,7 +25,7 @@
     </div>
     {{ with .Params.tags }}
       <footer class="article-tags" aria-label="Topics">
-        {{ range . }}<a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}">{{ . }}</a>{{ end }}
+        {{ range . }}<a href="{{ printf "tags/%s/" (. | urlize) | relURL }}">{{ . }}</a>{{ end }}
       </footer>
     {{ end }}
   </article>
