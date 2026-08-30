@@ -1,4 +1,4 @@
-baseURL: "http://localhost:1313/"
+baseURL: "https://andreasniss.github.io/personal-website/"
 languageCode: "en-us"
 title: "Andreas Nissen"
 copyright: "© Andreas Nissen"
@@ -24,7 +24,7 @@ params:
   author: "Andreas Nissen"
   githubURL: "https://github.com/Andreasniss"
   linkedinURL: "https://www.linkedin.com/in/andreasnissen"
-  sourceURL: ""
+  sourceURL: "https://github.com/Andreasniss/personal-website"
   viewsDisclaimer: "Personal projects and views are my own and do not represent AWS."
 
 markup:
@@ -48,4 +48,3 @@ menus:
     - name: "About"
       pageRef: "/about"
       weight: 40
-
