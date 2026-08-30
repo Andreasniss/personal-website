@@ -91,11 +91,11 @@ for (const file of articleFiles) {
     failures.push(`Missing or invalid publication origin in ${path.relative(root, file)}`);
   }
   const linkedinURL = frontmatterValue(frontmatter, "linkedinURL");
-  if (linkedinURL !== undefined && !/^https:\/\/www\.linkedin\.com\/feed\/update\/urn:li:activity:\d+\/$/.test(linkedinURL)) {
+  if (linkedinURL && !/^https:\/\/www\.linkedin\.com\/feed\/update\/urn:li:activity:\d+\/$/.test(linkedinURL)) {
     failures.push(`Invalid LinkedIn publication URL in ${path.relative(root, file)}`);
   }
   const xURL = frontmatterValue(frontmatter, "xURL");
-  if (xURL !== undefined && !/^https:\/\/(?:www\.)?x\.com\/(?:[A-Za-z0-9_]+\/status\/\d+|i\/article\/\d+)\/?$/.test(xURL)) {
+  if (xURL && !/^https:\/\/(?:www\.)?x\.com\/(?:[A-Za-z0-9_]+\/status\/\d+|i\/article\/\d+)\/?$/.test(xURL)) {
     failures.push(`Invalid X publication URL in ${path.relative(root, file)}`);
   }
   if (origin === "linkedin" && !linkedinURL) {
