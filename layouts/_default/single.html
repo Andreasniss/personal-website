@@ -10,8 +10,15 @@
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 January 2006" }}</time>
           <span>{{ .ReadingTime }} min read</span>
         </div>
-        {{ with .Params.linkedinURL }}
-          <p class="article-origin">First published on <a href="{{ . }}" rel="noreferrer">LinkedIn</a>.</p>
+        {{ if eq .Params.origin "linkedin" }}
+          <p class="article-origin">
+            First published on <a href="{{ .Params.linkedinURL }}" rel="noreferrer">LinkedIn</a>{{ with .Params.xURL }}; adapted for <a href="{{ . }}" rel="noreferrer">X</a>{{ end }}.
+          </p>
+        {{ else if or .Params.linkedinURL .Params.xURL }}
+          <p class="article-origin">
+            Adapted for
+            {{ with .Params.linkedinURL }}<a href="{{ . }}" rel="noreferrer">LinkedIn</a>{{ end }}{{ if and .Params.linkedinURL .Params.xURL }} and {{ end }}{{ with .Params.xURL }}<a href="{{ . }}" rel="noreferrer">X</a>{{ end }}.
+          </p>
         {{ end }}
       {{ else if eq .Section "projects" }}
         <div class="article-byline">

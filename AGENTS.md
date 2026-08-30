@@ -45,12 +45,15 @@ Every content file needs `title` and `description` in frontmatter (the
 validator enforces this). Section-specific requirements:
 
 - **`content/writing/*.md`** (excluding `_index.md`): `date`, `tags` (list),
-  `draft`, `featured`. Optional `linkedinURL` must match
-  `^https://www\.linkedin\.com/feed/update/urn:li:activity:\d+/$` exactly if
-  present; set it only once the LinkedIn post is actually live, per
-  `PUBLISHING.md`. Body must be 500+ words (the validator counts words after
-  stripping frontmatter): this is the launch-article bar, not a floor for
-  every edit.
+  `draft`, `featured`, and `origin` (`"website"` for a new canonical article,
+  `"linkedin"` reserved for verified legacy imports; the validator rejects
+  any other value). Optional `linkedinURL` must match
+  `^https://www\.linkedin\.com/feed/update/urn:li:activity:\d+/$` and optional
+  `xURL` must match a live X post or Article URL; set either only once that
+  version is actually live, per `PUBLISHING.md`. An `origin: "linkedin"`
+  article must carry `linkedinURL`. Body must be 500+ words (the validator
+  counts words after stripping frontmatter): this is the launch-article bar,
+  not a floor for every edit.
 - **`content/projects/*.md`**: `role`, `year`, `weight` (controls display
   order via `.ByWeight`), `featured`, `statusLabel`, `tags`. Only link
   `repoURL`/`demoURL` that are actually live and yours.
@@ -125,8 +128,8 @@ It checks, across the whole repo and not just `content/`:
 - No em dash in any of those files (the validator script itself is exempt).
 - Any `target="_blank"` link also carries a `noreferrer` value in `rel`.
 - The content frontmatter contracts above: title and description everywhere,
-  the per-section fields, article word count, `linkedinURL` shape, and
-  work-i-love's rule against linking an Andreas-owned fork.
+  the per-section fields, article word count, `origin`/`linkedinURL`/`xURL`
+  shape, and work-i-love's rule against linking an Andreas-owned fork.
 - CSS brace balance in `assets/css/main.css`.
 - Balanced Hugo template delimiters in every file under `layouts/`, that
   every referenced partial resolves to a real file, and that no template

@@ -1,11 +1,11 @@
 ---
-title: "Mistral Playground"
-description: "A Python learning lab for provider switching, tool-call loops, retries, observability, APIs, and local models."
+title: "Mistral Reliability Lab"
+description: "An inspectable Python reference for bounded tool use, provider switching, resilience, observability, and deterministic evaluation."
 role: "Creator and repository owner"
 year: 2026
 weight: 30
 featured: true
-statusLabel: "Open source"
+statusLabel: "Reference lab"
 tags:
   - Mistral
   - OpenTelemetry
@@ -15,22 +15,25 @@ repoURL: "https://github.com/Andreasniss/Mistral-playground"
 
 ## The problem
 
-A model API quickstart proves that a request can return text. It does not teach the operational patterns needed around the call: configuration, retries, tool execution, testing, tracing, structured output, or switching between hosted and local models.
+A model API quickstart proves that a request can return text. It does not prove that tool execution is bounded, failures are handled deliberately, model behavior is testable, or dependency risk is visible.
 
 ## What I built
 
-Mistral Playground is a modular Python lab with command-line demos, a Streamlit interface, a FastAPI surface, mocked tests, opt-in OpenTelemetry tracing, and support for both Mistral's API and local Ollama models.
+Mistral Reliability Lab is a modular Python reference with a reviewer-first Streamlit interface, a FastAPI surface, opt-in OpenTelemetry tracing, and support for both Mistral's API and local Ollama models. Its credential-free preview lets a reviewer inspect the interaction model without supplying an API key.
 
-The API wrapper centralizes model calls and implements bounded retry behavior for transient failures. Operational logs and traces record metadata by default, not prompt, response, or tool-result content.
+The model boundary centralizes calls and implements bounded retry behavior for transient failures. Tool execution uses an explicit allow-list and bounded loops. The interface exposes tool names, arguments, results, and multi-turn history while operational logs and traces exclude prompt, response, and tool-result content by default.
 
 ## What it demonstrates
 
 - Provider choice can stay behind a small, explicit interface.
-- Retry behavior should distinguish transient failures from client errors.
-- Tests can exercise tool loops and failure handling without making live model calls.
-- Observability can be useful without collecting model content by default.
+- Tool access and reasoning loops should be bounded before a model can act.
+- Credential-free tests can exercise routing, grounding, tool use, and failure handling.
+- Observability can remain useful without collecting model content by default.
+- CI can audit the exact locked runtime dependency set instead of an approximate environment.
 
 ## Proof
 
 - [Explore the public repository](https://github.com/Andreasniss/Mistral-playground)
-
+- 26 credential-free automated tests
+- 6 versioned deterministic evaluation cases covering routing, tool selection, and grounding
+- Locked dependency audit in CI with fail-closed collection behavior

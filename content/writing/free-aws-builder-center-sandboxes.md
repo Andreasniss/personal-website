@@ -6,6 +6,7 @@ tags:
   - AWS
   - hands-on learning
   - agentic AI
+origin: "linkedin"
 linkedinURL: "https://www.linkedin.com/feed/update/urn:li:activity:7480988751716925441/"
 featured: false
 draft: false
