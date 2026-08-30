@@ -1,0 +1,32 @@
+{{ define "main" }}
+  <section class="page-hero shell narrow">
+    <p class="eyebrow">{{ .Section | default "Index" }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ with .Content }}<div class="prose intro-copy">{{ . }}</div>{{ end }}
+  </section>
+
+  <section class="shell section-space">
+    {{ if eq .Section "projects" }}
+      <div class="project-grid">
+        {{ range .Pages.ByWeight }}{{ partial "project-card.html" . }}{{ end }}
+      </div>
+    {{ else if eq .Section "writing" }}
+      <div class="entry-list">
+        {{ range .Pages.ByDate.Reverse }}{{ partial "article-card.html" . }}{{ end }}
+      </div>
+    {{ else }}
+      <div class="entry-list">
+        {{ range .Pages.ByWeight }}
+          <article class="entry-card">
+            <div class="entry-meta"><span>{{ .Params.format | default .Type }}</span></div>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Description }}</p>
+            <a class="text-link" href="{{ .RelPermalink }}">View details <span aria-hidden="true">→</span></a>
+          </article>
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+{{ end }}
+

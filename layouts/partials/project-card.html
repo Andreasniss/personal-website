@@ -1,0 +1,13 @@
+<article class="project-card">
+  <div class="project-topline">
+    <span>{{ .Params.year }}</span>
+    {{ with .Params.statusLabel }}<span class="status-pill">{{ . }}</span>{{ end }}
+  </div>
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <p>{{ .Description }}</p>
+  <div class="tag-row" aria-label="Topics">
+    {{ range first 3 .Params.tags }}<span>{{ . }}</span>{{ end }}
+  </div>
+  <a class="text-link" href="{{ .RelPermalink }}" aria-label="View {{ .Title }}">View project <span aria-hidden="true">→</span></a>
+</article>
+

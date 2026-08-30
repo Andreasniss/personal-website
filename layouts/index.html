@@ -1,0 +1,62 @@
+{{ define "main" }}
+  <section class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow">Enterprise AI · Architecture · Reliability</p>
+      <h1>I help enterprises move agentic AI from prototype to reliable production.</h1>
+      <p class="hero-lead">I am a Senior Solutions Architect in Munich. I work on agent reliability, evaluation, identity, policy controls, observability, and human approval.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="{{ "/projects/" | relURL }}">Explore selected work</a>
+        <a class="button secondary" href="{{ "/writing/" | relURL }}">Read the writing</a>
+      </div>
+    </div>
+    <aside class="hero-panel" aria-label="Current focus">
+      <p class="panel-label">Current focus</p>
+      <ol>
+        <li><span>01</span> Governed agent execution</li>
+        <li><span>02</span> Evaluation and observability</li>
+        <li><span>03</span> Enterprise AI architecture</li>
+      </ol>
+      <div class="availability">Munich, Germany · Working globally</div>
+    </aside>
+  </section>
+
+  <section class="signal-strip" aria-label="Professional themes">
+    <div class="shell signal-grid">
+      <span>Architecture</span><span>Agent reliability</span><span>Evaluation</span><span>Governance</span>
+    </div>
+  </section>
+
+  <section class="shell section-space">
+    <div class="section-heading">
+      <div><p class="eyebrow">Selected work</p><h2>Systems you can inspect</h2></div>
+      <a class="text-link" href="{{ "/projects/" | relURL }}">All projects <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="project-grid">
+      {{ $projects := where (site.GetPage "/projects").Pages "Params.featured" true }}
+      {{ range first 3 $projects.ByWeight }}{{ partial "project-card.html" . }}{{ end }}
+    </div>
+  </section>
+
+  <section class="shell section-space border-top">
+    <div class="section-heading">
+      <div><p class="eyebrow">Technical writing</p><h2>Ideas built for practice</h2></div>
+      <a class="text-link" href="{{ "/writing/" | relURL }}">Writing archive <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="entry-list">
+      {{ $articles := where (site.GetPage "/writing").Pages "Params.featured" true }}
+      {{ range first 3 $articles.ByDate.Reverse }}{{ partial "article-card.html" . }}{{ end }}
+    </div>
+  </section>
+
+  <section class="shell section-space border-top workshop-callout">
+    <div>
+      <p class="eyebrow">Talks & workshops</p>
+      <h2>Make the architecture discussable.</h2>
+    </div>
+    <div>
+      <p>I turn production-agent trade-offs into concrete system diagrams, decision rules, and failure-mode discussions for technical and executive audiences.</p>
+      <a class="text-link" href="{{ "/talks/" | relURL }}">Explore workshop formats <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+{{ end }}
+

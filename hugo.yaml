@@ -1,0 +1,51 @@
+baseURL: "http://localhost:1313/"
+languageCode: "en-us"
+title: "Andreas Nissen"
+copyright: "© Andreas Nissen"
+enableRobotsTXT: true
+enableGitInfo: false
+
+pagination:
+  pagerSize: 12
+
+taxonomies:
+  tag: tags
+
+outputs:
+  home:
+    - HTML
+    - RSS
+  section:
+    - HTML
+    - RSS
+
+params:
+  description: "Enterprise AI architecture, agent reliability, evaluation, and governed execution."
+  author: "Andreas Nissen"
+  githubURL: "https://github.com/Andreasniss"
+  linkedinURL: "https://www.linkedin.com/in/andreasnissen"
+  sourceURL: ""
+  viewsDisclaimer: "Personal projects and views are my own and do not represent AWS."
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+  highlight:
+    noClasses: false
+
+menus:
+  main:
+    - name: "Writing"
+      pageRef: "/writing"
+      weight: 10
+    - name: "Projects"
+      pageRef: "/projects"
+      weight: 20
+    - name: "Talks"
+      pageRef: "/talks"
+      weight: 30
+    - name: "About"
+      pageRef: "/about"
+      weight: 40
+

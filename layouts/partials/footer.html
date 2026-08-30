@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div>
+      <p class="footer-title">Build useful systems. Show the evidence.</p>
+      <p class="footer-note">{{ site.Params.viewsDisclaimer }}</p>
+    </div>
+    <div class="footer-links" aria-label="Creator and source attribution">
+      <a href="{{ site.Params.githubURL }}" rel="me noreferrer">Built by Andreas Nissen</a>
+      {{ with site.Params.sourceURL }}<a href="{{ . }}" rel="noreferrer">Source on GitHub</a>{{ end }}
+      {{ with .OutputFormats.Get "rss" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}
+    </div>
+  </div>
+</footer>
+

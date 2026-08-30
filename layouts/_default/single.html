@@ -1,0 +1,32 @@
+{{ define "main" }}
+  <article class="shell article-shell">
+    <header class="article-header">
+      <p class="eyebrow">{{ .Section | default .Type }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+      {{ if eq .Section "writing" }}
+        <div class="article-byline">
+          <span>By Andreas Nissen</span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 January 2006" }}</time>
+          <span>{{ .ReadingTime }} min read</span>
+        </div>
+        {{ with .Params.linkedinURL }}
+          <p class="article-origin">First published on <a href="{{ . }}" rel="noreferrer">LinkedIn</a>.</p>
+        {{ end }}
+      {{ else if eq .Section "projects" }}
+        <div class="article-byline">
+          <span>{{ .Params.year }}</span>
+          <span>{{ .Params.role }}</span>
+        </div>
+      {{ end }}
+    </header>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+    {{ with .Params.tags }}
+      <footer class="article-tags" aria-label="Topics">
+        {{ range . }}<a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}">{{ . }}</a>{{ end }}
+      </footer>
+    {{ end }}
+  </article>
+{{ end }}

@@ -1,0 +1,10 @@
+<article class="entry-card">
+  <div class="entry-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+    {{ with index .Params.tags 0 }}<span>{{ . }}</span>{{ end }}
+    {{ with .Params.linkedinURL }}<span>LinkedIn original</span>{{ end }}
+  </div>
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <p>{{ .Description }}</p>
+  <a class="text-link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">Read article <span aria-hidden="true">→</span></a>
+</article>
