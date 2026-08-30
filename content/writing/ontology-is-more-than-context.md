@@ -6,6 +6,7 @@ tags:
   - ontology
   - knowledge graphs
   - context engineering
+origin: "website"
 featured: true
 draft: false
 ---
@@ -84,4 +85,3 @@ Do not start by modeling the entire enterprise. Begin with one decision or workf
 The useful unit is not the biggest graph. It is the smallest shared model that makes an important decision more reliable.
 
 Context gives the agent evidence. An ontology gives that evidence structure and meaning. Control still decides what happens next.
-

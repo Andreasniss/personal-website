@@ -6,6 +6,7 @@ tags:
   - agent architecture
   - context
   - governance
+origin: "website"
 featured: true
 draft: false
 ---
@@ -84,4 +85,3 @@ Teams often draw one large “agent platform” box around retrieval, memory, to
 Keep context and control visible as separate architectural concerns. Give each an owner, interface, evidence set, and failure budget. Connect them through explicit identity and action contracts.
 
 The agent becomes more useful when it understands the situation. It becomes trustworthy when the system still controls what happens next.
-

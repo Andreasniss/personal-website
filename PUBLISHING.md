@@ -10,6 +10,8 @@ The website owns the durable article. LinkedIn and X distribute channel-native v
 
 Reuse the argument and evidence. Do not cross-post identical text by default. Each version may differ in structure, length, hook, and call to action.
 
+Set `origin: "website"` for new canonical articles. Preserve `origin: "linkedin"` only for verified legacy imports so the public page describes their publication history accurately.
+
 ## Definition of done
 
 A substantive original publishing package is complete only when:

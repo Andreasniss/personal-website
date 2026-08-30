@@ -6,6 +6,7 @@ tags:
   - WebMCP
   - tool design
   - human approval
+origin: "website"
 featured: true
 draft: false
 ---
@@ -83,4 +84,3 @@ Pixels remain valuable. They show context, trends, alternatives, and consequence
 The result is not a website that an agent can secretly operate. It is a control surface where a human and an agent can work from the same evidence.
 
 The companion project for this article is [Runbook Relay](/projects/runbook-relay/).
-
