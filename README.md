@@ -1,6 +1,8 @@
 # Andreas Nissen: Hugo portfolio
 
-An unpublished first version of Andreas Nissen's personal portfolio and long-form writing site.
+A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automatically with GitHub Pages.
+
+**Live site:** <https://andreasniss.github.io/personal-website/>
 
 ## What is included
 
@@ -30,15 +32,19 @@ hugo --minify
 
 The generated site is written to `public/`.
 
-## Before publishing
+## Deployment
 
-1. Replace `baseURL` in `hugo.yaml` with the final HTTPS domain.
-2. Decide whether to create a public source repository. If so, set `params.sourceURL` to its verified URL.
-3. Confirm the email/contact choice. The current site uses LinkedIn and GitHub only.
-4. Review every article and project page for public-safe claims.
-5. Run `node scripts/check-content.mjs` and a real Hugo build.
-6. Inspect the homepage, one article, one project, and the 404 page on narrow and wide screens.
-7. Add the selected host's deployment configuration only when publication is authorized.
+Every push to `main` runs the GitHub Pages workflow in `.github/workflows/deploy-pages.yml`. The workflow builds the production site with Hugo Extended, uploads the generated `public/` directory, and deploys it to GitHub Pages.
+
+The production URL is <https://andreasniss.github.io/personal-website/>. Pull requests run the content validator and a production-equivalent Hugo build without publishing.
+
+## Publication checklist
+
+1. Confirm the email/contact choice. The site currently uses LinkedIn and GitHub only.
+2. Review every article and project page for public-safe claims.
+3. Run `node scripts/check-content.mjs` and a real Hugo build.
+4. Inspect the homepage, one article, one project, and the 404 page on narrow and wide screens.
+5. Merge only after the pull-request checks pass.
 
 ## Content structure
 
@@ -69,4 +75,4 @@ For every new original LinkedIn post:
 4. Publish the LinkedIn derivative and record its verified live URL in `linkedinURL`.
 5. Treat the pair as incomplete until both versions exist. Reposts, comments, and reactions do not create website articles.
 
-Until the website has a live host, complete step 1 in this repository and keep the article review-ready. Do not claim that the website version is public before deployment succeeds.
+If a deployment is temporarily unavailable, complete step 1 in this repository and keep the article review-ready. Do not claim that a new website article is public before its deployment succeeds.
