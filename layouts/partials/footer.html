@@ -1,14 +1,37 @@
 <footer class="site-footer">
   <div class="shell footer-grid">
-    <div>
+    <div class="footer-intro">
       <p class="footer-title">Build useful systems. Show the evidence.</p>
       <p class="footer-note">{{ site.Params.viewsDisclaimer }}</p>
     </div>
-    <div class="footer-links" aria-label="Creator and source attribution">
-      <a href="{{ site.Params.githubURL }}" rel="me noreferrer">Built by Andreas Nissen</a>
-      {{ with site.Params.sourceURL }}<a href="{{ . }}" rel="noreferrer">Source on GitHub</a>{{ end }}
-      {{ with .OutputFormats.Get "rss" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}
+    <div class="footer-destinations">
+      <p class="footer-heading">Profiles and site links</p>
+      <nav class="footer-links" aria-label="Profiles and site links">
+        <a class="footer-link" href="{{ site.Params.githubURL }}" rel="me noreferrer">
+          <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/github.svg" | relURL }}" alt=""></span>
+          <span><strong>GitHub profile</strong><small>Built by Andreas Nissen</small></span>
+        </a>
+        <a class="footer-link" href="{{ site.Params.linkedinURL }}" rel="me noreferrer">
+          <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/linkedin-in.svg" | relURL }}" alt=""></span>
+          <span><strong>LinkedIn</strong><small>Andreas Nissen</small></span>
+        </a>
+        <a class="footer-link" href="{{ site.Params.xURL }}" rel="me noreferrer">
+          <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/x-twitter.svg" | relURL }}" alt=""></span>
+          <span><strong>X</strong><small>@AndreasNiss2</small></span>
+        </a>
+        {{ with site.Params.sourceURL }}
+          <a class="footer-link" href="{{ . }}" rel="noreferrer">
+            <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/code.svg" | relURL }}" alt=""></span>
+            <span><strong>Source code</strong><small>personal-website repository</small></span>
+          </a>
+        {{ end }}
+        {{ with .OutputFormats.Get "rss" }}
+          <a class="footer-link" href="{{ .RelPermalink }}">
+            <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/rss.svg" | relURL }}" alt=""></span>
+            <span><strong>RSS feed</strong><small>Subscribe to new articles</small></span>
+          </a>
+        {{ end }}
+      </nav>
     </div>
   </div>
 </footer>
-
