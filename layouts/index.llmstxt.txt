@@ -2,7 +2,7 @@
 
 > {{ site.Params.description }}
 
-Senior Solutions Architect (AWS, Munich) working on agent reliability, evaluation, identity, policy controls, observability, and human approval for enterprise AI. This site is the canonical source for his writing and project evidence; each page below also has a clean Markdown version at the same URL plus `index.md`, and a machine-readable index of every page is published at {{ (printf "%sindex.json" site.BaseURL) }}.
+Senior Solutions Architect (AWS, Munich) working on agent reliability, evaluation, identity, policy controls, observability, and human approval for enterprise AI. This site is the canonical source for his writing and project evidence; every article, project, and talk below also has a clean Markdown version at the same URL plus `index.md`, and a machine-readable index of every page is published at {{ (printf "%sindex.json" site.BaseURL) }}.
 
 ## About
 
