@@ -77,6 +77,10 @@ for (const file of articleFiles) {
   if (linkedinMatch && !/^https:\/\/www\.linkedin\.com\/feed\/update\/urn:li:activity:\d+\/$/.test(linkedinMatch[1])) {
     failures.push(`Invalid LinkedIn publication URL in ${path.relative(root, file)}`);
   }
+  const xMatch = raw.match(/^xURL:\s*"([^"]+)"$/m);
+  if (xMatch && !/^https:\/\/(?:www\.)?x\.com\/(?:[A-Za-z0-9_]+\/status\/\d+|i\/article\/\d+)\/?$/.test(xMatch[1])) {
+    failures.push(`Invalid X publication URL in ${path.relative(root, file)}`);
+  }
 }
 
 const css = fs.readFileSync(path.join(root, "assets/css/main.css"), "utf8");

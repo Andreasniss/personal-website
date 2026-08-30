@@ -5,6 +5,7 @@ description: ""
 tags: []
 draft: true
 featured: false
+linkedinURL: ""
+xURL: ""
 ---
-
 

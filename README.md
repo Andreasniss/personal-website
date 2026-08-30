@@ -63,16 +63,17 @@ static/
 
 The private Obsidian vault remains the research backend. Public content is promoted manually into this repository after a confidentiality and claims review.
 
-## Dual-publication contract
+## Cross-channel publishing contract
 
-The owned website is the canonical home for Andreas's authored professional writing. LinkedIn is a distribution channel.
+The owned website is the canonical home for Andreas's authored professional writing. LinkedIn and X are distribution channels with their own formats and lengths.
 
 For every new original LinkedIn post:
 
 1. Prepare a publication-safe website article in `content/writing/` from the same final argument.
 2. Verify claims, sources, links, confidentiality, metadata, and mobile readability.
 3. Publish the website version before or in the same publishing session as LinkedIn.
-4. Publish the LinkedIn derivative and record its verified live URL in `linkedinURL`.
-5. Treat the pair as incomplete until both versions exist. Reposts, comments, and reactions do not create website articles.
+4. Derive separate LinkedIn and X versions. Adapt the hook, structure, length, and call to action instead of copying identical text.
+5. Publish both derivatives and record their verified live URLs in `linkedinURL` and `xURL`.
+6. Treat the package as incomplete until all three versions exist. Reposts, comments, reactions, and replies do not create website articles.
 
 If a deployment is temporarily unavailable, complete step 1 in this repository and keep the article review-ready. Do not claim that a new website article is public before its deployment succeeds.
