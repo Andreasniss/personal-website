@@ -74,14 +74,38 @@ for (const file of contentFiles) {
 }
 
 const articleFiles = contentFiles.filter((file) => file.includes(`${path.sep}writing${path.sep}`) && !file.endsWith("_index.md"));
+function frontmatterValue(frontmatter, key) {
+  const match = frontmatter.match(new RegExp(`^${key}:\\s*(.*)$`, "m"));
+  if (!match) return undefined;
+  const value = match[1].replace(/\s+#.*$/, "").trim();
+  if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+    return value.slice(1, -1);
+  }
+  return value;
+}
+
 for (const file of articleFiles) {
   const raw = fs.readFileSync(file, "utf8");
-  const content = raw.replace(/^---[\s\S]*?---\n/, "");
+  const frontmatterMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
+  if (!frontmatterMatch) continue;
+  const frontmatter = frontmatterMatch[1];
+  const content = raw.slice(frontmatterMatch[0].length);
   const words = content.trim().split(/\s+/).length;
   if (words < 500) failures.push(`Launch article is too thin (${words} words): ${path.relative(root, file)}`);
-  const linkedinMatch = raw.match(/^linkedinURL:\s*"([^"]+)"$/m);
-  if (linkedinMatch && !/^https:\/\/www\.linkedin\.com\/feed\/update\/urn:li:activity:\d+\/$/.test(linkedinMatch[1])) {
+  const origin = frontmatterValue(frontmatter, "origin");
+  if (!["website", "linkedin"].includes(origin)) {
+    failures.push(`Missing or invalid publication origin in ${path.relative(root, file)}`);
+  }
+  const linkedinURL = frontmatterValue(frontmatter, "linkedinURL");
+  if (linkedinURL && !/^https:\/\/www\.linkedin\.com\/feed\/update\/urn:li:activity:\d+\/$/.test(linkedinURL)) {
     failures.push(`Invalid LinkedIn publication URL in ${path.relative(root, file)}`);
+  }
+  const xURL = frontmatterValue(frontmatter, "xURL");
+  if (xURL && !/^https:\/\/(?:www\.)?x\.com\/(?:[A-Za-z0-9_]+\/status\/\d+|i\/article\/\d+)\/?$/.test(xURL)) {
+    failures.push(`Invalid X publication URL in ${path.relative(root, file)}`);
+  }
+  if (origin === "linkedin" && !linkedinURL) {
+    failures.push(`LinkedIn-origin article lacks a verified LinkedIn URL in ${path.relative(root, file)}`);
   }
 }
 

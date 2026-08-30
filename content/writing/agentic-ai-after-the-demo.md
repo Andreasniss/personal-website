@@ -6,6 +6,7 @@ tags:
   - agentic AI
   - AWS Well-Architected
   - production architecture
+origin: "linkedin"
 linkedinURL: "https://www.linkedin.com/feed/update/urn:li:activity:7472293085532786688/"
 featured: false
 draft: false
