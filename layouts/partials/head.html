@@ -9,12 +9,41 @@
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">{{ end }}
+{{ with .OutputFormats.Get "markdown" }}<link rel="alternate" type="text/markdown" title="Markdown source" href="{{ .RelPermalink }}">{{ end }}
+{{ if .IsHome }}<link rel="alternate" type="text/plain" title="llms.txt" href="{{ "llms.txt" | relURL }}">
+<link rel="alternate" type="application/json" title="Site index" href="{{ "index.json" | relURL }}">{{ end }}
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description | plainify }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta name="twitter:card" content="summary">
+{{ if or .IsHome (eq .Section "about") }}
+<script type="application/ld+json">
+{{- (dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" site.Params.author
+  "url" site.Home.Permalink
+  "jobTitle" "Senior Solutions Architect"
+  "description" site.Params.description
+  "sameAs" (slice site.Params.githubURL site.Params.linkedinURL site.Params.xURL)
+) | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{ end }}
+{{ if and .IsPage (eq .Section "writing") }}
+<script type="application/ld+json">
+{{- (dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" .Title
+  "description" $description
+  "datePublished" (.Date.Format "2006-01-02")
+  "url" .Permalink
+  "author" (dict "@type" "Person" "name" site.Params.author "url" site.Home.Permalink)
+) | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{ end }}
 {{ with resources.Get "css/main.css" }}
   {{ $style := . | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
