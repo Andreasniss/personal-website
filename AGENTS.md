@@ -137,9 +137,10 @@ It checks, across the whole repo and not just `content/`:
   `relURL` pipe, since that double-prefixes the `baseURL` subpath. Use a
   path relative to the site root instead, for example `"index.json" |
   relURL`, not a leading-slash form piped the same way.
-- The footer keeps the creator attribution string, the
-  `site.Params.sourceURL` hook, and all five destination labels (GitHub
-  profile, LinkedIn, X, Source code, RSS feed).
+- The footer keeps the creator attribution string and all four destination
+  labels (GitHub profile, LinkedIn, X, RSS feed). Keep the site repository
+  discoverable through GitHub metadata rather than adding it as a footer
+  destination.
 - `hugo.yaml` keeps its production `baseURL`, `sourceURL`, and `xURL` values
   verbatim.
 
