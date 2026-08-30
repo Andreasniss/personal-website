@@ -19,7 +19,6 @@ const required = [
   "static/icons/github.svg",
   "static/icons/linkedin-in.svg",
   "static/icons/x-twitter.svg",
-  "static/icons/code.svg",
   "static/icons/rss.svg",
   "content/about/_index.md",
   "content/projects/_index.md",
@@ -144,8 +143,7 @@ for (const file of templateFiles) {
 
 const footer = fs.readFileSync(path.join(root, "layouts/partials/footer.html"), "utf8");
 if (!footer.includes("Built by Andreas Nissen")) failures.push("Creator attribution is missing from the footer");
-if (!footer.includes("site.Params.sourceURL")) failures.push("Verified-source hook is missing from the footer");
-for (const destination of ["GitHub profile", "LinkedIn", "X", "Source code", "RSS feed"]) {
+for (const destination of ["GitHub profile", "LinkedIn", "X", "RSS feed"]) {
   if (!footer.includes(destination)) failures.push(`Footer destination is missing: ${destination}`);
 }
 

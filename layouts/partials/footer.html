@@ -5,8 +5,8 @@
       <p class="footer-note">{{ site.Params.viewsDisclaimer }}</p>
     </div>
     <div class="footer-destinations">
-      <p class="footer-heading">Profiles and site links</p>
-      <nav class="footer-links" aria-label="Profiles and site links">
+      <p class="footer-heading">Profiles and updates</p>
+      <nav class="footer-links" aria-label="Profiles and updates">
         <a class="footer-link" href="{{ site.Params.githubURL }}" rel="me noreferrer">
           <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/github.svg" | relURL }}" alt=""></span>
           <span><strong>GitHub profile</strong><small>Built by Andreas Nissen</small></span>
@@ -19,12 +19,6 @@
           <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/x-twitter.svg" | relURL }}" alt=""></span>
           <span><strong>X</strong><small>@AndreasNiss2</small></span>
         </a>
-        {{ with site.Params.sourceURL }}
-          <a class="footer-link" href="{{ . }}" rel="noreferrer">
-            <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/code.svg" | relURL }}" alt=""></span>
-            <span><strong>Source code</strong><small>personal-website repository</small></span>
-          </a>
-        {{ end }}
         {{ with site.Home.OutputFormats.Get "rss" }}
           <a class="footer-link" href="{{ .RelPermalink }}">
             <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/rss.svg" | relURL }}" alt=""></span>
