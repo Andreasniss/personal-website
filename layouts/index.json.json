@@ -1,0 +1,15 @@
+{{- $pages := where site.RegularPages "Section" "in" (slice "writing" "projects" "talks" "work-i-love") -}}
+[
+  {{- range $index, $page := $pages.ByDate.Reverse -}}
+    {{- if $index }},{{ end }}
+    {
+      "title": {{ $page.Title | jsonify }},
+      "url": {{ $page.Permalink | jsonify }},
+      "markdownUrl": {{ (printf "%sindex.md" $page.Permalink) | jsonify }},
+      "section": {{ $page.Section | jsonify }},
+      "description": {{ $page.Description | jsonify }},
+      "date": {{ if $page.Date.IsZero }}null{{ else }}{{ $page.Date.Format "2006-01-02" | jsonify }}{{ end }},
+      "tags": {{ $page.Params.tags | jsonify }}
+    }
+  {{- end -}}
+]

@@ -1,0 +1,29 @@
+# {{ site.Title }}
+
+> {{ site.Params.description }}
+
+Senior Solutions Architect (AWS, Munich) working on agent reliability, evaluation, identity, policy controls, observability, and human approval for enterprise AI. This site is the canonical source for his writing and project evidence; each page below also has a clean Markdown version at the same URL plus `index.md`, and a machine-readable index of every page is published at {{ (printf "%sindex.json" site.BaseURL) }}.
+
+## About
+
+- [About]({{ (printf "%sabout/" site.BaseURL) }}): Background, focus areas, and contact links.
+
+## Writing
+
+{{ range (where site.RegularPages "Section" "writing").ByDate.Reverse }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+## Projects
+
+{{ range (where site.RegularPages "Section" "projects").ByWeight }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+## Talks
+
+{{ range (where site.RegularPages "Section" "talks").ByWeight }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+## Work I Love
+
+{{ range (where site.RegularPages "Section" "work-i-love").ByWeight }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+## Optional
+
+- [RSS feed]({{ (printf "%sindex.xml" site.BaseURL) }}): Subscribe to new writing.

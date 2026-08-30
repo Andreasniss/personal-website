@@ -25,7 +25,7 @@
             <span><strong>Source code</strong><small>personal-website repository</small></span>
           </a>
         {{ end }}
-        {{ with .OutputFormats.Get "rss" }}
+        {{ with site.Home.OutputFormats.Get "rss" }}
           <a class="footer-link" href="{{ .RelPermalink }}">
             <span class="footer-icon" aria-hidden="true"><img src="{{ "icons/rss.svg" | relURL }}" alt=""></span>
             <span><strong>RSS feed</strong><small>Subscribe to new articles</small></span>

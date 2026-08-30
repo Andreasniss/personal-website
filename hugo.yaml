@@ -15,9 +15,26 @@ outputs:
   home:
     - HTML
     - RSS
+    - JSON
+    - LLMSTXT
   section:
     - HTML
     - RSS
+  page:
+    - HTML
+    - MARKDOWN
+
+outputFormats:
+  MARKDOWN:
+    mediaType: "text/markdown"
+    baseName: "index"
+    isPlainText: true
+    permalinkable: true
+  LLMSTXT:
+    mediaType: "text/plain"
+    baseName: "llms"
+    isPlainText: true
+    permalinkable: false
 
 params:
   description: "Enterprise AI architecture, agent reliability, evaluation, and governed execution."

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.Language.LanguageCode }}">
+<html lang="{{ site.Language.LanguageCode }}" data-index-url="{{ "index.json" | absURL }}">
   <head>
     {{ partial "head.html" . }}
   </head>
@@ -10,6 +10,10 @@
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
+    {{ with resources.Get "js/webmcp.js" }}
+      {{ $script := . | minify | fingerprint }}
+      <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+    {{ end }}
   </body>
 </html>
 
