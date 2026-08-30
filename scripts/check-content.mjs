@@ -70,18 +70,21 @@ for (const file of contentFiles) {
 const articleFiles = contentFiles.filter((file) => file.includes(`${path.sep}writing${path.sep}`) && !file.endsWith("_index.md"));
 for (const file of articleFiles) {
   const raw = fs.readFileSync(file, "utf8");
-  const content = raw.replace(/^---[\s\S]*?---\n/, "");
+  const frontmatterMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
+  if (!frontmatterMatch) continue;
+  const frontmatter = frontmatterMatch[1];
+  const content = raw.slice(frontmatterMatch[0].length);
   const words = content.trim().split(/\s+/).length;
   if (words < 500) failures.push(`Launch article is too thin (${words} words): ${path.relative(root, file)}`);
-  const originMatch = raw.match(/^origin:\s*"([^"]+)"$/m);
+  const originMatch = frontmatter.match(/^origin:\s*"([^"]+)"$/m);
   if (!originMatch || !["website", "linkedin"].includes(originMatch[1])) {
     failures.push(`Missing or invalid publication origin in ${path.relative(root, file)}`);
   }
-  const linkedinMatch = raw.match(/^linkedinURL:\s*"([^"]+)"$/m);
+  const linkedinMatch = frontmatter.match(/^linkedinURL:\s*"([^"]+)"$/m);
   if (linkedinMatch && !/^https:\/\/www\.linkedin\.com\/feed\/update\/urn:li:activity:\d+\/$/.test(linkedinMatch[1])) {
     failures.push(`Invalid LinkedIn publication URL in ${path.relative(root, file)}`);
   }
-  const xMatch = raw.match(/^xURL:\s*"([^"]+)"$/m);
+  const xMatch = frontmatter.match(/^xURL:\s*"([^"]+)"$/m);
   if (xMatch && !/^https:\/\/(?:www\.)?x\.com\/(?:[A-Za-z0-9_]+\/status\/\d+|i\/article\/\d+)\/?$/.test(xMatch[1])) {
     failures.push(`Invalid X publication URL in ${path.relative(root, file)}`);
   }
