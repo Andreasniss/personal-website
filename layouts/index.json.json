@@ -1,4 +1,4 @@
-{{- $pages := where site.RegularPages "Section" "in" (slice "writing" "projects" "talks" "work-i-love") -}}
+{{- $pages := where site.RegularPages "Section" "in" (slice "writing" "projects" "work-i-love") -}}
 [
   {{- range $index, $page := $pages.ByDate.Reverse -}}
     {{- if $index }},{{ end }}

@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="{{ site.Params.author }}">
 <meta name="description" content="{{ $description | plainify }}">
-<meta name="theme-color" content="#101c3d">
+<meta name="theme-color" content="#141817">
 <title>{{ $title }}</title>
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
@@ -48,4 +48,3 @@
   {{ $style := . | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 {{ end }}
-

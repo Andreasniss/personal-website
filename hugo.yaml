@@ -54,11 +54,11 @@ markup:
 
 menus:
   main:
-    - name: "Writing"
-      pageRef: "/writing"
-      weight: 10
     - name: "Projects"
       pageRef: "/projects"
+      weight: 10
+    - name: "Writing"
+      pageRef: "/writing"
       weight: 20
     - name: "Talks"
       pageRef: "/talks"

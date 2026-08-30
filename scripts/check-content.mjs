@@ -151,6 +151,24 @@ const config = fs.readFileSync(path.join(root, "hugo.yaml"), "utf8");
 if (!config.includes('baseURL: "https://andreasnissen.dev/"')) failures.push("Production base URL is missing or incorrect");
 if (!config.includes('sourceURL: "https://github.com/Andreasniss/personal-website"')) failures.push("Verified public source URL is missing or incorrect");
 if (!config.includes('xURL: "https://x.com/AndreasNiss2"')) failures.push("Verified X profile URL is missing or incorrect");
+if (!/name:\s*["']?Projects["']?[\s\S]*?weight:\s*10[\s\S]*?name:\s*["']?Writing["']?[\s\S]*?weight:\s*20/m.test(config)) {
+  failures.push("Primary navigation must order Projects before Writing");
+}
+
+const talkIndex = fs.readFileSync(path.join(root, "content/talks/_index.md"), "utf8");
+if (/^draft:\s*true$/m.test(talkIndex)) failures.push("The honest Talks direction page must remain public");
+const talkDraft = fs.readFileSync(path.join(root, "content/talks/reliable-agents-in-production.md"), "utf8");
+if (!/^draft:\s*true$/m.test(talkDraft)) failures.push("Unreviewed individual talk source must remain a draft");
+
+const homepage = fs.readFileSync(path.join(root, "layouts/index.html"), "utf8");
+if (!homepage.includes("Reviewed talk pages and materials will be added here as they become available")) {
+  failures.push("Homepage Talks callout must state that reviewed materials are still to be added");
+}
+
+for (const relative of ["layouts/index.llmstxt.txt", "layouts/index.json.json", "assets/js/webmcp.js"]) {
+  const publicSurface = fs.readFileSync(path.join(root, relative), "utf8");
+  if (/talks\/?/i.test(publicSurface)) failures.push(`Unreviewed talks must stay out of machine indexes: ${relative}`);
+}
 
 if (failures.length) {
   console.error(`Site validation failed with ${failures.length} issue(s):`);

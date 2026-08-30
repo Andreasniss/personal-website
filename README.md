@@ -6,11 +6,11 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 
 ## What is included
 
-- Homepage with positioning, selected projects, selected writing, and workshop themes
+- Homepage with positioning, selected projects, and selected writing
 - Writing archive with three launch articles and two verified imports from Andreas's published LinkedIn activity
 - Project pages grounded in verified public repositories
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
-- Talks and workshop-formats page without inventing past speaking claims
+- An honest Talks direction page that avoids claiming speaking history
 - About page, RSS, sitemap support, social metadata, 404 page, and responsive styles
 - Persistent creator attribution linking to Andreas's verified GitHub profile
 - No external theme, web font, JavaScript framework, analytics, or CMS dependency
@@ -64,6 +64,10 @@ static/
 ```
 
 The private Obsidian vault remains the research backend. Public content is promoted manually into this repository after a confidentiality and claims review.
+
+## Talks publication gate
+
+The public Talks index and homepage callout may describe topics in development, but they must not imply a past speaking engagement. Individual talk pages stay in draft until Andreas has reviewed and approved a real talk package. Each public talk needs a title, abstract, audience, role, takeaways, and at least one inspectable artifact such as slides, a recording, an event page, code, a demo, or a related article. Hypothetical formats and unreviewed drafts are not portfolio evidence.
 
 ## Curated references contract
 
