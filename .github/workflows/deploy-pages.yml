@@ -39,11 +39,13 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build site
+        run: hugo --gc --minify
+
+      - name: Validate production URLs
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            hugo --gc --minify
-          else
-            hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          if grep -R -F "/personal-website/" public; then
+            echo "Generated site still contains the retired GitHub Pages subpath."
+            exit 1
           fi
 
       - name: Upload Pages artifact
