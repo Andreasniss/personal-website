@@ -24,6 +24,7 @@ const required = [
   "content/about/_index.md",
   "content/projects/_index.md",
   "content/talks/_index.md",
+  "content/work-i-love/_index.md",
   "content/writing/_index.md"
 ];
 
@@ -84,6 +85,17 @@ for (const file of articleFiles) {
   }
 }
 
+const referenceFiles = contentFiles.filter((file) => file.includes(`${path.sep}work-i-love${path.sep}`) && !file.endsWith("_index.md"));
+for (const file of referenceFiles) {
+  const raw = fs.readFileSync(file, "utf8");
+  const relative = path.relative(root, file);
+  if (!/^creator:\s*".+"$/m.test(raw)) failures.push(`Missing original creator in ${relative}`);
+  if (!/^format:\s*".+"$/m.test(raw)) failures.push(`Missing reference format in ${relative}`);
+  if (!/^sourceURL:\s*"https:\/\/.+"$/m.test(raw)) failures.push(`Missing original source URL in ${relative}`);
+  if (!/^why:\s*".+"$/m.test(raw)) failures.push(`Missing personal recommendation in ${relative}`);
+  if (/sourceURL:\s*"https:\/\/github\.com\/Andreasniss\//m.test(raw)) failures.push(`Reference points to an Andreas-owned fork in ${relative}`);
+}
+
 const css = fs.readFileSync(path.join(root, "assets/css/main.css"), "utf8");
 const openBraces = (css.match(/{/g) || []).length;
 const closeBraces = (css.match(/}/g) || []).length;
@@ -124,4 +136,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Validated ${contentFiles.length} content pages, ${articleFiles.length} launch articles, ${templateFiles.length} Hugo templates, attribution, metadata, CSS structure, and production configuration.`);
+console.log(`Validated ${contentFiles.length} content pages, ${articleFiles.length} launch articles, ${referenceFiles.length} curated references, ${templateFiles.length} Hugo templates, attribution, metadata, CSS structure, and production configuration.`);
