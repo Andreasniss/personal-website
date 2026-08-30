@@ -42,7 +42,7 @@
     {
       name: "search_site",
       description:
-        "Search Andreas Nissen's writing, projects, talks, and reading list by keyword or topic. Read-only: returns matching titles, URLs, descriptions, and Markdown source links; it does not change page state.",
+        "Search Andreas Nissen's writing, projects, and reading list by keyword or topic. Read-only: returns matching titles, URLs, descriptions, and Markdown source links; it does not change page state.",
       inputSchema: {
         type: "object",
         properties: {
@@ -52,7 +52,7 @@
           },
           section: {
             type: "string",
-            enum: ["writing", "projects", "talks", "work-i-love"],
+            enum: ["writing", "projects", "work-i-love"],
             description: "Optional: restrict results to one section of the site.",
           },
         },

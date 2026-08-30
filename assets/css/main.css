@@ -1,17 +1,18 @@
 :root {
-  color-scheme: light;
-  --ink: #101c3d;
-  --ink-soft: #3e4965;
-  --paper: #f6f1e7;
-  --surface: #fffdf8;
-  --line: #cfc8b9;
-  --accent: #ef5b35;
-  --accent-dark: #bd3518;
-  --focus: #2168f3;
+  color-scheme: dark;
+  --ink: #f4f1ea;
+  --ink-soft: #aab3ae;
+  --paper: #141817;
+  --surface: #1d2321;
+  --line: #3a4540;
+  --accent: #45aaa2;
+  --accent-light: #72cfc7;
+  --accent-dark: #72cfc7;
+  --focus: #72cfc7;
   --max: 1180px;
   --narrow: 760px;
   --radius: 18px;
-  --shadow: 0 18px 45px rgb(16 28 61 / 8%);
+  --shadow: 0 18px 45px rgb(0 0 0 / 24%);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
 }
@@ -28,9 +29,7 @@ body {
   min-width: 320px;
   margin: 0;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 80% 0%, rgb(239 91 53 / 7%), transparent 32rem),
-    var(--paper);
+  background: var(--paper);
   font-size: 1rem;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
@@ -73,7 +72,7 @@ svg {
   top: 12px;
   left: 12px;
   padding: 10px 14px;
-  color: white;
+  color: var(--paper);
   background: var(--focus);
   transform: translateY(-180%);
 }
@@ -85,7 +84,7 @@ svg {
 .site-header {
   position: relative;
   z-index: 10;
-  border-bottom: 1px solid rgb(16 28 61 / 14%);
+  border-bottom: 1px solid var(--line);
 }
 
 .header-inner {
@@ -114,7 +113,7 @@ svg {
   place-items: center;
   border-radius: 11px;
   color: var(--paper);
-  background: var(--ink);
+  background: var(--accent-light);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
 }
@@ -146,7 +145,7 @@ svg {
 }
 
 .header-cta:hover {
-  color: white;
+  color: var(--paper);
   background: var(--ink);
   transform: translateY(-2px);
 }
@@ -246,14 +245,15 @@ svg {
 }
 
 .button.primary {
-  color: white;
-  background: var(--ink);
-  box-shadow: 0 8px 24px rgb(16 28 61 / 18%);
+  border-color: var(--accent);
+  color: var(--paper);
+  background: var(--accent);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 24%);
 }
 
 .button.primary:hover {
-  color: white;
-  background: #1b2b58;
+  color: var(--paper);
+  background: var(--accent-light);
 }
 
 .button.secondary {
@@ -262,9 +262,9 @@ svg {
 
 .hero-panel {
   padding: clamp(24px, 4vw, 38px);
-  border: 1px solid rgb(16 28 61 / 16%);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgb(255 253 248 / 72%);
+  background: var(--surface);
   box-shadow: var(--shadow);
 }
 
@@ -307,8 +307,9 @@ svg {
 }
 
 .signal-strip {
-  color: white;
-  background: var(--ink);
+  color: var(--ink);
+  border-block: 1px solid var(--line);
+  background: var(--surface);
 }
 
 .signal-grid {
@@ -318,7 +319,7 @@ svg {
 
 .signal-grid span {
   padding: 22px 16px;
-  border-left: 1px solid rgb(255 255 255 / 16%);
+  border-left: 1px solid var(--line);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -327,7 +328,7 @@ svg {
 }
 
 .signal-grid span:last-child {
-  border-right: 1px solid rgb(255 255 255 / 16%);
+  border-right: 1px solid var(--line);
 }
 
 .section-space {
@@ -368,13 +369,13 @@ svg {
   padding: clamp(24px, 3vw, 34px);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgb(255 253 248 / 72%);
+  background: var(--surface);
   transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
 }
 
 .project-card:hover,
 .entry-card:hover {
-  border-color: rgb(16 28 61 / 38%);
+  border-color: var(--accent);
   box-shadow: var(--shadow);
   transform: translateY(-3px);
 }
@@ -426,8 +427,8 @@ svg {
 .status-pill {
   padding: 4px 9px;
   border-radius: 999px;
-  color: #1e5732;
-  background: #dbeddd;
+  color: var(--paper);
+  background: var(--accent-light);
 }
 
 .tag-row,
@@ -537,7 +538,7 @@ svg {
 
 .prose {
   max-width: 740px;
-  color: #202a43;
+  color: var(--ink-soft);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.04rem, 1.5vw, 1.18rem);
   line-height: 1.82;
@@ -574,7 +575,7 @@ svg {
 }
 
 .prose a {
-  color: #154fae;
+  color: var(--accent-light);
 }
 
 .prose blockquote {
@@ -588,7 +589,8 @@ svg {
 .prose code {
   padding: 0.12em 0.32em;
   border-radius: 5px;
-  background: #e8e2d7;
+  color: var(--ink);
+  background: var(--surface);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.86em;
 }
@@ -597,8 +599,8 @@ svg {
   overflow-x: auto;
   padding: 22px;
   border-radius: 12px;
-  color: #eef1fa;
-  background: var(--ink);
+  color: var(--ink);
+  background: #0f1312;
 }
 
 .prose pre code {
@@ -633,8 +635,9 @@ svg {
 
 .site-footer {
   padding-block: clamp(44px, 6vw, 72px);
-  color: #e8eaf2;
-  background: var(--ink);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  background: #101412;
 }
 
 .footer-grid {
@@ -660,13 +663,13 @@ svg {
 .footer-note {
   max-width: 480px;
   margin: 0;
-  color: #aeb6ce;
+  color: var(--ink-soft);
   font-size: 0.78rem;
 }
 
 .footer-heading {
   margin: 0 0 16px;
-  color: #aeb6ce;
+  color: var(--ink-soft);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -690,17 +693,17 @@ svg {
   gap: 13px;
   align-items: center;
   padding: 10px 12px;
-  border: 1px solid rgb(255 255 255 / 13%);
+  border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgb(255 255 255 / 4%);
+  background: var(--surface);
   text-decoration: none;
   transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
 }
 
 .footer-link:hover {
-  border-color: rgb(255 255 255 / 30%);
-  color: white;
-  background: rgb(255 255 255 / 8%);
+  border-color: var(--accent);
+  color: var(--ink);
+  background: #242c29;
   transform: translateY(-2px);
 }
 
@@ -710,7 +713,7 @@ svg {
   height: 40px;
   place-items: center;
   border-radius: 10px;
-  background: rgb(255 255 255 / 9%);
+  background: var(--line);
 }
 
 .footer-icon img {
@@ -732,7 +735,7 @@ svg {
 .footer-link small {
   overflow: hidden;
   margin-top: 3px;
-  color: #aeb6ce;
+  color: var(--ink-soft);
   font-size: 0.72rem;
   line-height: 1.3;
   text-overflow: ellipsis;
@@ -833,7 +836,7 @@ svg {
 
   .signal-grid span:nth-child(3),
   .signal-grid span:nth-child(4) {
-    border-top: 1px solid rgb(255 255 255 / 16%);
+    border-top: 1px solid var(--line);
   }
 
   .section-heading {

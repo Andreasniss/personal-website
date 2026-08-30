@@ -28,7 +28,7 @@ here; extend them instead if a rule changes.
 content/          Markdown source, one directory per section
   about/           _index.md only (no children)
   projects/        _index.md plus one file per project
-  talks/           _index.md plus one file per talk or workshop
+  talks/           public direction index plus staged talk drafts
   work-i-love/     _index.md plus one file per curated external reference
   writing/         _index.md plus one file per article
 layouts/           Hugo templates (see "Templates and output formats")
@@ -57,7 +57,7 @@ validator enforces this). Section-specific requirements:
 - **`content/projects/*.md`**: `role`, `year`, `weight` (controls display
   order via `.ByWeight`), `featured`, `statusLabel`, `tags`. Only link
   `repoURL`/`demoURL` that are actually live and yours.
-- **`content/talks/*.md`**: `format`, `weight`.
+- **`content/talks/*.md`**: `format`, `weight`, and `draft: true` until Andreas has reviewed and approved the title, abstract, audience, role, takeaways, and an inspectable artifact. The section index and homepage may describe topics in development, but must not imply a past speaking engagement. Do not expose hypothetical or unreviewed individual talk pages in search, machine indexes, or production output.
 - **`content/work-i-love/*.md`**: `creator`, `format`, `sourceURL` (must be
   `https://...`), `why`, `weight`. `sourceURL` must not point at a
   `github.com/Andreasniss/...` fork; this section is for external work
@@ -75,7 +75,7 @@ facing output formats, defined in `hugo.yaml` under `outputFormats` and
 
 | Output | Kind | Template | Produces |
 |---|---|---|---|
-| `MARKDOWN` | page | `layouts/_default/single.markdown.md` | `.../index.md` next to every article, project, and talk page, rendered from `.RawContent` (the authored Markdown, unconverted) |
+| `MARKDOWN` | page | `layouts/_default/single.markdown.md` | `.../index.md` next to every published article, project, and approved talk page, rendered from `.RawContent` (the authored Markdown, unconverted) |
 | `LLMSTXT` | home | `layouts/index.llmstxt.txt` | `/llms.txt`, a build-time index of every page, following the `llms.txt` convention |
 | `JSON` | home | `layouts/index.json.json` | `/index.json`, the full content index (title, url, markdownUrl, section, description, date, tags) consumed by both `llms.txt`'s cross-reference and the WebMCP tool below |
 

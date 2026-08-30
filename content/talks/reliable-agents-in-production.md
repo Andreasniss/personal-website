@@ -1,6 +1,7 @@
 ---
 title: "Reliable Agents in Production"
 description: "A workshop format for moving from an impressive agent demo to an operable system with explicit evidence and controls."
+draft: true
 format: "Workshop format"
 weight: 10
 tags:
@@ -29,4 +30,3 @@ Solutions architects, engineering leaders, platform teams, security teams, and t
 ## Participant outcome
 
 Participants leave with a concrete architecture checklist and a clearer distinction between model capability, system reliability, and execution control.
-
