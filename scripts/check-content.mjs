@@ -7,6 +7,7 @@ const failures = [];
 
 const required = [
   "hugo.yaml",
+  ".github/workflows/deploy-pages.yml",
   "layouts/index.html",
   "layouts/_default/baseof.html",
   "layouts/_default/list.html",
@@ -102,8 +103,8 @@ if (!footer.includes("Built by Andreas Nissen")) failures.push("Creator attribut
 if (!footer.includes("site.Params.sourceURL")) failures.push("Verified-source hook is missing from the footer");
 
 const config = fs.readFileSync(path.join(root, "hugo.yaml"), "utf8");
-if (!config.includes('baseURL: "http://localhost:1313/"')) failures.push("Unpublished build must retain the local base URL");
-if (!config.includes('sourceURL: ""')) failures.push("Source URL must stay empty until a public repository is verified");
+if (!config.includes('baseURL: "https://andreasniss.github.io/personal-website/"')) failures.push("Production base URL is missing or incorrect");
+if (!config.includes('sourceURL: "https://github.com/Andreasniss/personal-website"')) failures.push("Verified public source URL is missing or incorrect");
 
 if (failures.length) {
   console.error(`Site validation failed with ${failures.length} issue(s):`);
@@ -111,4 +112,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Validated ${contentFiles.length} content pages, ${articleFiles.length} launch articles, ${templateFiles.length} Hugo templates, attribution, metadata, CSS structure, and unpublished configuration.`);
+console.log(`Validated ${contentFiles.length} content pages, ${articleFiles.length} launch articles, ${templateFiles.length} Hugo templates, attribution, metadata, CSS structure, and production configuration.`);
