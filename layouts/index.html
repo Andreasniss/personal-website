@@ -5,8 +5,8 @@
       <h1>I help enterprises move agentic AI from prototype to reliable production.</h1>
       <p class="hero-lead">I am a Senior Solutions Architect in Munich. I work on agent reliability, evaluation, identity, policy controls, observability, and human approval.</p>
       <div class="hero-actions">
-        <a class="button primary" href="{{ "/projects/" | relURL }}">Explore selected work</a>
-        <a class="button secondary" href="{{ "/writing/" | relURL }}">Read the writing</a>
+        <a class="button primary" href="{{ "projects/" | relURL }}">Explore selected work</a>
+        <a class="button secondary" href="{{ "writing/" | relURL }}">Read the writing</a>
       </div>
     </div>
     <aside class="hero-panel" aria-label="Current focus">
@@ -29,7 +29,7 @@
   <section class="shell section-space">
     <div class="section-heading">
       <div><p class="eyebrow">Selected work</p><h2>Systems you can inspect</h2></div>
-      <a class="text-link" href="{{ "/projects/" | relURL }}">All projects <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="{{ "projects/" | relURL }}">All projects <span aria-hidden="true">→</span></a>
     </div>
     <div class="project-grid">
       {{ $projects := where (site.GetPage "/projects").Pages "Params.featured" true }}
@@ -40,7 +40,7 @@
   <section class="shell section-space border-top">
     <div class="section-heading">
       <div><p class="eyebrow">Technical writing</p><h2>Ideas built for practice</h2></div>
-      <a class="text-link" href="{{ "/writing/" | relURL }}">Writing archive <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="{{ "writing/" | relURL }}">Writing archive <span aria-hidden="true">→</span></a>
     </div>
     <div class="entry-list">
       {{ $articles := where (site.GetPage "/writing").Pages "Params.featured" true }}
@@ -55,8 +55,7 @@
     </div>
     <div>
       <p>I turn production-agent trade-offs into concrete system diagrams, decision rules, and failure-mode discussions for technical and executive audiences.</p>
-      <a class="text-link" href="{{ "/talks/" | relURL }}">Explore workshop formats <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="{{ "talks/" | relURL }}">Explore workshop formats <span aria-hidden="true">→</span></a>
     </div>
   </section>
 {{ end }}
-
