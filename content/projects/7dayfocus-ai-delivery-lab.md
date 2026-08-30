@@ -35,6 +35,6 @@ The provider key is held only for the active request, sent through a loopback-on
 
 ## Evidence and current boundary
 
-The current candidate passes 235 automated tests, including 24 named proposal-evaluation cases, plus lint, type checking, production build, clean-copy reproduction, and a zero-vulnerability dependency audit. Provider-adapter tests use mocked responses; no real credential was used and live-provider behavior is not yet claimed.
+The current candidate passes 241 automated tests, including 24 named proposal-evaluation cases, plus lint, type checking, production build, clean-copy reproduction, and a zero-vulnerability dependency audit. Provider-adapter tests use mocked responses; no real credential was used and live-provider behavior is not yet claimed.
 
 The source repository remains private while final review and publication checks are completed. This is an independent reference project, not a production service and not affiliated with or endorsed by Anthropic, OpenAI, OpenRouter, or AWS.
