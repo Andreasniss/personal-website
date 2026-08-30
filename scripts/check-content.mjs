@@ -91,6 +91,9 @@ for (const file of templateFiles) {
   const openings = (content.match(/{{/g) || []).length;
   const closings = (content.match(/}}/g) || []).length;
   if (openings !== closings) failures.push(`Hugo actions do not balance in ${relative}`);
+  if (/{{\s*(?:printf\s+)?"\//.test(content) && /\|\s*relURL/.test(content)) {
+    failures.push(`Root-relative input passed to relURL in ${relative}`);
+  }
 
   for (const match of content.matchAll(/partial\s+"([^"]+)"/g)) {
     const partial = path.join(root, "layouts", "partials", match[1]);
