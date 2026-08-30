@@ -82,7 +82,10 @@
     { signal: lifecycle.signal }
   );
 
-  window.addEventListener("pagehide", function () {
+  window.addEventListener("pagehide", function (event) {
+    if (event.persisted) {
+      return;
+    }
     lifecycle.abort();
   });
 })();
