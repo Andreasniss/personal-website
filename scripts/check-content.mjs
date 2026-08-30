@@ -71,11 +71,11 @@ const articleFiles = contentFiles.filter((file) => file.includes(`${path.sep}wri
 function frontmatterValue(frontmatter, key) {
   const match = frontmatter.match(new RegExp(`^${key}:\\s*(.*)$`, "m"));
   if (!match) return undefined;
-  const value = match[1].trim();
+  const value = match[1].replace(/\s+#.*$/, "").trim();
   if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
     return value.slice(1, -1);
   }
-  return value.replace(/\s+#.*$/, "").trim();
+  return value;
 }
 
 for (const file of articleFiles) {
