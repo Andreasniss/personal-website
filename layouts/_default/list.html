@@ -15,6 +15,10 @@
       <div class="entry-list">
         {{ range .Pages.ByDate.Reverse }}{{ partial "article-card.html" . }}{{ end }}
       </div>
+    {{ else if eq .Section "work-i-love" }}
+      <div class="entry-list">
+        {{ range .Pages.ByWeight }}{{ partial "reference-card.html" . }}{{ end }}
+      </div>
     {{ else }}
       <div class="entry-list">
         {{ range .Pages.ByWeight }}
@@ -29,4 +33,3 @@
     {{ end }}
   </section>
 {{ end }}
-

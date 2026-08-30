@@ -16,9 +16,15 @@ const required = [
   "layouts/partials/footer.html",
   "assets/css/main.css",
   "static/favicon.svg",
+  "static/icons/github.svg",
+  "static/icons/linkedin-in.svg",
+  "static/icons/x-twitter.svg",
+  "static/icons/code.svg",
+  "static/icons/rss.svg",
   "content/about/_index.md",
   "content/projects/_index.md",
   "content/talks/_index.md",
+  "content/work-i-love/_index.md",
   "content/writing/_index.md"
 ];
 
@@ -103,6 +109,17 @@ for (const file of articleFiles) {
   }
 }
 
+const referenceFiles = contentFiles.filter((file) => file.includes(`${path.sep}work-i-love${path.sep}`) && !file.endsWith("_index.md"));
+for (const file of referenceFiles) {
+  const raw = fs.readFileSync(file, "utf8");
+  const relative = path.relative(root, file);
+  if (!/^creator:\s*".+"$/m.test(raw)) failures.push(`Missing original creator in ${relative}`);
+  if (!/^format:\s*".+"$/m.test(raw)) failures.push(`Missing reference format in ${relative}`);
+  if (!/^sourceURL:\s*"https:\/\/.+"$/m.test(raw)) failures.push(`Missing original source URL in ${relative}`);
+  if (!/^why:\s*".+"$/m.test(raw)) failures.push(`Missing personal recommendation in ${relative}`);
+  if (/sourceURL:\s*"https:\/\/github\.com\/Andreasniss\//m.test(raw)) failures.push(`Reference points to an Andreas-owned fork in ${relative}`);
+}
+
 const css = fs.readFileSync(path.join(root, "assets/css/main.css"), "utf8");
 const openBraces = (css.match(/{/g) || []).length;
 const closeBraces = (css.match(/}/g) || []).length;
@@ -128,10 +145,14 @@ for (const file of templateFiles) {
 const footer = fs.readFileSync(path.join(root, "layouts/partials/footer.html"), "utf8");
 if (!footer.includes("Built by Andreas Nissen")) failures.push("Creator attribution is missing from the footer");
 if (!footer.includes("site.Params.sourceURL")) failures.push("Verified-source hook is missing from the footer");
+for (const destination of ["GitHub profile", "LinkedIn", "X", "Source code", "RSS feed"]) {
+  if (!footer.includes(destination)) failures.push(`Footer destination is missing: ${destination}`);
+}
 
 const config = fs.readFileSync(path.join(root, "hugo.yaml"), "utf8");
 if (!config.includes('baseURL: "https://andreasniss.github.io/personal-website/"')) failures.push("Production base URL is missing or incorrect");
 if (!config.includes('sourceURL: "https://github.com/Andreasniss/personal-website"')) failures.push("Verified public source URL is missing or incorrect");
+if (!config.includes('xURL: "https://x.com/AndreasNiss2"')) failures.push("Verified X profile URL is missing or incorrect");
 
 if (failures.length) {
   console.error(`Site validation failed with ${failures.length} issue(s):`);
@@ -139,4 +160,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Validated ${contentFiles.length} content pages, ${articleFiles.length} launch articles, ${templateFiles.length} Hugo templates, attribution, metadata, CSS structure, and production configuration.`);
+console.log(`Validated ${contentFiles.length} content pages, ${articleFiles.length} launch articles, ${referenceFiles.length} curated references, ${templateFiles.length} Hugo templates, attribution, metadata, CSS structure, and production configuration.`);

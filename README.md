@@ -9,6 +9,7 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 - Homepage with positioning, selected projects, selected writing, and workshop themes
 - Writing archive with three launch articles and two verified imports from Andreas's published LinkedIn activity
 - Project pages grounded in verified public repositories
+- A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
 - Talks and workshop-formats page without inventing past speaking claims
 - About page, RSS, sitemap support, social metadata, 404 page, and responsive styles
 - Persistent creator attribution linking to Andreas's verified GitHub profile
@@ -53,6 +54,7 @@ content/
   about/
   projects/
   talks/
+  work-i-love/
   writing/
 layouts/
   _default/
@@ -62,6 +64,17 @@ static/
 ```
 
 The private Obsidian vault remains the research backend. Public content is promoted manually into this repository after a confidentiality and claims review.
+
+## Curated references contract
+
+`content/work-i-love/` is for external work Andreas follows and recommends. It is deliberately separate from `content/projects/`, which contains only work Andreas can personally substantiate.
+
+Every reference must:
+
+1. Link directly to the original article, blog, or repository, never an unchanged fork.
+2. Name the original creator or organization.
+3. Include a short, personal explanation of why the work is useful.
+4. Avoid language that implies authorship, contribution, affiliation, or endorsement.
 
 ## Cross-channel publishing contract
 

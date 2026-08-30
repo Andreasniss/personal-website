@@ -1,0 +1,10 @@
+<article class="entry-card">
+  <div class="entry-meta">
+    <span>{{ .Params.format }}</span>
+    <span>By {{ .Params.creator }}</span>
+  </div>
+  <h3><a href="{{ .Params.sourceURL }}">{{ .Title }}</a></h3>
+  <p>{{ .Description }}</p>
+  {{ with .Params.why }}<p><strong>Why I recommend it:</strong> {{ . }}</p>{{ end }}
+  <a class="text-link" href="{{ .Params.sourceURL }}" aria-label="Open the original source for {{ .Title }}">Visit original <span aria-hidden="true">→</span></a>
+</article>
