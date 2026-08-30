@@ -2,7 +2,7 @@
 
 A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automatically with GitHub Pages.
 
-**Live site:** <https://andreasniss.github.io/personal-website/>
+**Live site:** <https://andreasnissen.dev/>
 
 ## What is included
 
@@ -37,7 +37,7 @@ The generated site is written to `public/`.
 
 Every push to `main` runs the GitHub Pages workflow in `.github/workflows/deploy-pages.yml`. The workflow builds the production site with Hugo Extended, uploads the generated `public/` directory, and deploys it to GitHub Pages.
 
-The production URL is <https://andreasniss.github.io/personal-website/>. Pull requests run the content validator and a production-equivalent Hugo build without publishing.
+The production URL is <https://andreasnissen.dev/>. Pull requests run the content validator and a production-equivalent Hugo build without publishing.
 
 ## Publication checklist
 

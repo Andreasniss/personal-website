@@ -2,7 +2,7 @@
 
 Shared instructions for this repository: Andreas Nissen's personal Hugo
 portfolio and writing site, deployed to GitHub Pages at
-<https://andreasniss.github.io/personal-website/>. Read this file first.
+<https://andreasnissen.dev/>. Read this file first.
 `README.md` owns what the site is and how to run it locally; `PUBLISHING.md`
 owns the LinkedIn dual-publication contract. Do not duplicate their content
 here; extend them instead if a rule changes.

@@ -150,7 +150,7 @@ for (const destination of ["GitHub profile", "LinkedIn", "X", "Source code", "RS
 }
 
 const config = fs.readFileSync(path.join(root, "hugo.yaml"), "utf8");
-if (!config.includes('baseURL: "https://andreasniss.github.io/personal-website/"')) failures.push("Production base URL is missing or incorrect");
+if (!config.includes('baseURL: "https://andreasnissen.dev/"')) failures.push("Production base URL is missing or incorrect");
 if (!config.includes('sourceURL: "https://github.com/Andreasniss/personal-website"')) failures.push("Verified public source URL is missing or incorrect");
 if (!config.includes('xURL: "https://x.com/AndreasNiss2"')) failures.push("Verified X profile URL is missing or incorrect");
 
