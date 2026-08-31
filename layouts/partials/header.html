@@ -6,9 +6,9 @@
     </a>
     <nav class="main-nav" aria-label="Main navigation">
       {{ range site.Menus.main }}
-        <a href="{{ .URL }}"{{ if eq .Name "Work I Love" }} aria-label="What I love"{{ end }}{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>
+        <a href="{{ .URL }}"{{ if eq .Name "Work I Love" }} aria-label="Work I love"{{ end }}{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>
           {{- if eq .Name "Work I Love" -}}
-            What I <span class="heart-mark" aria-hidden="true">♥</span>
+            Work I <span class="heart-mark" aria-hidden="true">♥</span>
           {{- else -}}
             {{ .Name }}
           {{- end -}}
