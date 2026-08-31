@@ -37,7 +37,7 @@ make_card() {
     -fill "#72cfc7" -font DejaVu-Sans-Bold -pointsize 22 -annotate +828+382 "ANDREAS NISSEN" \
     -fill "#aab3ae" -font DejaVu-Sans -pointsize 19 -annotate +837+420 "andreasnissen.dev" \
     -depth 8 \
-    -define png:exclude-chunks=date,time \
+    -strip \
     "$output_dir/$filename"
 
   rm -r "$work_dir"
