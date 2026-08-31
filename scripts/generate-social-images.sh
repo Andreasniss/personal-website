@@ -37,6 +37,7 @@ make_card() {
     -fill "#72cfc7" -font DejaVu-Sans-Bold -pointsize 22 -annotate +828+382 "ANDREAS NISSEN" \
     -fill "#aab3ae" -font DejaVu-Sans -pointsize 19 -annotate +837+420 "andreasnissen.dev" \
     -depth 8 \
+    -define png:exclude-chunks=date,time \
     "$output_dir/$filename"
 
   rm -r "$work_dir"
@@ -56,5 +57,6 @@ make_card "context-and-control.png" "Article" "Context and Control Are Different
 make_card "governed-tools.png" "Article" "From Screenshots to Governed Tools" "What WebMCP changes about agent-facing interfaces."
 make_card "ontology-context.png" "Article" "Ontology Is More Than Context" "How shared meaning becomes an operational boundary."
 make_card "builder-sandboxes.png" "Article" "Free AWS Builder Center Sandboxes" "A practical path into hands-on agentic AI learning."
+make_card "agent-skill-library.png" "Article" "8 Rules for Running an AI Agent Skill Library" "Maintenance, routing, structure, and trust after seven months of operation."
 
 identify "$output_dir"/*.png
