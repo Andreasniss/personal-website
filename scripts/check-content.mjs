@@ -224,7 +224,7 @@ for (const file of templateFiles) {
 
 const footer = fs.readFileSync(path.join(root, "layouts/partials/footer.html"), "utf8");
 if (!footer.includes("Built by Andreas Nissen")) failures.push("Creator attribution is missing from the footer");
-for (const destination of ["GitHub profile", "LinkedIn", "X", "RSS feed"]) {
+for (const destination of ["GitHub profile", "LinkedIn", "RSS feed"]) {
   if (!footer.includes(destination)) failures.push(`Footer destination is missing: ${destination}`);
 }
 
@@ -241,7 +241,12 @@ const config = fs.readFileSync(path.join(root, "hugo.yaml"), "utf8");
 if (!config.includes('baseURL: "https://andreasnissen.dev/"')) failures.push("Production base URL is missing or incorrect");
 if (!config.includes('socialImage: "/images/social/default.png"')) failures.push("Default social image is missing or incorrect");
 if (!config.includes('sourceURL: "https://github.com/Andreasniss/personal-website"')) failures.push("Verified public source URL is missing or incorrect");
-if (!config.includes('xURL: "https://x.com/AndreasNiss2"')) failures.push("Verified X profile URL is missing or incorrect");
+for (const [surface, content] of [["footer", footer], ["Person metadata", head]]) {
+  if (/https:\/\/(?:www\.)?x\.com\//i.test(content) || /\.?site\.params\.xurl/i.test(content)) {
+    failures.push(`Personal X profile must remain unpublished in the ${surface} until its activation gate is satisfied`);
+  }
+}
+if (/^\s+xURL\s*:/im.test(config)) failures.push("Personal X profile configuration must remain absent until its activation gate is satisfied");
 if (!/name:\s*["']?Projects["']?[\s\S]*?weight:\s*10[\s\S]*?name:\s*["']?Writing["']?[\s\S]*?weight:\s*20/m.test(config)) {
   failures.push("Primary navigation must order Projects before Writing");
 }
