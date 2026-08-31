@@ -14,8 +14,73 @@ repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
 image: "/images/projects/runbook-relay-webmcp.png"
 imageAlt: "Runbook Relay interface showing an active incident, the WebMCP tool model, desktop setup steps, and the human-approval boundary."
+socialImage: "/images/social/runbook-relay.png"
+socialImageAlt: "Runbook Relay, a governed WebMCP incident-response control room by Andreas Nissen."
+hideDetailImage: true
 relatedArticleURL: "/writing/from-screenshots-to-governed-tools/"
 relatedArticleTitle: "From Screenshots to Governed Tools"
+evidenceReady: true
+lastVerified: "2026-08-31"
+proofStats:
+  - value: "5"
+    label: "bounded WebMCP tools"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
+  - value: "7"
+    label: "contract tests"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
+  - value: "1"
+    label: "human-only approval gate"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/threat-model.md"
+  - value: "0"
+    label: "external systems changed"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
+reviewerPath:
+  - title: "Open the deterministic incident"
+    action: "Open the live demo on desktop and review incident INC-2841, the correlated change, and the three mitigation options."
+    expected: "The page exposes one shared incident state, current telemetry, approval state, and decision log."
+  - title: "Stage the lowest-risk mitigation"
+    action: "Use native Site tools when available, or the labeled simulator, to compare options and stage Restore database pool limit."
+    expected: "The mitigation is staged for review, but no recovery action runs."
+  - title: "Prove the negative path"
+    action: "Attempt execution before approving, or select Run the blocked-action proof."
+    expected: "Execution fails closed and the blocked result appears in the visible receipt and decision log."
+  - title: "Approve and execute"
+    action: "Select Approve staged change in the page, then execute the approved mitigation."
+    expected: "The simulation records the human approval and recovers to 1.2 s latency, 0.6% errors, and 51% saturation."
+  - title: "Run the repository gate"
+    action: "Clone the repository, run npm ci, npm run lint, and npm test with Node.js 22.13 or newer."
+    expected: "The production build succeeds and all seven contract tests pass."
+reviewerFallback: "The browser-independent proof and contract test expose the same blocked-before-approval boundary without claiming native WebMCP discovery."
+reviewerFallbackURL: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
+architectureImage: "/images/projects/runbook-relay-architecture.svg"
+architectureAlt: "Runbook Relay architecture showing a browser agent and human operator sharing one state model, visible receipts, a human approval gate, and a deterministic mitigation."
+architectureCaption: "Human controls, native WebMCP calls, and the labeled simulator use the same state transitions. The agent can stage work, while approval remains a human-only page action."
+evidenceRows:
+  - claim: "The agent cannot self-approve"
+    implementation: "No approval tool exists; approval is exposed only as a human page interaction"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/threat-model.md"
+    linkLabel: "Inspect the threat model"
+  - claim: "Execution fails closed"
+    implementation: "The execution handler checks recorded approval and emits a blocked receipt when it is absent"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
+    linkLabel: "Read the contract test"
+  - claim: "Tool access is narrow"
+    implementation: "Five tools separate read, compare, stage, execute, and reset operations with bounded JSON Schemas"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
+    linkLabel: "Inspect the tool contracts"
+  - claim: "Operator evidence stays visible"
+    implementation: "Tool receipts record caller, input, policy outcome, structured result, and timestamp"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/README.md"
+    linkLabel: "Review the guided demo"
+  - claim: "The scenario is reproducible"
+    implementation: "A deterministic fixture and reset action change no external system"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
+    linkLabel: "Read the architecture note"
+limitations:
+  - "The public demo is a browser-side simulation. It does not authenticate users or execute against infrastructure."
+  - "Human approval is demonstrated in page state, not enforced by a server-side policy service."
+  - "The visible audit trail is not durable or tamper-evident and resets with the simulation."
+  - "The labeled simulator proves application behavior, not native browser discovery of WebMCP tools."
 ---
 
 ## The problem
@@ -34,10 +99,5 @@ The central control is deliberate: the agent can stage a mitigation, and it cann
 - Read, stage, approve, execute, and verify are separate phases.
 - Tool schemas reduce ambiguity while visible receipts preserve shared evidence.
 - A negative test is part of the demo: execution without approval must fail visibly.
-
-## Proof
-
-- [Open the live application](https://runbook-relay-webmcp.andreas-nissen.chatgpt.site)
-- [Inspect the source repository](https://github.com/Andreasniss/runbook-relay-webmcp)
 
 This is a reference application, not a production operations console. A production implementation would enforce authorization and approvals server-side, bind actions to scoped identities, and persist tamper-evident audit records.

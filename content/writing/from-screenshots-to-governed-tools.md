@@ -2,6 +2,8 @@
 title: "From Screenshots to Governed Tools"
 date: 2026-08-29
 description: "Agent-friendly interfaces should expose structured operations without taking the human operator out of the loop."
+socialImage: "/images/social/governed-tools.png"
+socialImageAlt: "From Screenshots to Governed Tools, an article by Andreas Nissen."
 tags:
   - WebMCP
   - tool design

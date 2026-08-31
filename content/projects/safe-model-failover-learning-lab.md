@@ -13,6 +13,8 @@ tags:
 demoURL: "https://model-failover-learning-lab.andreas-nissen.chatgpt.site"
 image: "/images/projects/model-failover-learning-lab.jpg"
 imageAlt: "Safe Model Failover Learning Lab showing a 429 and 503 incident scenario with retry, fallback, and stop decisions."
+socialImage: "/images/social/safe-model-failover.png"
+socialImageAlt: "Safe Model Failover Learning Lab, an interactive reliability lab by Andreas Nissen."
 relatedArticleURL: "/writing/context-and-control/"
 relatedArticleTitle: "Context and Control Are Different Layers"
 ---

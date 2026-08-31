@@ -48,6 +48,9 @@ jobs:
             exit 1
           fi
 
+      - name: Validate built site
+        run: node scripts/check-built-site.mjs
+
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3

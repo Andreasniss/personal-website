@@ -7,6 +7,7 @@ Senior Solutions Architect (AWS, Munich) working on agent reliability, evaluatio
 ## About
 
 - [About]({{ (printf "%sabout/" site.BaseURL) }}): Background, focus areas, and contact links.
+- [Selected Impact]({{ (printf "%simpact/" site.BaseURL) }}): Evidence-backed outcomes, public systems, and workshop delivery.
 
 ## Writing
 
@@ -15,6 +16,10 @@ Senior Solutions Architect (AWS, Munich) working on agent reliability, evaluatio
 ## Projects
 
 {{ range (where site.RegularPages "Section" "projects").ByWeight }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+## Talks and workshops
+
+{{ range (where site.RegularPages "Section" "talks").ByWeight }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
 {{ end }}
 ## Work I Love
 

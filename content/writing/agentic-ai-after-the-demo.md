@@ -2,6 +2,8 @@
 title: "The Hard Part of Agentic AI Starts After the Demo"
 date: 2026-06-15
 description: "A working prototype proves possibility. Production requires a separate discipline for autonomy, reliability, security, cost, and operations."
+socialImage: "/images/social/agentic-ai-after-demo.png"
+socialImageAlt: "The Hard Part of Agentic AI Starts After the Demo, an article by Andreas Nissen."
 tags:
   - agentic AI
   - AWS Well-Architected

@@ -11,19 +11,25 @@ const required = [
   "layouts/index.html",
   "layouts/_default/baseof.html",
   "layouts/_default/list.html",
+  "layouts/_default/list.markdown.md",
   "layouts/_default/single.html",
   "layouts/404.html",
+  "layouts/robots.txt",
   "layouts/partials/footer.html",
   "layouts/partials/project-evidence.html",
   "assets/css/main.css",
+  "scripts/generate-social-images.sh",
+  "scripts/check-built-site.mjs",
   "static/images/profile-mark.png",
   "static/images/og-default.png",
   "static/images/og-default.svg",
+  "static/images/social/default.png",
   "static/icons/github.svg",
   "static/icons/linkedin-in.svg",
   "static/icons/x-twitter.svg",
   "static/icons/rss.svg",
   "content/about/_index.md",
+  "content/impact/_index.md",
   "content/projects/_index.md",
   "content/talks/_index.md",
   "content/work-i-love/_index.md",
@@ -144,6 +150,45 @@ for (const file of projectFiles) {
   }
 }
 
+function pngDimensions(file) {
+  const buffer = fs.readFileSync(file);
+  if (buffer.length < 24 || buffer.toString("ascii", 1, 4) !== "PNG") return undefined;
+  return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+}
+
+const talkFiles = contentFiles.filter((file) => file.includes(`${path.sep}talks${path.sep}`) && !file.endsWith("_index.md"));
+const socialContentFiles = [
+  ...articleFiles,
+  ...projectFiles,
+  ...talkFiles,
+  path.join(root, "content", "about", "_index.md"),
+  path.join(root, "content", "impact", "_index.md"),
+  path.join(root, "content", "talks", "_index.md")
+];
+
+for (const file of socialContentFiles) {
+  const raw = fs.readFileSync(file, "utf8");
+  const relative = path.relative(root, file);
+  const frontmatterMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
+  if (!frontmatterMatch) continue;
+  const socialImage = frontmatterValue(frontmatterMatch[1], "socialImage");
+  const socialImageAlt = frontmatterValue(frontmatterMatch[1], "socialImageAlt");
+  if (!socialImage) {
+    failures.push(`Page-specific social image is missing in ${relative}`);
+    continue;
+  }
+  if (!socialImageAlt) failures.push(`Social image alt text is missing in ${relative}`);
+  const socialPath = path.join(root, "static", socialImage.replace(/^\//, ""));
+  if (!fs.existsSync(socialPath)) {
+    failures.push(`Social image asset is missing in ${relative}: ${socialImage}`);
+    continue;
+  }
+  const dimensions = pngDimensions(socialPath);
+  if (!dimensions || dimensions.width !== 1200 || dimensions.height !== 630) {
+    failures.push(`Social image must be a 1200x630 PNG in ${relative}: ${socialImage}`);
+  }
+}
+
 const referenceFiles = contentFiles.filter((file) => file.includes(`${path.sep}work-i-love${path.sep}`) && !file.endsWith("_index.md"));
 for (const file of referenceFiles) {
   const raw = fs.readFileSync(file, "utf8");
@@ -194,6 +239,7 @@ for (const socialSurface of ["rel=\"icon\"", "rel=\"apple-touch-icon\"", "og:ima
 
 const config = fs.readFileSync(path.join(root, "hugo.yaml"), "utf8");
 if (!config.includes('baseURL: "https://andreasnissen.dev/"')) failures.push("Production base URL is missing or incorrect");
+if (!config.includes('socialImage: "/images/social/default.png"')) failures.push("Default social image is missing or incorrect");
 if (!config.includes('sourceURL: "https://github.com/Andreasniss/personal-website"')) failures.push("Verified public source URL is missing or incorrect");
 if (!config.includes('xURL: "https://x.com/AndreasNiss2"')) failures.push("Verified X profile URL is missing or incorrect");
 if (!/name:\s*["']?Projects["']?[\s\S]*?weight:\s*10[\s\S]*?name:\s*["']?Writing["']?[\s\S]*?weight:\s*20/m.test(config)) {
@@ -202,18 +248,22 @@ if (!/name:\s*["']?Projects["']?[\s\S]*?weight:\s*10[\s\S]*?name:\s*["']?Writing
 
 const talkIndex = fs.readFileSync(path.join(root, "content/talks/_index.md"), "utf8");
 if (/^draft:\s*true$/m.test(talkIndex)) failures.push("The honest Talks direction page must remain public");
-const talkDraft = fs.readFileSync(path.join(root, "content/talks/reliable-agents-in-production.md"), "utf8");
-if (!/^draft:\s*true$/m.test(talkDraft)) failures.push("Unreviewed individual talk source must remain a draft");
-
-const homepage = fs.readFileSync(path.join(root, "layouts/index.html"), "utf8");
-if (!homepage.includes("Each topic will be published when the material is ready to stand on its own")) {
-  failures.push("Homepage Talks callout must state that topics are still in development");
+for (const file of talkFiles) {
+  const raw = fs.readFileSync(file, "utf8");
+  const relative = path.relative(root, file);
+  if (!/^draft:\s*false$/m.test(raw)) failures.push(`Talk page must be explicitly reviewed for publication in ${relative}`);
+  for (const heading of ["The question", "Audience", "Verified delivery", "Discussion path", "Participant outcome", "Public artifacts"]) {
+    if (!raw.includes(`## ${heading}`)) failures.push(`Published talk is missing ${heading} in ${relative}`);
+  }
 }
 
 for (const relative of ["layouts/index.llmstxt.txt", "layouts/index.json.json", "assets/js/webmcp.js"]) {
   const publicSurface = fs.readFileSync(path.join(root, relative), "utf8");
-  if (/talks\/?/i.test(publicSurface)) failures.push(`Unreviewed talks must stay out of machine indexes: ${relative}`);
+  if (!/talks?/i.test(publicSurface)) failures.push(`Published talks are missing from machine discovery: ${relative}`);
 }
+
+const robots = fs.readFileSync(path.join(root, "layouts/robots.txt"), "utf8");
+if (!robots.includes("Sitemap:")) failures.push("robots.txt must advertise the sitemap");
 
 if (failures.length) {
   console.error(`Site validation failed with ${failures.length} issue(s):`);

@@ -2,6 +2,8 @@
 title: "Context and Control Are Different Layers"
 date: 2026-08-30
 description: "An agent needs enough context to reason and enough control to act safely. Treating them as one system hides different failure modes."
+socialImage: "/images/social/context-and-control.png"
+socialImageAlt: "Context and Control Are Different Layers, an article by Andreas Nissen."
 tags:
   - agent architecture
   - context

@@ -11,6 +11,8 @@ tags:
   - OpenAI
   - evaluations
   - human approval
+socialImage: "/images/social/7dayfocus.png"
+socialImageAlt: "7DayFocus AI Delivery Lab, a private release candidate by Andreas Nissen."
 relatedArticleURL: "/writing/context-and-control/"
 relatedArticleTitle: "Context and Control Are Different Layers"
 ---
