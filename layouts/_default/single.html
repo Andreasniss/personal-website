@@ -45,7 +45,7 @@
         <div class="proof-actions">
           {{ with .Params.relatedProjectURL }}<a class="action-link" href="{{ . | relURL }}"><img src="{{ "icons/external-link.svg" | relURL }}" alt="">{{ $.Params.relatedProjectTitle }}</a>{{ end }}
           {{ with .Params.relatedArticleURL }}<a class="action-link" href="{{ . | relURL }}"><img src="{{ "icons/article.svg" | relURL }}" alt="">{{ $.Params.relatedArticleTitle }}</a>{{ end }}
-          {{ with .Params.demoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/demo.svg" | relURL }}" alt="">Open live demo</a>{{ end }}
+          {{ with .Params.demoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/demo.svg" | relURL }}" alt="">Open {{ $.Params.demoLabel | default "live demo" }}</a>{{ end }}
           {{ with .Params.repoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/github.svg" | relURL }}" alt="">Inspect repository</a>{{ end }}
         </div>
       </aside>
