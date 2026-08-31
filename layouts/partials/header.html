@@ -6,7 +6,13 @@
     </a>
     <nav class="main-nav" aria-label="Main navigation">
       {{ range site.Menus.main }}
-        <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+        <a href="{{ .URL }}"{{ if eq .Name "Work I Love" }} aria-label="Work I love"{{ end }}{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>
+          {{- if eq .Name "Work I Love" -}}
+            Work I <span class="heart-mark" aria-hidden="true">♥</span>
+          {{- else -}}
+            {{ .Name }}
+          {{- end -}}
+        </a>
       {{ end }}
     </nav>
     <a class="header-cta" href="{{ site.Params.linkedinURL }}" rel="me noreferrer">Get in touch</a>
