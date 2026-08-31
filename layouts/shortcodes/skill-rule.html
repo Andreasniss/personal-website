@@ -1,0 +1,8 @@
+<article class="skill-rule">
+  <div class="skill-rule-marker" aria-hidden="true">{{ .Get "number" }}</div>
+  <div class="skill-rule-copy">
+    <p class="eyebrow">Rule {{ .Get "number" }} of 08</p>
+    <h2>{{ .Get "title" }}</h2>
+    <div>{{ .Inner | markdownify }}</div>
+  </div>
+</article>

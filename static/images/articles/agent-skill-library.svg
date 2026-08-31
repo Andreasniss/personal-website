@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Eight rules for running an AI agent skill library</title>
+  <desc id="desc">Eight numbered cards connected into one maintained operating system.</desc>
+  <rect width="1200" height="750" fill="#141817"/>
+  <circle cx="1048" cy="96" r="208" fill="#12352e" opacity=".55"/>
+  <circle cx="132" cy="700" r="260" fill="#1a332e" opacity=".4"/>
+  <text x="70" y="92" fill="#ff9d3d" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="3">AGENT SKILLS · OPERATING SYSTEM</text>
+  <text x="70" y="157" fill="#f4f1ea" font-family="Georgia, serif" font-size="55" font-weight="700">8 rules for a skill library</text>
+  <text x="70" y="199" fill="#a9b3ae" font-family="Arial, sans-serif" font-size="24">Maintenance, routing, structure, and trust</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(70 250)"><rect width="245" height="155" rx="16" fill="#1d2321" stroke="#53615b"/><text x="24" y="40" fill="#72cfc7" font-size="18" font-weight="700">01</text><text x="24" y="78" fill="#f4f1ea" font-size="23" font-weight="700">Maintenance</text><text x="24" y="109" fill="#a9b3ae" font-size="17">is the product</text></g>
+    <g transform="translate(340 250)"><rect width="245" height="155" rx="16" fill="#1d2321" stroke="#53615b"/><text x="24" y="40" fill="#72cfc7" font-size="18" font-weight="700">02</text><text x="24" y="78" fill="#f4f1ea" font-size="23" font-weight="700">Automate</text><text x="24" y="109" fill="#a9b3ae" font-size="17">with hooks</text></g>
+    <g transform="translate(610 250)"><rect width="245" height="155" rx="16" fill="#1d2321" stroke="#53615b"/><text x="24" y="40" fill="#72cfc7" font-size="18" font-weight="700">03</text><text x="24" y="78" fill="#f4f1ea" font-size="23" font-weight="700">Description</text><text x="24" y="109" fill="#a9b3ae" font-size="17">is the router</text></g>
+    <g transform="translate(880 250)"><rect width="245" height="155" rx="16" fill="#1d2321" stroke="#53615b"/><text x="24" y="40" fill="#72cfc7" font-size="18" font-weight="700">04</text><text x="24" y="78" fill="#f4f1ea" font-size="23" font-weight="700">One source</text><text x="24" y="109" fill="#a9b3ae" font-size="17">of truth</text></g>
+    <g transform="translate(70 430)"><rect width="245" height="155" rx="16" fill="#1d2321" stroke="#53615b"/><text x="24" y="40" fill="#72cfc7" font-size="18" font-weight="700">05</text><text x="24" y="78" fill="#f4f1ea" font-size="23" font-weight="700">Progressive</text><text x="24" y="109" fill="#a9b3ae" font-size="17">disclosure</text></g>
+    <g transform="translate(340 430)"><rect width="245" height="155" rx="16" fill="#1d2321" stroke="#53615b"/><text x="24" y="40" fill="#72cfc7" font-size="18" font-weight="700">06</text><text x="24" y="78" fill="#f4f1ea" font-size="23" font-weight="700">When in doubt,</text><text x="24" y="109" fill="#a9b3ae" font-size="17">cut</text></g>
+    <g transform="translate(610 430)"><rect width="245" height="155" rx="16" fill="#1d2321" stroke="#53615b"/><text x="24" y="40" fill="#72cfc7" font-size="18" font-weight="700">07</text><text x="24" y="78" fill="#f4f1ea" font-size="23" font-weight="700">Collecting is</text><text x="24" y="109" fill="#a9b3ae" font-size="17">not building</text></g>
+    <g transform="translate(880 430)"><rect width="245" height="155" rx="16" fill="#1d2321" stroke="#ff9d3d" stroke-width="2"/><text x="24" y="40" fill="#ff9d3d" font-size="18" font-weight="700">08</text><text x="24" y="78" fill="#f4f1ea" font-size="23" font-weight="700">Trust</text><text x="24" y="109" fill="#a9b3ae" font-size="17">the source</text></g>
+  </g>
+  <path d="M70 635 H1130" stroke="#53615b"/>
+  <text x="70" y="687" fill="#72cfc7" font-family="Arial, sans-serif" font-size="21" font-weight="700">Treat skills as a system you operate.</text>
+  <text x="1130" y="687" fill="#a9b3ae" font-family="Arial, sans-serif" font-size="17" text-anchor="end" letter-spacing="2">ANDREAS NISSEN</text>
+</svg>

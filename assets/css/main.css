@@ -690,6 +690,59 @@ svg {
   object-fit: contain;
 }
 
+.skill-rule {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 30px);
+  margin: 34px 0;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgb(255 157 61 / 7%), transparent 46%),
+    var(--surface);
+}
+
+.skill-rule-marker {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgb(114 207 199 / 55%);
+  border-radius: 12px;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.prose .skill-rule h2 {
+  margin: 4px 0 16px;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.prose .skill-rule .eyebrow {
+  margin: 0;
+  color: var(--accent-warm);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.skill-rule-copy > div > :last-child {
+  margin-bottom: 0;
+}
+
+.skill-rule blockquote {
+  border-left-color: var(--accent-warm);
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
 .project-proof,
 .reviewer-path,
 .evidence-matrix,
@@ -1290,6 +1343,15 @@ svg {
   .project-grid,
   .entry-list {
     grid-template-columns: 1fr;
+  }
+
+  .skill-rule {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-rule-marker {
+    width: 46px;
+    height: 46px;
   }
 
   .article-byline > * + *::before {
