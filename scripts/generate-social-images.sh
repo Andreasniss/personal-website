@@ -58,5 +58,10 @@ make_card "governed-tools.png" "Article" "From Screenshots to Governed Tools" "W
 make_card "ontology-context.png" "Article" "Ontology Is More Than Context" "How shared meaning becomes an operational boundary."
 make_card "agent-skill-library.png" "Article" "8 Rules for Running an AI Agent Skill Library" "How to keep agent skills maintainable, routable, and trustworthy."
 make_card "builder-sandboxes.png" "Article" "Free AWS Builder Center Sandboxes" "A practical path into hands-on agentic AI learning."
+make_card "screen-use-vs-webmcp.png" "Article" "Screen Use vs WebMCP" "What changes when an agent gets governed tools."
+make_card "model-failover-policy.png" "Article" "Model Failover Is a Policy Decision" "Retry, switch, degrade, or stop inside an explicit boundary."
+make_card "hidden-token-tax.png" "Article" "The Hidden Token Tax of Agent Tools" "Count definitions, results, round trips, and recovery."
+make_card "reviewing-ai-built-work.png" "Article" "Review AI-Built Work Without Outsourcing Judgment" "Evidence informs. The human owner decides what ships."
+make_card "skill-routing-reliability.png" "Article" "Skill Routing Is a Reliability Problem" "Test positive, negative, overlap, and stale routes."
 
 identify "$output_dir"/*.png

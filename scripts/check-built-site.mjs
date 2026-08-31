@@ -68,6 +68,18 @@ for (const file of htmlFiles) {
   }
 }
 
+const writingIndex = fs.readFileSync(path.join(publicRoot, "writing", "index.html"), "utf8");
+for (const contract of ["data-writing-tools", "data-writing-search", "data-topic-filter", "data-writing-list", "writing-filter"]) {
+  if (!writingIndex.includes(contract)) failures.push(`Writing archive is missing interactive contract: ${contract}`);
+}
+
+for (const file of htmlFiles.filter((entry) => entry.includes(`${path.sep}writing${path.sep}`) && !entry.endsWith(`${path.sep}writing${path.sep}index.html`) && !entry.includes(`${path.sep}tags${path.sep}`))) {
+  const html = fs.readFileSync(file, "utf8");
+  const relative = path.relative(publicRoot, file);
+  if (!html.includes("article-evidence-meta")) failures.push(`Writing page is missing evidence metadata: ${relative}`);
+  if (!html.includes("article-brief")) failures.push(`Writing page is missing the short-version panel: ${relative}`);
+}
+
 const robots = fs.readFileSync(path.join(publicRoot, "robots.txt"), "utf8");
 if (!robots.includes(`Sitemap: ${productionOrigin}/sitemap.xml`)) failures.push("Built robots.txt does not advertise the production sitemap");
 

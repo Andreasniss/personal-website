@@ -2,6 +2,16 @@
 title: "8 Rules for Running an AI Agent Skill Library"
 date: 2026-06-01
 description: "What seven months of operating roughly 100 agent skills taught me about maintenance, routing, structure, and trust."
+primaryTopic: "Operating practice"
+evidenceLabel: "Operating experience"
+lastVerified: 2026-08-31
+keyPoints:
+  - "A skill library is an operated system, not a collection of instruction files."
+  - "Routing descriptions, freshness, and source trust determine reliability."
+  - "A smaller coherent library usually outperforms a larger overlapping one."
+proofLinks:
+  - label: "View the original LinkedIn carousel"
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:7467132017814433793/"
 tags:
   - AI agents
   - agent skills
@@ -16,6 +26,8 @@ image: "/images/articles/agent-skill-library.svg"
 imageAlt: "Eight operating rules for an AI agent skill library, arranged as a compact card system."
 socialImage: "/images/social/agent-skill-library.png"
 socialImageAlt: "8 Rules for Running an AI Agent Skill Library by Andreas Nissen."
+series: "Operating Agent Systems"
+seriesOrder: 1
 ---
 
 Building an agent skill is cheap. Importing one is even cheaper.

@@ -2,6 +2,16 @@
 title: "Context and Control Are Different Layers"
 date: 2026-08-30
 description: "An agent needs enough context to reason and enough control to act safely. Treating them as one system hides different failure modes."
+primaryTopic: "Agent architecture"
+evidenceLabel: "Architecture analysis"
+lastVerified: 2026-08-31
+keyPoints:
+  - "Context determines what the agent can understand."
+  - "Control determines which actions the system will permit."
+  - "Each layer needs its own owner, tests, and failure budget."
+proofLinks:
+  - label: "Review the 7DayFocus case study"
+    url: "/projects/7dayfocus-ai-delivery-lab/"
 socialImage: "/images/social/context-and-control.png"
 socialImageAlt: "Context and Control Are Different Layers, an article by Andreas Nissen."
 tags:
@@ -15,6 +25,8 @@ image: "/images/articles/enterprise-ai-two-graphs.svg"
 imageAlt: "Enterprise AI needs two graphs: a context graph for understanding and a workflow graph for controlled execution."
 relatedProjectURL: "/projects/7dayfocus-ai-delivery-lab/"
 relatedProjectTitle: "7DayFocus AI Delivery Lab"
+series: "Reliable Agent Systems"
+seriesOrder: 2
 ---
 
 Enterprise AI agents need context and control.
