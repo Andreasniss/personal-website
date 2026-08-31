@@ -4,14 +4,18 @@ description: "I work at the point where enterprise architecture, applied AI, and
 portrait: "/images/about/andreas-nissen-linkedin.png"
 portraitAlt: "Portrait of Andreas Nissen."
 connectLinks:
-  - label: "GitHub"
+  - label: "Connect on LinkedIn"
+    detail: "Start a professional conversation"
+    url: "https://www.linkedin.com/in/andreasnissen"
+    icon: "/icons/linkedin-in.svg"
+  - label: "Follow on GitHub"
     detail: "Code, demos, and technical proof"
     url: "https://github.com/Andreasniss"
     icon: "/icons/github.svg"
-  - label: "LinkedIn"
-    detail: "Architecture notes and professional updates"
-    url: "https://www.linkedin.com/in/andreasnissen"
-    icon: "/icons/linkedin-in.svg"
+  - label: "Subscribe via RSS"
+    detail: "New long-form articles without another social feed"
+    url: "/writing/index.xml"
+    icon: "/icons/rss.svg"
 ---
 
 I am a Senior Solutions Architect at AWS in Munich. I work with organizations adopting applied AI in regulated environments.
