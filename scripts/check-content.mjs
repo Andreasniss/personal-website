@@ -206,6 +206,7 @@ for (const file of referenceFiles) {
   const relative = path.relative(root, file);
   if (!/^creator:\s*".+"$/m.test(raw)) failures.push(`Missing original creator in ${relative}`);
   if (!/^format:\s*".+"$/m.test(raw)) failures.push(`Missing reference format in ${relative}`);
+  if (!/^affiliation:\s*".+"$/m.test(raw)) failures.push(`Missing current affiliation in ${relative}`);
   if (!/^sourceURL:\s*"https:\/\/.+"$/m.test(raw)) failures.push(`Missing original source URL in ${relative}`);
   if (!/^why:\s*".+"$/m.test(raw)) failures.push(`Missing personal recommendation in ${relative}`);
   if (/sourceURL:\s*"https:\/\/github\.com\/Andreasniss\//m.test(raw)) failures.push(`Reference points to an Andreas-owned fork in ${relative}`);

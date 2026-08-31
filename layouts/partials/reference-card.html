@@ -15,6 +15,7 @@
     <div class="entry-meta">
       <span>{{ .Params.format }}</span>
       <span>By {{ .Params.creator }}</span>
+      <span class="affiliation-chip">{{ .Params.affiliation }}</span>
     </div>
     <h3><a href="{{ $sourceURL }}">{{ .Title }}</a></h3>
     {{ with .Params.why }}<p class="reference-note">{{ . }}</p>{{ else }}<p class="reference-note">{{ .Description }}</p>{{ end }}

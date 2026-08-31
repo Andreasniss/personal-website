@@ -63,8 +63,10 @@ validator enforces this). Section-specific requirements:
   `evidenceRows`, and `limitations`. The validator checks that contract and
   the architecture asset. Keep every claim tied to the reviewed project head.
 - **`content/talks/*.md`**: `format`, `weight`, an explicit `draft` value, and a complete title, question or abstract, audience, verified delivery scope, discussion path, participant outcome, and inspectable public artifact. Keep unreviewed or hypothetical material in draft. A published page must distinguish the larger program from the material Andreas personally built and delivered.
-- **`content/work-i-love/*.md`**: `creator`, `format`, `sourceURL` (must be
-  `https://...`), `why`, `weight`. `sourceURL` must not point at a
+- **`content/work-i-love/*.md`**: `creator`, `format`, `affiliation`,
+  `sourceURL` (must be `https://...`), `why`, `weight`. `affiliation` names
+  the creator's current publicly documented employer or `Independent`.
+  `sourceURL` must not point at a
   `github.com/Andreasniss/...` fork; this section is for external work
   Andreas did not author. See the curated references contract in
   `README.md` before adding one.

@@ -118,7 +118,8 @@ Every reference must:
 1. Link directly to the original article, blog, or repository, never an unchanged fork.
 2. Name the original creator or organization.
 3. Include a short, personal explanation of why the work is useful.
-4. Avoid language that implies authorship, contribution, affiliation, or endorsement.
+4. Show the creator's current publicly documented affiliation, using `Independent` when no employer is relevant.
+5. Avoid language that implies authorship, contribution, or endorsement. The affiliation label is descriptive only.
 
 ## Cross-channel publishing contract
 

@@ -627,6 +627,18 @@ svg {
   content: "•";
 }
 
+.entry-card .entry-meta .affiliation-chip {
+  padding: 4px 9px;
+  border: 1px solid rgb(255 157 61 / 45%);
+  border-radius: 999px;
+  color: var(--accent-warm);
+  letter-spacing: 0.04em;
+}
+
+.entry-card .entry-meta .affiliation-chip::before {
+  content: none;
+}
+
 .workshop-callout,
 .impact-callout {
   display: grid;
