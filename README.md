@@ -11,7 +11,7 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 - Project pages grounded in verified public repositories or owned live demos
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
 - A Selected Impact page that separates public proof, professional scope, and personally owned workshop material
-- A reviewed workshop page with public-safe artifacts and explicit ownership boundaries
+- A reviewed workshop page with public-safe artifacts, explicit ownership boundaries, AWS learning entry points, and a personally completed shortlist of AWS-authored AI workshops
 - About page, RSS, sitemap support, social metadata, 404 page, and responsive styles
 - Page-specific 1200 by 630 Open Graph images generated from one reproducible visual system
 - Shared GitHub profile mark used in the header, browser icon, Apple touch icon, and social metadata
