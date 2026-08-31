@@ -7,7 +7,7 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 ## What is included
 
 - Homepage with positioning, selected projects, and selected writing
-- Writing archive with three launch articles and two verified imports from Andreas's published LinkedIn activity
+- Writing archive with four website-origin articles and three verified imports from Andreas's published LinkedIn activity
 - Project pages grounded in verified public repositories or owned live demos
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
 - A Selected Impact page that separates public proof, professional scope, and personally owned workshop material
