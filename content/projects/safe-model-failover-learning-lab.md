@@ -11,6 +11,7 @@ tags:
   - reliability
   - safety controls
 demoURL: "https://model-failover-learning-lab.andreas-nissen.chatgpt.site"
+demoLabel: "ChatGPT Sites demo"
 image: "/images/projects/model-failover-learning-lab.jpg"
 imageAlt: "Safe Model Failover Learning Lab introducing what an application should do when an AI model fails."
 socialImage: "/images/social/safe-model-failover.png"
@@ -34,6 +35,10 @@ Exercises save answers and scores locally without asking learners to estimate co
 The tutorial compares provider-managed capacity and model-routing features across AWS, Google Cloud, Microsoft Azure, OCI, and IBM Cloud. It makes the ownership boundary explicit: managed routing may reduce failures, but the application still owns its retry budget, backup approvals, tool state, and recovery of dependent services.
 
 The deterministic policy honors provider delay signals such as `Retry-After`. A fallback is allowed only when its model, Region, and tools are allow-listed and its safety controls, output schema, capability, and data boundary remain compatible. State-changing tool work blocks retry and fallback unless idempotency protection is explicit.
+
+## Deployment choice
+
+The interactive tutorial is hosted on ChatGPT Sites to provide a zero-setup learning path. The material remains provider-neutral: it compares provider-managed routing while keeping retry budgets, approved backups, tool state, and recovery decisions at the application boundary. This website is the canonical project record, and the hosting choice does not imply OpenAI review or endorsement.
 
 ## What it demonstrates
 
