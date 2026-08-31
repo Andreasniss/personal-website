@@ -38,12 +38,13 @@ for (const file of htmlFiles) {
   const html = fs.readFileSync(file, "utf8");
   const relative = path.relative(publicRoot, file);
 
-  for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
-    const target = localTarget(match[1]);
-    if (target && !fs.existsSync(target)) failures.push(`Broken internal reference in ${relative}: ${match[1]}`);
+  for (const match of html.matchAll(/(?:href|src)=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/g)) {
+    const reference = match[1] || match[2] || match[3];
+    const target = localTarget(reference);
+    if (target && !fs.existsSync(target)) failures.push(`Broken internal reference in ${relative}: ${reference}`);
   }
 
-  for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+  for (const match of html.matchAll(/<script[^>]+type=(?:"application\/ld\+json"|'application\/ld\+json'|application\/ld\+json)[^>]*>([\s\S]*?)<\/script>/g)) {
     try {
       JSON.parse(match[1]);
     } catch (error) {
