@@ -99,3 +99,7 @@ The model boundary centralizes calls and implements bounded retry behavior for t
 - Credential-free tests can exercise routing, grounding, tool use, and failure handling.
 - Observability can remain useful without collecting model content by default.
 - CI can audit the exact locked runtime dependency set instead of an approximate environment.
+
+## Related writing
+
+[The Hard Part of Agentic AI Starts After the Demo](/writing/agentic-ai-after-the-demo/) places this reference inside a wider production architecture. [How I Review AI-Built Public Work Without Outsourcing Judgment](/writing/reviewing-ai-built-public-work/) explains the claim, evidence, attribution, and release standard applied across the repository and this case study.

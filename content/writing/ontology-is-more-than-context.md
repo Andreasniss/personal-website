@@ -2,6 +2,16 @@
 title: "An Ontology Is More Than Context"
 date: 2026-08-28
 description: "Context is the evidence available now. An ontology defines what the entities, relationships, and rules in that evidence mean."
+primaryTopic: "Agent architecture"
+evidenceLabel: "Architecture analysis"
+lastVerified: 2026-08-31
+keyPoints:
+  - "Context is the evidence available for the current decision."
+  - "An ontology defines the durable meaning of entities, relationships, and rules."
+  - "The distinction matters when several systems must interpret the same business concept consistently."
+proofLinks:
+  - label: "Read the context and control companion"
+    url: "/writing/context-and-control/"
 socialImage: "/images/social/ontology-context.png"
 socialImageAlt: "An Ontology Is More Than Context, an article by Andreas Nissen."
 tags:

@@ -10,6 +10,10 @@
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 January 2006" }}</time>
           <span>{{ .ReadingTime }} min read</span>
         </div>
+        <div class="article-evidence-meta" aria-label="Article evidence">
+          <span>{{ .Params.evidenceLabel }}</span>
+          <span>Verified {{ time.Format "02 January 2006" .Params.lastVerified }}</span>
+        </div>
         {{ if eq .Params.origin "linkedin" }}
           <p class="article-origin">
             First published on <a href="{{ .Params.linkedinURL }}" rel="noreferrer">LinkedIn</a>{{ with .Params.xURL }}; adapted for <a href="{{ . }}" rel="noreferrer">X</a>{{ end }}.
@@ -27,6 +31,19 @@
         </div>
       {{ end }}
     </header>
+    {{ if eq .Section "writing" }}
+      <aside class="article-brief" aria-labelledby="article-brief-title">
+        <p class="eyebrow warm" id="article-brief-title">The short version</p>
+        <ul>
+          {{ range .Params.keyPoints }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ with .Params.proofLinks }}
+          <div class="proof-actions" aria-label="Article proof links">
+            {{ range . }}<a class="action-link" href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} rel="noreferrer"{{ end }}>{{ .label }}</a>{{ end }}
+          </div>
+        {{ end }}
+      </aside>
+    {{ end }}
     {{ if eq .Section "projects" }}{{ partial "project-evidence.html" (dict "page" . "phase" "lead") }}{{ end }}
     {{ if not .Params.hideDetailImage }}
       {{ with .Params.image }}
@@ -38,6 +55,19 @@
     <div class="prose">
       {{ .Content }}
     </div>
+    {{ if and (eq .Section "writing") .Params.series }}
+      {{ $series := where .Site.RegularPages "Section" "writing" }}
+      {{ $series = where $series "Params.series" .Params.series }}
+      {{ $series = sort $series "Params.seriesOrder" }}
+      <nav class="article-series" aria-label="Article series">
+        <p class="eyebrow warm">Series: {{ .Params.series }}</p>
+        <ol>
+          {{ range $series }}
+            <li{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ol>
+      </nav>
+    {{ end }}
     {{ if eq .Section "projects" }}{{ partial "project-evidence.html" (dict "page" . "phase" "details") }}{{ end }}
     {{ if or .Params.relatedProjectURL .Params.relatedArticleURL .Params.repoURL .Params.demoURL }}
       <aside class="related-evidence" aria-label="Related evidence">

@@ -7,7 +7,7 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 ## What is included
 
 - Homepage with positioning, selected projects, and selected writing
-- Writing archive with three launch articles and two verified imports from Andreas's published LinkedIn activity
+- Evidence-led writing archive with article search, controlled topic filters, proof links, verification dates, and series navigation
 - Project pages grounded in verified public repositories or owned live demos
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
 - A Selected Impact page that separates public proof, professional scope, and personally owned workshop material
@@ -65,6 +65,21 @@ layouts/
 assets/css/
 static/
 ```
+
+## Evidence-led article contract
+
+Every published article states what supports the argument instead of presenting all writing as the same kind of evidence. Frontmatter provides a controlled primary topic, an evidence label, a verification date, at least three key points, and proof links when a public project, repository, source, or test supports the article. The shared template renders those fields before the prose and builds series navigation when `series` and `seriesOrder` are set.
+
+Use the evidence label precisely:
+
+- `Tested project analysis` when a public repository or deterministic test supports the claims.
+- `Architecture analysis` when the article applies documented system boundaries without claiming an empirical benchmark.
+- `Operating experience` when the article draws from Andreas's sustained personal workflow and avoids confidential details.
+- `Source-backed explainer` when cited public sources carry the factual claims.
+
+Do not use measured language unless the repository exposes the measurement method and result. A missing benchmark is a limitation to state, not a result to infer.
+
+The writing index uses the controlled `primaryTopic` vocabulary from `content/writing/_index.md`. Add a new topic only when several articles need it. Free-form `tags` remain available for narrower discovery.
 
 The private Obsidian vault remains the research backend. Public content is promoted manually into this repository after a confidentiality and claims review.
 

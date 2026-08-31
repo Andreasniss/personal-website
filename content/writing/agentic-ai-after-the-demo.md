@@ -2,6 +2,16 @@
 title: "The Hard Part of Agentic AI Starts After the Demo"
 date: 2026-06-15
 description: "A working prototype proves possibility. Production requires a separate discipline for autonomy, reliability, security, cost, and operations."
+primaryTopic: "Reliability"
+evidenceLabel: "Architecture analysis"
+lastVerified: 2026-08-31
+keyPoints:
+  - "A successful demo proves a capability path, not production readiness."
+  - "Reliability, security, cost, and operations need explicit controls and tests."
+  - "The production boundary should stay visible in architecture and evidence."
+proofLinks:
+  - label: "Inspect the Mistral Reliability Lab"
+    url: "https://github.com/Andreasniss/Mistral-playground"
 socialImage: "/images/social/agentic-ai-after-demo.png"
 socialImageAlt: "The Hard Part of Agentic AI Starts After the Demo, an article by Andreas Nissen."
 tags:
@@ -16,6 +26,8 @@ image: "/images/articles/agentic-ai-after-demo.jpg"
 imageAlt: "Original LinkedIn infographic about the engineering work required after an agentic AI demo succeeds."
 relatedProjectURL: "/projects/mistral-playground/"
 relatedProjectTitle: "Mistral Reliability Lab"
+series: "Reliable Agent Systems"
+seriesOrder: 1
 ---
 
 The hard part of agentic AI is not building the agent.

@@ -16,8 +16,8 @@ image: "/images/projects/model-failover-learning-lab.jpg"
 imageAlt: "Safe Model Failover Learning Lab introducing what an application should do when an AI model fails."
 socialImage: "/images/social/safe-model-failover.png"
 socialImageAlt: "Safe Model Failover Learning Lab, an interactive reliability lab by Andreas Nissen."
-relatedArticleURL: "/writing/context-and-control/"
-relatedArticleTitle: "Context and Control Are Different Layers"
+relatedArticleURL: "/writing/model-failover-is-policy/"
+relatedArticleTitle: "Model Failover Is a Policy Decision"
 ---
 
 ## The problem

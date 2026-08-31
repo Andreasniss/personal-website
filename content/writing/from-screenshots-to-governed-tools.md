@@ -2,6 +2,18 @@
 title: "From Screenshots to Governed Tools"
 date: 2026-08-29
 description: "Agent-friendly interfaces should expose structured operations without taking the human operator out of the loop."
+primaryTopic: "Tool interfaces"
+evidenceLabel: "Tested project analysis"
+lastVerified: 2026-08-31
+keyPoints:
+  - "Screens expose pixels; governed tools expose typed operations and policy intent."
+  - "The human interface should remain the shared place for approval and evidence."
+  - "Negative-path tests matter more than a smooth happy-path demonstration."
+proofLinks:
+  - label: "Inspect Runbook Relay"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp"
+  - label: "Review its contract tests"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
 socialImage: "/images/social/governed-tools.png"
 socialImageAlt: "From Screenshots to Governed Tools, an article by Andreas Nissen."
 tags:
@@ -15,6 +27,8 @@ image: "/images/projects/runbook-relay-webmcp.png"
 imageAlt: "Runbook Relay WebMCP incident-response interface with scoped tools, desktop setup guidance, and a human-approval boundary."
 relatedProjectURL: "/projects/runbook-relay/"
 relatedProjectTitle: "Runbook Relay WebMCP Demo"
+series: "Reliable Agent Systems"
+seriesOrder: 3
 ---
 
 An agent can use a website by looking at pixels, clicking controls, and reading the result. That is powerful because it works without changing the application.

@@ -39,9 +39,21 @@
         {{ range .Pages.ByWeight }}{{ partial "project-card.html" . }}{{ end }}
       </div>
     {{ else if eq .Section "writing" }}
-      <div class="entry-list">
+      <div class="writing-tools" data-writing-tools>
+        <label for="writing-search">Search the writing</label>
+        <input id="writing-search" type="search" aria-label="Search titles, topics, and summaries" autocomplete="off" data-writing-search>
+        <div class="topic-filters" aria-label="Filter writing by topic">
+          <button type="button" class="topic-filter is-active" data-topic-filter="all" aria-pressed="true">All</button>
+          {{ range .Params.topics }}
+            <button type="button" class="topic-filter" data-topic-filter="{{ . | urlize }}" aria-pressed="false">{{ . }}</button>
+          {{ end }}
+        </div>
+        <p class="writing-result-count" aria-live="polite" data-writing-count></p>
+      </div>
+      <div class="entry-list" data-writing-list>
         {{ range .Pages.ByDate.Reverse }}{{ partial "article-card.html" . }}{{ end }}
       </div>
+      <noscript><p class="writing-noscript">Search and topic filters require JavaScript. Every article remains available in the list above.</p></noscript>
     {{ else if eq .Section "work-i-love" }}
       <div class="entry-list">
         {{ range .Pages.ByWeight }}{{ partial "reference-card.html" . }}{{ end }}

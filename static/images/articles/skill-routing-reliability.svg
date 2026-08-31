@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Skill routing evaluation</title>
+  <desc id="desc">Positive, negative, overlap, and stale cases pass through a selector before a bounded workflow executes.</desc>
+  <rect width="1200" height="700" fill="#141817"/>
+  <text x="70" y="80" fill="#f4f1ea" font-family="Georgia,serif" font-size="50">Test the route before the workflow</text>
+  <g font-family="Arial,sans-serif">
+    <g fill="#1d2321" stroke-width="2">
+      <rect x="70" y="150" width="220" height="80" rx="18" stroke="#45aaa2"/>
+      <rect x="70" y="255" width="220" height="80" rx="18" stroke="#ff9d3d"/>
+      <rect x="70" y="360" width="220" height="80" rx="18" stroke="#ff9d3d"/>
+      <rect x="70" y="465" width="220" height="80" rx="18" stroke="#ff6b6b"/>
+    </g>
+    <g fill="#f4f1ea" font-size="23" font-weight="700" text-anchor="middle">
+      <text x="180" y="200">Positive cases</text><text x="180" y="305">Negative cases</text><text x="180" y="410">Overlap cases</text><text x="180" y="515">Stale cases</text>
+    </g>
+    <path d="M290 190 H430 M290 295 H430 M290 400 H430 M290 505 H430" stroke="#53615b" stroke-width="3"/>
+    <rect x="430" y="250" width="300" height="190" rx="24" fill="#26302c" stroke="#72cfc7" stroke-width="3"/>
+    <text x="580" y="315" text-anchor="middle" fill="#72cfc7" font-size="25" font-weight="700">SKILL SELECTOR</text>
+    <text x="580" y="360" text-anchor="middle" fill="#f4f1ea" font-size="23">Topic + boundary</text>
+    <text x="580" y="397" text-anchor="middle" fill="#aab3ae" font-size="20">Freshness + authority</text>
+    <path d="M730 345 H840" stroke="#72cfc7" stroke-width="4"/>
+    <rect x="840" y="250" width="290" height="190" rx="24" fill="#1d2321" stroke="#ff9d3d" stroke-width="3"/>
+    <text x="985" y="315" text-anchor="middle" fill="#ff9d3d" font-size="25" font-weight="700">BOUNDED ROUTE</text>
+    <text x="985" y="360" text-anchor="middle" fill="#f4f1ea" font-size="23">Right owner</text>
+    <text x="985" y="397" text-anchor="middle" fill="#aab3ae" font-size="20">Right scope and permissions</text>
+    <text x="600" y="615" text-anchor="middle" fill="#aab3ae" font-size="22">Score consequences, not only selection accuracy</text>
+  </g>
+</svg>
