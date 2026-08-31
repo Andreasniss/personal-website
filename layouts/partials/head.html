@@ -45,7 +45,7 @@
   "jobTitle" "Senior Solutions Architect"
   "description" site.Params.description
   "image" $profileImage
-  "sameAs" (slice site.Params.githubURL site.Params.linkedinURL site.Params.xURL)
+  "sameAs" (slice site.Params.githubURL site.Params.linkedinURL)
 ) | jsonify (dict "indent" "  ") | safeJS }}
 </script>
 {{ end }}
