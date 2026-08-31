@@ -8,6 +8,7 @@
   --accent: #45aaa2;
   --accent-light: #72cfc7;
   --accent-dark: #72cfc7;
+  --accent-warm: #ff9d3d;
   --focus: #72cfc7;
   --max: 1180px;
   --narrow: 760px;
@@ -107,15 +108,12 @@ svg {
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
   width: 42px;
   height: 42px;
-  place-items: center;
   border-radius: 11px;
-  color: var(--paper);
-  background: var(--accent-light);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
+  border: 1px solid var(--line);
+  object-fit: cover;
 }
 
 .brand-name {
@@ -170,7 +168,7 @@ svg {
   bottom: 0;
   left: 0;
   height: 2px;
-  background: var(--accent);
+  background: var(--accent-warm);
   content: "";
 }
 
@@ -190,6 +188,10 @@ svg {
   letter-spacing: 0.13em;
   line-height: 1.3;
   text-transform: uppercase;
+}
+
+.eyebrow.warm {
+  color: var(--accent-warm);
 }
 
 .hero h1,
@@ -479,7 +481,7 @@ svg {
 
 .entry-card .entry-meta span::before {
   margin-right: 10px;
-  color: var(--accent);
+  color: var(--accent-warm);
   content: "•";
 }
 
@@ -669,7 +671,7 @@ svg {
 
 .footer-heading {
   margin: 0 0 16px;
-  color: var(--ink-soft);
+  color: var(--accent-warm);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;

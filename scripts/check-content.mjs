@@ -15,7 +15,7 @@ const required = [
   "layouts/404.html",
   "layouts/partials/footer.html",
   "assets/css/main.css",
-  "static/favicon.svg",
+  "static/images/profile-mark.png",
   "static/icons/github.svg",
   "static/icons/linkedin-in.svg",
   "static/icons/x-twitter.svg",
@@ -147,6 +147,15 @@ for (const destination of ["GitHub profile", "LinkedIn", "X", "RSS feed"]) {
   if (!footer.includes(destination)) failures.push(`Footer destination is missing: ${destination}`);
 }
 
+const header = fs.readFileSync(path.join(root, "layouts/partials/header.html"), "utf8");
+if (!header.includes('images/profile-mark.png')) failures.push("GitHub profile mark is missing from the site header");
+if (header.includes('>AN<')) failures.push("Generic AN header tile is still present");
+
+const head = fs.readFileSync(path.join(root, "layouts/partials/head.html"), "utf8");
+for (const identitySurface of ["rel=\"icon\"", "rel=\"apple-touch-icon\"", "og:image", "twitter:image"]) {
+  if (!head.includes(identitySurface)) failures.push(`Profile mark metadata is missing: ${identitySurface}`);
+}
+
 const config = fs.readFileSync(path.join(root, "hugo.yaml"), "utf8");
 if (!config.includes('baseURL: "https://andreasnissen.dev/"')) failures.push("Production base URL is missing or incorrect");
 if (!config.includes('sourceURL: "https://github.com/Andreasniss/personal-website"')) failures.push("Verified public source URL is missing or incorrect");
@@ -161,8 +170,8 @@ const talkDraft = fs.readFileSync(path.join(root, "content/talks/reliable-agents
 if (!/^draft:\s*true$/m.test(talkDraft)) failures.push("Unreviewed individual talk source must remain a draft");
 
 const homepage = fs.readFileSync(path.join(root, "layouts/index.html"), "utf8");
-if (!homepage.includes("Reviewed talk pages and materials will be added here as they become available")) {
-  failures.push("Homepage Talks callout must state that reviewed materials are still to be added");
+if (!homepage.includes("Each topic will be published when the material is ready to stand on its own")) {
+  failures.push("Homepage Talks callout must state that topics are still in development");
 }
 
 for (const relative of ["layouts/index.llmstxt.txt", "layouts/index.json.json", "assets/js/webmcp.js"]) {

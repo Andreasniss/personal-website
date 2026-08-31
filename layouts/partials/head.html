@@ -1,5 +1,6 @@
 {{- $description := .Description | default .Summary | default site.Params.description -}}
 {{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
+{{- $profileImage := "images/profile-mark.png" | absURL -}}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="{{ site.Params.author }}">
@@ -7,7 +8,8 @@
 <meta name="theme-color" content="#141817">
 <title>{{ $title }}</title>
 <link rel="canonical" href="{{ .Permalink }}">
-<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="icon" href="{{ "images/profile-mark.png" | relURL }}" type="image/png">
+<link rel="apple-touch-icon" href="{{ "images/profile-mark.png" | relURL }}">
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">{{ end }}
 {{ with .OutputFormats.Get "markdown" }}<link rel="alternate" type="text/markdown" title="Markdown source" href="{{ .RelPermalink }}">{{ end }}
 {{ if .IsHome }}<link rel="alternate" type="text/plain" title="llms.txt" href="{{ "llms.txt" | relURL }}">
@@ -17,7 +19,9 @@
 <meta property="og:description" content="{{ $description | plainify }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:image" content="{{ $profileImage }}">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="{{ $profileImage }}">
 {{ if or .IsHome (eq .Section "about") }}
 <script type="application/ld+json">
 {{- (dict
@@ -27,6 +31,7 @@
   "url" site.Home.Permalink
   "jobTitle" "Senior Solutions Architect"
   "description" site.Params.description
+  "image" $profileImage
   "sameAs" (slice site.Params.githubURL site.Params.linkedinURL site.Params.xURL)
 ) | jsonify (dict "indent" "  ") | safeJS }}
 </script>
