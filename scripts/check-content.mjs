@@ -204,9 +204,10 @@ const referenceFiles = contentFiles.filter((file) => file.includes(`${path.sep}w
 for (const file of referenceFiles) {
   const raw = fs.readFileSync(file, "utf8");
   const relative = path.relative(root, file);
+  const frontmatter = raw.match(/^---\n([\s\S]*?)\n---\n/)?.[1] ?? "";
   if (!/^creator:\s*".+"$/m.test(raw)) failures.push(`Missing original creator in ${relative}`);
   if (!/^format:\s*".+"$/m.test(raw)) failures.push(`Missing reference format in ${relative}`);
-  if (!/^affiliation:\s*".+"$/m.test(raw)) failures.push(`Missing current affiliation in ${relative}`);
+  if (!/^affiliation:\s*".+"$/m.test(frontmatter)) failures.push(`Missing current affiliation in ${relative}`);
   if (!/^sourceURL:\s*"https:\/\/.+"$/m.test(raw)) failures.push(`Missing original source URL in ${relative}`);
   if (!/^why:\s*".+"$/m.test(raw)) failures.push(`Missing personal recommendation in ${relative}`);
   if (/sourceURL:\s*"https:\/\/github\.com\/Andreasniss\//m.test(raw)) failures.push(`Reference points to an Andreas-owned fork in ${relative}`);
