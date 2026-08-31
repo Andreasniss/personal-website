@@ -9,7 +9,7 @@ tags:
 origin: "website"
 featured: true
 draft: false
-image: "/images/articles/ontology-semantic-model.png"
+image: "/images/articles/ontology-semantic-model.webp"
 imageAlt: "A stream of temporary evidence resolving into a structured network of typed entities and relationships."
 ---
 
