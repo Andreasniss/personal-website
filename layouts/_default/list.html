@@ -1,6 +1,6 @@
 {{ define "main" }}
   <section class="page-hero shell narrow">
-    <p class="eyebrow">{{ .Section | default "Index" }}</p>
+    <p class="eyebrow{{ if eq .Section "talks" }} warm{{ end }}">{{ .Section | default "Index" }}</p>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
     {{ with .Content }}<div class="prose intro-copy">{{ . }}</div>{{ end }}

@@ -12,6 +12,7 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
 - An honest Talks direction page that avoids claiming speaking history
 - About page, RSS, sitemap support, social metadata, 404 page, and responsive styles
+- Shared GitHub profile mark used in the header, browser icon, Apple touch icon, and social metadata
 - Persistent creator attribution linking to Andreas's verified GitHub profile
 - No external theme, web font, JavaScript framework, analytics, or CMS dependency
 

@@ -1,8 +1,15 @@
 ---
 title: "Talks & Workshops"
-description: "Talk topics in development, with reviewed materials added as they become available."
+description: "Practical talk topics in development, with reviewed materials added when they are ready to stand on their own."
 ---
 
-I am developing practical talks around production-agent architecture, reliability, evaluation, and governance.
+I am shaping practical talks around how enterprise agents fail, what evidence they need, and which controls make them operable.
 
-Reviewed talk pages and supporting materials will be added here as they become available. Until then, this page is a transparent statement of direction rather than a record of past speaking engagements.
+## Topics in development
+
+- Moving agentic AI from prototype to operable system
+- Separating context, ontology, and execution control
+- Evaluating agent behavior, policy compliance, and outcomes
+- Designing observability and human approval into the architecture
+
+Reviewed talk pages and supporting materials will appear here as they become available. This roadmap does not claim past speaking engagements.
