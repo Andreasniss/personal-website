@@ -56,7 +56,7 @@ make_card "agentic-ai-after-demo.png" "Article" "The Hard Part Starts After the 
 make_card "context-and-control.png" "Article" "Context and Control Are Different Layers" "Why better information does not replace execution boundaries."
 make_card "governed-tools.png" "Article" "From Screenshots to Governed Tools" "What WebMCP changes about agent-facing interfaces."
 make_card "ontology-context.png" "Article" "Ontology Is More Than Context" "How shared meaning becomes an operational boundary."
+make_card "agent-skill-library.png" "Article" "8 Rules for Running an AI Agent Skill Library" "How to keep agent skills maintainable, routable, and trustworthy."
 make_card "builder-sandboxes.png" "Article" "Free AWS Builder Center Sandboxes" "A practical path into hands-on agentic AI learning."
-make_card "agent-skill-library.png" "Article" "8 Rules for Running an AI Agent Skill Library" "Maintenance, routing, structure, and trust after seven months of operation."
 
 identify "$output_dir"/*.png

@@ -1,6 +1,6 @@
 ---
 title: "Safe Model Failover Learning Lab"
-description: "An interactive reliability lab for bounded retries, policy-safe fallback, circuit breaking, and fail-closed model routing."
+description: "A beginner-friendly tutorial for retrying, switching to an approved backup, or stopping safely when an AI model fails."
 role: "Creator and release owner"
 year: 2026
 weight: 15
@@ -12,7 +12,7 @@ tags:
   - safety controls
 demoURL: "https://model-failover-learning-lab.andreas-nissen.chatgpt.site"
 image: "/images/projects/model-failover-learning-lab.jpg"
-imageAlt: "Safe Model Failover Learning Lab showing a 429 and 503 incident scenario with retry, fallback, and stop decisions."
+imageAlt: "Safe Model Failover Learning Lab introducing what an application should do when an AI model fails."
 socialImage: "/images/social/safe-model-failover.png"
 socialImageAlt: "Safe Model Failover Learning Lab, an interactive reliability lab by Andreas Nissen."
 relatedArticleURL: "/writing/context-and-control/"
@@ -27,14 +27,16 @@ For tool-using agents, retrying is more consequential still. A tool may already 
 
 ## What I built
 
-The Safe Model Failover Learning Lab is a browser-local, retrieval-first exercise for choosing exactly one terminal action: retry, use an approved fallback, or stop. Learners classify realistic failures, spend bounded attempt and elapsed-time budgets, step through a closed, open, and half-open circuit breaker, and resolve a mixed 503 and 429 incident.
+The Safe Model Failover Learning Lab is a browser-local tutorial for choosing exactly one action: wait and retry, use an approved backup, or stop safely. It now teaches the decision in plain language before asking learners to practise it. A simple request, failure, and decision walkthrough leads into a glossary, a guided incident, short exercises, and an optional knowledge check.
+
+The tutorial compares provider-managed capacity and model-routing features across AWS, Google Cloud, Microsoft Azure, OCI, and IBM Cloud. It makes the ownership boundary explicit: managed routing may reduce failures, but the application still owns its retry budget, backup approvals, tool state, and recovery of dependent services.
 
 The deterministic policy honors provider delay signals such as `Retry-After`. A fallback is allowed only when its model, Region, and tools are allow-listed and its safety controls, output schema, capability, and data boundary remain compatible. State-changing tool work blocks retry and fallback unless idempotency protection is explicit.
 
 ## What it demonstrates
 
 - A retry must fit the provider delay, attempt limit, and end-to-end latency budget.
-- Cross-Region inference distributes capacity; it is not a substitute for an application recovery plan.
+- Provider capacity routing can improve availability; it is not a substitute for an application recovery plan.
 - A circuit breaker protects dependencies and reopens through a controlled half-open probe.
 - Availability never expands the approved safety, schema, residency, or tool boundary.
 - Every routing decision should record its classification, budgets, circuit state, approvals, action, and reason.
@@ -43,6 +45,6 @@ The deterministic policy honors provider delay signals such as `Retry-After`. A 
 
 The current version passes 50 deterministic policy and evidence-store tests plus its production build. The lab contains no credentials, analytics, backend calls, remote fonts, or model-provider calls. Learning evidence stays in browser storage and can be exported or reset.
 
-The August 2026 quality upgrade was grounded in a 30-source Exa review across three workstreams. The final content prioritizes current primary guidance from Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry, with the linked sources available inside the lab.
+The August 2026 tutorial upgrade reviewed 60 Exa search results across eight provider-focused searches, then validated the final guidance against ten current first-party documentation pages from AWS, Google Cloud, Microsoft Azure, OCI, and IBM Cloud. The linked sources are available inside the lab.
 
-This is an independent learning and portfolio project, not a production router, availability benchmark, or service endorsed by AWS, OpenAI, Microsoft, Google, or any model provider.
+This is a demo learning lab for understanding production model failover patterns. It is not a production router, availability benchmark, or service endorsed by AWS, OpenAI, Microsoft, Google, Oracle, IBM, or any model provider.

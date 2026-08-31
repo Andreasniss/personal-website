@@ -2,8 +2,6 @@
 title: "8 Rules for Running an AI Agent Skill Library"
 date: 2026-06-01
 description: "What seven months of operating roughly 100 agent skills taught me about maintenance, routing, structure, and trust."
-socialImage: "/images/social/agent-skill-library.png"
-socialImageAlt: "8 Rules for Running an AI Agent Skill Library, an article by Andreas Nissen."
 tags:
   - AI agents
   - agent skills
@@ -16,6 +14,8 @@ draft: false
 skillCards: true
 image: "/images/articles/agent-skill-library.svg"
 imageAlt: "Eight operating rules for an AI agent skill library, arranged as a compact card system."
+socialImage: "/images/social/agent-skill-library.png"
+socialImageAlt: "8 Rules for Running an AI Agent Skill Library by Andreas Nissen."
 ---
 
 Building an agent skill is cheap. Importing one is even cheaper.
