@@ -14,6 +14,8 @@ draft: false
 skillCards: true
 image: "/images/articles/agent-skill-library.svg"
 imageAlt: "Eight operating rules for an AI agent skill library, arranged as a compact card system."
+socialImage: "/images/social/agent-skill-library.png"
+socialImageAlt: "8 Rules for Running an AI Agent Skill Library by Andreas Nissen."
 ---
 
 Building an agent skill is cheap. Importing one is even cheaper.
