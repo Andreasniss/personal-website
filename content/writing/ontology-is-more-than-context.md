@@ -2,6 +2,8 @@
 title: "An Ontology Is More Than Context"
 date: 2026-08-28
 description: "Context is the evidence available now. An ontology defines what the entities, relationships, and rules in that evidence mean."
+socialImage: "/images/social/ontology-context.png"
+socialImageAlt: "An Ontology Is More Than Context, an article by Andreas Nissen."
 tags:
   - ontology
   - knowledge graphs

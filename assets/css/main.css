@@ -355,7 +355,8 @@ svg {
 }
 
 .section-heading h2,
-.workshop-callout h2 {
+.workshop-callout h2,
+.impact-callout h2 {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.2rem, 4.6vw, 4.1rem);
@@ -579,13 +580,15 @@ svg {
   content: "•";
 }
 
-.workshop-callout {
+.workshop-callout,
+.impact-callout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(30px, 8vw, 120px);
 }
 
-.workshop-callout p:not(.eyebrow) {
+.workshop-callout p:not(.eyebrow),
+.impact-callout p:not(.eyebrow) {
   max-width: 580px;
   margin-top: 0;
   color: var(--ink-soft);
@@ -1233,6 +1236,7 @@ svg {
 @media (max-width: 900px) {
   .hero,
   .workshop-callout,
+  .impact-callout,
   .about-hero {
     grid-template-columns: 1fr;
   }

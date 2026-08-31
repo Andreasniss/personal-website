@@ -62,7 +62,7 @@ validator enforces this). Section-specific requirements:
   `architectureImage`, `architectureAlt`, `architectureCaption`,
   `evidenceRows`, and `limitations`. The validator checks that contract and
   the architecture asset. Keep every claim tied to the reviewed project head.
-- **`content/talks/*.md`**: `format`, `weight`, and `draft: true` until Andreas has reviewed and approved the title, abstract, audience, role, takeaways, and an inspectable artifact. The section index and homepage may describe topics in development, but must not imply a past speaking engagement. Do not expose hypothetical or unreviewed individual talk pages in search, machine indexes, or production output.
+- **`content/talks/*.md`**: `format`, `weight`, an explicit `draft` value, and a complete title, question or abstract, audience, verified delivery scope, discussion path, participant outcome, and inspectable public artifact. Keep unreviewed or hypothetical material in draft. A published page must distinguish the larger program from the material Andreas personally built and delivered.
 - **`content/work-i-love/*.md`**: `creator`, `format`, `sourceURL` (must be
   `https://...`), `why`, `weight`. `sourceURL` must not point at a
   `github.com/Andreasniss/...` fork; this section is for external work
@@ -70,6 +70,8 @@ validator enforces this). Section-specific requirements:
   `README.md` before adding one.
 
 Use `hugo new content/<section>/<slug>.md` to scaffold from the archetype.
+
+Every article, project, talk, About page, Talks index, and Selected Impact page carries a page-specific 1200 by 630 PNG in `socialImage` plus useful `socialImageAlt`. Generate the current visual system with `scripts/generate-social-images.sh`; do not replace a real product screenshot with generated interface imagery.
 
 ## Templates and output formats
 

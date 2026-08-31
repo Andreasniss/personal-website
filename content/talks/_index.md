@@ -1,15 +1,14 @@
 ---
 title: "Talks & Workshops"
-description: "Practical talk topics in development, with reviewed materials added when they are ready to stand on their own."
+description: "Verified workshop experience and practical material on evaluation, policy controls, and reliable enterprise agents."
+socialImage: "/images/social/talks.png"
+socialImageAlt: "Talks and workshops by Andreas Nissen on reliable enterprise AI."
 ---
 
-I am shaping practical talks around how enterprise agents fail, what evidence they need, and which controls make them operable.
+I design practical sessions around how enterprise agents fail, what evidence they need, and which controls make them operable.
 
-## Topics in development
+## Verified delivery
 
-- Moving agentic AI from prototype to operable system
-- Separating context, ontology, and execution control
-- Evaluating agent behavior, policy compliance, and outcomes
-- Designing observability and human approval into the architecture
+I helped run an Amazon Bedrock AgentCore Immersion Day for more than 100 participants. I separately designed and delivered a custom evaluation and policy module extension for a cohort of about 30 participants. Those are two different scopes: the first is the complete learning event, and the second is the material I personally built and taught.
 
-Reviewed talk pages and supporting materials will appear here as they become available. This roadmap does not claim past speaking engagements.
+The reviewed workshop page below links the public articles and reference implementations that make the core architecture argument inspectable without publishing private event materials.

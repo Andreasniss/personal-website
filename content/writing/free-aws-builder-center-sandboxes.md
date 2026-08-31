@@ -2,6 +2,8 @@
 title: "Free AWS Builder Center Sandboxes Make Hands-On Learning Easier"
 date: 2026-07-09
 description: "AWS Builder Center removes the account and credit-card setup that often stops a workshop before the building begins."
+socialImage: "/images/social/builder-sandboxes.png"
+socialImageAlt: "Free AWS Builder Center Sandboxes Make Hands-On Learning Easier, an article by Andreas Nissen."
 tags:
   - AWS
   - hands-on learning

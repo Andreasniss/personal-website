@@ -13,6 +13,8 @@ tags:
 repoURL: "https://github.com/Andreasniss/Mistral-playground"
 image: "/images/projects/mistral-reliability-lab.png"
 imageAlt: "GitHub repository preview for the Mistral Reliability Lab Python project."
+socialImage: "/images/social/mistral-reliability-lab.png"
+socialImageAlt: "Mistral Reliability Lab, an evidence-led agent reliability reference by Andreas Nissen."
 hideDetailImage: true
 relatedArticleURL: "/writing/agentic-ai-after-the-demo/"
 relatedArticleTitle: "The Hard Part of Agentic AI Starts After the Demo"

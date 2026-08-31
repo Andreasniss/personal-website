@@ -17,6 +17,7 @@ Set `origin: "website"` for new canonical articles. Preserve `origin: "linkedin"
 A substantive original publishing package is complete only when:
 
 - a publication-safe article exists under `content/writing/`;
+- its page-specific 1200 by 630 sharing image matches the final title and argument;
 - its claims and source links are current and verified;
 - private, customer, and AWS-confidential details have been removed;
 - the website version has been published, or is explicitly marked review-ready while the site has no live host;
@@ -31,7 +32,7 @@ Reposts, comments, reactions, replies, and private messages are outside this con
 1. Develop the argument privately.
 2. Write the canonical website article in plain Markdown.
 3. Run the content validator and a Hugo build.
-4. Review the article on narrow and wide screens.
+4. Review the article on narrow and wide screens and inspect its Open Graph and X card metadata.
 5. Publish the website article.
 6. Derive distinct LinkedIn and X versions from the verified argument.
 7. Publish each version in its channel-native format.

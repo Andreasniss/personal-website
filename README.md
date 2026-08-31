@@ -10,9 +10,11 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 - Writing archive with three launch articles and two verified imports from Andreas's published LinkedIn activity
 - Project pages grounded in verified public repositories or owned live demos
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
-- An honest Talks direction page that avoids claiming speaking history
-- About page, RSS, sitemap support, branded 1200 × 630 social previews, a 404 page, and responsive styles
-- Shared GitHub profile mark used in the header, browser icon, and Apple touch icon; social shares use a dedicated branded Open Graph card
+- A Selected Impact page that separates public proof, professional scope, and personally owned workshop material
+- A reviewed workshop page with public-safe artifacts and explicit ownership boundaries
+- About page, RSS, sitemap support, social metadata, 404 page, and responsive styles
+- Page-specific 1200 by 630 Open Graph images generated from one reproducible visual system
+- Shared GitHub profile mark used in the header, browser icon, Apple touch icon, and social metadata
 - Persistent creator attribution linking to Andreas's verified GitHub profile
 - No external theme, web font, JavaScript framework, analytics, or CMS dependency
 
@@ -42,7 +44,7 @@ The production URL is <https://andreasnissen.dev/>. Pull requests run the conten
 
 ## Publication checklist
 
-1. Confirm the email/contact choice. The site currently uses LinkedIn and GitHub only.
+1. Keep LinkedIn as the professional contact route unless Andreas explicitly publishes another address. Never infer a domain email.
 2. Review every article and project page for public-safe claims.
 3. Run `node scripts/check-content.mjs` and a real Hugo build.
 4. Inspect the homepage, one article, one project, and the 404 page on narrow and wide screens.
@@ -68,7 +70,11 @@ The private Obsidian vault remains the research backend. Public content is promo
 
 ## Talks publication gate
 
-The public Talks index and homepage callout may describe topics in development, but they must not imply a past speaking engagement. Individual talk pages stay in draft until Andreas has reviewed and approved a real talk package. Each public talk needs a title, abstract, audience, role, takeaways, and at least one inspectable artifact such as slides, a recording, an event page, code, a demo, or a related article. Hypothetical formats and unreviewed drafts are not portfolio evidence.
+Each public talk needs a title, question or abstract, audience, verified delivery scope, discussion path, participant outcome, and at least one inspectable artifact such as slides, a recording, an event page, code, a demo, or a related article. The page must distinguish the larger event from the material Andreas personally owned. Hypothetical formats and unreviewed drafts stay unpublished.
+
+## Social preview images
+
+Published articles, projects, talks, About, Talks, and Selected Impact carry page-specific 1200 by 630 PNG metadata. Run `scripts/generate-social-images.sh` after changing a title or visual label, commit the generated assets, and verify that the built HTML includes the absolute image URL, dimensions, alt text, and `summary_large_image` card type.
 
 ## Evidence-ready project contract
 

@@ -3,6 +3,8 @@ title: "About"
 description: "I work at the point where enterprise architecture, applied AI, and responsible execution meet."
 portrait: "/images/about/andreas-nissen-linkedin.png"
 portraitAlt: "Portrait of Andreas Nissen."
+socialImage: "/images/social/about.png"
+socialImageAlt: "Andreas Nissen, Senior Solutions Architect focused on reliable enterprise AI."
 connectLinks:
   - label: "Connect on LinkedIn"
     detail: "Start a professional conversation"
@@ -34,5 +36,7 @@ My technical focus is agent reliability, LLM evaluation, MCP, identity, policy c
 I prefer concrete systems over abstract capability claims. A useful architecture should expose its assumptions, failure modes, controls, and evidence. A useful demo should let another person inspect what happened and why.
 
 That principle also shapes this site. The projects link to working code or live demonstrations. The articles make the reasoning behind them reusable.
+
+For a compact record of outcomes and public proof, see [Selected Impact](/impact/).
 
 Personal projects and views are my own and do not represent AWS.
