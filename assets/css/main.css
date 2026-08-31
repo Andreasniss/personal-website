@@ -9,6 +9,7 @@
   --accent-light: #72cfc7;
   --accent-dark: #72cfc7;
   --accent-warm: #ff9d3d;
+  --accent-heart: #ff6b6b;
   --focus: #72cfc7;
   --max: 1180px;
   --narrow: 760px;
@@ -16,6 +17,10 @@
   --shadow: 0 18px 45px rgb(0 0 0 / 24%);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
+}
+
+.heart-mark {
+  color: var(--accent-heart);
 }
 
 * {
