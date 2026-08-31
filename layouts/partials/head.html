@@ -1,8 +1,11 @@
 {{- $description := .Description | default .Summary | default site.Params.description -}}
 {{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
 {{- $profileImage := "images/profile-mark.png" | absURL -}}
-{{- $socialImage := $profileImage -}}
+{{- $defaultSocialImage := "images/og-default.png" | absURL -}}
+{{- $socialImage := $defaultSocialImage -}}
 {{- with .Params.image }}{{ $socialImage = . | absURL }}{{ end -}}
+{{- $socialImageAlt := "Andreas Nissen: enterprise AI architecture, agent reliability, evaluation, and governed execution" -}}
+{{- with .Params.imageAlt }}{{ $socialImageAlt = . }}{{ end -}}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="{{ site.Params.author }}">
@@ -22,10 +25,12 @@
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:image" content="{{ $socialImage }}">
-{{ with .Params.imageAlt }}<meta property="og:image:alt" content="{{ . }}">{{ end }}
-<meta name="twitter:card" content="{{ if .Params.image }}summary_large_image{{ else }}summary{{ end }}">
+{{ if not .Params.image }}<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">{{ end }}
+<meta property="og:image:alt" content="{{ $socialImageAlt }}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ $socialImage }}">
-{{ with .Params.imageAlt }}<meta name="twitter:image:alt" content="{{ . }}">{{ end }}
+<meta name="twitter:image:alt" content="{{ $socialImageAlt }}">
 {{ if or .IsHome (eq .Section "about") }}
 <script type="application/ld+json">
 {{- (dict

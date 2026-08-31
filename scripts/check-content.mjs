@@ -17,6 +17,8 @@ const required = [
   "layouts/partials/project-evidence.html",
   "assets/css/main.css",
   "static/images/profile-mark.png",
+  "static/images/og-default.png",
+  "static/images/og-default.svg",
   "static/icons/github.svg",
   "static/icons/linkedin-in.svg",
   "static/icons/x-twitter.svg",
@@ -186,8 +188,8 @@ if (!header.includes('images/profile-mark.png')) failures.push("GitHub profile m
 if (header.includes('>AN<')) failures.push("Generic AN header tile is still present");
 
 const head = fs.readFileSync(path.join(root, "layouts/partials/head.html"), "utf8");
-for (const identitySurface of ["rel=\"icon\"", "rel=\"apple-touch-icon\"", "og:image", "twitter:image"]) {
-  if (!head.includes(identitySurface)) failures.push(`Profile mark metadata is missing: ${identitySurface}`);
+for (const socialSurface of ["rel=\"icon\"", "rel=\"apple-touch-icon\"", "og:image", "og:image:width", "og:image:height", "og:image:alt", "summary_large_image", "twitter:image", "twitter:image:alt"]) {
+  if (!head.includes(socialSurface)) failures.push(`Social metadata is missing: ${socialSurface}`);
 }
 
 const config = fs.readFileSync(path.join(root, "hugo.yaml"), "utf8");
