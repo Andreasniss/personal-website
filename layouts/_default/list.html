@@ -2,7 +2,7 @@
   <section class="page-hero shell narrow">
     <p class="eyebrow{{ if eq .Section "talks" }} warm{{ end }}">{{ if eq .Section "work-i-love" }}Curated references{{ else }}{{ .Section | default "Index" }}{{ end }}</p>
     {{ if eq .Section "work-i-love" }}
-      <h1 aria-label="What I love">What I <span class="heart-mark" aria-hidden="true">♥</span></h1>
+      <h1 aria-label="Work I love">Work I <span class="heart-mark" aria-hidden="true">♥</span></h1>
     {{ else }}
       <h1>{{ .Title }}</h1>
     {{ end }}
