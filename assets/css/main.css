@@ -690,10 +690,7 @@ svg {
   object-fit: contain;
 }
 
-.skill-rule {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(18px, 3vw, 30px);
+.skill-article .prose > blockquote {
   margin: 34px 0;
   padding: clamp(22px, 4vw, 34px);
   border: 1px solid var(--line);
@@ -701,46 +698,33 @@ svg {
   background:
     linear-gradient(135deg, rgb(255 157 61 / 7%), transparent 46%),
     var(--surface);
+  color: var(--ink-soft);
 }
 
-.skill-rule-marker {
-  display: grid;
-  width: 54px;
-  height: 54px;
-  place-items: center;
-  border: 1px solid rgb(114 207 199 / 55%);
-  border-radius: 12px;
-  color: var(--accent);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 1rem;
-  font-weight: 800;
-}
-
-.prose .skill-rule h2 {
-  margin: 4px 0 16px;
+.skill-article .prose > blockquote h2 {
+  margin: 0 0 18px;
   color: var(--ink);
   font-size: clamp(1.45rem, 3vw, 2rem);
 }
 
-.prose .skill-rule .eyebrow {
-  margin: 0;
+.skill-article .prose > blockquote h2::first-letter {
   color: var(--accent-warm);
-  font-family: ui-sans-serif, system-ui, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
 }
 
-.skill-rule-copy > div > :last-child {
+.skill-article .prose > blockquote > :last-child {
   margin-bottom: 0;
 }
 
-.skill-rule blockquote {
-  border-left-color: var(--accent-warm);
+.skill-article .prose > blockquote code {
+  display: block;
+  padding: 14px 16px;
+  border: 1px solid rgb(255 157 61 / 30%);
+  border-radius: 10px;
   color: var(--ink);
+  background: rgb(15 19 18 / 65%);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.9em;
+  white-space: normal;
 }
 
 .project-proof,
@@ -1343,15 +1327,6 @@ svg {
   .project-grid,
   .entry-list {
     grid-template-columns: 1fr;
-  }
-
-  .skill-rule {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-rule-marker {
-    width: 46px;
-    height: 46px;
   }
 
   .article-byline > * + *::before {
