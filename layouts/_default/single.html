@@ -27,14 +27,18 @@
         </div>
       {{ end }}
     </header>
-    {{ with .Params.image }}
-      <figure class="article-visual">
-        <img src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}">
-      </figure>
+    {{ if eq .Section "projects" }}{{ partial "project-evidence.html" (dict "page" . "phase" "lead") }}{{ end }}
+    {{ if not .Params.hideDetailImage }}
+      {{ with .Params.image }}
+        <figure class="article-visual">
+          <img src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}">
+        </figure>
+      {{ end }}
     {{ end }}
     <div class="prose">
       {{ .Content }}
     </div>
+    {{ if eq .Section "projects" }}{{ partial "project-evidence.html" (dict "page" . "phase" "details") }}{{ end }}
     {{ if or .Params.relatedProjectURL .Params.relatedArticleURL .Params.repoURL .Params.demoURL }}
       <aside class="related-evidence" aria-label="Related evidence">
         <p class="eyebrow warm">Continue with proof</p>

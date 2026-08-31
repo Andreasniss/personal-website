@@ -14,6 +14,7 @@ const required = [
   "layouts/_default/single.html",
   "layouts/404.html",
   "layouts/partials/footer.html",
+  "layouts/partials/project-evidence.html",
   "assets/css/main.css",
   "static/images/profile-mark.png",
   "static/icons/github.svg",
@@ -105,6 +106,39 @@ for (const file of articleFiles) {
   }
   if (origin === "linkedin" && !linkedinURL) {
     failures.push(`LinkedIn-origin article lacks a verified LinkedIn URL in ${path.relative(root, file)}`);
+  }
+}
+
+const projectFiles = contentFiles.filter((file) => file.includes(`${path.sep}projects${path.sep}`) && !file.endsWith("_index.md"));
+for (const file of projectFiles) {
+  const raw = fs.readFileSync(file, "utf8");
+  const relative = path.relative(root, file);
+  const frontmatterMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
+  if (!frontmatterMatch || !/^evidenceReady:\s*true$/m.test(frontmatterMatch[1])) continue;
+
+  for (const field of [
+    "lastVerified",
+    "reviewerFallback",
+    "reviewerFallbackURL",
+    "architectureImage",
+    "architectureAlt",
+    "architectureCaption"
+  ]) {
+    if (!new RegExp(`^${field}:\\s*.+$`, "m").test(frontmatterMatch[1])) {
+      failures.push(`Evidence-ready project is missing ${field} in ${relative}`);
+    }
+  }
+
+  for (const field of ["proofStats", "reviewerPath", "evidenceRows", "limitations"]) {
+    if (!new RegExp(`^${field}:\\s*\\n\\s+-\\s+`, "m").test(frontmatterMatch[1])) {
+      failures.push(`Evidence-ready project is missing populated ${field} in ${relative}`);
+    }
+  }
+
+  const architectureImage = frontmatterValue(frontmatterMatch[1], "architectureImage");
+  if (architectureImage) {
+    const architecturePath = path.join(root, "static", architectureImage.replace(/^\//, ""));
+    if (!fs.existsSync(architecturePath)) failures.push(`Project architecture image is missing in ${relative}: ${architectureImage}`);
   }
 }
 
