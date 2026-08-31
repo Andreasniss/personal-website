@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Mistral Reliability Lab architecture</title>
+  <desc id="desc">The reviewer interface calls a model boundary connected to Mistral or Ollama. Proposed tool calls pass through a schema and allow-list gate before weather or fictional policy tools run. Privacy-first telemetry and offline tests observe the boundary.</desc>
+  <rect width="1200" height="720" rx="28" fill="#101412"/>
+  <text x="72" y="78" fill="#ff9d3d" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="2">MISTRAL RELIABILITY LAB</text>
+  <text x="72" y="126" fill="#f4f1ea" font-family="Georgia,serif" font-size="36">Inspectable execution, bounded by application code</text>
+
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="72" y="205" width="230" height="118" rx="16" fill="#1d2321" stroke="#45aaa2" stroke-width="2"/>
+    <text x="96" y="245" fill="#72cfc7" font-size="14" font-weight="700">REVIEWER SURFACE</text>
+    <text x="96" y="281" fill="#f4f1ea" font-size="22" font-weight="700">Streamlit UI</text>
+    <text x="96" y="307" fill="#aab3ae" font-size="15">Preview or connected mode</text>
+
+    <rect x="390" y="205" width="260" height="118" rx="16" fill="#1d2321" stroke="#45aaa2" stroke-width="2"/>
+    <text x="414" y="245" fill="#72cfc7" font-size="14" font-weight="700">MODEL BOUNDARY</text>
+    <text x="414" y="281" fill="#f4f1ea" font-size="22" font-weight="700">Client and retry loop</text>
+    <text x="414" y="307" fill="#aab3ae" font-size="15">Maximum 4 tool rounds</text>
+
+    <rect x="738" y="205" width="200" height="118" rx="16" fill="#1d2321" stroke="#3a4540" stroke-width="2"/>
+    <text x="762" y="245" fill="#ff9d3d" font-size="14" font-weight="700">PROVIDER</text>
+    <text x="762" y="281" fill="#f4f1ea" font-size="22" font-weight="700">Mistral</text>
+    <text x="762" y="307" fill="#aab3ae" font-size="15">or local Ollama</text>
+
+    <rect x="390" y="414" width="260" height="118" rx="16" fill="#1d2321" stroke="#ff9d3d" stroke-width="2"/>
+    <text x="414" y="454" fill="#ff9d3d" font-size="14" font-weight="700">EXECUTION GATE</text>
+    <text x="414" y="490" fill="#f4f1ea" font-size="22" font-weight="700">Schema and allow-list</text>
+    <text x="414" y="516" fill="#aab3ae" font-size="15">Application decides what runs</text>
+
+    <rect x="738" y="383" width="200" height="78" rx="16" fill="#1d2321" stroke="#3a4540" stroke-width="2"/>
+    <text x="762" y="416" fill="#f4f1ea" font-size="19" font-weight="700">Open-Meteo</text>
+    <text x="762" y="442" fill="#aab3ae" font-size="14">Live weather tool</text>
+
+    <rect x="738" y="487" width="200" height="78" rx="16" fill="#1d2321" stroke="#3a4540" stroke-width="2"/>
+    <text x="762" y="520" fill="#f4f1ea" font-size="19" font-weight="700">Policy fixture</text>
+    <text x="762" y="546" fill="#aab3ae" font-size="14">Synthetic grounded source</text>
+
+    <rect x="72" y="414" width="230" height="118" rx="16" fill="#1d2321" stroke="#3a4540" stroke-width="2" stroke-dasharray="8 7"/>
+    <text x="96" y="454" fill="#72cfc7" font-size="14" font-weight="700">OFFLINE VERIFICATION</text>
+    <text x="96" y="490" fill="#f4f1ea" font-size="22" font-weight="700">Tests and eval cases</text>
+    <text x="96" y="516" fill="#aab3ae" font-size="15">No credentials required</text>
+
+    <rect x="1000" y="310" width="150" height="150" rx="18" fill="#1d2321" stroke="#3a4540" stroke-width="2" stroke-dasharray="8 7"/>
+    <text x="1024" y="350" fill="#72cfc7" font-size="14" font-weight="700">TELEMETRY</text>
+    <text x="1024" y="386" fill="#f4f1ea" font-size="19" font-weight="700">Metadata only</text>
+    <text x="1024" y="414" fill="#aab3ae" font-size="14">Latency</text>
+    <text x="1024" y="436" fill="#aab3ae" font-size="14">Usage and errors</text>
+  </g>
+
+  <g fill="none" stroke="#72cfc7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M302 264H382"/>
+    <path d="M650 264H730"/>
+    <path d="M520 323V406"/>
+    <path d="M650 473H700V422H730"/>
+    <path d="M700 473V526H730"/>
+  </g>
+  <g fill="#72cfc7">
+    <path d="M382 264l-12-7v14z"/>
+    <path d="M730 264l-12-7v14z"/>
+    <path d="M520 406l-7-12h14z"/>
+    <path d="M730 422l-12-7v14z"/>
+    <path d="M730 526l-12-7v14z"/>
+  </g>
+  <g fill="none" stroke="#ff9d3d" stroke-width="2" stroke-dasharray="7 7">
+    <path d="M302 473H382"/>
+    <path d="M938 264H974Q1000 264 1000 290V310"/>
+  </g>
+  <g fill="#ff9d3d">
+    <path d="M382 473l-12-7v14z"/>
+    <path d="M1000 310l-7-12h14z"/>
+  </g>
+
+  <text x="72" y="648" fill="#aab3ae" font-family="Inter,Arial,sans-serif" font-size="16">Solid paths carry requests and validated results. Dashed paths carry verification or operational metadata only.</text>
+</svg>

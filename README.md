@@ -70,6 +70,18 @@ The private Obsidian vault remains the research backend. Public content is promo
 
 The public Talks index and homepage callout may describe topics in development, but they must not imply a past speaking engagement. Individual talk pages stay in draft until Andreas has reviewed and approved a real talk package. Each public talk needs a title, abstract, audience, role, takeaways, and at least one inspectable artifact such as slides, a recording, an event page, code, a demo, or a related article. Hypothetical formats and unreviewed drafts are not portfolio evidence.
 
+## Evidence-ready project contract
+
+A featured project may set `evidenceReady: true` only when its page gives a skeptical reviewer a short, verifiable path through the work. The page must include:
+
+1. A compact set of linked proof statistics with a verification date.
+2. A guided local path with prerequisites, exact actions, expected results, and a no-run fallback.
+3. An accurate architecture visual that exposes the important trust boundaries.
+4. A claim-to-proof matrix linking directly to source, tests, evaluations, security controls, or CI.
+5. Explicit limitations that distinguish deterministic checks, model evaluation, and production readiness.
+
+`layouts/partials/project-evidence.html` renders this shared structure from project frontmatter. Do not set the flag for a thin experiment, an unmodified fork, or a project whose public evidence no longer matches its reviewed repository head.
+
 ## Curated references contract
 
 `content/work-i-love/` is for external work Andreas follows and recommends. It is deliberately separate from `content/projects/`, which contains only work Andreas can personally substantiate.

@@ -56,7 +56,12 @@ validator enforces this). Section-specific requirements:
   not a floor for every edit.
 - **`content/projects/*.md`**: `role`, `year`, `weight` (controls display
   order via `.ByWeight`), `featured`, `statusLabel`, `tags`. Only link
-  `repoURL`/`demoURL` that are actually live and yours.
+  `repoURL`/`demoURL` that are actually live and yours. An evidence-led case
+  study sets `evidenceReady: true` and provides `lastVerified`, `proofStats`,
+  `reviewerPath`, `reviewerFallback`, `reviewerFallbackURL`,
+  `architectureImage`, `architectureAlt`, `architectureCaption`,
+  `evidenceRows`, and `limitations`. The validator checks that contract and
+  the architecture asset. Keep every claim tied to the reviewed project head.
 - **`content/talks/*.md`**: `format`, `weight`, and `draft: true` until Andreas has reviewed and approved the title, abstract, audience, role, takeaways, and an inspectable artifact. The section index and homepage may describe topics in development, but must not imply a past speaking engagement. Do not expose hypothetical or unreviewed individual talk pages in search, machine indexes, or production output.
 - **`content/work-i-love/*.md`**: `creator`, `format`, `sourceURL` (must be
   `https://...`), `why`, `weight`. `sourceURL` must not point at a

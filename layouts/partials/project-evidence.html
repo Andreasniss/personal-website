@@ -1,0 +1,78 @@
+{{- $page := .page -}}
+{{- $phase := .phase -}}
+{{- if and $page.Params.evidenceReady (eq $phase "lead") -}}
+  <section class="project-proof" aria-label="Verified project evidence">
+    <div class="project-proof-heading">
+      <p class="eyebrow warm">Verified evidence</p>
+      {{ with $page.Params.lastVerified }}<span>Checked {{ time.Format "02 January 2006" . }}</span>{{ end }}
+    </div>
+    <div class="project-proof-grid">
+      {{ range $page.Params.proofStats }}
+        <a href="{{ .url }}" rel="noreferrer">
+          <strong>{{ .value }}</strong>
+          <span>{{ .label }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="reviewer-path" aria-labelledby="reviewer-path-title">
+    <div class="evidence-section-heading">
+      <p class="eyebrow">Guided review</p>
+      <h2 id="reviewer-path-title">Try the tested path</h2>
+    </div>
+    <ol>
+      {{ range $index, $step := $page.Params.reviewerPath }}
+        <li>
+          <span class="step-number">{{ printf "%02d" (add $index 1) }}</span>
+          <div>
+            <h3>{{ $step.title }}</h3>
+            <p><strong>Action:</strong> {{ $step.action }}</p>
+            <p><strong>Expected:</strong> {{ $step.expected }}</p>
+          </div>
+        </li>
+      {{ end }}
+    </ol>
+    {{ with $page.Params.reviewerFallback }}
+      <p class="reviewer-fallback"><strong>Cannot run it locally?</strong> {{ . }} {{ with $page.Params.reviewerFallbackURL }}<a href="{{ . }}" rel="noreferrer">Inspect the fallback evidence.</a>{{ end }}</p>
+    {{ end }}
+  </section>
+
+  {{ with $page.Params.architectureImage }}
+    <figure class="architecture-visual">
+      <img src="{{ . | relURL }}" alt="{{ $page.Params.architectureAlt }}">
+      {{ with $page.Params.architectureCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+  {{ end }}
+{{- else if and $page.Params.evidenceReady (eq $phase "details") -}}
+  <section class="evidence-matrix" aria-labelledby="evidence-matrix-title">
+    <div class="evidence-section-heading">
+      <p class="eyebrow warm">Claim to proof</p>
+      <h2 id="evidence-matrix-title">Inspect the implementation</h2>
+    </div>
+    <div class="evidence-table-wrap">
+      <table>
+        <thead><tr><th>Claim</th><th>Implementation</th><th>Evidence</th></tr></thead>
+        <tbody>
+          {{ range $page.Params.evidenceRows }}
+            <tr>
+              <th scope="row">{{ .claim }}</th>
+              <td>{{ .implementation }}</td>
+              <td><a href="{{ .url }}" rel="noreferrer">{{ .linkLabel }}</a></td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="project-limitations" aria-labelledby="project-limitations-title">
+    <div class="evidence-section-heading">
+      <p class="eyebrow">Deliberate boundaries</p>
+      <h2 id="project-limitations-title">What this project does not claim</h2>
+    </div>
+    <ul>
+      {{ range $page.Params.limitations }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  </section>
+{{- end -}}
