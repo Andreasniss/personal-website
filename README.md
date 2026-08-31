@@ -8,7 +8,7 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 
 - Homepage with positioning, selected projects, and selected writing
 - Writing archive with three launch articles and two verified imports from Andreas's published LinkedIn activity
-- Project pages grounded in verified public repositories
+- Project pages grounded in verified public repositories or owned live demos
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
 - An honest Talks direction page that avoids claiming speaking history
 - About page, RSS, sitemap support, social metadata, 404 page, and responsive styles
