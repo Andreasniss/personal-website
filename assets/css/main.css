@@ -699,6 +699,7 @@ svg {
     linear-gradient(135deg, rgb(255 157 61 / 7%), transparent 46%),
     var(--surface);
   color: var(--ink-soft);
+  font-style: normal;
 }
 
 .skill-article .prose > blockquote h2 {
