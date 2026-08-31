@@ -144,12 +144,13 @@ It checks, across the whole repo and not just `content/`:
   `relURL` pipe, since that double-prefixes the `baseURL` subpath. Use a
   path relative to the site root instead, for example `"index.json" |
   relURL`, not a leading-slash form piped the same way.
-- The footer keeps the creator attribution string and all four destination
-  labels (GitHub profile, LinkedIn, X, RSS feed). Keep the site repository
+- The footer keeps the creator attribution string and all three destination
+  labels (GitHub profile, LinkedIn, RSS feed). Add Andreas's X profile only
+  after he confirms that it has a professionally representative body of
+  substantive personal posts. Keep the site repository
   discoverable through GitHub metadata rather than adding it as a footer
   destination.
-- `hugo.yaml` keeps its production `baseURL`, `sourceURL`, and `xURL` values
-  verbatim.
+- `hugo.yaml` keeps its production `baseURL` and `sourceURL` values verbatim.
 
 A failure here is a hard stop before Hugo's own build even runs. If you are
 touching `layouts/partials/footer.html`, the `hugo.yaml` `params` block, or
