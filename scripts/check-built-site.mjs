@@ -51,6 +51,10 @@ for (const file of htmlFiles) {
     }
   }
 
+  if (relative.includes("projects/7dayfocus-ai-delivery-lab/") || relative.includes("projects/safe-model-failover-learning-lab/")) {
+    if (html.includes("codeRepository")) failures.push(`Project without a verified repository exposes codeRepository in ${relative}`);
+  }
+
   for (const [label, pattern] of [
     ["Open Graph image", /<meta[^>]+property=["']?og:image["']?[^>]+content=/],
     ["Open Graph image width", /<meta[^>]+property=["']?og:image:width["']?[^>]+content=["']?1200["']?/],

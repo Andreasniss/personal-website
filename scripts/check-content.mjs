@@ -251,9 +251,11 @@ if (/^draft:\s*true$/m.test(talkIndex)) failures.push("The honest Talks directio
 for (const file of talkFiles) {
   const raw = fs.readFileSync(file, "utf8");
   const relative = path.relative(root, file);
-  if (!/^draft:\s*false$/m.test(raw)) failures.push(`Talk page must be explicitly reviewed for publication in ${relative}`);
-  for (const heading of ["The question", "Audience", "Verified delivery", "Discussion path", "Participant outcome", "Public artifacts"]) {
-    if (!raw.includes(`## ${heading}`)) failures.push(`Published talk is missing ${heading} in ${relative}`);
+  if (!/^draft:\s*(?:true|false)$/m.test(raw)) failures.push(`Talk page must carry an explicit draft value in ${relative}`);
+  if (/^draft:\s*false$/m.test(raw)) {
+    for (const heading of ["The question", "Audience", "Verified delivery", "Discussion path", "Participant outcome", "Public artifacts"]) {
+      if (!raw.includes(`## ${heading}`)) failures.push(`Published talk is missing ${heading} in ${relative}`);
+    }
   }
 }
 

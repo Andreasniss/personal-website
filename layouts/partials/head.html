@@ -63,16 +63,17 @@
 </script>
 {{ end }}
 {{ if and .IsPage (eq .Section "projects") }}
-<script type="application/ld+json">
-{{- (dict
+{{- $softwareSource := dict
   "@context" "https://schema.org"
   "@type" "SoftwareSourceCode"
   "name" .Title
   "description" $description
   "url" .Permalink
-  "codeRepository" (.Params.repoURL | default site.Params.sourceURL)
   "author" (dict "@type" "Person" "name" site.Params.author "url" site.Home.Permalink)
-) | jsonify (dict "indent" "  ") | safeJS }}
+-}}
+{{- with .Params.repoURL }}{{ $softwareSource = merge $softwareSource (dict "codeRepository" .) }}{{ end }}
+<script type="application/ld+json">
+{{- $softwareSource | jsonify (dict "indent" "  ") | safeJS }}
 </script>
 {{ end }}
 {{ with resources.Get "css/main.css" }}
