@@ -574,6 +574,53 @@ svg {
   gap: 18px;
 }
 
+.learning-section {
+  padding-top: 0;
+}
+
+.learning-heading {
+  align-items: start;
+}
+
+.learning-heading > div:first-child {
+  max-width: 760px;
+}
+
+.learning-heading p:not(.eyebrow) {
+  color: var(--ink-soft);
+}
+
+.learning-disclosure {
+  font-size: 0.92rem;
+}
+
+.learning-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.learning-card {
+  padding: clamp(24px, 3vw, 34px);
+}
+
+.learning-card h3 {
+  margin-top: 16px;
+}
+
+.learning-note {
+  margin: 20px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+}
+
 .entry-card .entry-meta span::before {
   margin-right: 10px;
   color: var(--accent-warm);
@@ -1255,7 +1302,8 @@ svg {
   }
 
   .project-grid,
-  .entry-list {
+  .entry-list,
+  .learning-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1285,6 +1333,14 @@ svg {
     gap: 18px;
     margin-right: 0;
     overflow-x: auto;
+  }
+
+  .learning-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-actions {
+    justify-content: flex-start;
   }
 
   .main-nav a {
