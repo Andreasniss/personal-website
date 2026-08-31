@@ -9,6 +9,10 @@ tags:
 origin: "website"
 featured: true
 draft: false
+image: "/images/projects/runbook-relay-webmcp.png"
+imageAlt: "Repository preview for the Runbook Relay WebMCP incident-response demo."
+relatedProjectURL: "/projects/runbook-relay/"
+relatedProjectTitle: "Runbook Relay WebMCP Demo"
 ---
 
 An agent can use a website by looking at pixels, clicking controls, and reading the result. That is powerful because it works without changing the application.

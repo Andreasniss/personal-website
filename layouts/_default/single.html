@@ -27,9 +27,25 @@
         </div>
       {{ end }}
     </header>
+    {{ with .Params.image }}
+      <figure class="article-visual">
+        <img src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}">
+      </figure>
+    {{ end }}
     <div class="prose">
       {{ .Content }}
     </div>
+    {{ if or .Params.relatedProjectURL .Params.relatedArticleURL .Params.repoURL .Params.demoURL }}
+      <aside class="related-evidence" aria-label="Related evidence">
+        <p class="eyebrow warm">Continue with proof</p>
+        <div class="proof-actions">
+          {{ with .Params.relatedProjectURL }}<a class="action-link" href="{{ . | relURL }}"><img src="{{ "icons/external-link.svg" | relURL }}" alt="">{{ $.Params.relatedProjectTitle }}</a>{{ end }}
+          {{ with .Params.relatedArticleURL }}<a class="action-link" href="{{ . | relURL }}"><img src="{{ "icons/article.svg" | relURL }}" alt="">{{ $.Params.relatedArticleTitle }}</a>{{ end }}
+          {{ with .Params.demoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/demo.svg" | relURL }}" alt="">Open live demo</a>{{ end }}
+          {{ with .Params.repoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/github.svg" | relURL }}" alt="">Inspect repository</a>{{ end }}
+        </div>
+      </aside>
+    {{ end }}
     {{ with .Params.tags }}
       <footer class="article-tags" aria-label="Topics">
         {{ range . }}<a href="{{ printf "tags/%s/" (. | urlize) | relURL }}">{{ . }}</a>{{ end }}

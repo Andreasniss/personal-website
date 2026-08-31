@@ -9,6 +9,10 @@ tags:
 origin: "website"
 featured: true
 draft: false
+image: "/images/articles/enterprise-ai-two-graphs.svg"
+imageAlt: "Enterprise AI needs two graphs: a context graph for understanding and a workflow graph for controlled execution."
+relatedProjectURL: "/projects/7dayfocus-ai-delivery-lab/"
+relatedProjectTitle: "7DayFocus AI Delivery Lab"
 ---
 
 Enterprise AI agents need context and control.

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <title>Enterprise AI Needs Two Graphs</title>
+  <desc>A comparison of context graphs and workflow graphs, with universal principles and AWS implementation examples.</desc>
+  <style>
+    .display { font-family: "Nimbus Sans Narrow", "Arial Narrow", sans-serif; font-weight: 700; fill: #F4F1EA; }
+    .sans { font-family: "Nimbus Sans", Arial, sans-serif; fill: #F4F1EA; }
+    .bold { font-family: "Nimbus Sans", Arial, sans-serif; font-weight: 700; fill: #F4F1EA; }
+    .label { font-family: "Nimbus Sans", Arial, sans-serif; font-weight: 700; fill: #72CFC7; letter-spacing: 1.2px; }
+    .service { font-family: "DejaVu Sans", Arial, sans-serif; font-size: 21px; font-weight: 400; fill: #F4F1EA; }
+    .status { font-family: "Nimbus Sans", Arial, sans-serif; font-size: 16px; font-weight: 400; fill: #C9D0CC; }
+    .rule { stroke: #64706A; stroke-width: 2; }
+    .teal-stroke { stroke: #45AAA2; fill: none; stroke-width: 3; }
+  </style>
+
+  <rect width="1080" height="1350" fill="#141817"/>
+
+  <text x="540" y="76" text-anchor="middle" class="display" font-size="58" letter-spacing="0.4">ENTERPRISE AI NEEDS TWO GRAPHS</text>
+  <text x="259" y="132" class="sans" font-size="27">
+    <tspan fill="#72CFC7" font-weight="700">Context</tspan><tspan> provides understanding. </tspan>
+    <tspan fill="#72CFC7" font-weight="700">Workflow</tspan><tspan> provides control.</tspan>
+  </text>
+
+  <!-- Context card -->
+  <rect x="38" y="174" width="1004" height="518" rx="18" fill="#1D2321" stroke="#64706A" stroke-width="3"/>
+  <rect x="68" y="203" width="58" height="58" rx="9" fill="#45AAA2"/>
+  <text x="97" y="245" text-anchor="middle" class="bold" font-size="39">1</text>
+  <text x="151" y="247" class="display" font-size="43">CONTEXT GRAPH</text>
+
+  <text x="208" y="315" text-anchor="middle" class="label" font-size="20">QUESTION</text>
+  <text x="544" y="315" text-anchor="middle" class="label" font-size="20">MAPS</text>
+  <text x="889" y="315" text-anchor="middle" class="label" font-size="20">RESULT</text>
+  <line x1="68" y1="331" x2="348" y2="331" class="rule"/>
+  <line x1="382" y1="331" x2="706" y2="331" class="rule"/>
+  <line x1="740" y1="331" x2="1012" y2="331" class="rule"/>
+  <line x1="365" y1="288" x2="365" y2="518" class="rule"/>
+  <line x1="723" y1="288" x2="723" y2="518" class="rule"/>
+
+  <text x="208" y="374" text-anchor="middle" class="sans" font-size="24">What is related?</text>
+  <g class="teal-stroke">
+    <line x1="208" y1="424" x2="141" y2="457"/>
+    <line x1="208" y1="424" x2="275" y2="457"/>
+    <line x1="208" y1="424" x2="208" y2="493"/>
+    <line x1="141" y1="457" x2="112" y2="493"/>
+    <line x1="275" y1="457" x2="304" y2="493"/>
+    <line x1="112" y1="493" x2="208" y2="493"/>
+    <line x1="208" y1="493" x2="304" y2="493"/>
+    <line x1="141" y1="457" x2="208" y2="493"/>
+    <line x1="275" y1="457" x2="208" y2="493"/>
+    <circle cx="208" cy="424" r="11" fill="#1D2321"/>
+    <circle cx="141" cy="457" r="10" fill="#1D2321"/>
+    <circle cx="275" cy="457" r="10" fill="#1D2321"/>
+    <circle cx="112" cy="493" r="10" fill="#1D2321"/>
+    <circle cx="208" cy="493" r="14" fill="#1D2321"/>
+    <circle cx="304" cy="493" r="10" fill="#1D2321"/>
+  </g>
+
+  <text x="544" y="414" text-anchor="middle" class="sans" font-size="25">People · Projects</text>
+  <text x="544" y="459" text-anchor="middle" class="sans" font-size="25">Documents · Concepts</text>
+  <text x="889" y="440" text-anchor="middle" class="display" font-size="48" fill="#45AAA2">UNDERSTAND</text>
+
+  <line x1="68" y1="536" x2="1012" y2="536" class="rule"/>
+  <line x1="70" y1="573" x2="124" y2="573" stroke="#FF9900" stroke-width="4"/>
+  <text x="140" y="581" class="bold" font-size="21" fill="#FF9900">AWS EXAMPLES</text>
+  <text x="325" y="577" class="service">Amazon Quick Knowledge Graph</text>
+  <text x="1008" y="577" text-anchor="end" class="status">[personal · desktop preview]</text>
+  <text x="325" y="618" class="service">Bedrock Knowledge Bases GraphRAG + Neptune Analytics</text>
+  <text x="1008" y="618" text-anchor="end" class="status">[GA]</text>
+  <text x="325" y="659" class="service">AWS Context</text>
+  <text x="1008" y="659" text-anchor="end" class="status">[organizational · coming soon]</text>
+
+  <!-- Workflow card -->
+  <rect x="38" y="713" width="1004" height="408" rx="18" fill="#1D2321" stroke="#64706A" stroke-width="3"/>
+  <rect x="68" y="741" width="58" height="58" rx="9" fill="#45AAA2"/>
+  <text x="97" y="783" text-anchor="middle" class="bold" font-size="39">2</text>
+  <text x="151" y="785" class="display" font-size="43">WORKFLOW GRAPH</text>
+
+  <text x="208" y="849" text-anchor="middle" class="label" font-size="20">QUESTION</text>
+  <text x="544" y="849" text-anchor="middle" class="label" font-size="20">CONTROLS</text>
+  <text x="889" y="849" text-anchor="middle" class="label" font-size="20">RESULT</text>
+  <line x1="68" y1="865" x2="348" y2="865" class="rule"/>
+  <line x1="382" y1="865" x2="706" y2="865" class="rule"/>
+  <line x1="740" y1="865" x2="1012" y2="865" class="rule"/>
+  <line x1="365" y1="822" x2="365" y2="997" class="rule"/>
+  <line x1="723" y1="822" x2="723" y2="997" class="rule"/>
+
+  <text x="208" y="905" text-anchor="middle" class="sans" font-size="24">What can happen next?</text>
+  <g class="teal-stroke">
+    <circle cx="92" cy="947" r="13"/>
+    <line x1="105" y1="947" x2="136" y2="947"/>
+    <path d="M136 947 l-10 -7 v14 z" fill="#45AAA2" stroke="none"/>
+    <rect x="143" y="934" width="27" height="27"/>
+    <line x1="170" y1="947" x2="198" y2="947"/>
+    <path d="M198 947 l-10 -7 v14 z" fill="#45AAA2" stroke="none"/>
+    <rect x="205" y="934" width="27" height="27"/>
+    <line x1="232" y1="947" x2="260" y2="947"/>
+    <path d="M260 947 l-10 -7 v14 z" fill="#45AAA2" stroke="none"/>
+    <path d="M278 926 l21 21 -21 21 -21 -21 z"/>
+    <line x1="299" y1="947" x2="327" y2="947"/>
+    <path d="M327 947 l-10 -7 v14 z" fill="#45AAA2" stroke="none"/>
+    <circle cx="342" cy="947" r="13"/>
+  </g>
+
+  <text x="544" y="913" text-anchor="middle" class="sans" font-size="25">Dependencies · Routing</text>
+  <text x="544" y="958" text-anchor="middle" class="sans" font-size="25">Validation · Approvals</text>
+  <text x="889" y="936" text-anchor="middle" class="display" font-size="48" fill="#45AAA2">CONTROL</text>
+
+  <line x1="68" y1="1014" x2="1012" y2="1014" class="rule"/>
+  <line x1="70" y1="1050" x2="124" y2="1050" stroke="#FF9900" stroke-width="4"/>
+  <text x="140" y="1058" class="bold" font-size="21" fill="#FF9900">AWS EXAMPLES</text>
+  <text x="325" y="1048" class="service">AWS Step Functions</text>
+  <text x="325" y="1080" class="service">Amazon Bedrock Flows</text>
+  <text x="325" y="1112" class="service">Strands graph pattern</text>
+
+  <!-- Foundation -->
+  <rect x="38" y="1142" width="1004" height="136" rx="18" fill="#1D2321" stroke="#64706A" stroke-width="3"/>
+  <g transform="translate(70 1164)" class="teal-stroke">
+    <circle cx="42" cy="42" r="38"/>
+    <path d="M18 33 l24 -14 24 14 -24 14 z"/>
+    <path d="M18 45 l24 14 24 -14"/>
+    <path d="M18 57 l24 14 24 -14"/>
+  </g>
+  <circle cx="160" cy="1235" r="7" fill="#FF9900"/>
+  <text x="208" y="1197" class="display" font-size="35">AGENTCORE: EXECUTION &amp; CONTROL FOUNDATION</text>
+  <text x="208" y="1240" class="sans" font-size="23" fill="#D8DDD9">Runtime · Memory · Identity · Observability · Gateway + Policy</text>
+
+  <!-- Signature -->
+  <line x1="782" y1="1321" x2="842" y2="1321" stroke="#45AAA2" stroke-width="3"/>
+  <text x="860" y="1328" class="sans" font-size="16" letter-spacing="5">ANDREAS NISSEN</text>
+</svg>

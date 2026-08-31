@@ -10,6 +10,21 @@
     {{ with .Content }}<div class="prose intro-copy">{{ . }}</div>{{ end }}
   </section>
 
+  {{ if and (eq .Section "about") .Params.connectLinks }}
+    <section class="shell connect-panel" aria-labelledby="connect-heading">
+      <p class="eyebrow warm">Connect</p>
+      <h2 id="connect-heading">Follow the work where it happens.</h2>
+      <div class="connect-grid">
+        {{ range .Params.connectLinks }}
+          <a class="connect-link" href="{{ .url }}" rel="noreferrer">
+            <span class="connect-icon"><img src="{{ .icon | relURL }}" alt=""></span>
+            <span><strong>{{ .label }}</strong><small>{{ .detail }}</small></span>
+          </a>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
   <section class="shell section-space">
     {{ if eq .Section "projects" }}
       <div class="project-grid">

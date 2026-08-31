@@ -11,6 +11,10 @@ tags:
   - OpenTelemetry
   - Python
 repoURL: "https://github.com/Andreasniss/Mistral-playground"
+image: "/images/projects/mistral-reliability-lab.png"
+imageAlt: "Repository preview for the Mistral Reliability Lab Python project."
+relatedArticleURL: "/writing/agentic-ai-after-the-demo/"
+relatedArticleTitle: "The Hard Part of Agentic AI Starts After the Demo"
 ---
 
 ## The problem
