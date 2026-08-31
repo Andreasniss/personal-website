@@ -10,7 +10,7 @@ origin: "website"
 featured: true
 draft: false
 image: "/images/projects/runbook-relay-webmcp.png"
-imageAlt: "Repository preview for the Runbook Relay WebMCP incident-response demo."
+imageAlt: "Runbook Relay WebMCP incident-response interface with scoped tools, desktop setup guidance, and a human-approval boundary."
 relatedProjectURL: "/projects/runbook-relay/"
 relatedProjectTitle: "Runbook Relay WebMCP Demo"
 ---

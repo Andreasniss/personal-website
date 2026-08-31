@@ -13,7 +13,7 @@ tags:
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
 image: "/images/projects/runbook-relay-webmcp.png"
-imageAlt: "Repository preview for Runbook Relay, a human-guided incident response demo with governed WebMCP tools."
+imageAlt: "Runbook Relay interface showing an active incident, the WebMCP tool model, desktop setup steps, and the human-approval boundary."
 relatedArticleURL: "/writing/from-screenshots-to-governed-tools/"
 relatedArticleTitle: "From Screenshots to Governed Tools"
 ---

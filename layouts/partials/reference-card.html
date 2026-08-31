@@ -1,13 +1,26 @@
-<article class="entry-card">
-  <div class="entry-meta">
-    <span>{{ .Params.format }}</span>
-    <span>By {{ .Params.creator }}</span>
-  </div>
-  <h3><a href="{{ .Params.sourceURL }}">{{ .Title }}</a></h3>
-  <p>{{ .Description }}</p>
-  {{ with .Params.why }}<p><strong>Why I recommend it:</strong> {{ . }}</p>{{ end }}
-  <div class="proof-actions">
-    <a class="action-link" href="{{ .Params.sourceURL }}" rel="noreferrer" aria-label="Open the original source for {{ .Title }}"><img src="{{ "icons/external-link.svg" | relURL }}" alt="">Visit original</a>
-    {{ with .Params.xURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/x-twitter.svg" | relURL }}" alt="">Follow on X</a>{{ end }}
+{{- $sourceURL := .Params.sourceURL -}}
+{{- $sourceLabel := "Visit site" -}}
+{{- $sourceIcon := "icons/globe.svg" -}}
+{{- if strings.Contains $sourceURL "x.com/" -}}
+  {{- $sourceLabel = "Visit X" -}}
+  {{- $sourceIcon = "icons/x-twitter.svg" -}}
+{{- else if strings.Contains $sourceURL "github.com/" -}}
+  {{- $sourceLabel = "Visit GitHub" -}}
+  {{- $sourceIcon = "icons/github.svg" -}}
+{{- else if strings.Contains (lower .Params.format) "blog" -}}
+  {{- $sourceLabel = "Visit blog" -}}
+{{- end -}}
+<article class="entry-card reference-card">
+  <div class="card-body">
+    <div class="entry-meta">
+      <span>{{ .Params.format }}</span>
+      <span>By {{ .Params.creator }}</span>
+    </div>
+    <h3><a href="{{ $sourceURL }}">{{ .Title }}</a></h3>
+    {{ with .Params.why }}<p class="reference-note">{{ . }}</p>{{ else }}<p class="reference-note">{{ .Description }}</p>{{ end }}
+    <div class="proof-actions">
+      <a class="action-link" href="{{ $sourceURL }}" rel="noreferrer" aria-label="{{ $sourceLabel }}: {{ .Title }}"><img src="{{ $sourceIcon | relURL }}" alt="">{{ $sourceLabel }}</a>
+      {{ with .Params.xURL }}<a class="action-link" href="{{ . }}" rel="noreferrer" aria-label="Visit {{ $.Title }} on X"><img src="{{ "icons/x-twitter.svg" | relURL }}" alt="">Visit X</a>{{ end }}
+    </div>
   </div>
 </article>
