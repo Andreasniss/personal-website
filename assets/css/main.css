@@ -574,6 +574,37 @@ svg {
   padding-block: clamp(70px, 10vw, 130px) clamp(50px, 7vw, 90px);
 }
 
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+  gap: clamp(44px, 8vw, 110px);
+  align-items: start;
+}
+
+.about-portrait {
+  margin: 26px 0 0;
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+}
+
+.about-portrait figcaption {
+  margin-top: 12px;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .page-hero h1,
 .article-header h1 {
   max-width: 15ch;
@@ -928,8 +959,14 @@ svg {
 
 @media (max-width: 900px) {
   .hero,
-  .workshop-callout {
+  .workshop-callout,
+  .about-hero {
     grid-template-columns: 1fr;
+  }
+
+  .about-portrait {
+    max-width: 280px;
+    margin-top: 0;
   }
 
   .hero-panel {
