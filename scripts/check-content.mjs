@@ -18,6 +18,7 @@ const required = [
   "layouts/partials/footer.html",
   "layouts/partials/project-evidence.html",
   "assets/css/main.css",
+  "assets/js/writing-filter.js",
   "scripts/generate-social-images.sh",
   "scripts/check-built-site.mjs",
   "static/images/profile-mark.png",
@@ -114,6 +115,16 @@ for (const file of articleFiles) {
   }
   if (origin === "linkedin" && !linkedinURL) {
     failures.push(`LinkedIn-origin article lacks a verified LinkedIn URL in ${path.relative(root, file)}`);
+  }
+  for (const field of ["primaryTopic", "evidenceLabel", "lastVerified"]) {
+    if (!frontmatterValue(frontmatter, field)) {
+      failures.push(`Evidence-led article is missing ${field} in ${path.relative(root, file)}`);
+    }
+  }
+  const keyPointsBlock = frontmatter.match(/^keyPoints:\s*\n((?:\s{2}-\s+.+\n?)+)/m);
+  const keyPointCount = keyPointsBlock ? (keyPointsBlock[1].match(/^\s{2}-\s+.+$/gm) || []).length : 0;
+  if (keyPointCount < 3) {
+    failures.push(`Evidence-led article needs at least three keyPoints in ${path.relative(root, file)}`);
   }
 }
 

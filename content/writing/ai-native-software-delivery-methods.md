@@ -2,6 +2,20 @@
 title: "Three AI-Native Software Delivery Methods Compared"
 date: 2026-08-31
 description: "Anthropic, AWS, and OpenAI describe different layers of AI-native software delivery: artifact handoffs, lifecycle governance, and the agent harness."
+primaryTopic: "Operating practice"
+evidenceLabel: "Source-backed project analysis"
+lastVerified: 2026-08-31
+keyPoints:
+  - "Anthropic preserves continuity through committed artifacts between lifecycle stages."
+  - "AWS adds lifecycle governance, decomposition, adaptive depth, and operational evidence for complex delivery."
+  - "OpenAI harness engineering makes agent execution reliable through repository context, bounded tools, and fast feedback."
+proofLinks:
+  - label: "Inspect the 7DayFocus implementation"
+    url: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab"
+  - label: "Read Anthropic's AI-native SDLC playbook"
+    url: "https://claude.com/blog/the-ai-native-sdlc-playbook"
+  - label: "Read the AWS AI-DLC guide"
+    url: "https://awslabs.github.io/aidlc-workflows/guide/00-introduction/"
 socialImage: "/images/social/ai-native-delivery-methods.png"
 socialImageAlt: "Three AI-Native Software Delivery Methods Compared, an article by Andreas Nissen."
 tags:

@@ -707,6 +707,22 @@ svg {
   font-size: 0.88rem;
 }
 
+.article-evidence-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 16px;
+  color: var(--accent-light);
+  font-size: 0.78rem;
+  font-weight: 720;
+}
+
+.article-evidence-meta span + span::before {
+  margin-right: 18px;
+  color: var(--line);
+  content: "•";
+}
+
 .article-byline > * + *::before {
   margin-right: 18px;
   color: var(--accent);
@@ -723,6 +739,115 @@ svg {
 
 .article-shell .prose {
   margin-top: 50px;
+}
+
+.article-brief {
+  max-width: 740px;
+  margin-top: 38px;
+  padding: clamp(22px, 4vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgb(69 170 162 / 10%), transparent 48%),
+    var(--surface);
+}
+
+.article-brief ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--ink-soft);
+}
+
+.article-brief li::marker {
+  color: var(--accent);
+}
+
+.article-series {
+  max-width: 740px;
+  margin-top: 54px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.article-series ol {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.article-series li[aria-current="page"] {
+  color: var(--accent-light);
+  font-weight: 760;
+}
+
+.writing-tools {
+  margin-bottom: 30px;
+  padding: clamp(22px, 4vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.writing-tools label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 760;
+}
+
+.writing-tools input {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  background: var(--paper);
+  font: inherit;
+}
+
+.topic-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.topic-filter {
+  min-height: 36px;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  background: var(--paper);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 720;
+  cursor: pointer;
+}
+
+.topic-filter:hover,
+.topic-filter.is-active {
+  border-color: var(--accent);
+  color: var(--paper);
+  background: var(--accent);
+}
+
+.writing-result-count,
+.writing-noscript {
+  margin: 16px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.writing-card[hidden] {
+  display: none;
 }
 
 .article-visual {

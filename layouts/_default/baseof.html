@@ -14,5 +14,11 @@
       {{ $script := . | minify | fingerprint }}
       <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
     {{ end }}
+    {{ if eq .Section "writing" }}
+      {{ with resources.Get "js/writing-filter.js" }}
+        {{ $filter := . | minify | fingerprint }}
+        <script src="{{ $filter.RelPermalink }}" integrity="{{ $filter.Data.Integrity }}" defer></script>
+      {{ end }}
+    {{ end }}
   </body>
 </html>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Screen use and WebMCP interface paths</title>
+  <desc id="desc">Screen interpretation and typed tools converge on a shared state and human approval boundary.</desc>
+  <rect width="1200" height="700" fill="#141817"/>
+  <text x="70" y="80" fill="#f4f1ea" font-family="Georgia,serif" font-size="48">Two interfaces, one controlled action boundary</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="70" y="150" width="430" height="190" rx="24" fill="#1d2321" stroke="#45aaa2" stroke-width="3"/>
+    <text x="110" y="205" fill="#72cfc7" font-size="25" font-weight="700">SCREEN USE</text>
+    <text x="110" y="255" fill="#f4f1ea" font-size="31">Interpret visible state</text>
+    <text x="110" y="300" fill="#aab3ae" font-size="22">Pixels, labels, layout, controls</text>
+    <rect x="700" y="150" width="430" height="190" rx="24" fill="#1d2321" stroke="#ff9d3d" stroke-width="3"/>
+    <text x="740" y="205" fill="#ff9d3d" font-size="25" font-weight="700">WEBMCP</text>
+    <text x="740" y="255" fill="#f4f1ea" font-size="31">Call typed operations</text>
+    <text x="740" y="300" fill="#aab3ae" font-size="22">Names, schemas, results, annotations</text>
+    <path d="M285 340 V430 H510" fill="none" stroke="#45aaa2" stroke-width="4"/>
+    <path d="M915 340 V430 H690" fill="none" stroke="#ff9d3d" stroke-width="4"/>
+    <rect x="390" y="395" width="420" height="105" rx="20" fill="#26302c" stroke="#53615b" stroke-width="2"/>
+    <text x="600" y="440" text-anchor="middle" fill="#f4f1ea" font-size="29" font-weight="700">Shared application state</text>
+    <text x="600" y="475" text-anchor="middle" fill="#aab3ae" font-size="20">Same evidence, proposal, and receipt</text>
+    <path d="M600 500 V550" stroke="#72cfc7" stroke-width="4"/>
+    <rect x="390" y="550" width="420" height="90" rx="20" fill="#45aaa2"/>
+    <text x="600" y="605" text-anchor="middle" fill="#141817" font-size="30" font-weight="700">Human approval + server policy</text>
+  </g>
+</svg>

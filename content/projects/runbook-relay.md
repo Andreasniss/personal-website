@@ -18,8 +18,8 @@ imageAlt: "Runbook Relay interface showing an active incident, the WebMCP tool m
 socialImage: "/images/social/runbook-relay.png"
 socialImageAlt: "Runbook Relay, a governed WebMCP incident-response control room by Andreas Nissen."
 hideDetailImage: true
-relatedArticleURL: "/writing/from-screenshots-to-governed-tools/"
-relatedArticleTitle: "From Screenshots to Governed Tools"
+relatedArticleURL: "/writing/screen-use-vs-webmcp/"
+relatedArticleTitle: "Screen Use vs WebMCP"
 evidenceReady: true
 lastVerified: "2026-08-31"
 proofStats:
@@ -106,3 +106,7 @@ The interactive experience is intentionally hosted on ChatGPT Sites because the 
 - A negative test is part of the demo: execution without approval must fail visibly.
 
 This is a reference application, not a production operations console. A production implementation would enforce authorization and approvals server-side, bind actions to scoped identities, and persist tamper-evident audit records.
+
+## Related writing
+
+[From Screenshots to Governed Tools](/writing/from-screenshots-to-governed-tools/) explains why structured operations should remain connected to the human interface. [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) compares the two interface paths and states which benchmark evidence is still missing.
