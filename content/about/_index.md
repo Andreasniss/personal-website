@@ -1,6 +1,15 @@
 ---
 title: "About"
 description: "I work at the point where enterprise architecture, applied AI, and responsible execution meet."
+connectLinks:
+  - label: "GitHub"
+    detail: "Code, demos, and technical proof"
+    url: "https://github.com/Andreasniss"
+    icon: "/icons/github.svg"
+  - label: "LinkedIn"
+    detail: "Architecture notes and professional updates"
+    url: "https://www.linkedin.com/in/andreasnissen"
+    icon: "/icons/linkedin-in.svg"
 ---
 
 I am a Senior Solutions Architect at AWS in Munich. I work with organizations adopting applied AI in regulated environments.
@@ -20,10 +29,4 @@ I prefer concrete systems over abstract capability claims. A useful architecture
 
 That principle also shapes this site. The projects link to working code or live demonstrations. The articles make the reasoning behind them reusable.
 
-## Connect
-
-- [GitHub](https://github.com/Andreasniss)
-- [LinkedIn](https://www.linkedin.com/in/andreasnissen)
-
 Personal projects and views are my own and do not represent AWS.
-

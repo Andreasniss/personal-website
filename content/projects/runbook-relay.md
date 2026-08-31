@@ -1,6 +1,6 @@
 ---
-title: "Runbook Relay"
-description: "A deterministic incident-response control room where a human and an AI agent share evidence, approval state, and an audit log."
+title: "Runbook Relay WebMCP Demo"
+description: "A WebMCP incident-response control room where a human and an AI agent share evidence, approval state, and an audit log."
 role: "Creator and repository owner"
 year: 2026
 weight: 10
@@ -12,6 +12,10 @@ tags:
   - agent controls
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
+image: "/images/projects/runbook-relay-webmcp.png"
+imageAlt: "Repository preview for Runbook Relay, a human-guided incident response demo with governed WebMCP tools."
+relatedArticleURL: "/writing/from-screenshots-to-governed-tools/"
+relatedArticleTitle: "From Screenshots to Governed Tools"
 ---
 
 ## The problem
@@ -37,4 +41,3 @@ The central control is deliberate: the agent can stage a mitigation, and it cann
 - [Inspect the source repository](https://github.com/Andreasniss/runbook-relay-webmcp)
 
 This is a reference application, not a production operations console. A production implementation would enforce authorization and approvals server-side, bind actions to scoped identities, and persist tamper-evident audit records.
-

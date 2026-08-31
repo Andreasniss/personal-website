@@ -10,6 +10,10 @@ origin: "linkedin"
 linkedinURL: "https://www.linkedin.com/feed/update/urn:li:activity:7472293085532786688/"
 featured: false
 draft: false
+image: "/images/articles/agentic-ai-after-demo.jpg"
+imageAlt: "Original LinkedIn infographic about the engineering work required after an agentic AI demo succeeds."
+relatedProjectURL: "/projects/mistral-playground/"
+relatedProjectTitle: "Mistral Reliability Lab"
 ---
 
 The hard part of agentic AI is not building the agent.

@@ -9,6 +9,8 @@ tags:
 origin: "website"
 featured: true
 draft: false
+image: "/images/articles/enterprise-ai-two-graphs.svg"
+imageAlt: "Context and workflow graph infographic showing where ontology-backed understanding fits in an enterprise agent architecture."
 ---
 
 Context is what an AI system can see for the current task.

@@ -10,6 +10,8 @@ origin: "linkedin"
 linkedinURL: "https://www.linkedin.com/feed/update/urn:li:activity:7480988751716925441/"
 featured: false
 draft: false
+image: "/images/articles/aws-builder-center-sandboxes.jpg"
+imageAlt: "Original LinkedIn visual introducing free AWS Builder Center sandbox environments."
 ---
 
 Want to go hands-on with Amazon Bedrock, agentic AI workflows, or AWS Transform custom without first setting up an AWS account and payment method?

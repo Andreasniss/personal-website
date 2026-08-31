@@ -373,11 +373,43 @@ svg {
 .project-card,
 .entry-card {
   position: relative;
-  padding: clamp(24px, 3vw, 34px);
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
   transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+.card-body {
+  padding: clamp(24px, 3vw, 34px);
+}
+
+.card-media {
+  position: relative;
+  z-index: 1;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-bottom: 1px solid var(--line);
+  background: #0f1312;
+}
+
+.card-media.wide {
+  aspect-ratio: 2 / 1;
+}
+
+.card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 220ms ease;
+}
+
+.project-card:hover .card-media img,
+.entry-card:hover .card-media img {
+  transform: scale(1.025);
 }
 
 .project-card:hover,
@@ -402,9 +434,44 @@ svg {
 
 .project-card h3 a::after,
 .entry-card h3 a::after {
-  position: absolute;
-  inset: 0;
-  content: "";
+  content: none;
+}
+
+.proof-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.action-link {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 0.78rem;
+  font-weight: 760;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.action-link:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+  background: #242c29;
+}
+
+.action-link img {
+  width: 17px;
+  height: 17px;
+  filter: brightness(0) invert(1);
 }
 
 .project-card p,
@@ -553,6 +620,95 @@ svg {
 
 .article-shell .prose {
   margin-top: 50px;
+}
+
+.article-visual {
+  overflow: hidden;
+  margin: 42px 0 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.article-visual img {
+  display: block;
+  width: 100%;
+  max-height: 760px;
+  object-fit: contain;
+}
+
+.related-evidence {
+  max-width: 740px;
+  margin-top: 54px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.connect-panel {
+  margin-bottom: clamp(70px, 9vw, 120px);
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.connect-panel h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.connect-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.connect-link {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  text-decoration: none;
+}
+
+.connect-link:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.connect-icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--line);
+}
+
+.connect-icon img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.connect-link strong,
+.connect-link small {
+  display: block;
+}
+
+.connect-link small {
+  margin-top: 3px;
+  color: var(--ink-soft);
 }
 
 .prose h2,
@@ -778,6 +934,10 @@ svg {
 
   .hero-panel {
     max-width: 600px;
+  }
+
+  .connect-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-grid,

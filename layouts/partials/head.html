@@ -1,6 +1,8 @@
 {{- $description := .Description | default .Summary | default site.Params.description -}}
 {{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
 {{- $profileImage := "images/profile-mark.png" | absURL -}}
+{{- $socialImage := $profileImage -}}
+{{- with .Params.image }}{{ $socialImage = . | absURL }}{{ end -}}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="{{ site.Params.author }}">
@@ -19,9 +21,11 @@
 <meta property="og:description" content="{{ $description | plainify }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
-<meta property="og:image" content="{{ $profileImage }}">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="{{ $profileImage }}">
+<meta property="og:image" content="{{ $socialImage }}">
+{{ with .Params.imageAlt }}<meta property="og:image:alt" content="{{ . }}">{{ end }}
+<meta name="twitter:card" content="{{ if .Params.image }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:image" content="{{ $socialImage }}">
+{{ with .Params.imageAlt }}<meta name="twitter:image:alt" content="{{ . }}">{{ end }}
 {{ if or .IsHome (eq .Section "about") }}
 <script type="application/ld+json">
 {{- (dict

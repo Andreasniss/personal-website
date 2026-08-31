@@ -11,6 +11,8 @@ tags:
   - OpenAI
   - evaluations
   - human approval
+relatedArticleURL: "/writing/context-and-control/"
+relatedArticleTitle: "Context and Control Are Different Layers"
 ---
 
 ## The problem

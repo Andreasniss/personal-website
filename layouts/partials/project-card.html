@@ -1,4 +1,6 @@
 <article class="project-card">
+  {{ with .Params.image }}<a class="card-media wide" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . | relURL }}" alt="" loading="lazy"></a>{{ end }}
+  <div class="card-body">
   <div class="project-topline">
     <span>{{ .Params.year }}</span>
     {{ with .Params.statusLabel }}<span class="status-pill">{{ . }}</span>{{ end }}
@@ -8,6 +10,10 @@
   <div class="tag-row" aria-label="Topics">
     {{ range first 3 .Params.tags }}<span>{{ . }}</span>{{ end }}
   </div>
-  <a class="text-link" href="{{ .RelPermalink }}" aria-label="View {{ .Title }}">View project <span aria-hidden="true">→</span></a>
+  <div class="proof-actions" aria-label="Project links">
+    <a class="action-link" href="{{ .RelPermalink }}" aria-label="View {{ .Title }}"><img src="{{ "icons/article.svg" | relURL }}" alt="">Case study</a>
+    {{ with .Params.demoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/demo.svg" | relURL }}" alt="">Live demo</a>{{ end }}
+    {{ with .Params.repoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/github.svg" | relURL }}" alt="">Repository</a>{{ end }}
+  </div>
+  </div>
 </article>
-
