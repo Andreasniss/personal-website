@@ -6,7 +6,7 @@
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#72cfc7"/>
     </marker>
     <style>
-      .bg{fill:#141817}.panel{fill:#1d2321;stroke:#3a4540;stroke-width:2}.accent{fill:#19302d;stroke:#72cfc7;stroke-width:2}.title{fill:#f4f1ea;font:700 34px DejaVu Sans,sans-serif}.label{fill:#f4f1ea;font:700 21px DejaVu Sans,sans-serif}.copy{fill:#aab3ae;font:16px DejaVu Sans,sans-serif}.eyebrow{fill:#72cfc7;font:700 16px DejaVu Sans,sans-serif;letter-spacing:2px}.line{stroke:#72cfc7;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .bg{fill:#141817}.panel{fill:#1d2321;stroke:#3a4540;stroke-width:2}.accent{fill:#19302d;stroke:#72cfc7;stroke-width:2}.title{fill:#f4f1ea;font:700 34px DejaVu Sans,sans-serif}.label{fill:#f4f1ea;font:700 21px DejaVu Sans,sans-serif}.copy{fill:#aab3ae;font:16px DejaVu Sans,sans-serif}.eyebrow{fill:#72cfc7;font:700 16px DejaVu Sans,sans-serif;letter-spacing:2px}.line{stroke:#72cfc7;stroke-width:3;fill:none;marker-end:url(#arrow)}.bidi{stroke:#72cfc7;stroke-width:3;fill:none;marker-start:url(#arrow);marker-end:url(#arrow)}
     </style>
   </defs>
   <rect class="bg" width="1200" height="760"/>
@@ -36,7 +36,8 @@
   <g transform="translate(330 530)">
     <rect class="panel" width="250" height="105" rx="14"/><text class="label" x="125" y="40" text-anchor="middle">Provider boundary</text><text class="copy" x="125" y="68" text-anchor="middle">fixed HTTPS destinations</text><text class="copy" x="125" y="90" text-anchor="middle">ephemeral user key</text>
     <rect class="panel" x="430" width="250" height="105" rx="14"/><text class="label" x="555" y="40" text-anchor="middle">Browser storage</text><text class="copy" x="555" y="68" text-anchor="middle">versioned plaintext JSON</text><text class="copy" x="555" y="90" text-anchor="middle">fictional data only</text>
-    <path class="line" d="M250 52 H420"/>
   </g>
+  <path class="bidi" d="M455 525 V500 H432 V475"/>
+  <path class="line" d="M972 475 V500 H885 V525"/>
   <text class="copy" x="600" y="715" text-anchor="middle">Model output remains outside the state boundary until deterministic checks and human approval succeed.</text>
 </svg>
