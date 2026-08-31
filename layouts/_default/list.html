@@ -1,13 +1,21 @@
 {{ define "main" }}
-  <section class="page-hero shell narrow">
-    <p class="eyebrow{{ if eq .Section "talks" }} warm{{ end }}">{{ if eq .Section "work-i-love" }}Curated references{{ else }}{{ .Section | default "Index" }}{{ end }}</p>
-    {{ if eq .Section "work-i-love" }}
-      <h1 aria-label="Work I love">Work I <span class="heart-mark" aria-hidden="true">♥</span></h1>
-    {{ else }}
-      <h1>{{ .Title }}</h1>
+  <section class="page-hero shell{{ if ne .Section "about" }} narrow{{ else }} about-hero{{ end }}">
+    <div>
+      <p class="eyebrow{{ if eq .Section "talks" }} warm{{ end }}">{{ if eq .Section "work-i-love" }}Curated references{{ else }}{{ .Section | default "Index" }}{{ end }}</p>
+      {{ if eq .Section "work-i-love" }}
+        <h1 aria-label="Work I love">Work I <span class="heart-mark" aria-hidden="true">♥</span></h1>
+      {{ else }}
+        <h1>{{ .Title }}</h1>
+      {{ end }}
+      {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+      {{ with .Content }}<div class="prose intro-copy">{{ . }}</div>{{ end }}
+    </div>
+    {{ with .Params.portrait }}
+      <figure class="about-portrait">
+        <img src="{{ . | relURL }}" alt="{{ $.Params.portraitAlt }}">
+        <figcaption>Andreas Nissen</figcaption>
+      </figure>
     {{ end }}
-    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
-    {{ with .Content }}<div class="prose intro-copy">{{ . }}</div>{{ end }}
   </section>
 
   {{ if and (eq .Section "about") .Params.connectLinks }}

@@ -1,6 +1,8 @@
 ---
 title: "About"
 description: "I work at the point where enterprise architecture, applied AI, and responsible execution meet."
+portrait: "/images/about/andreas-nissen-linkedin.png"
+portraitAlt: "Portrait of Andreas Nissen."
 connectLinks:
   - label: "GitHub"
     detail: "Code, demos, and technical proof"
