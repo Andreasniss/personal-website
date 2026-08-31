@@ -29,6 +29,8 @@ For tool-using agents, retrying is more consequential still. A tool may already 
 
 The Safe Model Failover Learning Lab is a browser-local tutorial for choosing exactly one action: wait and retry, use an approved backup, or stop safely. It now teaches the decision in plain language before asking learners to practise it. A simple request, failure, and decision walkthrough leads into a glossary, a guided incident, short exercises, and an optional knowledge check.
 
+Exercises save answers and scores locally without asking learners to estimate confidence.
+
 The tutorial compares provider-managed capacity and model-routing features across AWS, Google Cloud, Microsoft Azure, OCI, and IBM Cloud. It makes the ownership boundary explicit: managed routing may reduce failures, but the application still owns its retry budget, backup approvals, tool state, and recovery of dependent services.
 
 The deterministic policy honors provider delay signals such as `Retry-After`. A fallback is allowed only when its model, Region, and tools are allow-listed and its safety controls, output schema, capability, and data boundary remain compatible. State-changing tool work blocks retry and fallback unless idempotency protection is explicit.
