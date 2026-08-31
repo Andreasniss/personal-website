@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <article class="shell article-shell">
+  <article class="shell article-shell{{ if .Params.skillCards }} skill-article{{ end }}">
     <header class="article-header">
       <p class="eyebrow">{{ .Section | default .Type }}</p>
       <h1>{{ .Title }}</h1>
