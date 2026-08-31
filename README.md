@@ -88,6 +88,12 @@ A featured project may set `evidenceReady: true` only when its page gives a skep
 
 `layouts/partials/project-evidence.html` renders this shared structure from project frontmatter. Do not set the flag for a thin experiment, an unmodified fork, or a project whose public evidence no longer matches its reviewed repository head.
 
+## Demo hosting contract
+
+`andreasnissen.dev` is the canonical portfolio index and case-study surface even when an interactive experience runs elsewhere. Platform-native experiments may remain on ChatGPT Sites when the product surface is part of the project, and learning labs may use it for a useful zero-setup path. Those pages must set an accurate `demoLabel`, explain the deployment choice, and avoid implying OpenAI review or endorsement.
+
+A flagship cross-provider or production-oriented demo should move to an owned or portable deployment only when that work adds inspectable engineering evidence, such as delivery automation, authentication, observability, failure handling, or operational controls. Hosting never substitutes for source, architecture, tests or evaluations, limitations, and explicit ownership.
+
 ## Curated references contract
 
 `content/work-i-love/` is for external work Andreas follows and recommends. It is deliberately separate from `content/projects/`, which contains only work Andreas can personally substantiate.

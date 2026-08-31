@@ -12,6 +12,7 @@ tags:
   - agent controls
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
+demoLabel: "ChatGPT Sites demo"
 image: "/images/projects/runbook-relay-webmcp.png"
 imageAlt: "Runbook Relay interface showing an active incident, the WebMCP tool model, desktop setup steps, and the human-approval boundary."
 socialImage: "/images/social/runbook-relay.png"
@@ -92,6 +93,10 @@ Incident dashboards are dense, stateful, and consequential. Screenshot-driven au
 Runbook Relay exposes narrow WebMCP tools for reading an incident, comparing mitigations, staging a change, executing an approved change, and resetting the simulation. The tools and the human interface use the same state transitions.
 
 The central control is deliberate: the agent can stage a mitigation, and it cannot approve its own change. Execution fails closed until the page records explicit human approval.
+
+## Deployment choice
+
+The interactive experience is intentionally hosted on ChatGPT Sites because the project tests how a site can expose governed tools to ChatGPT through WebMCP. This case study and the public repository remain the canonical review surfaces for the architecture, tests, limitations, and implementation. The hosting choice is product context, not a claim that OpenAI reviewed or endorsed the project.
 
 ## What it demonstrates
 
