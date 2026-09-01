@@ -21,7 +21,7 @@ The existing dark LinkedIn-aligned portfolio system is the selected target: char
 - Case study, live demo, repository, related article, and related project destinations are visibly distinct and keyboard-focusable.
 - The About links use labeled destination cards with familiar service icons.
 - Runbook Relay is titled as a WebMCP demo in the index, page title, and metadata.
-- The Mistral case study uses an exact architecture visual, linked proof statistics, a guided reviewer path, a claim-to-proof matrix, and explicit limitations.
+- The Agent Reliability Lab case study uses an exact architecture visual, linked proof statistics, a guided reviewer path, a claim-to-proof matrix, and explicit limitations.
 - Desktop navigation and content hierarchy remain consistent with the selected baseline.
 - Hugo build, content validation, and the GitHub Actions deployment passed.
 
@@ -29,6 +29,6 @@ The existing dark LinkedIn-aligned portfolio system is the selected target: char
 
 - The private 7DayFocus card intentionally has no visual proof image until an approved public-safe demo asset exists.
 - Article visuals are deliberately editorial rather than forced into identical crops on detail pages.
-- The Mistral project card retains its repository preview until a real screenshot can be captured from the reviewed Streamlit application. Generated interface imagery must not be used as a substitute.
+- The Agent Reliability Lab card intentionally omits a preview image because no current application screenshot matches the capability-led name. Generated interface imagery is not used as a substitute.
 
 final result: passed
