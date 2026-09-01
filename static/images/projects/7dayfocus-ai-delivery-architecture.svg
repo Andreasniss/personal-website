@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">7DayFocus AI Delivery Lab architecture</title>
+  <desc id="desc">An artifact delivery lane leads from intent to evidence. A runtime lane routes fixture or provider proposals through validation, review, explicit approval, an atomic reducer, and local browser storage.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#72cfc7"/>
+    </marker>
+    <style>
+      .bg{fill:#141817}.panel{fill:#1d2321;stroke:#3a4540;stroke-width:2}.accent{fill:#19302d;stroke:#72cfc7;stroke-width:2}.title{fill:#f4f1ea;font:700 34px DejaVu Sans,sans-serif}.label{fill:#f4f1ea;font:700 21px DejaVu Sans,sans-serif}.copy{fill:#aab3ae;font:16px DejaVu Sans,sans-serif}.eyebrow{fill:#72cfc7;font:700 16px DejaVu Sans,sans-serif;letter-spacing:2px}.line{stroke:#72cfc7;stroke-width:3;fill:none;marker-end:url(#arrow)}.bidi{stroke:#72cfc7;stroke-width:3;fill:none;marker-start:url(#arrow);marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text class="title" x="60" y="65">7DayFocus: delivery evidence and runtime control</text>
+  <text class="eyebrow" x="60" y="115">ANTHROPIC-INSPIRED ARTIFACT HANDOFF</text>
+  <g transform="translate(60 145)">
+    <rect class="panel" width="160" height="95" rx="14"/><text class="label" x="80" y="42" text-anchor="middle">Intent</text><text class="copy" x="80" y="68" text-anchor="middle">outcome + limits</text>
+    <path class="line" d="M165 48 H205"/>
+    <rect class="panel" x="210" width="160" height="95" rx="14"/><text class="label" x="290" y="42" text-anchor="middle">Specification</text><text class="copy" x="290" y="68" text-anchor="middle">behavior + risks</text>
+    <path class="line" d="M375 48 H415"/>
+    <rect class="panel" x="420" width="160" height="95" rx="14"/><text class="label" x="500" y="42" text-anchor="middle">Plan</text><text class="copy" x="500" y="68" text-anchor="middle">steps + checks</text>
+    <path class="line" d="M585 48 H625"/>
+    <rect class="panel" x="630" width="160" height="95" rx="14"/><text class="label" x="710" y="42" text-anchor="middle">Diff + tests</text><text class="copy" x="710" y="68" text-anchor="middle">working candidate</text>
+    <path class="line" d="M795 48 H835"/>
+    <rect class="accent" x="840" width="240" height="95" rx="14"/><text class="label" x="960" y="42" text-anchor="middle">Review + evidence</text><text class="copy" x="960" y="68" text-anchor="middle">human release gate</text>
+  </g>
+  <text class="eyebrow" x="60" y="320">LOCAL RUNTIME AND APPROVAL BOUNDARY</text>
+  <g transform="translate(60 350)">
+    <rect class="panel" width="205" height="120" rx="14"/><text class="label" x="102" y="40" text-anchor="middle">Planner UI</text><text class="copy" x="102" y="70" text-anchor="middle">fictional tasks</text><text class="copy" x="102" y="94" text-anchor="middle">browser-local state</text>
+    <path class="line" d="M210 60 H265"/>
+    <rect class="panel" x="270" width="205" height="120" rx="14"/><text class="label" x="372" y="40" text-anchor="middle">Proposal source</text><text class="copy" x="372" y="70" text-anchor="middle">deterministic fixture</text><text class="copy" x="372" y="94" text-anchor="middle">or loopback gateway</text>
+    <path class="line" d="M480 60 H535"/>
+    <rect class="accent" x="540" width="205" height="120" rx="14"/><text class="label" x="642" y="36" text-anchor="middle">Validate + review</text><text class="copy" x="642" y="66" text-anchor="middle">schema, invariants, diff</text><text class="copy" x="642" y="90" text-anchor="middle">explicit approval</text>
+    <path class="line" d="M750 60 H805"/>
+    <rect class="panel" x="810" width="205" height="120" rx="14"/><text class="label" x="912" y="40" text-anchor="middle">Atomic reducer</text><text class="copy" x="912" y="70" text-anchor="middle">one state transition</text><text class="copy" x="912" y="94" text-anchor="middle">or no mutation</text>
+  </g>
+  <g transform="translate(330 530)">
+    <rect class="panel" width="250" height="105" rx="14"/><text class="label" x="125" y="40" text-anchor="middle">Provider boundary</text><text class="copy" x="125" y="68" text-anchor="middle">fixed HTTPS destinations</text><text class="copy" x="125" y="90" text-anchor="middle">ephemeral user key</text>
+    <rect class="panel" x="430" width="250" height="105" rx="14"/><text class="label" x="555" y="40" text-anchor="middle">Browser storage</text><text class="copy" x="555" y="68" text-anchor="middle">versioned plaintext JSON</text><text class="copy" x="555" y="90" text-anchor="middle">fictional data only</text>
+  </g>
+  <path class="bidi" d="M455 525 V500 H432 V475"/>
+  <path class="line" d="M972 475 V500 H885 V525"/>
+  <text class="copy" x="600" y="715" text-anchor="middle">Model output remains outside the state boundary until deterministic checks and human approval succeed.</text>
+</svg>

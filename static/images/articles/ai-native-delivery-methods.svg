@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Three AI-native software delivery methods</title>
+  <desc id="desc">Anthropic focuses on committed artifact handoffs, AWS on lifecycle governance and decomposition, and OpenAI on the repository harness and feedback loops.</desc>
+  <defs>
+    <style>
+      .bg{fill:#141817}.card{fill:#1d2321;stroke:#3a4540;stroke-width:2}.a{fill:#19302d;stroke:#72cfc7;stroke-width:3}.b{fill:#2d2419;stroke:#ff9d3d;stroke-width:3}.c{fill:#202738;stroke:#84a7ff;stroke-width:3}.title{fill:#f4f1ea;font:700 38px DejaVu Sans,sans-serif}.head{fill:#f4f1ea;font:700 28px DejaVu Sans,sans-serif}.sub{fill:#aab3ae;font:18px DejaVu Sans,sans-serif}.item{fill:#f4f1ea;font:18px DejaVu Sans,sans-serif}.foot{fill:#72cfc7;font:700 20px DejaVu Sans,sans-serif}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="700"/>
+  <text class="title" x="60" y="65">Three layers of AI-native software delivery</text>
+  <g transform="translate(60 110)">
+    <rect class="a" width="330" height="470" rx="20"/>
+    <text class="head" x="28" y="52">Anthropic</text>
+    <text class="sub" x="28" y="84">Artifact handoffs</text>
+    <text class="item" x="28" y="140">intent.md</text>
+    <text class="item" x="28" y="182">spec.md</text>
+    <text class="item" x="28" y="224">plan.md</text>
+    <text class="item" x="28" y="266">diff + tests</text>
+    <text class="item" x="28" y="308">PR findings</text>
+    <text class="item" x="28" y="350">incident learning</text>
+    <text class="sub" x="28" y="414">Best for durable continuity</text>
+    <text class="sub" x="28" y="442">between people and agents.</text>
+  </g>
+  <g transform="translate(435 110)">
+    <rect class="b" width="330" height="470" rx="20"/>
+    <text class="head" x="28" y="52">AWS</text>
+    <text class="sub" x="28" y="84">Lifecycle governance</text>
+    <text class="item" x="28" y="140">Inception</text>
+    <text class="item" x="28" y="182">Construction</text>
+    <text class="item" x="28" y="224">Operations</text>
+    <text class="item" x="28" y="266">Units + Bolts</text>
+    <text class="item" x="28" y="308">adaptive depth</text>
+    <text class="item" x="28" y="350">state + audit evidence</text>
+    <text class="sub" x="28" y="414">Best for complex delivery,</text>
+    <text class="sub" x="28" y="442">controls, and decomposition.</text>
+  </g>
+  <g transform="translate(810 110)">
+    <rect class="c" width="330" height="470" rx="20"/>
+    <text class="head" x="28" y="52">OpenAI</text>
+    <text class="sub" x="28" y="84">Harness engineering</text>
+    <text class="item" x="28" y="140">repository knowledge</text>
+    <text class="item" x="28" y="182">bounded tools</text>
+    <text class="item" x="28" y="224">fast tests + linters</text>
+    <text class="item" x="28" y="266">isolated work</text>
+    <text class="item" x="28" y="308">observable feedback</text>
+    <text class="item" x="28" y="350">durable review rules</text>
+    <text class="sub" x="28" y="414">Best for reliable agent</text>
+    <text class="sub" x="28" y="442">execution inside a repo.</text>
+  </g>
+  <text class="foot" x="600" y="640" text-anchor="middle">Choose lifecycle depth, preserve useful artifacts, and make the repository executable.</text>
+</svg>
