@@ -53,7 +53,7 @@ reviewerPath:
     expected: "The simulation records the human approval and recovers to 1.2 s latency, 0.6% errors, and 51% saturation."
   - title: "Run the repository gate"
     action: "Clone the repository, run npm ci, npm run lint, and npm test with Node.js 22.13 or newer."
-    expected: "The production build succeeds and all seven contract tests pass."
+    expected: "The production build succeeds and all ten contract tests pass."
 reviewerFallback: "The browser-independent proof and contract test expose the same blocked-before-approval boundary without claiming native WebMCP discovery."
 reviewerFallbackURL: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
 architectureImage: "/images/projects/runbook-relay-architecture.svg"
