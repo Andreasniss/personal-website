@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Mistral Reliability Lab architecture</title>
+  <title id="title">Agent Reliability Lab architecture</title>
   <desc id="desc">The reviewer interface calls a model boundary connected to Mistral or Ollama. Proposed tool calls pass through a schema and allow-list gate before weather or fictional policy tools run. Privacy-first telemetry and offline tests observe the boundary.</desc>
   <rect width="1200" height="720" rx="28" fill="#101412"/>
-  <text x="72" y="78" fill="#ff9d3d" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="2">MISTRAL RELIABILITY LAB</text>
+  <text x="72" y="78" fill="#ff9d3d" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="2">AGENT RELIABILITY LAB</text>
   <text x="72" y="126" fill="#f4f1ea" font-family="Georgia,serif" font-size="36">Inspectable execution, bounded by application code</text>
 
   <g font-family="Inter,Arial,sans-serif">
