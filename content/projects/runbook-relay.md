@@ -12,7 +12,7 @@ tags:
   - agent controls
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
-demoLabel: "ChatGPT Sites demo"
+demoLabel: "Current ChatGPT Sites demo"
 image: "/images/projects/runbook-relay-webmcp.png"
 imageAlt: "Runbook Relay interface showing an active incident, the WebMCP tool model, desktop setup steps, and the human-approval boundary."
 socialImage: "/images/social/runbook-relay.png"
@@ -26,7 +26,7 @@ proofStats:
   - value: "5"
     label: "bounded WebMCP tools"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
-  - value: "10"
+  - value: "11"
     label: "contract tests"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/tests"
   - value: "2,557 B"
@@ -53,7 +53,7 @@ reviewerPath:
     expected: "The simulation records the human approval and recovers to 1.2 s latency, 0.6% errors, and 51% saturation."
   - title: "Run the repository gate"
     action: "Clone the repository, run npm ci, npm run lint, and npm test with Node.js 22.13 or newer."
-    expected: "The production build succeeds and all ten contract tests pass."
+    expected: "The production build succeeds and all eleven contract tests pass."
 reviewerFallback: "The browser-independent proof and contract test expose the same blocked-before-approval boundary without claiming native WebMCP discovery."
 reviewerFallbackURL: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
 architectureImage: "/images/projects/runbook-relay-architecture.svg"
@@ -103,7 +103,9 @@ The central control is deliberate: the agent can stage a mitigation, and it cann
 
 ## Deployment choice
 
-The interactive experience is intentionally hosted on ChatGPT Sites because the project tests how a site can expose governed tools to ChatGPT through WebMCP. This case study and the public repository remain the canonical review surfaces for the architecture, tests, limitations, and implementation. The hosting choice is product context, not a claim that OpenAI reviewed or endorsed the project.
+The interactive experience is moving to `runbook-relay.andreasnissen.dev` on Cloudflare Workers. An owned URL gives reviewers across AI providers one durable project identity, while the existing Vinext build already produces Cloudflare-compatible Worker and static-asset output. The current ChatGPT Sites URL remains the verified live fallback until the owned deployment passes DNS, TLS, application, WebMCP, and reciprocal-link checks.
+
+The migration is designed for the Cloudflare Workers Free plan. No database, object storage, secret, or external system is required by the deterministic public path, and enabling paid infrastructure would be a separate decision. This case study and the public repository remain the canonical review surfaces for the architecture, tests, limitations, and implementation. The hosting provider does not imply review or endorsement by Cloudflare, OpenAI, Anthropic, or any other provider.
 
 ## What it demonstrates
 
