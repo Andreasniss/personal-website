@@ -9,8 +9,8 @@ I have spent more than 15 years working across technology, architecture, and cus
 
 ## Public systems people can inspect
 
-- **Mistral Reliability Lab:** built and maintain a Python reference with 26 credential-free tests, six deterministic evaluation cases, bounded tool execution, privacy-first telemetry, and locked-dependency auditing.
 - **Runbook Relay:** built and maintain a deterministic WebMCP control room with five bounded tools, a human-only approval gate, visible receipts, and seven contract tests.
+- **Agent Reliability Lab:** built and maintain a Python reference with 26 credential-free tests, six deterministic evaluation cases, bounded tool execution, privacy-first telemetry, and locked-dependency auditing.
 - **Public technical writing:** maintain a canonical long-form archive that connects architecture arguments to inspectable demonstrations and source code.
 
 ## Enterprise AI delivery

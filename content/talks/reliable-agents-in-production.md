@@ -44,5 +44,5 @@ Participants leave with a concrete architecture checklist and a clearer distinct
 The original learning materials are not published here. The same public-safe engineering argument can be inspected through:
 
 - [The Hard Part of Agentic AI Starts After the Demo](/writing/agentic-ai-after-the-demo/)
-- [Mistral Reliability Lab](/projects/mistral-playground/)
+- [Agent Reliability Lab](/projects/mistral-playground/)
 - [Context and Control Are Different Layers](/writing/context-and-control/)
