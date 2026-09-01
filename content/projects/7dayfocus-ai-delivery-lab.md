@@ -19,7 +19,7 @@ relatedArticleTitle: "Three AI-Native Software Delivery Methods Compared"
 evidenceReady: true
 lastVerified: "2026-09-01"
 proofStats:
-  - value: "248"
+  - value: "249"
     label: "automated tests"
     url: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab/tree/main/src/test"
   - value: "24"
@@ -37,7 +37,7 @@ reviewerPath:
     expected: "The committed lockfile installs the reviewed Node dependency graph."
   - title: "Run the full gate"
     action: "Run npm run verify."
-    expected: "Lint, type checking, 248 automated tests, 24 named proposal cases, and the production build pass."
+    expected: "Lint, type checking, 249 automated tests, 24 named proposal cases, and the production build pass."
   - title: "Launch the local demo"
     action: "Run npm run dev and open the Vite URL."
     expected: "The planner and loopback gateway start locally; the fixture path needs no provider account."
@@ -129,7 +129,7 @@ For larger enterprise delivery, AWS offers a more comprehensive [AI-Driven Devel
 
 ## Evidence and current boundary
 
-The current P11 candidate passes 248 automated tests, including 24 named proposal-evaluation cases, plus lint, type checking, a production build, and a zero-vulnerability runtime dependency audit. Provider-adapter tests use mocked responses; no real credential was used and live-provider behavior is not claimed. The Android source and capability boundary are reviewable, but the APK and physical-device behavior remain unverified until the PC continuation step runs.
+The current P11 candidate passes 249 automated tests, including 24 named proposal-evaluation cases, plus lint, type checking, a production build, and a zero-vulnerability runtime dependency audit. Provider-adapter tests use mocked responses; no real credential was used and live-provider behavior is not claimed. The Android source and capability boundary are reviewable, but the APK and physical-device behavior remain unverified until the PC continuation step runs.
 
 This is an independent reference project, not a production service and not affiliated with or endorsed by Anthropic, OpenAI, OpenRouter, AWS, Todoist, or my employer.
 
