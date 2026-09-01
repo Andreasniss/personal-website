@@ -12,7 +12,7 @@ tags:
   - agent controls
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
-demoLabel: "Open the live control room"
+demoLabel: "Live control room"
 image: "/images/projects/runbook-relay-webmcp.png"
 imageAlt: "Runbook Relay interface showing an active incident, governed WebMCP tools, durable control state, and a session-bound approval boundary."
 socialImage: "/images/social/runbook-relay.png"
