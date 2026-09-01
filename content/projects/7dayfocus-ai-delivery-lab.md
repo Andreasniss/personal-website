@@ -19,7 +19,7 @@ relatedArticleTitle: "Three AI-Native Software Delivery Methods Compared"
 evidenceReady: true
 lastVerified: "2026-09-01"
 proofStats:
-  - value: "244"
+  - value: "248"
     label: "automated tests"
     url: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab/tree/main/src/test"
   - value: "24"
@@ -37,7 +37,7 @@ reviewerPath:
     expected: "The committed lockfile installs the reviewed Node dependency graph."
   - title: "Run the full gate"
     action: "Run npm run verify."
-    expected: "Lint, type checking, 244 automated tests, 24 named proposal cases, and the production build pass."
+    expected: "Lint, type checking, 248 automated tests, 24 named proposal cases, and the production build pass."
   - title: "Launch the local demo"
     action: "Run npm run dev and open the Vite URL."
     expected: "The planner and loopback gateway start locally; the fixture path needs no provider account."
@@ -50,8 +50,8 @@ reviewerPath:
 reviewerFallback: "If you cannot run Node locally, inspect the proposal parser, deterministic fixture, eval suite, and P05 publication record. They expose the same bounded proposal and human-approval contract without presenting mocked adapters as live-provider evidence."
 reviewerFallbackURL: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab/tree/main/docs/ai-dlc/changes/P05-publication"
 architectureImage: "/images/projects/7dayfocus-ai-delivery-architecture.svg"
-architectureAlt: "7DayFocus architecture showing Anthropic-inspired delivery artifacts above a local runtime where model proposals pass through review, validation, explicit approval, and an atomic domain reducer."
-architectureCaption: "The delivery lane preserves intent, specification, plan, implementation, review, and evidence. The runtime lane keeps model output outside the state boundary until deterministic validation and explicit human approval succeed."
+architectureAlt: "7DayFocus architecture showing Anthropic-inspired delivery artifacts above a local runtime where web provider proposals or an Android fixture pass through review, validation, explicit approval, and an atomic domain reducer."
+architectureCaption: "The delivery lane preserves intent, specification, plan, implementation, review, and evidence. The runtime lane keeps model output outside the state boundary until deterministic validation and explicit human approval succeed. The Android shell is fixture-only."
 evidenceRows:
   - claim: "The Anthropic-inspired handoff is inspectable"
     implementation: "Accepted intent, specification, plan, code, tests, review findings, and evidence remain versioned beside the implementation"
@@ -73,13 +73,17 @@ evidenceRows:
     implementation: "Named deterministic cases verify the application contract while live-provider quality remains explicitly unverified"
     url: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab/blob/main/evals/README.md"
     linkLabel: "Review the eval boundary"
+  - claim: "The Android path fails closed"
+    implementation: "The Tauri shell detects packaged mode and exposes only the deterministic fixture, without the loopback gateway or provider-key input"
+    url: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab/tree/main/docs/ai-dlc/changes/P11-android-personal-install"
+    linkLabel: "Inspect the Android packet"
 limitations:
   - "The 24 proposal cases and mocked provider adapters verify deterministic application contracts, not live-model quality."
   - "Provider keys, billing, model availability, retention, and live responses remain user and provider responsibilities."
   - "Planner data is plaintext in browser localStorage, intended only for fictional non-sensitive data, and concurrent tabs remain last-write-wins."
   - "The loopback gateway is a local reference boundary, not a hardened public or multi-tenant service."
   - "The lifecycle adapts selected Anthropic guidance. It is not an Anthropic standard, certification, endorsement, or compliance claim."
-  - "An earlier Tauri Android proof reached Android Studio and emulator testing but was not production-launched; Android installation and Google Play are not claimed."
+  - "A current fixture-only Tauri Android source path and PC runbook are prepared, but an APK build, physical-device installation, and Google Play availability are not yet claimed."
   - "The standalone product is no longer an active goal because agent-to-Todoist connectors now solve the personal workflow more directly."
 ---
 
@@ -105,7 +109,7 @@ The environment then changed. In my current personal workflow, Claude and ChatGP
 
 That conclusion is part of the project evidence. AI-native product work is not only about shipping more features. It also means recognizing when platform capabilities remove the original need and stopping deliberately. The standalone app is now a completed learning lab, not an active product roadmap.
 
-I may still install the Android build on my own phone as a personal completion exercise. Any Google Play attempt is optional and capped at three hours. If Google's testing, identity, policy, or engineering gates require more effort, I will stop and retain the documented proof of concept.
+I have now prepared a current fixture-only Tauri v2 source path and PC continuation runbook for installing the lab on my own phone as a personal completion exercise. The Android package deliberately omits live-provider access because the local Node gateway is not embedded in the app. The APK build and physical-device test remain open evidence gates. Any later Google Play attempt is optional and capped at three hours. If Google's testing, identity, policy, or engineering gates require more effort, I will stop and retain the documented proof of concept.
 
 ## How the Anthropic method works here
 
@@ -125,7 +129,7 @@ For larger enterprise delivery, AWS offers a more comprehensive [AI-Driven Devel
 
 ## Evidence and current boundary
 
-The reviewed public reference passes 244 automated tests, including 24 named proposal-evaluation cases, plus lint, type checking, production build, clean-copy reproduction, and a zero-vulnerability dependency audit. Provider-adapter tests use mocked responses; no real credential was used and live-provider behavior is not claimed.
+The current P11 candidate passes 248 automated tests, including 24 named proposal-evaluation cases, plus lint, type checking, a production build, and a zero-vulnerability runtime dependency audit. Provider-adapter tests use mocked responses; no real credential was used and live-provider behavior is not claimed. The Android source and capability boundary are reviewable, but the APK and physical-device behavior remain unverified until the PC continuation step runs.
 
 This is an independent reference project, not a production service and not affiliated with or endorsed by Anthropic, OpenAI, OpenRouter, AWS, Todoist, or my employer.
 
