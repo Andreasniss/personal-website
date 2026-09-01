@@ -19,12 +19,12 @@ This is where my architecture and customer-facing background compound. I can wor
 
 ## Public systems people can inspect
 
-- **[Runbook Relay](/projects/runbook-relay/):** built and maintain a deterministic WebMCP control room with five bounded tools, durable server policy, session-bound approval, replay protection, hash-linked receipts, 24 automated tests, and a versioned 50-task evaluation contract.
+- **[Runbook Relay](/projects/runbook-relay/):** built and maintain a deterministic WebMCP control room with five bounded tools, durable server policy, session-bound approval, replay protection, hash-linked receipts, 25 automated tests, and a versioned 50-task evaluation contract.
 - **[7DayFocus AI Delivery Lab](/projects/7dayfocus-ai-delivery-lab/):** built a local-first TypeScript and React reference with 244 automated tests, 24 deterministic proposal cases, three provider adapters, a threat model, and an inspectable AI-native delivery artifact chain.
 - **[Agent Reliability Lab](/projects/mistral-playground/):** built and maintain a Python reference with 26 credential-free tests, six deterministic evaluation cases, bounded tool execution, privacy-first telemetry, and locked-dependency auditing.
 - **Public technical writing:** maintain a canonical long-form archive that connects architecture arguments to inspectable demonstrations and source code.
 
-Across the three public codebases, the current reviewed snapshots expose 294 automated tests and 80 versioned evaluation cases. Runbook Relay's 50-task live-model suite has not run; the number describes the public task contract, not a model-quality result. The remaining cases and all test counts are deterministic code and contract checks, not claims of production scale.
+Across the three public codebases, the current reviewed snapshots expose 295 automated tests and 80 versioned evaluation cases. Runbook Relay's 50-task live-model suite has not run; the number describes the public task contract, not a model-quality result. The remaining cases and all test counts are deterministic code and contract checks, not claims of production scale.
 
 ## Enterprise AI delivery
 
