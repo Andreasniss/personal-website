@@ -8,6 +8,7 @@ lastVerified: 2026-09-01
 keyPoints:
   - "Screen use interprets a presentation layer; WebMCP exposes an explicit operation layer."
   - "Typed tools improve inspectability, but authorization must still be enforced outside the model."
+  - "Native page tools, compatibility polyfills, and MCP transport bridges are separate layers with separate evidence and security boundaries."
   - "Runbook Relay proves the control structure with deterministic tests, not a general browser-performance benchmark."
 proofLinks:
   - label: "Inspect Runbook Relay"
@@ -16,6 +17,8 @@ proofLinks:
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
   - label: "Review the agent-interface budget"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md"
+  - label: "Inspect the runtime layers"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
 socialImage: "/images/social/screen-use-vs-webmcp.png"
 socialImageAlt: "Screen Use vs WebMCP: What Changes When an Agent Gets Governed Tools, an article by Andreas Nissen."
 tags:
@@ -57,6 +60,24 @@ In Runbook Relay, the distinction is concrete. The page exposes separate tools t
 
 The tool boundary also makes negative behavior easier to specify. There is no tool that grants approval. Execution checks page state and fails closed until a human has approved the staged action.
 
+## WebMCP is not MCP moved into a browser
+
+The execution boundary matters as much as the tool schema. A WebMCP tool belongs to the open page, executes there, and shares the page's current user session. Traditional MCP tools usually belong to an independently deployed server with its own process, authentication, and lifecycle.
+
+Compatibility tooling can connect these worlds without making them the same architecture. [MCP-B's runtime model](https://docs.mcp-b.ai/explanation/architecture/runtime-layering) separates three layers: the standard `document.modelContext` surface, an optional compatibility runtime, and optional transports. Its [bridge architecture](https://docs.mcp-b.ai/explanation/architecture/transports-and-bridges) carries discovery, calls, results, and lifecycle events between the page and another client while tool execution remains in the page.
+
+That distinction creates a useful evidence rule:
+
+| Path | What it demonstrates | What it does not demonstrate |
+|---|---|---|
+| Native `document.modelContext` | The browser or agent discovers the page's standard tool surface | Compatibility with an external desktop MCP client |
+| Polyfilled page API | The application works against the same page contract in an unsupported browser | Native browser implementation |
+| Extension, iframe, or local relay | An external MCP client can reach the page tools through that transport | Native WebMCP support in that client |
+
+Runbook Relay currently implements only the first path and a clearly labeled browser-independent simulator. It does not bundle MCP-B. This keeps missing native support visible and prevents a compatibility result from being reported as browser support.
+
+A later provider-neutral evaluation can expose the same five tools to Claude Desktop or Cursor through an MCP-B relay. That path adds security work. Exact origin allowlists, sender and connection identity, relay exposure, and per-session isolation become part of the system boundary. [MCP-B's transport reference](https://docs.mcp-b.ai/packages/transports/reference) explicitly warns against wildcard origins in production and documents separate connection controls for iframe, extension, and relay transports.
+
 ## What structurally changes
 
 | Concern | Screen use | Governed WebMCP tool |
@@ -91,6 +112,8 @@ The public repository and contract tests prove a narrow set of properties:
 - the simulation resets to a deterministic fixture;
 - the five tool definitions and four-call negative path remain inside explicit structural size and call-count budgets.
 
+The repository also documents the standard page layer separately from optional compatibility and transport layers. It does not yet prove that Claude Desktop, Cursor, or another external MCP client can complete the workflow through a bridge.
+
 The [agent-interface measurement](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md) reports serialized UTF-8 bytes rather than model tokens. That makes it a reproducible regression guard for contract growth, not a claim that WebMCP is faster than screen use. It also does not prove that every model selects the correct tool or that a client-side approval is production-grade security. Those questions require a separate browser and model evaluation across repeated tasks.
 
 ## How I would compare the approaches empirically
@@ -104,6 +127,8 @@ A useful evaluation should hold the task and evidence constant, then vary only t
 5. approval-bypass attempts;
 6. recovery after stale or changed state;
 7. completeness of the resulting audit record.
+
+The interface matrix should also record whether each run used native WebMCP, a polyfill, or an MCP-B transport. Client, browser, transport, and version belong in the result. Otherwise a successful relay test can be mistaken for native browser support.
 
 The efficiency comparison should divide total model tokens by verified outcomes, not by calls. That prevents a short failed run from looking better than a longer run that reaches the correct final state. For this incident workflow, the grader should treat a blocked pre-approval execution as a successful safety outcome.
 

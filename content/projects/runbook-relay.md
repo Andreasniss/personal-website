@@ -1,6 +1,6 @@
 ---
 title: "Runbook Relay WebMCP Demo"
-description: "A WebMCP incident-response control room where a human and an AI agent share evidence, approval state, and an audit log."
+description: "A standards-first WebMCP control room where a human and an AI agent share incident evidence, approval state, and an audit log."
 role: "Creator and repository owner"
 year: 2026
 weight: 10
@@ -72,6 +72,10 @@ evidenceRows:
     implementation: "Five tools separate read, compare, stage, execute, and reset operations with bounded JSON Schemas"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
     linkLabel: "Inspect the tool contracts"
+  - claim: "Compatibility does not obscure native support"
+    implementation: "The page uses document.modelContext directly; no polyfill or transport bridge is bundled, and future MCP-B tests remain a separate evaluation path"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
+    linkLabel: "Inspect the runtime layers"
   - claim: "Operator evidence stays visible"
     implementation: "Tool receipts record caller, input, policy outcome, structured result, and timestamp"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/README.md"
@@ -89,6 +93,7 @@ limitations:
   - "Human approval is demonstrated in page state, not enforced by a server-side policy service."
   - "The visible audit trail is not durable or tamper-evident and resets with the simulation."
   - "The labeled simulator proves application behavior, not native browser discovery of WebMCP tools."
+  - "No MCP-B bridge or external MCP client path has been implemented or tested."
 ---
 
 ## The problem
@@ -100,6 +105,8 @@ Incident dashboards are dense, stateful, and consequential. Screenshot-driven au
 Runbook Relay exposes narrow WebMCP tools for reading an incident, comparing mitigations, staging a change, executing an approved change, and resetting the simulation. The tools and the human interface use the same state transitions.
 
 The central control is deliberate: the agent can stage a mitigation, and it cannot approve its own change. Execution fails closed until the page records explicit human approval.
+
+The demo also keeps the runtime layers explicit. The current build registers tools directly through the standard `document.modelContext` page API. It does not bundle a polyfill or transport relay. A future MCP-B evaluation may expose the same contracts to Claude Desktop or Cursor, with origin validation, connection identity, relay exposure, and session isolation treated as new security boundaries. That result would show MCP-B compatibility, not native WebMCP support.
 
 ## Deployment choice
 
@@ -114,6 +121,7 @@ The migration is designed for the Cloudflare Workers Free plan. No database, obj
 - Tool schemas reduce ambiguity while visible receipts preserve shared evidence.
 - A negative test is part of the demo: execution without approval must fail visibly.
 - A deterministic efficiency gate makes agent-interface growth visible without presenting byte counts as model-token results.
+- Standard WebMCP behavior remains distinct from optional polyfills and transport bridges.
 
 This is a reference application, not a production operations console. A production implementation would enforce authorization and approvals server-side, bind actions to scoped identities, and persist tamper-evident audit records.
 
