@@ -1,11 +1,11 @@
 ---
 title: "7DayFocus AI Delivery Lab"
-description: "A local-first weekly planner with a human-approved AI assistant, bounded proposals, deterministic evaluations, and user-supplied model credentials."
+description: "A completed AI-delivery learning lab: a local-first weekly planner with bounded model proposals, deterministic evaluations, human approval, and an honest product-discovery conclusion."
 role: "Creator and repository owner"
 year: 2026
 weight: 20
 featured: true
-statusLabel: "Public reference lab"
+statusLabel: "Completed learning lab"
 tags:
   - Claude
   - OpenAI
@@ -17,7 +17,7 @@ repoURL: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab"
 relatedArticleURL: "/writing/ai-native-software-delivery-methods/"
 relatedArticleTitle: "Three AI-Native Software Delivery Methods Compared"
 evidenceReady: true
-lastVerified: "2026-08-31"
+lastVerified: "2026-09-01"
 proofStats:
   - value: "244"
     label: "automated tests"
@@ -79,6 +79,8 @@ limitations:
   - "Planner data is plaintext in browser localStorage, intended only for fictional non-sensitive data, and concurrent tabs remain last-write-wins."
   - "The loopback gateway is a local reference boundary, not a hardened public or multi-tenant service."
   - "The lifecycle adapts selected Anthropic guidance. It is not an Anthropic standard, certification, endorsement, or compliance claim."
+  - "An earlier Tauri Android proof reached Android Studio and emulator testing but was not production-launched; Android installation and Google Play are not claimed."
+  - "The standalone product is no longer an active goal because agent-to-Todoist connectors now solve the personal workflow more directly."
 ---
 
 ## The problem
@@ -92,6 +94,18 @@ An AI planner should not silently rewrite a person's week. Model output can be m
 Every model response passes through a strict proposal contract and the planner's deterministic capacity and priority rules. The interface shows the complete diff and reason for each change. Nothing mutates until the user explicitly approves the proposal, and the entire proposal is rejected if the week changed after generation.
 
 The provider key is held only for the active request, sent through a loopback-only gateway to a fixed provider destination, and then cleared from the interface. It is not stored in browser persistence, exported with planner data, logged, or committed.
+
+## The product-discovery result
+
+I originally built 7DayFocus to solve a specific personal problem: stay focused on one week without accumulating another endless backlog. It was also a deliberate learning project for cross-platform development, AI-assisted delivery, model integration, evaluation, and human approval.
+
+An earlier React and Tauri v2 version reached Android Studio and emulator testing and was prepared for distribution. I stopped before the final production launch. The main purpose was learning, not building a commercial task-management product.
+
+The environment then changed. In my current personal workflow, Claude and ChatGPT act as the context-rich orchestration layer. Todoist provides the task database and visual interface through its connector and CLI. This is more useful than a separate AI-powered planner: the agent can work with broader context, while Todoist already handles persistence and everyday interaction.
+
+That conclusion is part of the project evidence. AI-native product work is not only about shipping more features. It also means recognizing when platform capabilities remove the original need and stopping deliberately. The standalone app is now a completed learning lab, not an active product roadmap.
+
+I may still install the Android build on my own phone as a personal completion exercise. Any Google Play attempt is optional and capped at three hours. If Google's testing, identity, policy, or engineering gates require more effort, I will stop and retain the documented proof of concept.
 
 ## How the Anthropic method works here
 
@@ -113,4 +127,6 @@ For larger enterprise delivery, AWS offers a more comprehensive [AI-Driven Devel
 
 The reviewed public reference passes 244 automated tests, including 24 named proposal-evaluation cases, plus lint, type checking, production build, clean-copy reproduction, and a zero-vulnerability dependency audit. Provider-adapter tests use mocked responses; no real credential was used and live-provider behavior is not claimed.
 
-This is an independent reference project, not a production service and not affiliated with or endorsed by Anthropic, OpenAI, OpenRouter, or AWS.
+This is an independent reference project, not a production service and not affiliated with or endorsed by Anthropic, OpenAI, OpenRouter, AWS, Todoist, or my employer.
+
+The final product decision is intentional: preserve the working proof, artifact chain, tests, and lessons; use the stronger agent-plus-Todoist architecture in daily life; and resume standalone development only if a new learning goal justifies it.
