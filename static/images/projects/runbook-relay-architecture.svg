@@ -1,64 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Runbook Relay architecture</title>
-  <desc id="desc">A browser agent calls bounded WebMCP tools while a human operator uses page controls. Both share one deterministic state model and visible receipts. Execution passes through a human approval gate before the simulated mitigation.</desc>
+  <title id="title">Runbook Relay durable control-plane architecture</title>
+  <desc id="desc">Browser agent, simulator, and human page controls call one same-origin server API. Policy guards use durable D1 state before a synthetic execution and append hash-linked receipts.</desc>
   <rect width="1200" height="720" fill="#101412"/>
-  <text x="76" y="82" fill="#f4f1ea" font-family="Georgia, serif" font-size="42">One state model, two actors, one approval boundary</text>
-  <text x="76" y="122" fill="#aab3ae" font-family="system-ui, sans-serif" font-size="20">Runbook Relay reference architecture</text>
+  <text x="70" y="76" fill="#f4f1ea" font-family="Georgia, serif" font-size="40">One interface, one server boundary, durable evidence</text>
+  <text x="70" y="116" fill="#aab3ae" font-family="system-ui, sans-serif" font-size="19">Runbook Relay reference architecture</text>
 
   <g font-family="system-ui, sans-serif">
-    <rect x="76" y="190" width="250" height="114" rx="18" fill="#1d2321" stroke="#45aaa2" stroke-width="2"/>
-    <text x="106" y="235" fill="#72cfc7" font-size="17" font-weight="700">BROWSER AGENT</text>
-    <text x="106" y="269" fill="#f4f1ea" font-size="22">WebMCP calls</text>
+    <rect x="70" y="178" width="250" height="116" rx="18" fill="#1d2321" stroke="#45aaa2" stroke-width="2"/>
+    <text x="98" y="220" fill="#72cfc7" font-size="16" font-weight="700">AGENT PATH</text>
+    <text x="98" y="254" fill="#f4f1ea" font-size="21">Native WebMCP</text>
+    <text x="98" y="278" fill="#aab3ae" font-size="16">or labeled simulator</text>
 
-    <rect x="76" y="414" width="250" height="114" rx="18" fill="#1d2321" stroke="#ff9d3d" stroke-width="2"/>
-    <text x="106" y="459" fill="#ff9d3d" font-size="17" font-weight="700">HUMAN OPERATOR</text>
-    <text x="106" y="493" fill="#f4f1ea" font-size="22">Page controls</text>
+    <rect x="70" y="402" width="250" height="116" rx="18" fill="#1d2321" stroke="#ff9d3d" stroke-width="2"/>
+    <text x="98" y="444" fill="#ff9d3d" font-size="16" font-weight="700">HUMAN PATH</text>
+    <text x="98" y="478" fill="#f4f1ea" font-size="21">Page controls</text>
+    <text x="98" y="502" fill="#aab3ae" font-size="16">stage · approve · execute</text>
 
-    <rect x="430" y="190" width="300" height="114" rx="18" fill="#1d2321" stroke="#45aaa2" stroke-width="2"/>
-    <text x="460" y="235" fill="#72cfc7" font-size="17" font-weight="700">FIVE BOUNDED TOOLS</text>
-    <text x="460" y="269" fill="#f4f1ea" font-size="22">Read · compare · stage</text>
+    <rect x="420" y="254" width="300" height="188" rx="20" fill="#1d2321" stroke="#72cfc7" stroke-width="2"/>
+    <text x="450" y="299" fill="#72cfc7" font-size="16" font-weight="700">SAME-ORIGIN SERVER API</text>
+    <text x="450" y="337" fill="#f4f1ea" font-size="22">Bounded schema + session</text>
+    <text x="450" y="370" fill="#f4f1ea" font-size="22">digest · version · expiry</text>
+    <text x="450" y="403" fill="#f4f1ea" font-size="22">idempotency · replay</text>
 
-    <rect x="430" y="358" width="300" height="170" rx="18" fill="#1d2321" stroke="#3a4540" stroke-width="2"/>
-    <text x="460" y="403" fill="#aab3ae" font-size="17" font-weight="700">SHARED REACT STATE</text>
-    <text x="460" y="440" fill="#f4f1ea" font-size="22">Incident · staged change</text>
-    <text x="460" y="476" fill="#f4f1ea" font-size="22">approval · telemetry</text>
+    <rect x="820" y="166" width="310" height="142" rx="20" fill="#1d2321" stroke="#3a4540" stroke-width="2"/>
+    <text x="850" y="208" fill="#aab3ae" font-size="16" font-weight="700">CLOUDFLARE D1</text>
+    <text x="850" y="246" fill="#f4f1ea" font-size="21">Sessions · approvals</text>
+    <text x="850" y="278" fill="#f4f1ea" font-size="21">executions · receipts</text>
 
-    <rect x="834" y="190" width="290" height="114" rx="18" fill="#1d2321" stroke="#3a4540" stroke-width="2"/>
-    <text x="864" y="235" fill="#aab3ae" font-size="17" font-weight="700">VISIBLE EVIDENCE</text>
-    <text x="864" y="269" fill="#f4f1ea" font-size="22">Receipts · decision log</text>
+    <rect x="820" y="374" width="310" height="116" rx="20" fill="#1d2321" stroke="#ff9d3d" stroke-width="2"/>
+    <text x="850" y="416" fill="#ff9d3d" font-size="16" font-weight="700">POLICY DECISION</text>
+    <text x="850" y="452" fill="#f4f1ea" font-size="21">Allow · block · replay</text>
 
-    <rect x="834" y="358" width="290" height="114" rx="18" fill="#1d2321" stroke="#ff9d3d" stroke-width="2"/>
-    <text x="864" y="403" fill="#ff9d3d" font-size="17" font-weight="700">HUMAN APPROVAL GATE</text>
-    <text x="864" y="437" fill="#f4f1ea" font-size="22">Absent? Block execution</text>
+    <rect x="820" y="554" width="310" height="104" rx="20" fill="#1d2321" stroke="#45aaa2" stroke-width="2"/>
+    <text x="850" y="595" fill="#72cfc7" font-size="16" font-weight="700">SYNTHETIC EXECUTOR</text>
+    <text x="850" y="629" fill="#f4f1ea" font-size="21">Success or partial failure</text>
 
-    <rect x="834" y="526" width="290" height="114" rx="18" fill="#1d2321" stroke="#45aaa2" stroke-width="2"/>
-    <text x="864" y="571" fill="#72cfc7" font-size="17" font-weight="700">DETERMINISTIC EFFECT</text>
-    <text x="864" y="605" fill="#f4f1ea" font-size="22">Simulated mitigation</text>
-
-    <g fill="none" stroke="#72cfc7" stroke-width="3">
-      <path d="M326 247H430"/>
-      <path d="M580 304V358"/>
-      <path d="M730 414H834"/>
-      <path d="M979 472V526"/>
-    </g>
-    <g fill="none" stroke="#ff9d3d" stroke-width="3">
-      <path d="M326 471H430"/>
-      <path d="M730 450H834"/>
-    </g>
-    <g fill="none" stroke="#aab3ae" stroke-width="2" stroke-dasharray="8 8">
-      <path d="M730 260H834"/>
-      <path d="M730 395C780 395 784 276 834 276"/>
-      <path d="M1124 583C1160 583 1160 247 1124 247"/>
+    <g fill="none" stroke-width="3">
+      <path d="M320 236H378C401 236 420 255 420 278" stroke="#72cfc7"/>
+      <path d="M320 460H378C401 460 420 425 420 406" stroke="#ff9d3d"/>
+      <path d="M720 318H770C794 318 820 268 820 248" stroke="#aab3ae"/>
+      <path d="M820 418H720" stroke="#ff9d3d"/>
+      <path d="M975 490V554" stroke="#72cfc7"/>
+      <path d="M1086 554V526C1086 506 1050 490 1028 490" stroke="#aab3ae" stroke-dasharray="8 8"/>
     </g>
     <g fill="#72cfc7">
-      <path d="M430 247l-12-7v14z"/>
-      <path d="M580 358l-7-12h14z"/>
-      <path d="M834 414l-12-7v14z"/>
-      <path d="M979 526l-7-12h14z"/>
+      <path d="M420 278l-11-7v14z"/>
+      <path d="M975 554l-7-12h14z"/>
     </g>
     <g fill="#ff9d3d">
-      <path d="M430 471l-12-7v14z"/>
-      <path d="M834 450l-12-7v14z"/>
+      <path d="M420 406l-11-7v14z"/>
+      <path d="M720 418l12-7v14z"/>
+    </g>
+    <g fill="#aab3ae">
+      <path d="M820 248l-11-7v14z"/>
+      <path d="M1028 490l12-7v14z"/>
     </g>
   </g>
+
+  <text x="70" y="676" fill="#aab3ae" font-family="system-ui, sans-serif" font-size="17">The browser is a client. Durable policy and execution evidence stay at the server boundary.</text>
 </svg>
