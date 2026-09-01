@@ -4,14 +4,17 @@ date: 2026-07-09
 description: "AWS Builder Center removes the account and credit-card setup that often stops a workshop before the building begins."
 primaryTopic: "Learning"
 evidenceLabel: "Source-backed explainer"
-lastVerified: 2026-08-31
+evidenceBoundary: "AWS Builder Center documentation supports the learning path and current eight-hour sandbox window. Eligibility, available workshops, and session limits can change and should be confirmed before use."
+lastVerified: 2026-09-01
 keyPoints:
   - "Account setup and billing uncertainty can stop hands-on learning before it begins."
   - "Builder Center sandboxes provide temporary environments for supported learning experiences."
   - "Learners should still check prerequisites, scope, and cleanup guidance."
 proofLinks:
-  - label: "Open AWS Builder Center"
-    url: "https://builder.aws.com/"
+  - label: "Read the AWS sandbox announcement"
+    url: "https://builder.aws.com/content/3GCjkXGc1Qrs5jGsWI5fkTLNWzU/introducing-sandbox-environments-on-aws-builder-center"
+  - label: "Browse AWS workshops"
+    url: "https://builder.aws.com/build/workshops"
 socialImage: "/images/social/builder-sandboxes.png"
 socialImageAlt: "Free AWS Builder Center Sandboxes Make Hands-On Learning Easier, an article by Andreas Nissen."
 tags:

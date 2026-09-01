@@ -4,6 +4,7 @@ date: 2026-08-28
 description: "Context is the evidence available now. An ontology defines what the entities, relationships, and rules in that evidence mean."
 primaryTopic: "Agent architecture"
 evidenceLabel: "Architecture analysis"
+evidenceBoundary: "This is a conceptual architecture analysis. No public retrieval benchmark or production ontology implementation supports performance claims in this article."
 lastVerified: 2026-08-31
 keyPoints:
   - "Context is the evidence available for the current decision."
@@ -19,7 +20,7 @@ tags:
   - knowledge graphs
   - context engineering
 origin: "website"
-featured: true
+featured: false
 draft: false
 image: "/images/articles/ontology-semantic-model.webp"
 imageAlt: "A stream of temporary evidence resolving into a structured network of typed entities and relationships."

@@ -1,6 +1,6 @@
 ---
 title: "Writing"
-description: "Long-form notes on enterprise AI architecture, agent reliability, evaluation, and controlled execution."
+description: "Evidence-led writing on enterprise AI architecture, agent reliability, evaluation, tool interfaces, and controlled execution."
 topics:
   - Agent architecture
   - Evaluation
@@ -10,4 +10,4 @@ topics:
   - Learning
 ---
 
-These articles turn recurring architecture questions into reusable decision rules. Each page states what kind of evidence supports it, when that evidence was last checked, and where the underlying project or repository can be inspected. The owned site is the canonical home; LinkedIn and X carry channel-native adaptations rather than identical cross-posts.
+These articles turn recurring architecture and delivery questions into reusable decision rules. Each page states what supports the argument, where that evidence stops, when it was last checked, and where a related project, repository, or primary source can be inspected. The owned site is the canonical home; LinkedIn and X carry channel-native adaptations rather than identical cross-posts.

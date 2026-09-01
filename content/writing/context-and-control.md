@@ -4,6 +4,7 @@ date: 2026-08-30
 description: "An agent needs enough context to reason and enough control to act safely. Treating them as one system hides different failure modes."
 primaryTopic: "Agent architecture"
 evidenceLabel: "Architecture analysis"
+evidenceBoundary: "This is an architecture argument, not a comparative benchmark. The 7DayFocus project shows one inspected implementation of the proposal, validation, and approval boundary."
 lastVerified: 2026-08-31
 keyPoints:
   - "Context determines what the agent can understand."
@@ -19,7 +20,7 @@ tags:
   - context
   - governance
 origin: "website"
-featured: true
+featured: false
 draft: false
 image: "/images/articles/enterprise-ai-two-graphs.svg"
 imageAlt: "Enterprise AI needs two graphs: a context graph for understanding and a workflow graph for controlled execution."

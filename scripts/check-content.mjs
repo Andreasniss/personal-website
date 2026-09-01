@@ -116,7 +116,7 @@ for (const file of articleFiles) {
   if (origin === "linkedin" && !linkedinURL) {
     failures.push(`LinkedIn-origin article lacks a verified LinkedIn URL in ${path.relative(root, file)}`);
   }
-  for (const field of ["primaryTopic", "evidenceLabel", "lastVerified"]) {
+  for (const field of ["primaryTopic", "evidenceLabel", "evidenceBoundary", "lastVerified"]) {
     if (!frontmatterValue(frontmatter, field)) {
       failures.push(`Evidence-led article is missing ${field} in ${path.relative(root, file)}`);
     }
@@ -126,6 +126,11 @@ for (const file of articleFiles) {
   if (keyPointCount < 3) {
     failures.push(`Evidence-led article needs at least three keyPoints in ${path.relative(root, file)}`);
   }
+}
+
+const featuredArticleFiles = articleFiles.filter((file) => /^featured:\s*true$/m.test(fs.readFileSync(file, "utf8")));
+if (featuredArticleFiles.length !== 3) {
+  failures.push(`Homepage must feature exactly three articles, found ${featuredArticleFiles.length}`);
 }
 
 const projectFiles = contentFiles.filter((file) => file.includes(`${path.sep}projects${path.sep}`) && !file.endsWith("_index.md"));
@@ -158,6 +163,16 @@ for (const file of projectFiles) {
   if (architectureImage) {
     const architecturePath = path.join(root, "static", architectureImage.replace(/^\//, ""));
     if (!fs.existsSync(architecturePath)) failures.push(`Project architecture image is missing in ${relative}: ${architectureImage}`);
+  }
+}
+
+const featuredProjectFiles = projectFiles.filter((file) => /^featured:\s*true$/m.test(fs.readFileSync(file, "utf8")));
+if (featuredProjectFiles.length !== 3) {
+  failures.push(`Homepage must feature exactly three projects, found ${featuredProjectFiles.length}`);
+}
+for (const file of featuredProjectFiles) {
+  if (!/^evidenceReady:\s*true$/m.test(fs.readFileSync(file, "utf8"))) {
+    failures.push(`Homepage project must satisfy the evidence-ready contract: ${path.relative(root, file)}`);
   }
 }
 

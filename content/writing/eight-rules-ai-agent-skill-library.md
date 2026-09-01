@@ -4,6 +4,7 @@ date: 2026-06-01
 description: "What seven months of operating roughly 100 agent skills taught me about maintenance, routing, structure, and trust."
 primaryTopic: "Operating practice"
 evidenceLabel: "Operating experience"
+evidenceBoundary: "These rules come from sustained personal operation of an approximately 100-skill library. They are not the result of a controlled comparison across agent harnesses."
 lastVerified: 2026-08-31
 keyPoints:
   - "A skill library is an operated system, not a collection of instruction files."
@@ -19,7 +20,7 @@ tags:
   - developer tools
 origin: "linkedin"
 linkedinURL: "https://www.linkedin.com/feed/update/urn:li:activity:7467132017814433793/"
-featured: true
+featured: false
 draft: false
 skillCards: true
 image: "/images/articles/agent-skill-library.svg"

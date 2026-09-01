@@ -68,7 +68,7 @@ static/
 
 ## Evidence-led article contract
 
-Every published article states what supports the argument instead of presenting all writing as the same kind of evidence. Frontmatter provides a controlled primary topic, an evidence label, a verification date, at least three key points, and proof links when a public project, repository, source, or test supports the article. The shared template renders those fields before the prose and builds series navigation when `series` and `seriesOrder` are set.
+Every published article states what supports the argument instead of presenting all writing as the same kind of evidence. Frontmatter provides a controlled primary topic, an evidence label, a visible evidence boundary, a verification date, at least three key points, and proof links when a public project, repository, source, or test supports the article. The shared template renders those fields before the prose and builds series navigation when `series` and `seriesOrder` are set.
 
 Use the evidence label precisely:
 

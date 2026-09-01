@@ -324,17 +324,46 @@ svg {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.signal-grid span {
+.signal-grid > a {
   padding: 22px 16px;
   border-left: 1px solid var(--line);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-align: center;
+  text-decoration: none;
   text-transform: uppercase;
+  transition: background 150ms ease;
 }
 
-.signal-grid span:last-child {
+.signal-grid > a:hover {
+  color: inherit;
+  background: rgb(69 170 162 / 8%);
+}
+
+.signal-grid > a strong,
+.signal-grid > a small {
+  display: block;
+}
+
+.signal-grid > a strong {
+  margin-bottom: 5px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.signal-grid > a small {
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+
+.signal-grid > a:last-child {
   border-right: 1px solid var(--line);
 }
 
@@ -774,6 +803,24 @@ svg {
 
 .article-brief li::marker {
   color: var(--accent);
+}
+
+.article-boundary {
+  margin: 22px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.article-boundary strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
 .article-series {
@@ -1512,8 +1559,8 @@ svg {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .signal-grid span:nth-child(3),
-  .signal-grid span:nth-child(4) {
+  .signal-grid > a:nth-child(3),
+  .signal-grid > a:nth-child(4) {
     border-top: 1px solid var(--line);
   }
 

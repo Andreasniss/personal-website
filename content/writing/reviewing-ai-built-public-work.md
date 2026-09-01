@@ -4,6 +4,7 @@ date: 2026-08-31
 description: "AI can accelerate implementation and review. The human owner still defines the claim, evidence, risk boundary, and release decision."
 primaryTopic: "Operating practice"
 evidenceLabel: "Operating experience"
+evidenceBoundary: "This is an operating standard demonstrated across public repositories. It does not claim independent human review, production readiness, or the absence of undiscovered defects."
 lastVerified: 2026-08-31
 keyPoints:
   - "Intent, architecture, evaluation criteria, risk, and release decisions remain human-owned."
@@ -22,7 +23,7 @@ tags:
   - portfolio engineering
   - evaluation
 origin: "website"
-featured: true
+featured: false
 draft: false
 image: "/images/articles/reviewing-ai-built-work.svg"
 imageAlt: "A human-owned release decision receives evidence from code, tests, security checks, documentation, and a live verification path."

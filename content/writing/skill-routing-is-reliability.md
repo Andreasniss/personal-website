@@ -4,6 +4,7 @@ date: 2026-08-31
 description: "A correct skill that activates for the wrong request is still a system failure. Routing needs explicit boundaries, negative cases, and regression tests."
 primaryTopic: "Evaluation"
 evidenceLabel: "Operating experience"
+evidenceBoundary: "The routing patterns come from personal operating experience. The sanitized harness is a design direction, not a released benchmark or measured cross-model result."
 lastVerified: 2026-08-31
 keyPoints:
   - "Skill descriptions are routing interfaces and should be tested like interfaces."
@@ -20,7 +21,7 @@ tags:
   - regression testing
   - agent reliability
 origin: "website"
-featured: true
+featured: false
 draft: false
 image: "/images/articles/skill-routing-reliability.svg"
 imageAlt: "A routing evaluation sends positive, negative, overlap, and stale cases through a skill selector before execution."

@@ -13,6 +13,9 @@ tags:
   - human approval
 socialImage: "/images/social/7dayfocus.png"
 socialImageAlt: "7DayFocus AI Delivery Lab, a public AI-assisted delivery reference by Andreas Nissen."
+image: "/images/projects/7dayfocus-ai-delivery-architecture.svg"
+imageAlt: "7DayFocus architecture with review, validation, explicit approval, and an atomic state transition between model output and planner state."
+hideDetailImage: true
 repoURL: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab"
 relatedArticleURL: "/writing/ai-native-software-delivery-methods/"
 relatedArticleTitle: "Three AI-Native Software Delivery Methods Compared"

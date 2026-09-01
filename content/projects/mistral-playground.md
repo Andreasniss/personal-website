@@ -13,6 +13,8 @@ tags:
 repoURL: "https://github.com/Andreasniss/Mistral-playground"
 socialImage: "/images/social/mistral-reliability-lab.png"
 socialImageAlt: "Agent Reliability Lab, an evidence-led agent reliability reference by Andreas Nissen."
+image: "/images/projects/mistral-reliability-architecture.svg"
+imageAlt: "Agent Reliability Lab architecture with provider choice, a validated tool gate, privacy-first telemetry, and offline verification."
 hideDetailImage: true
 relatedArticleURL: "/writing/agentic-ai-after-the-demo/"
 relatedArticleTitle: "The Hard Part of Agentic AI Starts After the Demo"

@@ -4,6 +4,7 @@ date: 2026-08-31
 description: "Tool cost begins before execution. Definitions, selection, results, round trips, and failure recovery all consume context and time."
 primaryTopic: "Agent architecture"
 evidenceLabel: "Tested project analysis"
+evidenceBoundary: "The public gate measures serialized UTF-8 bytes and call count, not model tokens or end-to-end agent performance. Tool selection, latency, retries, and tokens per verified outcome remain unmeasured."
 lastVerified: 2026-09-01
 keyPoints:
   - "Every exposed tool adds recurring context before the user request is solved."
