@@ -58,7 +58,7 @@ for (const file of textFiles) {
   const relative = path.relative(root, file);
   const isValidator = relative === path.join("scripts", "check-content.mjs");
 
-  if (!isValidator && /TODO|TBD|lorem ipsum|your-domain|placeholder/i.test(content)) {
+  if (!isValidator && /\b(?:TODO|TBD)\b|lorem ipsum|your-domain|placeholder/i.test(content)) {
     failures.push(`Placeholder text found in ${relative}`);
   }
   if (!isValidator && content.includes("—")) {

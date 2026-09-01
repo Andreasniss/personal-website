@@ -1,6 +1,6 @@
 ---
 title: "Runbook Relay WebMCP Demo"
-description: "A WebMCP incident-response control room where a human and an AI agent share evidence, approval state, and an audit log."
+description: "A standards-first WebMCP control room where a human and an AI agent share incident evidence, approval state, and an audit log."
 role: "Creator and repository owner"
 year: 2026
 weight: 10
@@ -12,7 +12,7 @@ tags:
   - agent controls
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
-demoLabel: "ChatGPT Sites demo"
+demoLabel: "Current ChatGPT Sites demo"
 image: "/images/projects/runbook-relay-webmcp.png"
 imageAlt: "Runbook Relay interface showing an active incident, the WebMCP tool model, desktop setup steps, and the human-approval boundary."
 socialImage: "/images/social/runbook-relay.png"
@@ -21,14 +21,17 @@ hideDetailImage: true
 relatedArticleURL: "/writing/screen-use-vs-webmcp/"
 relatedArticleTitle: "Screen Use vs WebMCP"
 evidenceReady: true
-lastVerified: "2026-08-31"
+lastVerified: "2026-09-01"
 proofStats:
   - value: "5"
     label: "bounded WebMCP tools"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
-  - value: "7"
+  - value: "11"
     label: "contract tests"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/tests"
+  - value: "2,557 B"
+    label: "measured agent path"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md"
   - value: "1"
     label: "human-only approval gate"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/threat-model.md"
@@ -50,7 +53,7 @@ reviewerPath:
     expected: "The simulation records the human approval and recovers to 1.2 s latency, 0.6% errors, and 51% saturation."
   - title: "Run the repository gate"
     action: "Clone the repository, run npm ci, npm run lint, and npm test with Node.js 22.13 or newer."
-    expected: "The production build succeeds and all seven contract tests pass."
+    expected: "The production build succeeds and all eleven contract tests pass."
 reviewerFallback: "The browser-independent proof and contract test expose the same blocked-before-approval boundary without claiming native WebMCP discovery."
 reviewerFallbackURL: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
 architectureImage: "/images/projects/runbook-relay-architecture.svg"
@@ -69,6 +72,10 @@ evidenceRows:
     implementation: "Five tools separate read, compare, stage, execute, and reset operations with bounded JSON Schemas"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
     linkLabel: "Inspect the tool contracts"
+  - claim: "Compatibility does not obscure native support"
+    implementation: "The page uses document.modelContext directly; no polyfill or transport bridge is bundled, and future MCP-B tests remain a separate evaluation path"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
+    linkLabel: "Inspect the runtime layers"
   - claim: "Operator evidence stays visible"
     implementation: "Tool receipts record caller, input, policy outcome, structured result, and timestamp"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/README.md"
@@ -77,11 +84,16 @@ evidenceRows:
     implementation: "A deterministic fixture and reset action change no external system"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
     linkLabel: "Read the architecture note"
+  - claim: "The agent-facing path has a regression budget"
+    implementation: "A deterministic gate measures tool-definition bytes, result bytes, call count, and the blocked policy outcome"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md"
+    linkLabel: "Review the efficiency measurement"
 limitations:
   - "The public demo is a browser-side simulation. It does not authenticate users or execute against infrastructure."
   - "Human approval is demonstrated in page state, not enforced by a server-side policy service."
   - "The visible audit trail is not durable or tamper-evident and resets with the simulation."
   - "The labeled simulator proves application behavior, not native browser discovery of WebMCP tools."
+  - "No MCP-B bridge or external MCP client path has been implemented or tested."
 ---
 
 ## The problem
@@ -94,9 +106,13 @@ Runbook Relay exposes narrow WebMCP tools for reading an incident, comparing mit
 
 The central control is deliberate: the agent can stage a mitigation, and it cannot approve its own change. Execution fails closed until the page records explicit human approval.
 
+The demo also keeps the runtime layers explicit. The current build registers tools directly through the standard `document.modelContext` page API. It does not bundle a polyfill or transport relay. A future MCP-B evaluation may expose the same contracts to Claude Desktop or Cursor, with origin validation, connection identity, relay exposure, and session isolation treated as new security boundaries. That result would show MCP-B compatibility, not native WebMCP support.
+
 ## Deployment choice
 
-The interactive experience is intentionally hosted on ChatGPT Sites because the project tests how a site can expose governed tools to ChatGPT through WebMCP. This case study and the public repository remain the canonical review surfaces for the architecture, tests, limitations, and implementation. The hosting choice is product context, not a claim that OpenAI reviewed or endorsed the project.
+The interactive experience is moving to `runbook-relay.andreasnissen.dev` on Cloudflare Workers. An owned URL gives reviewers across AI providers one durable project identity, while the existing Vinext build already produces Cloudflare-compatible Worker and static-asset output. The current ChatGPT Sites URL remains the verified live fallback until the owned deployment passes DNS, TLS, application, WebMCP, and reciprocal-link checks.
+
+The migration is designed for the Cloudflare Workers Free plan. No database, object storage, secret, or external system is required by the deterministic public path, and enabling paid infrastructure would be a separate decision. This case study and the public repository remain the canonical review surfaces for the architecture, tests, limitations, and implementation. The hosting provider does not imply review or endorsement by Cloudflare, OpenAI, Anthropic, or any other provider.
 
 ## What it demonstrates
 
@@ -104,9 +120,11 @@ The interactive experience is intentionally hosted on ChatGPT Sites because the 
 - Read, stage, approve, execute, and verify are separate phases.
 - Tool schemas reduce ambiguity while visible receipts preserve shared evidence.
 - A negative test is part of the demo: execution without approval must fail visibly.
+- A deterministic efficiency gate makes agent-interface growth visible without presenting byte counts as model-token results.
+- Standard WebMCP behavior remains distinct from optional polyfills and transport bridges.
 
 This is a reference application, not a production operations console. A production implementation would enforce authorization and approvals server-side, bind actions to scoped identities, and persist tamper-evident audit records.
 
 ## Related writing
 
-[From Screenshots to Governed Tools](/writing/from-screenshots-to-governed-tools/) explains why structured operations should remain connected to the human interface. [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) compares the two interface paths and states which benchmark evidence is still missing.
+[From Screenshots to Governed Tools](/writing/from-screenshots-to-governed-tools/) explains why structured operations should remain connected to the human interface. [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) compares the two interface paths and states which benchmark evidence is still missing. [The Hidden Token Tax of Agent Tools](/writing/hidden-token-tax-agent-tools/) connects the project to outcome-based efficiency measurement.
