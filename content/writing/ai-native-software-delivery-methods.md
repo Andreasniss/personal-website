@@ -3,7 +3,7 @@ title: "Three AI-Native Software Delivery Methods Compared"
 date: 2026-08-31
 description: "Anthropic, AWS, and OpenAI describe different layers of AI-native software delivery: artifact handoffs, lifecycle governance, and the agent harness."
 primaryTopic: "Operating practice"
-evidenceLabel: "Source-backed project analysis"
+evidenceLabel: "Tested project analysis"
 lastVerified: 2026-08-31
 keyPoints:
   - "Anthropic preserves continuity through committed artifacts between lifecycle stages."
