@@ -13,8 +13,6 @@ tags:
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
 demoLabel: "Live control room"
-image: "/images/projects/runbook-relay-webmcp.png"
-imageAlt: "Runbook Relay interface showing an active incident, governed WebMCP tools, durable control state, and a session-bound approval boundary."
 socialImage: "/images/social/runbook-relay.png"
 socialImageAlt: "Runbook Relay, a governed WebMCP incident-response control room by Andreas Nissen."
 hideDetailImage: true
