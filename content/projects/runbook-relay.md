@@ -21,14 +21,17 @@ hideDetailImage: true
 relatedArticleURL: "/writing/screen-use-vs-webmcp/"
 relatedArticleTitle: "Screen Use vs WebMCP"
 evidenceReady: true
-lastVerified: "2026-08-31"
+lastVerified: "2026-09-01"
 proofStats:
   - value: "5"
     label: "bounded WebMCP tools"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
-  - value: "7"
+  - value: "10"
     label: "contract tests"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/tests"
+  - value: "2,557 B"
+    label: "measured agent path"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md"
   - value: "1"
     label: "human-only approval gate"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/threat-model.md"
@@ -50,7 +53,7 @@ reviewerPath:
     expected: "The simulation records the human approval and recovers to 1.2 s latency, 0.6% errors, and 51% saturation."
   - title: "Run the repository gate"
     action: "Clone the repository, run npm ci, npm run lint, and npm test with Node.js 22.13 or newer."
-    expected: "The production build succeeds and all seven contract tests pass."
+    expected: "The production build succeeds and all ten contract tests pass."
 reviewerFallback: "The browser-independent proof and contract test expose the same blocked-before-approval boundary without claiming native WebMCP discovery."
 reviewerFallbackURL: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
 architectureImage: "/images/projects/runbook-relay-architecture.svg"
@@ -77,6 +80,10 @@ evidenceRows:
     implementation: "A deterministic fixture and reset action change no external system"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
     linkLabel: "Read the architecture note"
+  - claim: "The agent-facing path has a regression budget"
+    implementation: "A deterministic gate measures tool-definition bytes, result bytes, call count, and the blocked policy outcome"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md"
+    linkLabel: "Review the efficiency measurement"
 limitations:
   - "The public demo is a browser-side simulation. It does not authenticate users or execute against infrastructure."
   - "Human approval is demonstrated in page state, not enforced by a server-side policy service."
@@ -104,9 +111,10 @@ The interactive experience is intentionally hosted on ChatGPT Sites because the 
 - Read, stage, approve, execute, and verify are separate phases.
 - Tool schemas reduce ambiguity while visible receipts preserve shared evidence.
 - A negative test is part of the demo: execution without approval must fail visibly.
+- A deterministic efficiency gate makes agent-interface growth visible without presenting byte counts as model-token results.
 
 This is a reference application, not a production operations console. A production implementation would enforce authorization and approvals server-side, bind actions to scoped identities, and persist tamper-evident audit records.
 
 ## Related writing
 
-[From Screenshots to Governed Tools](/writing/from-screenshots-to-governed-tools/) explains why structured operations should remain connected to the human interface. [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) compares the two interface paths and states which benchmark evidence is still missing.
+[From Screenshots to Governed Tools](/writing/from-screenshots-to-governed-tools/) explains why structured operations should remain connected to the human interface. [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) compares the two interface paths and states which benchmark evidence is still missing. [The Hidden Token Tax of Agent Tools](/writing/hidden-token-tax-agent-tools/) connects the project to outcome-based efficiency measurement.

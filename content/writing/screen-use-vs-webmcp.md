@@ -4,7 +4,7 @@ date: 2026-08-31
 description: "Screen use helps an agent operate an interface. WebMCP gives the interface a typed action boundary. Reliable systems need to understand the difference."
 primaryTopic: "Tool interfaces"
 evidenceLabel: "Tested project analysis"
-lastVerified: 2026-08-31
+lastVerified: 2026-09-01
 keyPoints:
   - "Screen use interprets a presentation layer; WebMCP exposes an explicit operation layer."
   - "Typed tools improve inspectability, but authorization must still be enforced outside the model."
@@ -14,6 +14,8 @@ proofLinks:
     url: "https://github.com/Andreasniss/runbook-relay-webmcp"
   - label: "Read the contract tests"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
+  - label: "Review the agent-interface budget"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md"
 socialImage: "/images/social/screen-use-vs-webmcp.png"
 socialImageAlt: "Screen Use vs WebMCP: What Changes When an Agent Gets Governed Tools, an article by Andreas Nissen."
 tags:
@@ -86,9 +88,10 @@ The public repository and contract tests prove a narrow set of properties:
 - no model-callable approval operation exists;
 - execution checks approval and blocks the negative path;
 - human actions and tool calls use the same application state;
-- the simulation resets to a deterministic fixture.
+- the simulation resets to a deterministic fixture;
+- the five tool definitions and four-call negative path remain inside explicit structural size and call-count budgets.
 
-They do not prove that WebMCP is faster than screen use, that every model selects the correct tool, or that a client-side approval is production-grade security. Those questions require a separate browser and model evaluation across repeated tasks.
+The [agent-interface measurement](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md) reports serialized UTF-8 bytes rather than model tokens. That makes it a reproducible regression guard for contract growth, not a claim that WebMCP is faster than screen use. It also does not prove that every model selects the correct tool or that a client-side approval is production-grade security. Those questions require a separate browser and model evaluation across repeated tasks.
 
 ## How I would compare the approaches empirically
 
@@ -102,6 +105,8 @@ A useful evaluation should hold the task and evidence constant, then vary only t
 6. recovery after stale or changed state;
 7. completeness of the resulting audit record.
 
+The efficiency comparison should divide total model tokens by verified outcomes, not by calls. That prevents a short failed run from looking better than a longer run that reaches the correct final state. For this incident workflow, the grader should treat a blocked pre-approval execution as a successful safety outcome.
+
 That evaluation is the next step. It should publish prompts, fixtures, model and browser versions, run counts, and failure examples. Until then, the defensible conclusion is structural: governed tools make the operation boundary explicit and testable.
 
 ## Use both layers deliberately
@@ -111,3 +116,5 @@ Screen use remains important. Agents need it for discovery, unfamiliar interface
 The strongest design keeps both views aligned. The human sees evidence, state, and approval controls. The agent gets narrow tools over the same state. The service enforces authorization regardless of which interface initiated the request.
 
 The goal is not to remove the screen. It is to stop making pixels carry the entire control contract.
+
+[The Hidden Token Tax of Agent Tools](/writing/hidden-token-tax-agent-tools/) develops the measurement model for definitions, results, round trips, recovery, and verified outcomes.
