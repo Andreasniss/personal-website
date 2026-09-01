@@ -93,6 +93,18 @@ function frontmatterValue(frontmatter, key) {
   return value;
 }
 
+function isPublishable(frontmatter, now = new Date()) {
+  if (frontmatterValue(frontmatter, "draft") === "true") return false;
+
+  const publishDate = frontmatterValue(frontmatter, "publishDate") ?? frontmatterValue(frontmatter, "date");
+  if (publishDate && new Date(publishDate) > now) return false;
+
+  const expiryDate = frontmatterValue(frontmatter, "expiryDate");
+  if (expiryDate && new Date(expiryDate) <= now) return false;
+
+  return true;
+}
+
 for (const file of articleFiles) {
   const raw = fs.readFileSync(file, "utf8");
   const frontmatterMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
@@ -128,7 +140,11 @@ for (const file of articleFiles) {
   }
 }
 
-const featuredArticleFiles = articleFiles.filter((file) => /^featured:\s*true$/m.test(fs.readFileSync(file, "utf8")));
+const featuredArticleFiles = articleFiles.filter((file) => {
+  const raw = fs.readFileSync(file, "utf8");
+  const frontmatter = raw.match(/^---\n([\s\S]*?)\n---\n/)?.[1] ?? "";
+  return /^featured:\s*true$/m.test(frontmatter) && isPublishable(frontmatter);
+});
 if (featuredArticleFiles.length !== 3) {
   failures.push(`Homepage must feature exactly three articles, found ${featuredArticleFiles.length}`);
 }
@@ -166,7 +182,11 @@ for (const file of projectFiles) {
   }
 }
 
-const featuredProjectFiles = projectFiles.filter((file) => /^featured:\s*true$/m.test(fs.readFileSync(file, "utf8")));
+const featuredProjectFiles = projectFiles.filter((file) => {
+  const raw = fs.readFileSync(file, "utf8");
+  const frontmatter = raw.match(/^---\n([\s\S]*?)\n---\n/)?.[1] ?? "";
+  return /^featured:\s*true$/m.test(frontmatter) && isPublishable(frontmatter);
+});
 if (featuredProjectFiles.length !== 3) {
   failures.push(`Homepage must feature exactly three projects, found ${featuredProjectFiles.length}`);
 }
