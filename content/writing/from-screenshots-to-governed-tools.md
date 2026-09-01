@@ -24,8 +24,6 @@ tags:
 origin: "website"
 featured: false
 draft: false
-image: "/images/projects/runbook-relay-webmcp.png"
-imageAlt: "Runbook Relay WebMCP incident-response interface with scoped tools, desktop setup guidance, and a human-approval boundary."
 relatedProjectURL: "/projects/runbook-relay/"
 relatedProjectTitle: "Runbook Relay WebMCP Demo"
 series: "Reliable Agent Systems"
