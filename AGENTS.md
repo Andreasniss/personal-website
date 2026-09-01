@@ -75,6 +75,8 @@ Use `hugo new content/<section>/<slug>.md` to scaffold from the archetype.
 
 Every article, project, talk, About page, Talks index, and Selected Impact page carries a page-specific 1200 by 630 PNG in `socialImage` plus useful `socialImageAlt`. Generate the current visual system with `scripts/generate-social-images.sh`; do not replace a real product screenshot with generated interface imagery.
 
+**Renaming a page or project is not a Markdown-only edit.** The name is also baked into generated and hand-drawn assets, and a rename that stops at the text layer leaves a reader looking at the old name on the evidence itself. Sweep, in this order: frontmatter `title`, every alt and caption string, cross-references in other sections, the visible heading and `<title>` inside any hand-authored SVG under `static/images/`, and the matching `make_card` line in `scripts/generate-social-images.sh`. Update the generator before regenerating, because it is the authoritative source for the card: fixing only the PNG leaves the old title in place to be silently restored by the next routine regeneration. Then rerun the generator and confirm it changed only the cards you expected. Keep a provider or vendor name wherever it states a fact about what the project supports; rename the entity, not the evidence.
+
 ## Templates and output formats
 
 Beyond the normal HTML templates in `layouts/_default/` and
