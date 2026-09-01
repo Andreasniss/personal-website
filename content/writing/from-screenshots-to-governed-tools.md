@@ -4,6 +4,7 @@ date: 2026-08-29
 description: "Agent-friendly interfaces should expose structured operations without taking the human operator out of the loop."
 primaryTopic: "Tool interfaces"
 evidenceLabel: "Tested project analysis"
+evidenceBoundary: "Runbook Relay tests bounded tool contracts and approval state transitions in a deterministic browser simulation. It does not benchmark screen use against WebMCP or demonstrate production authorization."
 lastVerified: 2026-08-31
 keyPoints:
   - "Screens expose pixels; governed tools expose typed operations and policy intent."
@@ -21,7 +22,7 @@ tags:
   - tool design
   - human approval
 origin: "website"
-featured: true
+featured: false
 draft: false
 image: "/images/projects/runbook-relay-webmcp.png"
 imageAlt: "Runbook Relay WebMCP incident-response interface with scoped tools, desktop setup guidance, and a human-approval boundary."

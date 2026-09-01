@@ -4,6 +4,7 @@ date: 2026-08-31
 description: "Screen use helps an agent operate an interface. WebMCP gives the interface a typed action boundary. Reliable systems need to understand the difference."
 primaryTopic: "Tool interfaces"
 evidenceLabel: "Tested project analysis"
+evidenceBoundary: "Runbook Relay proves the structural tool and approval contract. It does not yet provide repeated model trials or an empirical comparison of screen use, native WebMCP, and bridged clients."
 lastVerified: 2026-09-01
 keyPoints:
   - "Screen use interprets a presentation layer; WebMCP exposes an explicit operation layer."

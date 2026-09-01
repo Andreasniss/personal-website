@@ -1,21 +1,34 @@
 ---
 title: "Selected Impact"
-description: "A concise view of the systems, technical leadership, and learning experiences I have helped make real."
+description: "Public proof and professional scope across applied AI engineering, enterprise adoption, and technical enablement."
 socialImage: "/images/social/selected-impact.png"
 socialImageAlt: "Selected impact by Andreas Nissen across enterprise AI architecture, public reference systems, and technical workshops."
 ---
 
-I have spent more than 15 years working across technology, architecture, and customer-facing delivery. My current focus is applied and agentic AI: turning model capability into systems with explicit controls, evaluation, and operating evidence.
+I have spent more than 15 years working across technology, architecture, and customer-facing delivery. My current focus is applied and agentic AI: carrying the technical thread from an important workflow through evaluation, architecture, delivery readiness, and adoption.
+
+## The adoption path I work across
+
+1. **Discover the workflow:** identify the user, decision, current friction, business outcome, and why AI is useful.
+2. **Define what good looks like:** set evaluation criteria, baselines, failure cases, risk limits, and a proof-of-value path.
+3. **Design the system:** connect model behavior with data, tools, identity, policy, observability, security, compliance, and human approval.
+4. **Prepare delivery:** turn the design into implementable boundaries, partner guidance, operational evidence, and a clear route to production.
+5. **Drive adoption and learning:** measure useful outcomes, diagnose blockers, and return repeated field patterns to product, engineering, and reusable technical content.
+
+This is where my architecture and customer-facing background compound. I can work through a tool contract or evaluation design with engineers, then connect the same decision to risk, cost, revenue, and time to value with senior leaders.
 
 ## Public systems people can inspect
 
-- **Runbook Relay:** built and maintain a deterministic WebMCP control room with five bounded tools, a human-only approval gate, visible receipts, and eleven contract tests.
-- **Agent Reliability Lab:** built and maintain a Python reference with 26 credential-free tests, six deterministic evaluation cases, bounded tool execution, privacy-first telemetry, and locked-dependency auditing.
+- **[Runbook Relay](/projects/runbook-relay/):** built and maintain a deterministic WebMCP control room with five bounded tools, a human-only approval gate, visible receipts, and eleven contract tests.
+- **[7DayFocus AI Delivery Lab](/projects/7dayfocus-ai-delivery-lab/):** built a local-first TypeScript and React reference with 244 automated tests, 24 deterministic proposal cases, three provider adapters, a threat model, and an inspectable AI-native delivery artifact chain.
+- **[Agent Reliability Lab](/projects/mistral-playground/):** built and maintain a Python reference with 26 credential-free tests, six deterministic evaluation cases, bounded tool execution, privacy-first telemetry, and locked-dependency auditing.
 - **Public technical writing:** maintain a canonical long-form archive that connects architecture arguments to inspectable demonstrations and source code.
+
+Across the three public codebases, the current reviewed snapshots expose 281 automated tests and 30 deterministic evaluation cases. These are code and contract checks, not claims of production scale or live-model quality.
 
 ## Enterprise AI delivery
 
-I work with organizations adopting AI in regulated environments. The work spans architecture, model and system evaluation, identity, policy, observability, and human approval. Public pages intentionally describe the reusable engineering patterns, not confidential customer details.
+I work with organizations adopting AI in regulated environments. The work spans technical discovery, architecture, model and system evaluation, proofs of value, identity, policy, observability, security and compliance reviews, human approval, and partner delivery. Public pages intentionally describe reusable engineering patterns and professional scope, not confidential customer details or unverified commercial claims.
 
 ## Workshops and technical enablement
 
@@ -24,6 +37,7 @@ I helped run an Amazon Bedrock AgentCore Immersion Day for more than 100 partici
 ## How I operate
 
 - Start with the outcome, authority boundary, and failure modes.
+- Connect technical evidence to the customer decision and measurable value.
 - Turn broad capabilities into narrow contracts and observable state transitions.
 - Pair architecture decisions with tests, evaluations, threat models, and reviewer paths.
 - Make limitations explicit so a reference project does not masquerade as a production system.

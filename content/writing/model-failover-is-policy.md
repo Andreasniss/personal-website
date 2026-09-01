@@ -4,6 +4,7 @@ date: 2026-08-31
 description: "Retrying or switching models changes capability, cost, latency, and governance. A safe failover path must decide when continuing is still allowed."
 primaryTopic: "Reliability"
 evidenceLabel: "Tested project analysis"
+evidenceBoundary: "The learning lab tests deterministic policy and evidence-store behavior. It does not call live models, benchmark providers, or demonstrate a production routing service."
 lastVerified: 2026-08-31
 keyPoints:
   - "Retry, fallback, degraded operation, and stop are different policy outcomes."
@@ -22,7 +23,7 @@ tags:
   - multi-provider AI
   - governance
 origin: "website"
-featured: true
+featured: false
 draft: false
 image: "/images/articles/model-failover-policy.svg"
 imageAlt: "A model request branches into retry, approved backup, degraded operation, or a safe stop based on explicit policy checks."

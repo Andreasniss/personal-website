@@ -37,6 +37,7 @@
         <ul>
           {{ range .Params.keyPoints }}<li>{{ . }}</li>{{ end }}
         </ul>
+        <p class="article-boundary"><strong>Evidence boundary</strong>{{ .Params.evidenceBoundary }}</p>
         {{ with .Params.proofLinks }}
           <div class="proof-actions" aria-label="Article proof links">
             {{ range . }}<a class="action-link" href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} rel="noreferrer"{{ end }}>{{ .label }}</a>{{ end }}

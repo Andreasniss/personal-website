@@ -4,6 +4,7 @@ date: 2026-06-15
 description: "A working prototype proves possibility. Production requires a separate discipline for autonomy, reliability, security, cost, and operations."
 primaryTopic: "Reliability"
 evidenceLabel: "Architecture analysis"
+evidenceBoundary: "The argument applies the AWS Well-Architected Agentic AI Lens and links to a companion reference lab. It does not present the lab as production evidence or disclose confidential customer results."
 lastVerified: 2026-08-31
 keyPoints:
   - "A successful demo proves a capability path, not production readiness."

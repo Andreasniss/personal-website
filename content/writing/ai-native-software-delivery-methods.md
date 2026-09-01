@@ -4,6 +4,7 @@ date: 2026-08-31
 description: "Anthropic, AWS, and OpenAI describe different layers of AI-native software delivery: artifact handoffs, lifecycle governance, and the agent harness."
 primaryTopic: "Operating practice"
 evidenceLabel: "Tested project analysis"
+evidenceBoundary: "The comparison uses public guidance and one small repository adaptation. It does not reproduce Anthropic's internal process, implement the complete AWS lifecycle, or validate OpenAI's reported results."
 lastVerified: 2026-08-31
 keyPoints:
   - "Anthropic preserves continuity through committed artifacts between lifecycle stages."

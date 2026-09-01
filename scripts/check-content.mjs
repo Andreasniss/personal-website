@@ -93,6 +93,18 @@ function frontmatterValue(frontmatter, key) {
   return value;
 }
 
+function isPublishable(frontmatter, now = new Date()) {
+  if (frontmatterValue(frontmatter, "draft") === "true") return false;
+
+  const publishDate = frontmatterValue(frontmatter, "publishDate") ?? frontmatterValue(frontmatter, "date");
+  if (publishDate && new Date(publishDate) > now) return false;
+
+  const expiryDate = frontmatterValue(frontmatter, "expiryDate");
+  if (expiryDate && new Date(expiryDate) <= now) return false;
+
+  return true;
+}
+
 for (const file of articleFiles) {
   const raw = fs.readFileSync(file, "utf8");
   const frontmatterMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
@@ -116,7 +128,7 @@ for (const file of articleFiles) {
   if (origin === "linkedin" && !linkedinURL) {
     failures.push(`LinkedIn-origin article lacks a verified LinkedIn URL in ${path.relative(root, file)}`);
   }
-  for (const field of ["primaryTopic", "evidenceLabel", "lastVerified"]) {
+  for (const field of ["primaryTopic", "evidenceLabel", "evidenceBoundary", "lastVerified"]) {
     if (!frontmatterValue(frontmatter, field)) {
       failures.push(`Evidence-led article is missing ${field} in ${path.relative(root, file)}`);
     }
@@ -126,6 +138,15 @@ for (const file of articleFiles) {
   if (keyPointCount < 3) {
     failures.push(`Evidence-led article needs at least three keyPoints in ${path.relative(root, file)}`);
   }
+}
+
+const featuredArticleFiles = articleFiles.filter((file) => {
+  const raw = fs.readFileSync(file, "utf8");
+  const frontmatter = raw.match(/^---\n([\s\S]*?)\n---\n/)?.[1] ?? "";
+  return /^featured:\s*true$/m.test(frontmatter) && isPublishable(frontmatter);
+});
+if (featuredArticleFiles.length !== 3) {
+  failures.push(`Homepage must feature exactly three articles, found ${featuredArticleFiles.length}`);
 }
 
 const projectFiles = contentFiles.filter((file) => file.includes(`${path.sep}projects${path.sep}`) && !file.endsWith("_index.md"));
@@ -158,6 +179,20 @@ for (const file of projectFiles) {
   if (architectureImage) {
     const architecturePath = path.join(root, "static", architectureImage.replace(/^\//, ""));
     if (!fs.existsSync(architecturePath)) failures.push(`Project architecture image is missing in ${relative}: ${architectureImage}`);
+  }
+}
+
+const featuredProjectFiles = projectFiles.filter((file) => {
+  const raw = fs.readFileSync(file, "utf8");
+  const frontmatter = raw.match(/^---\n([\s\S]*?)\n---\n/)?.[1] ?? "";
+  return /^featured:\s*true$/m.test(frontmatter) && isPublishable(frontmatter);
+});
+if (featuredProjectFiles.length !== 3) {
+  failures.push(`Homepage must feature exactly three projects, found ${featuredProjectFiles.length}`);
+}
+for (const file of featuredProjectFiles) {
+  if (!/^evidenceReady:\s*true$/m.test(fs.readFileSync(file, "utf8"))) {
+    failures.push(`Homepage project must satisfy the evidence-ready contract: ${path.relative(root, file)}`);
   }
 }
 

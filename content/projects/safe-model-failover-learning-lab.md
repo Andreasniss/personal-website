@@ -3,8 +3,8 @@ title: "Safe Model Failover Learning Lab"
 description: "A beginner-friendly tutorial for retrying, switching to an approved backup, or stopping safely when an AI model fails."
 role: "Creator and release owner"
 year: 2026
-weight: 15
-featured: true
+weight: 40
+featured: false
 statusLabel: "Live learning lab"
 tags:
   - model routing
