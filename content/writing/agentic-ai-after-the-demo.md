@@ -10,7 +10,7 @@ keyPoints:
   - "Reliability, security, cost, and operations need explicit controls and tests."
   - "The production boundary should stay visible in architecture and evidence."
 proofLinks:
-  - label: "Inspect the Mistral Reliability Lab"
+  - label: "Inspect the Agent Reliability Lab"
     url: "https://github.com/Andreasniss/Mistral-playground"
 socialImage: "/images/social/agentic-ai-after-demo.png"
 socialImageAlt: "The Hard Part of Agentic AI Starts After the Demo, an article by Andreas Nissen."
@@ -25,7 +25,7 @@ draft: false
 image: "/images/articles/agentic-ai-after-demo.jpg"
 imageAlt: "Original LinkedIn infographic about the engineering work required after an agentic AI demo succeeds."
 relatedProjectURL: "/projects/mistral-playground/"
-relatedProjectTitle: "Mistral Reliability Lab"
+relatedProjectTitle: "Agent Reliability Lab"
 series: "Reliable Agent Systems"
 seriesOrder: 1
 ---

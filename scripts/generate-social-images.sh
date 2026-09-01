@@ -49,7 +49,7 @@ make_card "selected-impact.png" "Selected impact" "Outcomes, with the boundary v
 make_card "talks.png" "Talks and workshops" "Make the architecture discussable" "Evaluation, policy controls, and reliable enterprise agents." "#ff9d3d"
 make_card "reliable-agents-workshop.png" "Workshop" "Reliable Agents in Production" "From a convincing prototype to an operable system." "#ff9d3d"
 make_card "runbook-relay.png" "Project case study" "Runbook Relay" "Governed WebMCP tools, human approval, and visible receipts."
-make_card "mistral-reliability-lab.png" "Project case study" "Mistral Reliability Lab" "Bounded tools, deterministic evaluations, and privacy-first telemetry."
+make_card "mistral-reliability-lab.png" "Project case study" "Agent Reliability Lab" "Bounded tools, deterministic evaluations, and privacy-first telemetry."
 make_card "safe-model-failover.png" "Project" "Safe Model Failover Learning Lab" "Bounded retries, policy-safe fallback, and circuit breaking."
 make_card "7dayfocus.png" "Project" "7DayFocus AI Delivery Lab" "A public reference with proposal-only AI assistance."
 make_card "agentic-ai-after-demo.png" "Article" "The Hard Part Starts After the Demo" "A production architecture for agentic AI."

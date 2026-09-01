@@ -12,7 +12,7 @@ keyPoints:
 proofLinks:
   - label: "Inspect the personal website repository"
     url: "https://github.com/Andreasniss/personal-website"
-  - label: "Review the Mistral Reliability Lab"
+  - label: "Review the Agent Reliability Lab"
     url: "https://github.com/Andreasniss/Mistral-playground"
 socialImage: "/images/social/reviewing-ai-built-work.png"
 socialImageAlt: "How I Review AI-Built Public Work Without Outsourcing Judgment, an article by Andreas Nissen."
@@ -43,7 +43,7 @@ Before implementation, I define the shortest sentence a skeptical reviewer shoul
 
 For Runbook Relay, the claim is not “a production incident system.” It is that a deterministic WebMCP demo can expose bounded tools, keep approval human-only, fail closed before approval, and make the action trail visible.
 
-For the Mistral Reliability Lab, the claim is not “Mistral is safe” or “the application is production ready.” It is that a compact reference can demonstrate allow-listed tools, bounded retries, metadata-only telemetry, credential-free regression tests, and a deterministic evaluation contract.
+For the Agent Reliability Lab, the claim is not “Mistral is safe” or “the application is production ready.” It is that a compact reference can demonstrate allow-listed tools, bounded retries, metadata-only telemetry, credential-free regression tests, and a deterministic evaluation contract.
 
 The narrower claim makes the evidence testable. It also prevents the README from drifting into marketing language the repository cannot support.
 

@@ -1,5 +1,5 @@
 ---
-title: "Mistral Reliability Lab"
+title: "Agent Reliability Lab"
 description: "An inspectable Python reference for bounded tool use, provider switching, resilience, observability, and deterministic evaluation."
 role: "Creator and repository owner"
 year: 2026
@@ -7,14 +7,12 @@ weight: 30
 featured: true
 statusLabel: "Reference lab"
 tags:
-  - Mistral
+  - provider switching
   - OpenTelemetry
   - Python
 repoURL: "https://github.com/Andreasniss/Mistral-playground"
-image: "/images/projects/mistral-reliability-lab.png"
-imageAlt: "GitHub repository preview for the Mistral Reliability Lab Python project."
 socialImage: "/images/social/mistral-reliability-lab.png"
-socialImageAlt: "Mistral Reliability Lab, an evidence-led agent reliability reference by Andreas Nissen."
+socialImageAlt: "Agent Reliability Lab, an evidence-led agent reliability reference by Andreas Nissen."
 hideDetailImage: true
 relatedArticleURL: "/writing/agentic-ai-after-the-demo/"
 relatedArticleTitle: "The Hard Part of Agentic AI Starts After the Demo"
@@ -52,7 +50,7 @@ reviewerPath:
 reviewerFallback: "If you cannot run Python locally, inspect the Streamlit interaction test and versioned evaluation cases. They exercise the same credential-free path without presenting it as a live model evaluation."
 reviewerFallbackURL: "https://github.com/Andreasniss/Mistral-playground/blob/main/tests/test_streamlit_app.py"
 architectureImage: "/images/projects/mistral-reliability-architecture.svg"
-architectureAlt: "Mistral Reliability Lab architecture showing the reviewer interface, model boundary, provider choice, validated tool gate, tools, privacy-first telemetry, and offline verification."
+architectureAlt: "Agent Reliability Lab architecture showing the reviewer interface, model boundary, provider choice, validated tool gate, tools, privacy-first telemetry, and offline verification."
 architectureCaption: "The model may propose a tool call. Application code validates and executes only allow-listed tools, while tests and evaluations verify the deterministic boundary without provider credentials."
 evidenceRows:
   - claim: "Tool execution is bounded"
@@ -88,7 +86,7 @@ A model API quickstart proves that a request can return text. It does not prove 
 
 ## What I built
 
-Mistral Reliability Lab is a modular Python reference with a reviewer-first Streamlit interface, a FastAPI surface, opt-in OpenTelemetry tracing, and support for both Mistral's API and local Ollama models. Its credential-free preview lets a reviewer inspect the interaction model without supplying an API key.
+Agent Reliability Lab is a modular Python reference with a reviewer-first Streamlit interface, a FastAPI surface, opt-in OpenTelemetry tracing, and support for both Mistral's API and local Ollama models. Its credential-free preview lets a reviewer inspect the interaction model without supplying an API key.
 
 The model boundary centralizes calls and implements bounded retry behavior for transient failures. Tool execution uses an explicit allow-list and bounded loops. The interface exposes tool names, arguments, results, and multi-turn history while operational logs and traces exclude prompt, response, and tool-result content by default.
 
