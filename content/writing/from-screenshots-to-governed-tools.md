@@ -4,8 +4,8 @@ date: 2026-08-29
 description: "Agent-friendly interfaces should expose structured operations without taking the human operator out of the loop."
 primaryTopic: "Tool interfaces"
 evidenceLabel: "Tested project analysis"
-evidenceBoundary: "Runbook Relay tests bounded tool contracts and approval state transitions in a deterministic browser simulation. It does not benchmark screen use against WebMCP or demonstrate production authorization."
-lastVerified: 2026-08-31
+evidenceBoundary: "Runbook Relay tests bounded tool contracts, durable server policy, scoped approval, replay protection, and receipts over a synthetic incident. It does not benchmark screen use against WebMCP or demonstrate enterprise identity and production authorization."
+lastVerified: 2026-09-01
 keyPoints:
   - "Screens expose pixels; governed tools expose typed operations and policy intent."
   - "The human interface should remain the shared place for approval and evidence."
@@ -24,8 +24,6 @@ tags:
 origin: "website"
 featured: false
 draft: false
-image: "/images/projects/runbook-relay-webmcp.png"
-imageAlt: "Runbook Relay WebMCP incident-response interface with scoped tools, desktop setup guidance, and a human-approval boundary."
 relatedProjectURL: "/projects/runbook-relay/"
 relatedProjectTitle: "Runbook Relay WebMCP Demo"
 series: "Reliable Agent Systems"
@@ -44,7 +42,7 @@ For high-consequence workflows, the page should expose a better contract.
 
 The answer is not to move the agent into a private backend channel that the operator cannot see. That creates a second control surface and divides the evidence.
 
-A stronger pattern keeps the website as the shared workspace and exposes narrow structured tools from it. The human and agent see the same incident, selected option, approval state, and result. A tool call updates the same state as a button click. Every meaningful transition remains visible.
+A stronger pattern keeps the website as the shared workspace and exposes narrow structured tools from it. The human and agent see the same incident, selected option, approval state, and result. Tool calls and page controls request transitions through the same server policy boundary. Every meaningful transition remains visible.
 
 This creates three useful properties:
 
@@ -70,7 +68,7 @@ The verbs reveal the control model. Reading, staging, approving, and executing a
 
 “Ask the user first” is not enough. A model can misunderstand the answer, use approval from the wrong context, or treat silence as consent.
 
-Approval should be an explicit state owned by the application or service. It should bind the approver, exact action, parameters, resource, and expiry. The execution path should check that state again immediately before the change.
+Approval should be an explicit state owned by the service. It should bind the approver identity, exact action, parameters, resource version, and expiry. The execution path should check that state again immediately before the change.
 
 The critical negative test is straightforward:
 
@@ -80,7 +78,7 @@ The system should reject the action and record the rejection. If the model merel
 
 ## Receipts create a shared evidence trail
 
-Every tool call should produce a receipt the human can inspect. At minimum, record:
+Every tool call should produce a durable receipt the human can inspect. At minimum, record:
 
 - tool name and caller;
 - structured input;
@@ -88,11 +86,11 @@ Every tool call should produce a receipt the human can inspect. At minimum, reco
 - structured result;
 - timestamp and relevant state version.
 
-This does not replace a production audit system. It makes the interaction understandable during development and demonstration. It also exposes mismatches between what the model claims and what the application recorded.
+Runbook Relay stores these receipts in D1 and hash-links their canonical contents. This does not replace a signed or independently anchored production audit system. It makes the interaction understandable and exposes mismatches between what the model claims and what the service recorded.
 
 ## Design the fallback honestly
 
-Emerging browser capabilities are not available everywhere. A demo can include a simulator that calls the same application handlers. The simulator must be labeled clearly. It proves the state transitions and control logic, not native browser tool discovery.
+Emerging browser capabilities are not available everywhere. A demo can include a simulator that calls the same server API. The simulator must be labeled clearly. It proves the state transitions and control logic, not native browser tool discovery.
 
 That distinction matters. A convincing simulation is useful evidence when it states exactly what it proves.
 

@@ -5,7 +5,7 @@ description: "AI can write code, propose tests, and draft documentation. The hum
 primaryTopic: "Operating practice"
 evidenceLabel: "Operating experience"
 evidenceBoundary: "This is an operating standard demonstrated across public repositories. It does not claim independent human review, production readiness, or the absence of undiscovered defects."
-lastVerified: 2026-08-31
+lastVerified: 2026-09-01
 keyPoints:
   - "Every public claim must trace to current code, tests, documentation, or live behavior."
   - "A project is one claim surface across code, tests, README, demo, and portfolio."
@@ -44,7 +44,7 @@ As agents complete more of a software change, this boundary keeps speed from tur
 
 Before implementation, I define the shortest sentence a skeptical reviewer should be able to verify.
 
-For Runbook Relay, the claim is not “a production incident system.” It is that a deterministic WebMCP demo can expose bounded tools, keep approval human-only, fail closed before approval, and make the action trail visible.
+For Runbook Relay, the claim is not “a production incident system.” It is that a deterministic WebMCP demo can expose bounded tools, keep approval outside the model tool surface, enforce the decision in durable server state, fail closed before approval, and make the action trail inspectable.
 
 For the Agent Reliability Lab, the claim is not “Mistral is safe” or “the application is production ready.” It is that a compact reference can demonstrate allow-listed tools, bounded retries, metadata-only telemetry, credential-free regression tests, and a deterministic evaluation contract.
 
@@ -89,7 +89,7 @@ The most useful review question is often: what happened when the safe path did n
 
 For an agentic demo, I look for blocked actions, invalid tool names, malformed inputs, retry exhaustion, stale state, missing credentials, absent browser capabilities, and reset behavior. The README should tell a reviewer how to reach at least one negative path without external credentials.
 
-Limitations should also distinguish what the project intentionally omits. A client-side approval can demonstrate interaction structure and still be insufficient for production authorization. A synthetic policy document can demonstrate grounding behavior and still say nothing about enterprise retrieval quality.
+Limitations should also distinguish what the project intentionally omits. A session-bound server approval can demonstrate digest, version, expiry, consumption, and replay controls. It still does not prove workforce identity or human presence. A synthetic policy document can demonstrate grounding behavior and still say nothing about enterprise retrieval quality.
 
 Visible limitations increase credibility because they define the boundary of the claim.
 

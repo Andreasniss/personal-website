@@ -145,14 +145,14 @@ Verified on 1 September 2026, the fixture records:
 
 | Structural measure | Result | Budget |
 |---|---:|---:|
-| Tool-definition payload | 1,522 UTF-8 bytes | 2,400 bytes maximum |
-| Four structured results | 969 UTF-8 bytes | 1,800 bytes maximum |
+| Tool-definition payload | 1,622 UTF-8 bytes | 2,400 bytes maximum |
+| Four structured results | 1,172 UTF-8 bytes | 1,800 bytes maximum |
 | Tool calls to the verified outcome | 4 | 4 maximum |
 | Expected policy outcome | Blocked | Must be blocked |
 
 The [measurement script](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/scripts/measure-agent-efficiency.mjs), [fixture](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/fixtures/agent-efficiency.json), and [regression tests](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/agent-efficiency.test.mjs) are public.
 
-These are bytes, not tokens. The gate is deliberately tokenizer-independent and catches interface growth before a model is involved. It does not prove tool-selection accuracy or browser-agent efficiency. A model benchmark must add provider-reported token usage, repeated trials, latency, retries, and final-state grading.
+These are bytes, not tokens. The gate is deliberately tokenizer-independent and catches interface growth before a model is involved. It does not prove tool-selection accuracy or browser-agent efficiency. The repository now includes a 50-task live-model harness that captures provider-reported usage, latency, retries, policy grades, and final-state evidence. It has not run, so no model result is claimed.
 
 ## Use caching and routing where they preserve meaning
 
