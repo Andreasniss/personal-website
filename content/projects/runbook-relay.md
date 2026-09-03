@@ -1,6 +1,6 @@
 ---
 title: "Runbook Relay WebMCP Demo"
-description: "A standards-first WebMCP control room where a human and an AI agent share incident evidence, approval state, and an audit log."
+description: "A governed WebMCP control room with durable server policy, scoped approval, replay protection, hash-linked receipts, and a 50-task evaluation contract."
 role: "Creator and repository owner"
 year: 2026
 weight: 10
@@ -12,119 +12,126 @@ tags:
   - agent controls
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
-demoLabel: "Current ChatGPT Sites demo"
-image: "/images/projects/runbook-relay-webmcp.png"
-imageAlt: "Runbook Relay interface showing an active incident, the WebMCP tool model, desktop setup steps, and the human-approval boundary."
+demoLabel: "Live control room"
 socialImage: "/images/social/runbook-relay.png"
 socialImageAlt: "Runbook Relay, a governed WebMCP incident-response control room by Andreas Nissen."
 hideDetailImage: true
-relatedArticleURL: "/writing/screen-use-vs-webmcp/"
-relatedArticleTitle: "Screen Use vs WebMCP"
+relatedArticleURL: "/writing/from-browser-tool-to-governed-workflow/"
+relatedArticleTitle: "From Browser Tool to Governed Workflow"
 evidenceReady: true
 lastVerified: "2026-09-01"
 proofStats:
   - value: "5"
     label: "bounded WebMCP tools"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
-  - value: "11"
-    label: "contract tests"
+  - value: "25"
+    label: "automated tests"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/tests"
-  - value: "2,557 B"
-    label: "measured agent path"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md"
-  - value: "1"
-    label: "human-only approval gate"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/threat-model.md"
+  - value: "50"
+    label: "versioned eval tasks"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/evals/live-tool-use/cases.json"
+  - value: "18"
+    label: "adversarial eval tasks"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/evals/live-tool-use/README.md"
   - value: "0"
     label: "external systems changed"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
 reviewerPath:
-  - title: "Open the deterministic incident"
-    action: "Open the live demo on desktop and review incident INC-2841, the correlated change, and the three mitigation options."
-    expected: "The page exposes one shared incident state, current telemetry, approval state, and decision log."
+  - title: "Open the durable incident"
+    action: "Open the live demo on desktop and review incident INC-2841, the correlated change, server status, resource version, and receipt-chain state."
+    expected: "The page loads one session-scoped incident from the server control plane rather than treating React state as authority."
   - title: "Stage the lowest-risk mitigation"
     action: "Use native Site tools when available, or the labeled simulator, to compare options and stage Restore database pool limit."
-    expected: "The mitigation is staged for review, but no recovery action runs."
+    expected: "The server increments the resource version and binds the proposal to an action digest and idempotency key."
   - title: "Prove the negative path"
     action: "Attempt execution before approving, or select Run the blocked-action proof."
-    expected: "Execution fails closed and the blocked result appears in the visible receipt and decision log."
-  - title: "Approve and execute"
-    action: "Select Approve staged change in the page, then execute the approved mitigation."
-    expected: "The simulation records the human approval and recovers to 1.2 s latency, 0.6% errors, and 51% saturation."
-  - title: "Run the repository gate"
-    action: "Clone the repository, run npm ci, npm run lint, and npm test with Node.js 22.13 or newer."
-    expected: "The production build succeeds and all eleven contract tests pass."
-reviewerFallback: "The browser-independent proof and contract test expose the same blocked-before-approval boundary without claiming native WebMCP discovery."
-reviewerFallbackURL: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
+    expected: "Execution fails closed and a durable blocked receipt appears."
+  - title: "Approve, execute, and replay"
+    action: "Approve the exact staged action in the page, execute it, then repeat the execution request."
+    expected: "The first request stores the synthetic result; the exact retry returns it without applying the action twice."
+  - title: "Run the repository gates"
+    action: "Clone the repository, run npm ci, npm run lint, npm run typecheck, npm run eval:validate, and npm test with Node.js 22.13 or newer."
+    expected: "The production build succeeds, both D1 migrations package correctly, all 25 tests pass, and the 50-task contract validates."
+reviewerFallback: "The repository tests and deterministic evaluation fixture expose the same policy decisions without claiming native WebMCP discovery or live-model performance."
+reviewerFallbackURL: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/tests"
 architectureImage: "/images/projects/runbook-relay-architecture.svg"
-architectureAlt: "Runbook Relay architecture showing a browser agent and human operator sharing one state model, visible receipts, a human approval gate, and a deterministic mitigation."
-architectureCaption: "Human controls, native WebMCP calls, and the labeled simulator use the same state transitions. The agent can stage work, while approval remains a human-only page action."
+architectureAlt: "Runbook Relay architecture showing browser-agent and human inputs converging on a same-origin server API, policy guards, Cloudflare D1, and a synthetic executor."
+architectureCaption: "Native WebMCP, the labeled simulator, and page controls call one server policy boundary. D1 persists session state, scoped approvals, executions, and hash-linked receipts."
 evidenceRows:
-  - claim: "The agent cannot self-approve"
-    implementation: "No approval tool exists; approval is exposed only as a human page interaction"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/threat-model.md"
-    linkLabel: "Inspect the threat model"
-  - claim: "Execution fails closed"
-    implementation: "The execution handler checks recorded approval and emits a blocked receipt when it is absent"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
-    linkLabel: "Read the contract test"
-  - claim: "Tool access is narrow"
-    implementation: "Five tools separate read, compare, stage, execute, and reset operations with bounded JSON Schemas"
+  - claim: "Policy is enforced server-side"
+    implementation: "Every tool and page mutation calls one same-origin API; React state only renders the durable snapshot"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/api/control-plane/route.ts"
+    linkLabel: "Inspect the API boundary"
+  - claim: "Approval is bound to exact state"
+    implementation: "The record includes session identity, SHA-256 action digest, resource version, five-minute expiry, and consumption time"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/db/control-plane.ts"
+    linkLabel: "Inspect the control plane"
+  - claim: "Retries cannot duplicate the action"
+    implementation: "A session-specific idempotency key returns the stored result for an exact replay and rejects conflicting reuse"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/control-plane.test.mjs"
+    linkLabel: "Review the policy tests"
+  - claim: "Audit records expose integrity"
+    implementation: "D1 receipts are append-only by application policy, hash-linked, content-verified, and guarded by the receipt-chain head"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
+    linkLabel: "Read the architecture"
+  - claim: "Tool access remains narrow"
+    implementation: "Five tools separate read, compare, stage, execute, and reset with bounded schemas and no approval operation"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
     linkLabel: "Inspect the tool contracts"
-  - claim: "Compatibility does not obscure native support"
-    implementation: "The page uses document.modelContext directly; no polyfill or transport bridge is bundled, and future MCP-B tests remain a separate evaluation path"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
-    linkLabel: "Inspect the runtime layers"
-  - claim: "Operator evidence stays visible"
-    implementation: "Tool receipts record caller, input, policy outcome, structured result, and timestamp"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/README.md"
-    linkLabel: "Review the guided demo"
-  - claim: "The scenario is reproducible"
-    implementation: "A deterministic fixture and reset action change no external system"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
-    linkLabel: "Read the architecture note"
-  - claim: "The agent-facing path has a regression budget"
-    implementation: "A deterministic gate measures tool-definition bytes, result bytes, call count, and the blocked policy outcome"
-    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md"
-    linkLabel: "Review the efficiency measurement"
+  - claim: "Model evidence has a publication gate"
+    implementation: "Fifty versioned tasks capture traces, policy grades, tokens, latency, estimated cost, request IDs, and required human labels"
+    url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/evals/live-tool-use/README.md"
+    linkLabel: "Review the eval contract"
 limitations:
-  - "The public demo is a browser-side simulation. It does not authenticate users or execute against infrastructure."
-  - "Human approval is demonstrated in page state, not enforced by a server-side policy service."
-  - "The visible audit trail is not durable or tamper-evident and resets with the simulation."
-  - "The labeled simulator proves application behavior, not native browser discovery of WebMCP tools."
-  - "No MCP-B bridge or external MCP client path has been implemented or tested."
+  - "The external action changes a deterministic incident fixture, not production infrastructure."
+  - "The server-issued session is an anonymous scoped capability, not authenticated workforce identity or an enterprise role."
+  - "The approval endpoint binds exact state, but it cannot independently prove that a human rather than browser automation initiated the page click."
+  - "Receipt hashes are not signed or anchored in an independent transparency system."
+  - "The 50-task live-model runner is implemented but has not run, so there is no model success-rate, latency, token, or cost claim."
+  - "The labeled simulator proves application behavior, not native browser discovery; no MCP-B bridge has been tested."
 ---
 
 ## The problem
 
-Incident dashboards are dense, stateful, and consequential. Screenshot-driven automation has to infer what a chart means, which change is selected, and whether an operator approved execution. That is too much ambiguity for an operational control surface.
+Agent tool demos often place the most important policy in the same client state the agent can influence. A model may be told to ask before acting, but the service still lacks a durable answer to five questions: who approved what, for which version, until when, and whether it already ran.
+
+Runbook Relay makes those questions inspectable in one synthetic incident workflow.
 
 ## What I built
 
-Runbook Relay exposes narrow WebMCP tools for reading an incident, comparing mitigations, staging a change, executing an approved change, and resetting the simulation. The tools and the human interface use the same state transitions.
+The page exposes five bounded WebMCP tools for reading an incident, comparing three predefined mitigations, staging one action, requesting execution, and resetting the fixture. Native WebMCP calls, the labeled simulator, and human page controls all use the same `/api/control-plane` endpoint.
 
-The central control is deliberate: the agent can stage a mitigation, and it cannot approve its own change. Execution fails closed until the page records explicit human approval.
+Cloudflare D1 stores four record types: session state, approvals, executions, and receipts. Staging increments the resource version, calculates an immutable action digest, and derives a session-specific idempotency key. Approval binds that exact state for five minutes. Execution fails closed if identity, digest, version, expiry, consumption, or replay state does not match.
 
-The demo also keeps the runtime layers explicit. The current build registers tools directly through the standard `document.modelContext` page API. It does not bundle a polyfill or transport relay. A future MCP-B evaluation may expose the same contracts to Claude Desktop or Cursor, with origin validation, connection identity, relay exposure, and session isolation treated as new security boundaries. That result would show MCP-B compatibility, not native WebMCP support.
+The exact retry returns the first stored result. A conflicting key is rejected. Compare-and-swap guards prevent a stale request from appending a receipt for a mutation it did not win. The latest returned receipt-chain segment is checked for both link continuity and content-hash integrity.
+
+## Evaluation contract
+
+The repository includes 50 versioned live-model tasks across observation, comparison, staging, unauthorized execution, approved execution, reset, and out-of-scope requests. Eighteen are adversarial. The runner requires an explicit API key, pinned model, and current pricing inputs, then records tool traces, request IDs, latency, tokens, cost, automatic policy grades, and a human-label template.
+
+The harness is public evidence. Live model behavior is not. No key has been supplied and no result has been manufactured, so the project does not yet claim a model success rate or browser-agent efficiency result.
+
+## Why the boundary matters
+
+A tool description that says “human approval required” is guidance. Runbook Relay moves the decision to server state the model cannot create through its tool catalog. A chat message claiming approval does not change that state.
+
+The remaining identity limitation is equally important. The demo binds approval to an anonymous browser session, not to an authenticated employee role, and it cannot independently attest human presence. That is sufficient to demonstrate scoped state, expiry, idempotency, replay, and evidence design. It is not production authorization.
 
 ## Deployment choice
 
-The interactive experience is moving to `runbook-relay.andreasnissen.dev` on Cloudflare Workers. An owned URL gives reviewers across AI providers one durable project identity, while the existing Vinext build already produces Cloudflare-compatible Worker and static-asset output. The current ChatGPT Sites URL remains the verified live fallback until the owned deployment passes DNS, TLS, application, WebMCP, and reciprocal-link checks.
-
-The migration is designed for the Cloudflare Workers Free plan. No database, object storage, secret, or external system is required by the deterministic public path, and enabling paid infrastructure would be a separate decision. This case study and the public repository remain the canonical review surfaces for the architecture, tests, limitations, and implementation. The hosting provider does not imply review or endorsement by Cloudflare, OpenAI, Anthropic, or any other provider.
+The current public path uses ChatGPT Sites with the D1 migration bundle packaged beside the Worker build. The owned target, `runbook-relay.andreasnissen.dev`, uses the same Cloudflare-compatible output and applies D1 migrations before deployment. The custom-domain cutover remains gated on Cloudflare authentication, DNS, TLS, and live behavior checks.
 
 ## What it demonstrates
 
-- A web interface can become directly usable by an agent without disappearing from the human operator.
-- Read, stage, approve, execute, and verify are separate phases.
-- Tool schemas reduce ambiguity while visible receipts preserve shared evidence.
-- A negative test is part of the demo: execution without approval must fail visibly.
-- A deterministic efficiency gate makes agent-interface growth visible without presenting byte counts as model-token results.
-- Standard WebMCP behavior remains distinct from optional polyfills and transport bridges.
+- Page tools can share a visible human workspace while policy remains server-authoritative.
+- Approval can be scoped to identity, exact parameters, version, expiry, and one execution.
+- Idempotency and stale-state checks can turn retries into explicit control decisions.
+- Hash-linked receipts make the model claim and system record directly comparable.
+- Negative and partial-failure paths deserve first-class tests.
+- A model evaluation should be versioned and costed before its result becomes a portfolio claim.
 
-This is a reference application, not a production operations console. A production implementation would enforce authorization and approvals server-side, bind actions to scoped identities, and persist tamper-evident audit records.
+This is a reference application, not a production operations console. A production system would add workforce authentication and authorization, strong human confirmation, scoped infrastructure credentials, independently anchored audit, data governance, recovery orchestration, and resilience.
 
 ## Related writing
 
-[From Screenshots to Governed Tools](/writing/from-screenshots-to-governed-tools/) explains why structured operations should remain connected to the human interface. [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) compares the two interface paths and states which benchmark evidence is still missing. [The Hidden Token Tax of Agent Tools](/writing/hidden-token-tax-agent-tools/) connects the project to outcome-based efficiency measurement.
+[From Browser Tool to Governed Workflow](/writing/from-browser-tool-to-governed-workflow/) explains the control-plane migration. [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) compares interface paths without inventing benchmark results. [The Hidden Token Tax of Agent Tools](/writing/hidden-token-tax-agent-tools/) connects tool design to outcome-based efficiency measurement.

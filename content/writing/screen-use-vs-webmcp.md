@@ -4,7 +4,7 @@ date: 2026-08-31
 description: "Screen use helps an agent operate an interface. WebMCP gives the interface a typed action boundary. Reliable systems need to understand the difference."
 primaryTopic: "Tool interfaces"
 evidenceLabel: "Tested project analysis"
-evidenceBoundary: "Runbook Relay proves the structural tool and approval contract. It does not yet provide repeated model trials or an empirical comparison of screen use, native WebMCP, and bridged clients."
+evidenceBoundary: "Runbook Relay proves the structural tool contract and a durable server control plane over a synthetic action. It does not provide enterprise identity, repeated live-model trials, or an empirical comparison of screen use, native WebMCP, and bridged clients."
 lastVerified: 2026-09-01
 keyPoints:
   - "Screen use interprets a presentation layer; WebMCP exposes an explicit operation layer."
@@ -28,7 +28,7 @@ tags:
   - tool design
   - human approval
 origin: "website"
-featured: true
+featured: false
 draft: false
 image: "/images/articles/screen-use-vs-webmcp.svg"
 imageAlt: "Two interface paths: screen interpretation on one side and typed governed tools on the other, both meeting at a shared human approval boundary."
@@ -59,7 +59,7 @@ WebMCP gives a page another interface: named tools with descriptions, structured
 
 In Runbook Relay, the distinction is concrete. The page exposes separate tools to read an incident, compare mitigations, stage a change, execute an approved change, and reset the simulation. The agent does not need to infer those operations from button position or styling.
 
-The tool boundary also makes negative behavior easier to specify. There is no tool that grants approval. Execution checks page state and fails closed until a human has approved the staged action.
+The tool boundary also makes negative behavior easier to specify. There is no tool that grants approval. Execution checks durable server state and fails closed until the current session has approved the exact staged action.
 
 ## WebMCP is not MCP moved into a browser
 
@@ -98,9 +98,9 @@ Typed tools make policy intent clearer. They do not enforce policy by themselves
 
 A description that says “human approval required” is guidance. An annotation that marks an operation as consequential is useful metadata. The execution path still needs to check identity, scope, approval state, and current resource state at the action boundary.
 
-Runbook Relay demonstrates this rule in a deterministic browser simulation. The model-facing layer can stage a predefined mitigation. Only the human-facing control records approval. The execution function rejects a call made before that approval.
+Runbook Relay demonstrates this rule with a server-side control plane over a deterministic incident. The model-facing layer can stage a predefined mitigation. Only the page approval path can create the session-bound approval record. The execution function rejects a call made before that approval.
 
-In a production system, the same control belongs on the server side. Approval records should be bound to an authenticated identity, exact parameters, an expiry, and the current resource version. Audit records should be durable and tamper evident.
+The project now binds approval to an anonymous session identity, exact action digest, resource version, five-minute expiry, and one execution. Production still requires authenticated workforce identity, explicit authorization, strong human confirmation, and independently anchored audit evidence.
 
 ## What the project proves, and what it does not
 
@@ -109,13 +109,16 @@ The public repository and contract tests prove a narrow set of properties:
 - five tools have explicit schemas and separate responsibilities;
 - no model-callable approval operation exists;
 - execution checks approval and blocks the negative path;
-- human actions and tool calls use the same application state;
+- human actions and tool calls use the same server control plane;
 - the simulation resets to a deterministic fixture;
+- idempotency, stale-state, expiry, consumption, replay, and partial-failure paths have deterministic tests;
+- D1 persists approvals, executions, and hash-linked receipts;
+- a 50-task model evaluation contract covers seven task categories, including 18 adversarial cases;
 - the five tool definitions and four-call negative path remain inside explicit structural size and call-count budgets.
 
 The repository also documents the standard page layer separately from optional compatibility and transport layers. It does not yet prove that Claude Desktop, Cursor, or another external MCP client can complete the workflow through a bridge.
 
-The [agent-interface measurement](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md) reports serialized UTF-8 bytes rather than model tokens. That makes it a reproducible regression guard for contract growth, not a claim that WebMCP is faster than screen use. It also does not prove that every model selects the correct tool or that a client-side approval is production-grade security. Those questions require a separate browser and model evaluation across repeated tasks.
+The [agent-interface measurement](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md) reports serialized UTF-8 bytes rather than model tokens. That makes it a reproducible regression guard for contract growth, not a claim that WebMCP is faster than screen use. The 50-task harness is now implemented, and it has not run with a live model. It also does not turn an anonymous browser session into authenticated human authorization.
 
 ## How I would compare the approaches empirically
 
@@ -133,7 +136,7 @@ The interface matrix should also record whether each run used native WebMCP, a p
 
 The efficiency comparison should divide total model tokens by verified outcomes, not by calls. That prevents a short failed run from looking better than a longer run that reaches the correct final state. For this incident workflow, the grader should treat a blocked pre-approval execution as a successful safety outcome.
 
-That evaluation is the next step. It should publish prompts, fixtures, model and browser versions, run counts, and failure examples. Until then, the defensible conclusion is structural: governed tools make the operation boundary explicit and testable.
+The versioned prompts, fixtures, automatic grader, human-label rubric, and result schema now exist in the repository. A publishable run still requires a pinned model, API credential, current pricing, all 50 traces, complete human labels, and representative failures. Until then, the defensible conclusion remains structural: governed tools make the operation boundary explicit and testable.
 
 ## Use both layers deliberately
 
