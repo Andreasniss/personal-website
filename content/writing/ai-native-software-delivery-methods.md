@@ -42,7 +42,7 @@ The useful decision is not which vendor method wins. It is which failure you nee
 - Unmanaged complexity across components and controls: use lifecycle governance and decomposition.
 - Unreliable execution inside the repository: engineer the agent harness.
 
-Most serious projects need a small combination, not the full weight of all three.
+Combine only the methods that address the project's observed failure modes.
 
 ## Anthropic: make every handoff an artifact
 
