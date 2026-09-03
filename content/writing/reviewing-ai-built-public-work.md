@@ -1,15 +1,15 @@
 ---
 title: "How I Review AI-Built Public Work Without Outsourcing Judgment"
 date: 2026-08-31
-description: "AI can accelerate implementation and review. The human owner still defines the claim, evidence, risk boundary, and release decision."
+description: "AI can write code, propose tests, and draft documentation. The human owner still decides what is claimed, what counts as evidence, which risks remain, and whether it ships."
 primaryTopic: "Operating practice"
 evidenceLabel: "Operating experience"
 evidenceBoundary: "This is an operating standard demonstrated across public repositories. It does not claim independent human review, production readiness, or the absence of undiscovered defects."
 lastVerified: 2026-09-01
 keyPoints:
-  - "Intent, architecture, evaluation criteria, risk, and release decisions remain human-owned."
-  - "A project is reviewed as one claim surface across code, tests, README, demo, and portfolio."
-  - "Automated and AI-assisted checks provide evidence; they do not become fictional human reviewers."
+  - "Every public claim must trace to current code, tests, documentation, or live behavior."
+  - "A project is one claim surface across code, tests, README, demo, and portfolio."
+  - "Automated and AI-assisted checks provide evidence; accountability remains human-owned."
 proofLinks:
   - label: "Inspect the personal website repository"
     url: "https://github.com/Andreasniss/personal-website"
@@ -32,11 +32,13 @@ series: "Operating Agent Systems"
 seriesOrder: 3
 ---
 
-AI can write code, propose tests, inspect a diff, and help draft documentation. It cannot own the public claim I attach to the result.
+AI can write code, propose tests, inspect diffs, and draft documentation. It still cannot be accountable for the public claim attached to the result.
 
-That claim remains mine: what the project is for, which architecture I accept, what evidence is sufficient, which risks remain, and whether the work is ready to publish.
+That accountability remains mine: I define what the project is for, which architecture I accept, what evidence is sufficient, which risks remain, and whether the result is ready to carry my name.
 
-This distinction matters more as agents complete larger parts of a software change.
+My decision rule is simple: if I cannot trace a public claim to current code, tests, documentation, or live behavior, I narrow it or remove it.
+
+As agents complete more of a software change, this boundary keeps speed from turning into borrowed confidence.
 
 ## Start with the claim the project must support
 
@@ -122,6 +124,6 @@ The last condition is personal. If I cannot explain the architecture and failure
 
 AI-assisted development changes how quickly implementation and review can happen. It does not remove the need for an accountable owner.
 
-The owner decides what the system should do, what it must never do, which evidence is persuasive, which limitations matter, and whether the result is ready to carry their name.
+The human owner does not need to type every line. They must be able to defend every public claim, explain the major failure paths, and decide which limitations are acceptable.
 
 That is not a ceremonial approval at the end. It is the architecture of the entire workflow.

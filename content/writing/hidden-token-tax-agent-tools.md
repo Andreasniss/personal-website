@@ -1,15 +1,15 @@
 ---
 title: "The Hidden Token Tax of Agent Tools"
 date: 2026-08-31
-description: "Tool cost begins before execution. Definitions, selection, results, round trips, and failure recovery all consume context and time."
+description: "The cheapest model is not always the cheapest AI system. Agent cost spans tool definitions, selection, results, round trips, and recovery."
 primaryTopic: "Agent architecture"
 evidenceLabel: "Tested project analysis"
 evidenceBoundary: "The public gate measures serialized UTF-8 bytes and call count, not model tokens or end-to-end agent performance. Tool selection, latency, retries, and tokens per verified outcome remain unmeasured."
 lastVerified: 2026-09-01
 keyPoints:
+  - "Measure cost per verified outcome, not cost per token."
   - "Every exposed tool adds recurring context before the user request is solved."
-  - "Reducing tokens must not remove the schemas and descriptions that keep tool use reliable."
-  - "Measure the complete task path: definitions, calls, results, retries, latency, and correctness."
+  - "Reducing tokens must not remove the contracts that keep tool use reliable."
 proofLinks:
   - label: "Inspect a bounded five-tool interface"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp"
@@ -37,11 +37,15 @@ series: "Reliable Agent Systems"
 seriesOrder: 6
 ---
 
-The token cost of a tool-using agent starts before it calls a tool.
+An AI system can use fewer tokens and still cost more.
 
-The model first needs to learn which tools exist, what each one does, which inputs are valid, and how their results should be interpreted. It then spends tokens selecting a tool, constructing arguments, reading the result, and deciding what happens next.
+For a tool-using agent, the cheapest model is not always the cheapest system. Tool definitions, selection errors, oversized results, extra round trips, and recovery all add cost before the final answer appears.
 
-Optimizing only the final response misses most of this path.
+Use one denominator: cost per verified outcome.
+
+A shorter prompt that causes a retry is not an optimization. A longer contract that produces a valid call and a correct result may be cheaper.
+
+Token efficiency is an architecture problem, not a copy-editing exercise.
 
 ## The cost has several layers
 
@@ -55,8 +59,6 @@ An agent task can consume model context in at least six places:
 6. **Recovery:** validation errors, retries, clarification, and alternate routes.
 
 These costs interact. A shorter description can save input tokens and make the tool easier to misunderstand. A single broad tool can reduce round trips and increase the number of optional parameters, permissions, and failure modes the model must navigate.
-
-Token efficiency is therefore an architecture problem, not a copy-editing exercise.
 
 ## Measure work completed, not responses produced
 

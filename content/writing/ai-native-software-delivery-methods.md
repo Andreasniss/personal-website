@@ -1,15 +1,15 @@
 ---
 title: "Three AI-Native Software Delivery Methods Compared"
 date: 2026-08-31
-description: "Anthropic, AWS, and OpenAI describe different layers of AI-native software delivery: artifact handoffs, lifecycle governance, and the agent harness."
+description: "AI-native delivery solves three different problems: preserving intent, governing complex delivery, and giving coding agents a reliable execution environment."
 primaryTopic: "Operating practice"
 evidenceLabel: "Tested project analysis"
 evidenceBoundary: "The comparison uses public guidance and one small repository adaptation. It does not reproduce Anthropic's internal process, implement the complete AWS lifecycle, or validate OpenAI's reported results."
 lastVerified: 2026-08-31
 keyPoints:
-  - "Anthropic preserves continuity through committed artifacts between lifecycle stages."
-  - "AWS adds lifecycle governance, decomposition, adaptive depth, and operational evidence for complex delivery."
-  - "OpenAI harness engineering makes agent execution reliable through repository context, bounded tools, and fast feedback."
+  - "Choose a method by the failure you need to prevent, not by the vendor name."
+  - "Artifact handoffs preserve intent; lifecycle governance manages complexity."
+  - "Harness engineering makes agent execution reliable inside the repository."
 proofLinks:
   - label: "Inspect the 7DayFocus implementation"
     url: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab"
@@ -32,15 +32,17 @@ relatedProjectURL: "/projects/7dayfocus-ai-delivery-lab/"
 relatedProjectTitle: "7DayFocus AI Delivery Lab"
 ---
 
-AI-native software delivery does not have one agreed method.
+“AI-native software delivery” hides three different engineering problems: preserving intent across handoffs, governing delivery across teams, and giving coding agents a reliable execution environment.
 
-Anthropic, AWS, and OpenAI describe three useful approaches. They overlap, and they focus on different layers:
+Anthropic, AWS, and OpenAI each emphasize one of those layers.
 
-- Anthropic connects lifecycle stages through committed artifacts.
-- AWS provides a broader delivery and governance framework.
-- OpenAI focuses on the repository and tool environment that lets coding agents work reliably.
+The useful decision is not which vendor method wins. It is which failure you need to prevent:
 
-The practical answer is not to pick one vendor's vocabulary. Use the smallest combination that preserves intent, makes evidence executable, and keeps human accountability at the consequential boundaries.
+- Lost intent across people or agent sessions: use durable artifact handoffs.
+- Unmanaged complexity across components and controls: use lifecycle governance and decomposition.
+- Unreliable execution inside the repository: engineer the agent harness.
+
+Combine only the methods that address the project's observed failure modes.
 
 ## Anthropic: make every handoff an artifact
 
