@@ -1,7 +1,7 @@
 ---
 title: "How I Review AI-Built Public Work Without Outsourcing Judgment"
 date: 2026-08-31
-description: "AI can build most of a public project. The human owner still decides what is claimed, what counts as evidence, which risks remain, and whether it ships."
+description: "AI can write code, propose tests, and draft documentation. The human owner still decides what is claimed, what counts as evidence, which risks remain, and whether it ships."
 primaryTopic: "Operating practice"
 evidenceLabel: "Operating experience"
 evidenceBoundary: "This is an operating standard demonstrated across public repositories. It does not claim independent human review, production readiness, or the absence of undiscovered defects."
@@ -32,7 +32,7 @@ series: "Operating Agent Systems"
 seriesOrder: 3
 ---
 
-AI can build most of a public project. It still cannot be accountable for the claim that project makes.
+AI can write code, propose tests, inspect diffs, and draft documentation. It still cannot be accountable for the public claim attached to the result.
 
 That accountability remains mine: I define what the project is for, which architecture I accept, what evidence is sufficient, which risks remain, and whether the result is ready to carry my name.
 
