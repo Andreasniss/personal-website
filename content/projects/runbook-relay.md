@@ -17,7 +17,7 @@ socialImage: "/images/social/runbook-relay.png"
 socialImageAlt: "Runbook Relay, a governed WebMCP incident-response control room by Andreas Nissen."
 hideDetailImage: true
 relatedArticleURL: "/writing/from-browser-tool-to-governed-workflow/"
-relatedArticleTitle: "From Browser Tool to Governed Workflow"
+relatedArticleTitle: "Why Browser Agent Governance Belongs on the Server"
 evidenceReady: true
 lastVerified: "2026-09-01"
 proofStats:
@@ -134,4 +134,4 @@ This is a reference application, not a production operations console. A producti
 
 ## Related writing
 
-[From Browser Tool to Governed Workflow](/writing/from-browser-tool-to-governed-workflow/) explains the control-plane migration. [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) compares interface paths without inventing benchmark results. [The Cheapest AI Model Is Not Always the Cheapest System](/writing/hidden-token-tax-agent-tools/) connects tool design to outcome-based efficiency measurement.
+[Why Browser Agent Governance Belongs on the Server](/writing/from-browser-tool-to-governed-workflow/) explains the control-plane migration. [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) compares interface paths without inventing benchmark results. [The Cheapest AI Model Is Not Always the Cheapest System](/writing/hidden-token-tax-agent-tools/) connects tool design to outcome-based efficiency measurement.

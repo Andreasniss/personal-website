@@ -45,4 +45,4 @@ The original learning materials are not published here. The same public-safe eng
 
 - [The Hard Part of Agentic AI Starts After the Demo](/writing/agentic-ai-after-the-demo/)
 - [Agent Reliability Lab](/projects/mistral-playground/)
-- [Context and Control Are Different Layers](/writing/context-and-control/)
+- [Why Enterprise AI Agents Need Separate Context and Control Layers](/writing/context-and-control/)

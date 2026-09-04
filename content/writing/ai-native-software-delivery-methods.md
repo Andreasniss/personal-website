@@ -1,5 +1,5 @@
 ---
-title: "Three AI-Native Software Delivery Methods Compared"
+title: "Three AI Delivery Methods for Three Different Failure Modes"
 date: 2026-08-31
 description: "AI-native delivery solves three different problems: preserving intent, governing complex delivery, and giving coding agents a reliable execution environment."
 primaryTopic: "Operating practice"
@@ -18,7 +18,7 @@ proofLinks:
   - label: "Read the AWS AI-DLC guide"
     url: "https://awslabs.github.io/aidlc-workflows/guide/00-introduction/"
 socialImage: "/images/social/ai-native-delivery-methods.png"
-socialImageAlt: "Three AI-Native Software Delivery Methods Compared, an article by Andreas Nissen."
+socialImageAlt: "Three AI Delivery Methods for Three Different Failure Modes, an article by Andreas Nissen."
 tags:
   - AI-DLC
   - software delivery

@@ -1,5 +1,5 @@
 ---
-title: "An Ontology Is More Than Context"
+title: "When AI Agents Need an Ontology, Not Just More Context"
 date: 2026-08-28
 description: "Context is the evidence available now. An ontology defines what the entities, relationships, and rules in that evidence mean."
 primaryTopic: "Agent architecture"
@@ -14,7 +14,7 @@ proofLinks:
   - label: "Read the context and control companion"
     url: "/writing/context-and-control/"
 socialImage: "/images/social/ontology-context.png"
-socialImageAlt: "An Ontology Is More Than Context, an article by Andreas Nissen."
+socialImageAlt: "When AI Agents Need an Ontology, Not Just More Context, an article by Andreas Nissen."
 tags:
   - ontology
   - knowledge graphs
