@@ -47,7 +47,7 @@ That distinction changes what the system can validate, observe, and control. It 
 
 ## Try the difference before you install anything
 
-Open the [Runbook Relay demo](https://runbook-relay.andreasnissen.dev) in any browser and select **Run the one-click safety proof**. A built-in agent simulator reads the incident, compares bounded mitigations, stages one option, and attempts execution. The server rejects the attempt until the exact action is approved in the visible page.
+Open the [Runbook Relay demo](https://runbook-relay.andreasnissen.dev) in any browser and select **Run the one-click safety proof**. A built-in agent simulator reads the incident, compares bounded mitigations, stages one option, and attempts execution. The server rejects the attempt until page approval records the exact action.
 
 This no-setup path demonstrates the application's policy boundary and durable receipts. It does not demonstrate native tool discovery. For that second test, the demo provides the current OpenAI desktop setup instructions and confirms when five native WebMCP tools are registered.
 
