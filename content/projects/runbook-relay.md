@@ -11,7 +11,7 @@ tags:
   - human approval
   - agent controls
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
-demoURL: "https://runbook-relay-webmcp.andreas-nissen.chatgpt.site"
+demoURL: "https://runbook-relay.andreasnissen.dev"
 demoLabel: "Live control room"
 socialImage: "/images/social/runbook-relay.png"
 socialImageAlt: "Runbook Relay, a governed WebMCP incident-response control room by Andreas Nissen."
@@ -19,12 +19,12 @@ hideDetailImage: true
 relatedArticleURL: "/writing/from-browser-tool-to-governed-workflow/"
 relatedArticleTitle: "From Browser Tool to Governed Workflow"
 evidenceReady: true
-lastVerified: "2026-09-01"
+lastVerified: "2026-09-04"
 proofStats:
   - value: "5"
     label: "bounded WebMCP tools"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/app/page.tsx"
-  - value: "25"
+  - value: "30"
     label: "automated tests"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/tests"
   - value: "50"
@@ -51,7 +51,7 @@ reviewerPath:
     expected: "The first request stores the synthetic result; the exact retry returns it without applying the action twice."
   - title: "Run the repository gates"
     action: "Clone the repository, run npm ci, npm run lint, npm run typecheck, npm run eval:validate, and npm test with Node.js 22.13 or newer."
-    expected: "The production build succeeds, both D1 migrations package correctly, all 25 tests pass, and the 50-task contract validates."
+    expected: "The production build succeeds, both D1 migrations package correctly, all 30 tests pass, and the 50-task contract validates."
 reviewerFallback: "The repository tests and deterministic evaluation fixture expose the same policy decisions without claiming native WebMCP discovery or live-model performance."
 reviewerFallbackURL: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/tests"
 architectureImage: "/images/projects/runbook-relay-architecture.svg"
@@ -119,7 +119,7 @@ The remaining identity limitation is equally important. The demo binds approval 
 
 ## Deployment choice
 
-The current public path uses ChatGPT Sites with the D1 migration bundle packaged beside the Worker build. The owned target, `runbook-relay.andreasnissen.dev`, uses the same Cloudflare-compatible output and applies D1 migrations before deployment. The custom-domain cutover remains gated on Cloudflare authentication, DNS, TLS, and live behavior checks.
+The canonical public deployment is live on Cloudflare Workers at [runbook-relay.andreasnissen.dev](https://runbook-relay.andreasnissen.dev). Its protected GitHub Actions path resolves the existing D1 binding, applies migrations, and deploys the Worker and custom domain. DNS, TLS, desktop and narrow rendering, the simulator policy flow, reset, durable evidence, and console output were verified on 4 September 2026. The previous [ChatGPT Sites deployment](https://runbook-relay-webmcp.andreas-nissen.chatgpt.site) remains only as a temporary rollback path.
 
 ## What it demonstrates
 

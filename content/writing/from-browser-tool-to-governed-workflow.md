@@ -5,13 +5,15 @@ description: "Moving agent policy from client state to a durable server control 
 primaryTopic: "Agent controls"
 evidenceLabel: "Tested project analysis"
 evidenceBoundary: "Runbook Relay demonstrates durable policy, scoped approval, idempotency, replay protection, and hash-linked receipts over a synthetic incident action. It does not provide enterprise identity, strong human-presence attestation, real infrastructure execution, or live-model performance results."
-lastVerified: 2026-09-01
+lastVerified: 2026-09-04
 keyPoints:
   - "A tool schema describes an operation. The server still has to decide whether that operation may run."
   - "Approval should bind identity, exact action, resource version, expiry, and one execution."
   - "Idempotency, concurrency guards, and verifiable receipts turn retries and races into explicit control decisions."
   - "A credible model evaluation needs versioned tasks, traces, human labels, latency, tokens, cost, and visible failures."
 proofLinks:
+  - label: "Open the canonical Runbook Relay demo"
+    url: "https://runbook-relay.andreasnissen.dev"
   - label: "Inspect the Runbook Relay control plane"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/db/control-plane.ts"
   - label: "Review the threat model"
