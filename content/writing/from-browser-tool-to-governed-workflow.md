@@ -1,5 +1,5 @@
 ---
-title: "From Browser Tool to Governed Workflow"
+title: "Why Browser Agent Governance Belongs on the Server"
 date: 2026-09-01
 description: "Moving agent policy from client state to a durable server control plane changes what a tool demo can prove."
 primaryTopic: "Agent controls"
@@ -21,7 +21,7 @@ proofLinks:
   - label: "Inspect the 50-task evaluation contract"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/evals/live-tool-use"
 socialImage: "/images/social/browser-tool-governed-workflow.png"
-socialImageAlt: "From Browser Tool to Governed Workflow, an article by Andreas Nissen about durable agent controls."
+socialImageAlt: "Why Browser Agent Governance Belongs on the Server, an article by Andreas Nissen about durable agent controls."
 tags:
   - agent architecture
   - WebMCP

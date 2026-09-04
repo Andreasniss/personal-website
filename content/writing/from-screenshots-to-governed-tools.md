@@ -1,5 +1,5 @@
 ---
-title: "From Screenshots to Governed Tools"
+title: "AI Agents Need Governed Tools, Not Just Screenshots"
 date: 2026-08-29
 description: "Agent-friendly interfaces should expose structured operations without taking the human operator out of the loop."
 primaryTopic: "Tool interfaces"
@@ -16,7 +16,7 @@ proofLinks:
   - label: "Review its contract tests"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
 socialImage: "/images/social/governed-tools.png"
-socialImageAlt: "From Screenshots to Governed Tools, an article by Andreas Nissen."
+socialImageAlt: "AI Agents Need Governed Tools, Not Just Screenshots, an article by Andreas Nissen."
 tags:
   - WebMCP
   - tool design

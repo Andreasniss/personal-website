@@ -18,7 +18,7 @@ imageAlt: "7DayFocus architecture with review, validation, explicit approval, an
 hideDetailImage: true
 repoURL: "https://github.com/Andreasniss/7dayfocus-ai-delivery-lab"
 relatedArticleURL: "/writing/ai-native-software-delivery-methods/"
-relatedArticleTitle: "Three AI-Native Software Delivery Methods Compared"
+relatedArticleTitle: "Three AI Delivery Methods for Three Different Failure Modes"
 evidenceReady: true
 lastVerified: "2026-09-01"
 proofStats:

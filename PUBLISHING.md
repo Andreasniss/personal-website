@@ -12,11 +12,18 @@ Reuse the argument and evidence. Do not cross-post identical text by default. Ea
 
 Set `origin: "website"` for new canonical articles. Preserve `origin: "linkedin"` only for verified legacy imports so the public page describes their publication history accurately.
 
+## Title gate
+
+Treat the title and description as one editorial pair. The title must name the concrete subject and give the intended reader a truthful reason to open the article through a tension, consequence, decision, or practical payoff. It must make sense without the body, resolve to the article's actual argument, and stay inside the evidence boundary.
+
+The description should explain the scope or evidence instead of repeating the title. Reject a title that depends on a vague metaphor, a generic category label, an unsupported superlative, or curiosity that the article does not satisfy. If the intended reader cannot tell what they will learn and why it matters from the title and description together, revise them before creating social derivatives.
+
 ## Definition of done
 
 A substantive original publishing package is complete only when:
 
 - a publication-safe article exists under `content/writing/`;
+- its title and description pass the title gate;
 - its page-specific 1200 by 630 sharing image matches the final title and argument;
 - its claims and source links are current and verified;
 - private, customer, and AWS-confidential details have been removed;
