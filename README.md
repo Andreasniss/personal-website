@@ -7,6 +7,7 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 ## What is included
 
 - Homepage with positioning, selected projects, and selected writing
+- Five-minute Start Here route for technical and hiring reviewers
 - Evidence-led writing archive with article search, controlled topic filters, proof links, verification dates, and series navigation
 - Project pages grounded in verified public repositories or owned live demos
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories

@@ -6,6 +6,7 @@ Senior Solutions Architect (AWS, Munich) working on agent reliability, evaluatio
 
 ## About
 
+- [Start Here]({{ (printf "%sstart-here/" site.BaseURL) }}): A five-minute route through the public work, evidence, and operating approach.
 - [About]({{ (printf "%sabout/" site.BaseURL) }}): Background, focus areas, and contact links.
 - [Selected Impact]({{ (printf "%simpact/" site.BaseURL) }}): Evidence-backed outcomes, public systems, and workshop delivery.
 

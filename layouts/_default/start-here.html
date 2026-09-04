@@ -1,0 +1,65 @@
+{{ define "main" }}
+  <section class="page-hero shell narrow">
+    <div>
+      <p class="eyebrow">Start here</p>
+      <h1>Review the work in five minutes.</h1>
+      <p class="lead">Choose the route that matches what you need to evaluate. Each path leads to public evidence, explicit ownership, and the limits of what I claim.</p>
+    </div>
+  </section>
+
+  <section class="shell section-space border-top" aria-labelledby="review-path-heading">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow warm">Choose a path</p>
+        <h2 id="review-path-heading">Start with your question.</h2>
+      </div>
+    </div>
+    <div class="entry-list">
+      <article class="entry-card card-body">
+        <div class="entry-meta"><span>Working system</span></div>
+        <h3><a href="{{ "projects/runbook-relay/" | relURL }}">Evaluate Runbook Relay</a></h3>
+        <p>Review the problem, architecture, tests, threat boundaries, live demo, source, and current limitations in one guided path.</p>
+        <a class="text-link" href="{{ "projects/runbook-relay/" | relURL }}">Open the case study <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="entry-card card-body">
+        <div class="entry-meta"><span>Career evidence</span></div>
+        <h3><a href="{{ "impact/" | relURL }}">Assess scope and impact</a></h3>
+        <p>See how architecture, evaluation, delivery, teaching, and enterprise decisions connect across more than 15 years of work.</p>
+        <a class="text-link" href="{{ "impact/" | relURL }}">Review selected impact <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="entry-card card-body">
+        <div class="entry-meta"><span>Technical judgment</span></div>
+        <h3><a href="{{ "writing/" | relURL }}">Browse the writing</a></h3>
+        <p>Explore practical arguments about reliable agents, evaluation, controls, context, and enterprise adoption, each with its evidence boundary visible.</p>
+        <a class="text-link" href="{{ "writing/" | relURL }}">Open the writing archive <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+
+  <section class="shell section-space border-top workshop-callout" aria-labelledby="review-method-heading">
+    <div>
+      <p class="eyebrow">Review method</p>
+      <h2 id="review-method-heading">Evidence before claims.</h2>
+    </div>
+    <div>
+      <p>Start with the stated problem and limitations. Try the live path or its fallback. Inspect the repository and tests. Then compare each claim with the public artifact that supports it.</p>
+      <a class="text-link" href="{{ "projects/" | relURL }}">See all inspectable projects <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="shell section-space border-top impact-callout" aria-labelledby="connect-path-heading">
+    <div>
+      <p class="eyebrow warm">Context and contact</p>
+      <h2 id="connect-path-heading">Know who owns the work.</h2>
+    </div>
+    <div>
+      <p>I use AI to accelerate implementation and verification. I own the architecture, evaluation criteria, risk, and release decisions. My About page explains the background, and LinkedIn is the direct professional contact route.</p>
+      <div class="proof-actions">
+        <a class="action-link" href="{{ "about/" | relURL }}">About Andreas</a>
+        <a class="action-link" href="{{ "talks/" | relURL }}">Talks and workshops</a>
+        <a class="action-link" href="{{ site.Params.githubURL }}" rel="noreferrer">GitHub</a>
+        <a class="action-link" href="{{ site.Params.linkedinURL }}" rel="me noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+{{ end }}
