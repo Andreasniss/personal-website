@@ -1,5 +1,5 @@
 ---
-title: "AI Agents Need Separate Context and Control Layers"
+title: "Why Enterprise AI Agents Need Separate Context and Control Layers"
 date: 2026-08-30
 description: "An agent needs enough context to reason and enough control to act safely. Treating them as one system hides different failure modes."
 primaryTopic: "Agent architecture"
@@ -14,7 +14,7 @@ proofLinks:
   - label: "Review the 7DayFocus case study"
     url: "/projects/7dayfocus-ai-delivery-lab/"
 socialImage: "/images/social/context-and-control.png"
-socialImageAlt: "AI Agents Need Separate Context and Control Layers, an article by Andreas Nissen."
+socialImageAlt: "Why Enterprise AI Agents Need Separate Context and Control Layers, an article by Andreas Nissen."
 tags:
   - agent architecture
   - context
