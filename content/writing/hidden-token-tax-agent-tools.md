@@ -1,5 +1,5 @@
 ---
-title: "The Hidden Token Tax of Agent Tools"
+title: "The Cheapest AI Model Is Not Always the Cheapest System"
 date: 2026-08-31
 description: "The cheapest model is not always the cheapest AI system. Agent cost spans tool definitions, selection, results, round trips, and recovery."
 primaryTopic: "Agent architecture"
@@ -20,7 +20,7 @@ proofLinks:
   - label: "Read the related tool-interface analysis"
     url: "/writing/screen-use-vs-webmcp/"
 socialImage: "/images/social/hidden-token-tax.png"
-socialImageAlt: "The Hidden Token Tax of Agent Tools, an article by Andreas Nissen."
+socialImageAlt: "The Cheapest AI Model Is Not Always the Cheapest System, an article by Andreas Nissen."
 tags:
   - token efficiency
   - MCP

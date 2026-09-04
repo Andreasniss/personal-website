@@ -11,6 +11,7 @@ make_card() {
   local title=$3
   local subtitle=$4
   local accent=${5:-#45aaa2}
+  local title_size=${6:-64}
   local work_dir
   work_dir=$(mktemp -d)
 
@@ -22,7 +23,7 @@ make_card() {
 
   convert -background none -fill "#72cfc7" -font DejaVu-Sans-Bold -pointsize 24 \
     -size 620x50 "caption:${eyebrow^^}" "$work_dir/eyebrow.png"
-  convert -background none -fill "#f4f1ea" -font DejaVu-Serif -pointsize 64 \
+  convert -background none -fill "#f4f1ea" -font DejaVu-Serif -pointsize "$title_size" \
     -size 650x280 "caption:$title" "$work_dir/title.png"
   convert -background none -fill "#aab3ae" -font DejaVu-Sans -pointsize 25 \
     -size 620x105 "caption:$subtitle" "$work_dir/subtitle.png"
@@ -62,7 +63,7 @@ make_card "ai-native-delivery-methods.png" "Article" "Three AI-Native Delivery M
 make_card "screen-use-vs-webmcp.png" "Article" "Screen Use vs WebMCP" "What changes when an agent gets governed tools."
 make_card "browser-tool-governed-workflow.png" "Article" "From Browser Tool to Governed Workflow" "Move policy, approval, replay protection, and evidence to the server boundary."
 make_card "model-failover-policy.png" "Article" "Model Failover Is a Policy Decision" "Retry, switch, degrade, or stop inside an explicit boundary."
-make_card "hidden-token-tax.png" "Article" "The Hidden Token Tax of Agent Tools" "Count definitions, results, round trips, and recovery."
+make_card "hidden-token-tax.png" "Article" "The Cheapest AI Model Is Not Always the Cheapest System" "Measure cost per verified outcome, not cost per token." "#45aaa2" "50"
 make_card "reviewing-ai-built-work.png" "Article" "Review AI-Built Work Without Outsourcing Judgment" "Evidence informs. The human owner decides what ships."
 make_card "skill-routing-reliability.png" "Article" "Skill Routing Is a Reliability Problem" "Test positive, negative, overlap, and stale routes."
 
