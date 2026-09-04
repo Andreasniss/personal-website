@@ -146,4 +146,4 @@ The strongest design keeps both views aligned. The human sees evidence, state, a
 
 The goal is not to remove the screen. It is to stop making pixels carry the entire control contract.
 
-[The Hidden Token Tax of Agent Tools](/writing/hidden-token-tax-agent-tools/) develops the measurement model for definitions, results, round trips, recovery, and verified outcomes.
+[The Cheapest AI Model Is Not Always the Cheapest System](/writing/hidden-token-tax-agent-tools/) develops the measurement model for definitions, results, round trips, recovery, and verified outcomes.
