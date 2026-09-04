@@ -232,6 +232,18 @@ svg {
   margin-top: 36px;
 }
 
+.hero-ownership {
+  max-width: 680px;
+  margin: 20px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.hero-ownership strong {
+  color: var(--ink);
+}
+
 .button {
   display: inline-flex;
   min-height: 48px;
