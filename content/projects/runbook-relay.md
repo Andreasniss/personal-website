@@ -1,6 +1,6 @@
 ---
 title: "Runbook Relay WebMCP Demo"
-description: "See how a browser agent investigates an incident while the server blocks execution until a human approves the exact action. The live simulator needs no setup."
+description: "See how a browser agent investigates an incident while the server blocks execution until the exact action is approved in the page. The live simulator needs no setup."
 role: "Creator and repository owner"
 year: 2026
 weight: 10
@@ -93,7 +93,7 @@ limitations:
 
 ## Start with the no-setup demo
 
-Open the [live Runbook Relay demo](https://runbook-relay.andreasnissen.dev) in any browser and select **Run the one-click safety proof**. The simulator reads the incident, compares predefined mitigations, stages the lowest-risk option, and attempts execution. The server blocks that attempt until you approve the exact action in the page.
+Open the [live Runbook Relay demo](https://runbook-relay.andreasnissen.dev) in any browser and select **Run the one-click safety proof**. The simulator reads the incident, compares predefined mitigations, stages the lowest-risk option, and attempts execution. The server blocks that attempt until page approval records the exact action.
 
 This path needs no ChatGPT or Claude setup, account, extension, or local MCP server. It proves the application's server-side policy and durable evidence path. It does not prove that a browser or external client discovered the native WebMCP tools.
 
