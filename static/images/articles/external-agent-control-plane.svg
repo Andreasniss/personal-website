@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <title>External Agent Control Plane</title>
+  <desc>An AI agent using an OpenAI or Anthropic model proposes actions. A separate control plane evaluates identity, policy, information flow, approval, and recovery before a constrained gateway can reach enterprise systems.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#72CFC7"/>
+    </marker>
+    <marker id="stop" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <circle cx="5" cy="5" r="4" fill="#E67E6C"/>
+    </marker>
+  </defs>
+  <style>
+    .display { font-family: "Nimbus Sans Narrow", "Arial Narrow", sans-serif; font-weight: 700; fill: #F4F1EA; }
+    .sans { font-family: "Nimbus Sans", Arial, sans-serif; fill: #F4F1EA; }
+    .bold { font-family: "Nimbus Sans", Arial, sans-serif; font-weight: 700; fill: #F4F1EA; }
+    .label { font-family: "Nimbus Sans", Arial, sans-serif; font-weight: 700; fill: #72CFC7; letter-spacing: 1.1px; }
+    .muted { font-family: "Nimbus Sans", Arial, sans-serif; fill: #C9D0CC; }
+    .rule { stroke: #64706A; stroke-width: 2; }
+    .flow { stroke: #72CFC7; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    .node { fill: #1D2321; stroke: #64706A; stroke-width: 3; }
+    .module { fill: #202A27; stroke: #45AAA2; stroke-width: 2; }
+  </style>
+
+  <rect width="1080" height="1350" fill="#141817"/>
+
+  <text x="540" y="73" text-anchor="middle" class="display" font-size="55">THE MODEL PROPOSES</text>
+  <text x="540" y="126" text-anchor="middle" class="display" font-size="55" fill="#72CFC7">THE CONTROL PLANE DECIDES</text>
+  <text x="540" y="171" text-anchor="middle" class="muted" font-size="23">Authority stays outside the model and spans the full action path.</text>
+
+  <!-- Request and agent runtime -->
+  <rect x="58" y="214" width="964" height="186" rx="18" class="node"/>
+  <text x="92" y="255" class="label" font-size="18">1 · AGENT RUNTIME</text>
+  <text x="92" y="301" class="display" font-size="36">Reason, plan, and propose a typed action</text>
+  <text x="92" y="341" class="muted" font-size="21">The runtime receives context. It does not grant its own authority.</text>
+  <rect x="716" y="242" width="272" height="56" rx="9" fill="#25312D"/>
+  <text x="852" y="277" text-anchor="middle" class="bold" font-size="20">OpenAI GPT-6 Astra</text>
+  <rect x="716" y="313" width="272" height="56" rx="9" fill="#25312D"/>
+  <text x="852" y="337" text-anchor="middle" class="bold" font-size="18">Anthropic Claude Fable 5.1</text>
+  <text x="852" y="359" text-anchor="middle" class="muted" font-size="15">Mythos 5.1 for vetted access</text>
+
+  <path d="M540 400 L540 448" class="flow"/>
+  <text x="560" y="431" class="muted" font-size="17">proposed action</text>
+
+  <!-- External control plane -->
+  <rect x="38" y="456" width="1004" height="500" rx="20" fill="#19201E" stroke="#72CFC7" stroke-width="4"/>
+  <text x="72" y="501" class="label" font-size="19">2 · EXTERNAL AGENT CONTROL PLANE</text>
+  <text x="72" y="546" class="display" font-size="35">Independent enforcement before effect</text>
+
+  <rect x="72" y="580" width="292" height="134" rx="14" class="module"/>
+  <text x="94" y="616" class="bold" font-size="21">Registry &amp; governance</text>
+  <text x="94" y="650" class="muted" font-size="18">Approved agents, tools,</text>
+  <text x="94" y="677" class="muted" font-size="18">versions, owners, lineage</text>
+
+  <rect x="394" y="580" width="292" height="134" rx="14" class="module"/>
+  <text x="416" y="616" class="bold" font-size="21">Identity &amp; capabilities</text>
+  <text x="416" y="650" class="muted" font-size="18">Task-scoped credentials,</text>
+  <text x="416" y="677" class="muted" font-size="18">resource and time limits</text>
+
+  <rect x="716" y="580" width="292" height="134" rx="14" class="module"/>
+  <text x="738" y="616" class="bold" font-size="21">Lifecycle policy hooks</text>
+  <text x="738" y="650" class="muted" font-size="18">Allow, deny, or transform</text>
+  <text x="738" y="677" class="muted" font-size="18">every mediated path</text>
+
+  <rect x="72" y="740" width="292" height="134" rx="14" class="module"/>
+  <text x="94" y="776" class="bold" font-size="21">Information-flow policy</text>
+  <text x="94" y="810" class="muted" font-size="18">Sensitivity, provenance,</text>
+  <text x="94" y="837" class="muted" font-size="18">trust, source-to-sink rules</text>
+
+  <rect x="394" y="740" width="292" height="134" rx="14" class="module"/>
+  <text x="416" y="776" class="bold" font-size="21">Approval &amp; staging</text>
+  <text x="416" y="810" class="muted" font-size="18">Hold consequential effects</text>
+  <text x="416" y="837" class="muted" font-size="18">until all controls allow</text>
+
+  <rect x="716" y="740" width="292" height="134" rx="14" class="module"/>
+  <text x="738" y="776" class="bold" font-size="21">Evidence &amp; recovery</text>
+  <text x="738" y="810" class="muted" font-size="18">Decision-bound audit,</text>
+  <text x="738" y="837" class="muted" font-size="18">revocation, final-state check</text>
+
+  <line x1="72" y1="910" x2="1008" y2="910" class="rule"/>
+  <circle cx="92" cy="932" r="7" fill="#E67E6C"/>
+  <text x="112" y="939" class="muted" font-size="18">Deny stops execution. Failure and timeout fail closed.</text>
+
+  <path d="M540 956 L540 1002" class="flow"/>
+  <text x="560" y="986" class="muted" font-size="17">allowed capability</text>
+
+  <!-- Enforcement boundary -->
+  <rect x="58" y="1010" width="964" height="135" rx="18" class="node"/>
+  <text x="92" y="1051" class="label" font-size="18">3 · CONSTRAINED EXECUTION BOUNDARY</text>
+  <text x="92" y="1094" class="display" font-size="32">Tool gateway or broker · sandbox · egress allowlist</text>
+  <text x="92" y="1125" class="muted" font-size="18">No ambient credentials. No unrestricted network or host access.</text>
+
+  <path d="M540 1145 L540 1191" class="flow"/>
+
+  <!-- Systems -->
+  <rect x="58" y="1199" width="964" height="92" rx="18" class="node"/>
+  <text x="92" y="1239" class="label" font-size="18">4 · ENTERPRISE SYSTEMS</text>
+  <text x="92" y="1274" class="sans" font-size="23">Data · APIs · code repositories · production infrastructure · external destinations</text>
+
+  <line x1="620" y1="1318" x2="680" y2="1318" stroke="#45AAA2" stroke-width="3"/>
+  <text x="698" y="1310" class="sans" font-size="16" letter-spacing="4">ANDREAS NISSEN</text>
+  <text x="698" y="1334" class="muted" font-size="15" letter-spacing="2">andreasnissen.dev</text>
+</svg>
