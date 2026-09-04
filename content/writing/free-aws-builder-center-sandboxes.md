@@ -1,5 +1,5 @@
 ---
-title: "Try AWS Workshops Without Setting Up an AWS Account"
+title: "Try AWS Builder Center Sandbox Workshops Without an AWS Account"
 date: 2026-07-09
 description: "AWS Builder Center removes the account and credit-card setup that often stops a workshop before the building begins."
 primaryTopic: "Learning"
@@ -16,7 +16,7 @@ proofLinks:
   - label: "Browse AWS workshops"
     url: "https://builder.aws.com/build/workshops"
 socialImage: "/images/social/builder-sandboxes.png"
-socialImageAlt: "Try AWS Workshops Without Setting Up an AWS Account, an article by Andreas Nissen."
+socialImageAlt: "Try AWS Builder Center Sandbox Workshops Without an AWS Account, an article by Andreas Nissen."
 tags:
   - AWS
   - hands-on learning

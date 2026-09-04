@@ -58,7 +58,7 @@ make_card "context-and-control.png" "Article" "AI Agents Need Separate Context a
 make_card "governed-tools.png" "Article" "AI Agents Need Governed Tools, Not Just Screenshots" "What WebMCP changes about agent-facing interfaces." "#45aaa2" "54"
 make_card "ontology-context.png" "Article" "When AI Agents Need an Ontology, Not Just More Context" "How shared meaning becomes an operational boundary." "#45aaa2" "50"
 make_card "agent-skill-library.png" "Article" "8 Rules for Running an AI Agent Skill Library" "How to keep agent skills maintainable, routable, and trustworthy."
-make_card "builder-sandboxes.png" "Article" "Try AWS Workshops Without Setting Up an AWS Account" "Free Builder Center sandboxes remove account and payment setup." "#45aaa2" "52"
+make_card "builder-sandboxes.png" "Article" "Try AWS Builder Center Sandbox Workshops Without an AWS Account" "Free, pre-provisioned environments remove account and payment setup." "#45aaa2" "46"
 make_card "ai-native-delivery-methods.png" "Article" "Three AI Delivery Methods for Three Different Failure Modes" "Choose the method by the failure it prevents." "#45aaa2" "50"
 make_card "screen-use-vs-webmcp.png" "Article" "Screen Use vs WebMCP" "What changes when an agent gets governed tools."
 make_card "browser-tool-governed-workflow.png" "Article" "Why Browser Agent Governance Belongs on the Server" "Move policy, approval, replay protection, and evidence to the server boundary." "#45aaa2" "52"
