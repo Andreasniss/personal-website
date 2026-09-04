@@ -1,6 +1,6 @@
 ---
 title: "Runbook Relay WebMCP Demo"
-description: "A governed WebMCP control room with durable server policy, scoped approval, replay protection, hash-linked receipts, and a 50-task evaluation contract."
+description: "See how a browser agent investigates an incident while the server blocks execution until the exact action is approved in the page. The live simulator needs no setup."
 role: "Creator and repository owner"
 year: 2026
 weight: 10
@@ -12,7 +12,7 @@ tags:
   - agent controls
 repoURL: "https://github.com/Andreasniss/runbook-relay-webmcp"
 demoURL: "https://runbook-relay.andreasnissen.dev"
-demoLabel: "Live control room"
+demoLabel: "No-setup demo"
 socialImage: "/images/social/runbook-relay.png"
 socialImageAlt: "Runbook Relay, a governed WebMCP incident-response control room by Andreas Nissen."
 hideDetailImage: true
@@ -90,6 +90,14 @@ limitations:
   - "The 50-task live-model runner is implemented but has not run, so there is no model success-rate, latency, token, or cost claim."
   - "The labeled simulator proves application behavior, not native browser discovery; no MCP-B bridge has been tested."
 ---
+
+## Start with the no-setup demo
+
+Open the [live Runbook Relay demo](https://runbook-relay.andreasnissen.dev) in any browser and select **Run the one-click safety proof**. The simulator reads the incident, compares predefined mitigations, stages the lowest-risk option, and attempts execution. The server blocks that attempt until page approval records the exact action.
+
+This path needs no ChatGPT or Claude setup, account, extension, or local MCP server. It proves the application's server-side policy and durable evidence path. It does not prove that a browser or external client discovered the native WebMCP tools.
+
+To test native WebMCP, use the optional OpenAI desktop instructions shown in the demo. Claude Desktop, Cursor, and other MCP clients currently need a separate page-to-MCP transport such as an MCP-B extension or local relay. Runbook Relay does not bundle or claim that compatibility path as tested.
 
 ## The problem
 

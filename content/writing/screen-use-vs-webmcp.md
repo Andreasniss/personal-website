@@ -5,7 +5,7 @@ description: "Screen use helps an agent operate an interface. WebMCP gives the i
 primaryTopic: "Tool interfaces"
 evidenceLabel: "Tested project analysis"
 evidenceBoundary: "Runbook Relay proves the structural tool contract and a durable server control plane over a synthetic action. It does not provide enterprise identity, repeated live-model trials, or an empirical comparison of screen use, native WebMCP, and bridged clients."
-lastVerified: 2026-09-01
+lastVerified: 2026-09-04
 keyPoints:
   - "Screen use interprets a presentation layer; WebMCP exposes an explicit operation layer."
   - "Typed tools improve inspectability, but authorization must still be enforced outside the model."
@@ -44,6 +44,14 @@ Screen use and WebMCP solve different parts of the agent-interface problem.
 Screen use lets an agent interpret and operate the interface a person already uses. WebMCP lets the application expose typed operations designed for an agent to call. One starts from presentation. The other starts from an action contract.
 
 That distinction changes what the system can validate, observe, and control. It does not make one approach universally better. It tells us where each approach belongs.
+
+## Try the difference before you install anything
+
+Open the [Runbook Relay demo](https://runbook-relay.andreasnissen.dev) in any browser and select **Run the one-click safety proof**. A built-in agent simulator reads the incident, compares bounded mitigations, stages one option, and attempts execution. The server rejects the attempt until page approval records the exact action.
+
+This no-setup path demonstrates the application's policy boundary and durable receipts. It does not demonstrate native tool discovery. For that second test, the demo provides the current OpenAI desktop setup instructions and confirms when five native WebMCP tools are registered.
+
+Claude Desktop, Cursor, and other MCP clients need an additional page-to-MCP transport, such as an MCP-B extension or local relay. Runbook Relay does not bundle or claim that path as tested. That distinction matters because a successful relay test proves compatibility through the relay, not native WebMCP support in the client.
 
 ## Screen use begins with presentation
 
