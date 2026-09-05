@@ -5,7 +5,7 @@ creator: "Andrej Karpathy"
 format: "X profile"
 affiliation: "Anthropic"
 sourceURL: "https://x.com/karpathy"
-why: "Andrej develops memorable language for emerging AI practices, then grounds it in code, experiments, and clear technical explanations."
+why: "I use these explanations to check my mental model of how language models work, then turn the intuition into questions I can test in code."
 weight: 110
 ---
 

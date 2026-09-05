@@ -5,7 +5,7 @@ creator: "Jensen Huang"
 format: "Keynote archive"
 affiliation: "NVIDIA"
 sourceURL: "https://www.nvidia.com/gtc/events/"
-why: "Jensen connects changes in chips, systems, models, and industrial infrastructure into a coherent view of where the AI computing stack is heading."
+why: "Useful for connecting hardware, software, and workload requirements across the AI stack. I treat keynote claims as a starting point for checking the supporting technical evidence."
 weight: 35
 ---
 

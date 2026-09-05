@@ -3,4 +3,6 @@ title: "Work I Love"
 description: "Articles, blogs, and open-source repositories I follow, learn from, and recommend."
 ---
 
-This is a curated reading and reference list, not a portfolio of my work. Every entry links to the original source and credits its creator. Affiliation labels reflect current publicly documented roles and do not imply endorsement.
+These are sources I learn from, with a short explanation of the question each helps me think through. The linked work belongs to its credited creators.
+
+Use the list as a route into implementation examples, distributed-systems reasoning, agent-product design, or technical communication. Affiliation labels provide context and do not imply endorsement.

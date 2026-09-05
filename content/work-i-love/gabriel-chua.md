@@ -5,7 +5,7 @@ creator: "Gabriel Chua"
 format: "X profile"
 affiliation: "OpenAI"
 sourceURL: "https://x.com/gabrielchua"
-why: "Gabriel shows concrete, inspectable ways to use Codex and agent workflows, with a strong bias toward shipping and teaching through examples."
+why: "I look here for concrete Codex workflows and small demonstrations that make a capability easy to try before deciding how to integrate it."
 weight: 120
 ---
 

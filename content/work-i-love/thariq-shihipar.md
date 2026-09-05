@@ -6,7 +6,7 @@ format: "Personal site"
 affiliation: "Anthropic"
 sourceURL: "https://www.thariq.io/"
 xURL: "https://x.com/trq212"
-why: "Thariq's work is useful for understanding how capable agent products are shaped at the boundary between models, tools, and developer experience."
+why: "Useful for thinking about the product decisions between a capable model and a usable agent: the interaction, tool boundary, and workflow around it."
 weight: 40
 ---
 

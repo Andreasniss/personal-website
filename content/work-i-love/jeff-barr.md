@@ -6,7 +6,7 @@ format: "Technical blog"
 affiliation: "AWS"
 sourceURL: "https://aws.amazon.com/blogs/aws/author/jbarr/"
 xURL: "https://x.com/jeffbarr"
-why: "Jeff turns a constant stream of cloud launches into approachable technical explanations while preserving the builder perspective behind each service."
+why: "A reference for explaining a service launch through the builder problem, a concrete walkthrough, and the details someone needs to try it."
 weight: 25
 ---
 

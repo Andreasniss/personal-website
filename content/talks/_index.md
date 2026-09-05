@@ -29,10 +29,10 @@ recommendedWorkshops:
     topic: "Evaluation"
 ---
 
-I design practical sessions around how enterprise agents fail, what evidence they need, and which controls make them operable.
+I build practical sessions around agent evaluation, policy decisions, and failure handling. The goal is to give participants a way to examine a system and identify the evidence needed for its next deployment decision.
 
-## Verified delivery
+## Delivery experience
 
-I helped run an Amazon Bedrock AgentCore Immersion Day for more than 100 participants. I separately designed and delivered a custom evaluation and policy module extension for a cohort of about 30 participants. Those are two different scopes: the first is the complete learning event, and the second is the material I personally built and taught.
+I helped run an Amazon Bedrock AgentCore Immersion Day for more than 100 participants. Within that program, I designed and delivered an evaluation and policy module extension for about 30 participants.
 
-The reviewed workshop page below links the public articles and reference implementations that make the core architecture argument inspectable without publishing private event materials.
+The workshop page distinguishes that personal contribution from the wider event and links related public reference work. The official AWS resources below provide separate self-directed learning options.

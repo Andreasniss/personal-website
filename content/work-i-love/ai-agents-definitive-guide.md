@@ -5,7 +5,7 @@ creator: "Nicole Königstein and contributors"
 format: "GitHub repository"
 affiliation: "Independent"
 sourceURL: "https://github.com/Nicolepcx/ai-agents-the-definitive-guide"
-why: "It treats agent engineering as a complete system discipline and connects concepts to inspectable notebooks and utilities."
+why: "Useful when I need to connect an agent concept to code. The chapter structure makes it easier to move from architecture and tool integration to evaluation, deployment, and operating concerns."
 weight: 10
 ---
 

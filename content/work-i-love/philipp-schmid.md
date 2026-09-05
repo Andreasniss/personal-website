@@ -5,7 +5,7 @@ creator: "Philipp Schmid"
 format: "Technical blog"
 affiliation: "Google DeepMind"
 sourceURL: "https://www.philschmid.de/"
-why: "Philipp consistently turns new model capabilities into concrete implementation patterns, with enough detail to reproduce the work."
+why: "I use these guides to move from a model or API announcement to an implementation I can inspect, especially for tool use, managed agents, and evaluation."
 weight: 70
 ---
 

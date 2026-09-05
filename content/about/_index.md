@@ -1,6 +1,6 @@
 ---
 title: "About"
-description: "I connect enterprise adoption, hands-on applied AI engineering, and the controls required for reliable deployment."
+description: "Senior Solutions Architect at AWS in Munich, working across AI evaluation, system architecture, enterprise adoption, and technical delivery."
 portrait: "/images/about/andreas-nissen-linkedin.png"
 portraitAlt: "Portrait of Andreas Nissen."
 socialImage: "/images/social/about.png"
@@ -20,32 +20,25 @@ connectLinks:
     icon: "/icons/rss.svg"
 ---
 
-I am a Senior Solutions Architect at AWS in Munich. For more than 15 years, I have worked across technology, architecture, and customer-facing delivery. I now help organizations turn AI capability into systems they can evaluate, adopt, and operate in regulated environments.
+I am a Senior Solutions Architect at AWS in Munich, with more than 15 years across technology, architecture, and customer-facing delivery. I help organizations turn an AI use case into an evaluation plan, a system design, and a decision about how to adopt it in a regulated environment.
 
-My technical focus is agent reliability, LLM evaluation, MCP, identity, policy controls, observability, and human approval. I am most interested in the complete technical thread: discovery, architecture, evaluation, proof of value, security and compliance review, delivery readiness, and adoption.
+The questions I spend most time on are concrete: what should the system achieve, what may the agent do, how will we know it worked, and who owns the outcome when it fails?
 
-I work in German and English and move between engineering teams, senior technical leaders, partners, and executives. The goal is the same at each level: make the decision, architecture, evidence, and next step clear.
+## What I contribute
 
-## What I work on
+- **Discovery and evaluation:** define the workflow, baseline, success criteria, and failure cases before choosing an implementation.
+- **Architecture and controls:** connect models, data, tools, identity, authorization, observability, and human approval.
+- **Delivery readiness:** make dependencies, ownership, security requirements, and operational gaps clear enough for a delivery team to act on.
+- **Technical communication:** explain how an engineering choice changes cost, risk, time to value, and the decision in front of the customer.
 
-- **Reliable agent systems:** bounded tools, explicit contracts, failure handling, evaluation, and operational evidence.
-- **Governed execution:** identity, authorization, policy controls, human approval, and auditability for consequential actions.
-- **Enterprise adoption:** turning a use case into an evaluation plan, target architecture, security path, delivery handoff, and measurable outcome.
-- **Technical communication:** connecting implementation choices to risk, cost, time to value, and the decision a customer or product team needs to make.
+I work in German and English with engineers, partners, technical leaders, and executives. The level of detail changes with the audience. The underlying recommendation and supporting evidence should remain consistent.
 
-## Where I add leverage
+## How I keep the work grounded
 
-- **From discovery to evaluation:** narrow a broad AI ambition into a workflow, success criteria, failure cases, and a proof path.
-- **From evaluation to decision:** connect model and system behavior to business value, enterprise architecture, security, compliance, and operating constraints.
-- **From decision to delivery:** define what good looks like, make ownership and approval boundaries explicit, and equip delivery teams with reusable patterns.
-- **From field learning to product signal:** turn repeated customer questions and deployment friction into clearer reference architectures, technical content, workshops, and product feedback.
+My public labs let me test these ideas outside confidential work. [Runbook Relay](/projects/runbook-relay/) makes server approval and retries inspectable. [7DayFocus](/projects/7dayfocus-ai-delivery-lab/) tests the boundary between a model proposal and a state change. [Agent Reliability Lab](/projects/mistral-playground/) exposes Python tool validation, bounded loops, and operational telemetry.
 
-## How I approach the work
+I own the project intent, architecture, requirements, evaluation criteria, risk, and release decisions, and review merged changes. AI tools assist with implementation and documentation. Each case study states what was checked and what remains unproven.
 
-I prefer concrete systems over abstract capability claims. A useful architecture exposes its assumptions, failure modes, controls, and evidence. A useful demo lets another person inspect what happened, what remained blocked, and why.
-
-That principle also shapes this site. I build public labs outside confidential work to stay hands-on with Python, TypeScript, model APIs, tool interfaces, evaluations, threat models, and delivery automation. The projects link claims to code, tests, and explicit limitations. The articles make the reasoning reusable.
-
-For a compact record of outcomes and public proof, see [Selected Impact](/impact/).
+The [writing](/writing/) turns those decisions into reusable guidance. [Selected Impact](/impact/) brings together the public evidence and my professional scope.
 
 Personal projects and views are my own and do not represent AWS.

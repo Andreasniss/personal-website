@@ -24,7 +24,7 @@ Solutions architects, engineering leaders, platform teams, security teams, and t
 
 I helped run an Amazon Bedrock AgentCore Immersion Day for more than 100 participants. As a distinct part of that program, I designed and delivered a custom evaluation and policy module extension for a cohort of about 30 participants.
 
-My ownership claim is deliberately narrow: it covers the evaluation and policy extension, not every module in the larger Immersion Day.
+The evaluation and policy extension is the material I personally built and taught. The discussion path below summarizes the public architecture themes; it is not a claim to have authored the complete Immersion Day.
 
 ## Discussion path
 
@@ -37,11 +37,11 @@ My ownership claim is deliberately narrow: it covers the evaluation and policy e
 
 ## Participant outcome
 
-Participants leave with a concrete architecture checklist and a clearer distinction between model capability, system reliability, and execution control.
+The intended takeaway is a review method participants can apply to their own agent: define one outcome, identify the permitted actions, select a failure case, and specify the evidence required before allowing a consequential effect. No measured learning improvement is claimed.
 
 ## Public artifacts
 
-The original learning materials are not published here. The same public-safe engineering argument can be inspected through:
+The original event materials are not published here. These related public artifacts let readers examine the architecture themes independently; they are not the original slides or a recording:
 
 - [The Hard Part of Agentic AI Starts After the Demo](/writing/agentic-ai-after-the-demo/)
 - [Agent Reliability Lab](/projects/mistral-playground/)
