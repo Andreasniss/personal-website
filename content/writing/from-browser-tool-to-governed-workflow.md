@@ -23,8 +23,10 @@ proofLinks:
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/tests"
   - label: "Inspect the 50-task evaluation contract"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/tree/main/evals/live-tool-use"
-socialImage: "/images/social/browser-tool-governed-workflow.png"
-socialImageAlt: "Why Browser Agent Governance Belongs on the Server, an article by Andreas Nissen about durable agent controls."
+editorialImage: "/images/editorial/from-browser-tool-to-governed-workflow-v1.webp"
+editorialAlt: "A painted checkpoint stands in front of an anchored gate and receipt spool."
+socialImage: "/images/social/from-browser-tool-to-governed-workflow-editorial-v1.png"
+socialImageAlt: "A painted checkpoint stands in front of an anchored gate and receipt spool."
 tags:
   - agent architecture
   - WebMCP

@@ -13,8 +13,10 @@ keyPoints:
 proofLinks:
   - label: "Inspect the Agent Reliability Lab"
     url: "https://github.com/Andreasniss/Mistral-playground"
-socialImage: "/images/social/agentic-ai-after-demo.png"
-socialImageAlt: "The Hard Part of Agentic AI Starts After the Demo, an article by Andreas Nissen."
+editorialImage: "/images/editorial/agentic-ai-after-the-demo-v1.webp"
+editorialAlt: "A polished clockwork stage conceals a tangled backstage mechanism."
+socialImage: "/images/social/agentic-ai-after-the-demo-editorial-v1.png"
+socialImageAlt: "A polished clockwork stage conceals a tangled backstage mechanism."
 tags:
   - agentic AI
   - AWS Well-Architected

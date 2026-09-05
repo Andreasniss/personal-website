@@ -14,8 +14,10 @@ keyPoints:
 proofLinks:
   - label: "Andrew Ng on shifting team bottlenecks"
     url: "https://www.linkedin.com/posts/andrewyng_meta-pivots-from-open-weights-big-pharma-activity-7454559322900123648-zdsF"
-socialImage: "/images/social/choose-ai-use-case-by-bottleneck.png"
-socialImageAlt: "How to Choose an Enterprise AI Use Case by Its Workflow Bottleneck, an article by Andreas Nissen."
+editorialImage: "/images/editorial/choose-ai-use-case-by-bottleneck-v1.webp"
+editorialAlt: "A fast paper airplane joins a long queue at a closed service hatch."
+socialImage: "/images/social/choose-ai-use-case-by-bottleneck-editorial-v1.png"
+socialImageAlt: "A fast paper airplane joins a long queue at a closed service hatch."
 tags:
   - enterprise AI
   - workflow design

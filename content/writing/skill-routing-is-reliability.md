@@ -14,8 +14,10 @@ keyPoints:
 proofLinks:
   - label: "Read the eight operating rules"
     url: "/writing/eight-rules-ai-agent-skill-library/"
-socialImage: "/images/social/skill-routing-reliability.png"
-socialImageAlt: "Skill Routing Is a Reliability Problem, an article by Andreas Nissen."
+editorialImage: "/images/editorial/skill-routing-is-reliability-v1.webp"
+editorialAlt: "A specialist toolkit arrives at the wrong workshop."
+socialImage: "/images/social/skill-routing-is-reliability-editorial-v1.png"
+socialImageAlt: "A specialist toolkit arrives at the wrong workshop."
 tags:
   - agent skills
   - routing evaluation

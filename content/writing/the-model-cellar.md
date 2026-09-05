@@ -15,8 +15,10 @@ keyPoints:
   - "Compare exact model versions and operating conditions."
   - "Evaluate task durability separately from context capacity."
   - "Measure total cost per accepted result, including repair effort."
-socialImage: "/images/social/the-model-cellar.png"
-socialImageAlt: "The Model Cellar, a wine lover’s guide to AI model cards, by Andreas Nissen."
+editorialImage: "/images/editorial/the-model-cellar-v1.webp"
+editorialAlt: "Wine bottles, a tasting notebook, and a magnifying glass invite a closer reading of model labels."
+socialImage: "/images/social/the-model-cellar-editorial-v1.png"
+socialImageAlt: "Wine bottles, a tasting notebook, and a magnifying glass invite a closer reading of model labels."
 ---
 
 I want a model list that reads a little more like a wine list: provenance, vintage, character, price, and something useful to pair it with.

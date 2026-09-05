@@ -18,8 +18,10 @@ proofLinks:
     url: "https://docs.github.com/en/actions/concepts/security/artifact-attestations"
   - label: "Read the SLSA scope"
     url: "https://slsa.dev/spec/v1.2/about"
-socialImage: "/images/social/pr-evidence.png"
-socialImageAlt: "What Evidence Should an AI-Generated Pull Request Carry? Bind checks and approval to the exact change. By Andreas Nissen."
+editorialImage: "/images/editorial/evidence-for-ai-generated-pull-requests-v1.webp"
+editorialAlt: "An approval seal belongs to an older parcel, while the revised parcel awaits inspection."
+socialImage: "/images/social/evidence-for-ai-generated-pull-requests-editorial-v1.png"
+socialImageAlt: "An approval seal belongs to an older parcel, while the revised parcel awaits inspection."
 tags:
   - AI-assisted development
   - evaluation

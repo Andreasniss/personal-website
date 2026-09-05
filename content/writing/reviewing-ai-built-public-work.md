@@ -16,8 +16,10 @@ proofLinks:
     url: "https://github.com/Andreasniss/personal-website"
   - label: "Review the Agent Reliability Lab"
     url: "https://github.com/Andreasniss/Mistral-playground"
-socialImage: "/images/social/reviewing-ai-built-work.png"
-socialImageAlt: "How I Review AI-Built Public Work Without Outsourcing Judgment, an article by Andreas Nissen."
+editorialImage: "/images/editorial/reviewing-ai-built-public-work-v1.webp"
+editorialAlt: "A human reviewer inspects a loose bridge bolt beside an unused approval stamp."
+socialImage: "/images/social/reviewing-ai-built-public-work-editorial-v1.png"
+socialImageAlt: "A human reviewer inspects a loose bridge bolt beside an unused approval stamp."
 tags:
   - AI-assisted development
   - software quality

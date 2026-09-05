@@ -108,7 +108,7 @@ The homepage illustrations in `static/images/theme/` were created with AI image 
 
 Published articles, projects, talks, About, Talks, and Selected Impact carry page-specific 1200 by 630 PNG metadata. Run `scripts/generate-social-images.sh` after changing a title or visual label, commit the generated assets, and verify that the built HTML includes the absolute image URL, dimensions, alt text, and `summary_large_image` card type.
 
-The homepage uses a simpler brand card with large type for small link previews. Its reviewed 1200 by 630 source is `assets/social/homepage.png`, created with AI image assistance and checked for wording, palette, and thumbnail readability. The generator copies it to `static/images/social/homepage-v2.png` and the legacy `default.png` URL. `hugo.yaml` uses the versioned URL so social crawlers can discover the replacement. When revising this card, update the source, exported copies, config URL, and alt text together. Article and project cards retain their existing generated layout.
+The homepage uses a simpler brand card with large type for small link previews. Its reviewed 1200 by 630 source is `assets/social/homepage.png`, created with AI image assistance and checked for wording, palette, and thumbnail readability. The generator copies it to `static/images/social/homepage-v2.png` and the legacy `default.png` URL. `hugo.yaml` uses the versioned URL so social crawlers can discover the replacement. When revising this card, update the source, exported copies, config URL, and alt text together. Project cards retain their generated layout. Article cards use individual editorial illustrations.
 
 ## Evidence-ready project contract
 
@@ -158,3 +158,11 @@ If a deployment is temporarily unavailable, complete step 1 in this repository a
 Navigation cards use the heading link across their full surface. Secondary actions remain independent native links, and keyboard focus outlines the card. This shared pattern covers article, project, reference, and workshop cards without JavaScript click handlers.
 
 Article cards show reading metadata without social-version labels. Once its exact LinkedIn post URL is verified and stored in `linkedinURL`, an article ends with an invitation to join the conversation on that post. X is a secondary discussion link when available. Imported writing keeps its original-publication attribution there. Follow the verification and republishing steps in `PUBLISHING.md`.
+
+## Article editorial artwork
+
+Published articles share a hand-drawn ink illustration family, with a different metaphor for each argument. These are AI-assisted editorial artwork, not screenshots, evidence, or technical diagrams. The reviewed masters live in `assets/editorial/`; `manifest.json` retains the generation brief, each concept, and descriptive alt text.
+
+Run `python3 scripts/generate-editorial-images.py` with Pillow and DejaVu Sans installed to export 1200 by 630 WebP covers and PNG social previews. The main social generator also calls this exporter. Identity text is added deterministically, separate from the artwork. Versioned paths avoid reusing cached social cards.
+
+Frontmatter `editorialImage` and `editorialAlt` control the opening illustration and archive preview. `socialImage` and `socialImageAlt` reference the matching PNG. Existing `image` fields and in-body graphics retain their explanatory role. Check every cover at full size and thumbnail size, plus the Writing archive and article page. Keep article titles as live text.

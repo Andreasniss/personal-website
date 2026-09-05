@@ -20,8 +20,10 @@ proofLinks:
     url: "https://arxiv.org/html/2608.22868v1"
 image: "/images/articles/external-agent-control-plane.svg"
 imageAlt: "An AI agent using an OpenAI or Anthropic model proposes an action, while an external control plane evaluates governance, identity, lifecycle policy, information flow, approval, and recovery before a constrained gateway reaches enterprise systems."
-socialImage: "/images/social/agent-control-plane.png"
-socialImageAlt: "When AI Agents Become Cyber-Capable, the Control Plane Must Sit Outside the Model, an article by Andreas Nissen."
+editorialImage: "/images/editorial/when-ai-agents-become-cyber-capable-v1.webp"
+editorialAlt: "A multi-tool sits inside a transparent enclosure whose lock and key remain outside."
+socialImage: "/images/social/when-ai-agents-become-cyber-capable-editorial-v1.png"
+socialImageAlt: "A multi-tool sits inside a transparent enclosure whose lock and key remain outside."
 tags:
   - agent security
   - agent control plane

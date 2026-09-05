@@ -85,3 +85,9 @@ Reposts, comments, reactions, replies, and private messages are outside this con
 9. Republish the site and verify the article-bottom discussion invitation and its exact destination.
 
 Never infer publication from a draft, schedule, or prepared asset. Verify the live website, LinkedIn, and X URLs.
+
+## Editorial covers and explanatory graphics
+
+Choose one concrete, article-specific idea for a hand-drawn editorial cover. Use restrained dry humor when it helps explain the argument, with the dark forest, ivory, teal, and orange Curious Engineer palette. Avoid generic AI symbols and repeated stock layouts. Keep the composition legible at thumbnail size.
+
+Retain the reviewed master and prompt in `assets/editorial/`, then run `python3 scripts/generate-editorial-images.py`. Set `editorialImage`, `editorialAlt`, `socialImage`, and `socialImageAlt` together. Verify the opening image, Writing card, and 1200 by 630 social PNG. Existing explanatory diagrams remain separate: a preview refresh does not require redesigning them.

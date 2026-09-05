@@ -14,8 +14,10 @@ keyPoints:
 proofLinks:
   - label: "Read the context and control companion"
     url: "/writing/context-and-control/"
-socialImage: "/images/social/ontology-context.png"
-socialImageAlt: "When AI Agents Need an Ontology, Not Just More Context, an article by Andreas Nissen."
+editorialImage: "/images/editorial/ontology-is-more-than-context-v1.webp"
+editorialAlt: "Different keys and a reference book describe relationships to the same house."
+socialImage: "/images/social/ontology-is-more-than-context-editorial-v1.png"
+socialImageAlt: "Different keys and a reference book describe relationships to the same house."
 tags:
   - ontology
   - knowledge graphs
