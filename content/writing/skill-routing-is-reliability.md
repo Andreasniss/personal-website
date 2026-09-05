@@ -36,7 +36,7 @@ A skill can contain excellent instructions and still make the agent less reliabl
 
 If it activates for the wrong request, competes with a nearby skill, loads stale policy, or assumes permissions the task does not grant, the failure begins before the workflow runs.
 
-That makes skill routing an evaluation problem.
+The instructions may be excellent. They have arrived at the wrong meeting. Routing needs its own evaluation.
 
 ## The description is an interface
 
@@ -145,7 +145,7 @@ The harness described here is a design direction, not a published benchmark. A c
 
 ## Keep the library small enough to reason about
 
-Several skills describing the same purpose create ambiguity about ownership. Consolidation is one possible repair; an explicit sequence is another when both skills have distinct jobs. Compare the routes before and after the change instead of assuming that a shorter library is more reliable.
+When skills compete for the same task, consolidate them or define a sequence if their jobs differ. Compare routing before and after; fewer files do not guarantee better decisions.
 
 The operating rule remains simple: a skill should earn its context and authority on every request.
 

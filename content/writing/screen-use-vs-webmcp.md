@@ -63,7 +63,7 @@ An external client that exposes MCP connectivity without native page-tool discov
 
 ## Screen use begins with presentation
 
-A screen-using agent interprets rendered state. Some browser clients can also inspect the DOM or accessibility information; browser automation should not be treated as screenshot-only. Depending on its interface, an agent can read text, interpret layout, select controls, and navigate a workflow. This is valuable because most software was built for people, not agents. The agent can work with an existing interface without waiting for a dedicated integration.
+A screen-using agent interprets rendered state. Some clients also inspect the DOM or accessibility information. Depending on its interface, it can read, select controls, and navigate software built for people without a dedicated integration.
 
 The trade-off is inference. The agent must infer which information matters, which control maps to the requested outcome, whether a button is currently safe to press, and whether the interface changed after the last observation.
 
@@ -111,9 +111,7 @@ The added contract makes operations explicit at the agent-facing interface. It d
 
 ## A tool declaration is not authorization
 
-Typed tools make policy intent clearer. They do not enforce policy by themselves.
-
-A description that says “human approval required” is guidance. An annotation that marks an operation as consequential is useful metadata. The execution path still needs to check identity, scope, approval state, and current resource state at the action boundary.
+“Human approval required” in a tool description is a sign on the door. The service still needs the lock: checks for identity, scope, approval, and current resource state before execution.
 
 Runbook Relay demonstrates this rule with a server-side control plane over a deterministic incident. The model-facing layer can stage a predefined mitigation. Only the page approval path can create the session-bound approval record. The execution function rejects a call made before that approval.
 
@@ -121,17 +119,9 @@ The project binds approval to an anonymous session, exact action, resource versi
 
 ## What the project proves, and what it does not
 
-The public repository and contract tests prove a narrow set of properties:
+The repository provides five tools with explicit schemas, a shared server control plane, and a deterministic reset. Contract tests cover approval rejection, idempotency, stale state, expiry, consumption, replay, and partial failures. D1 persists approvals, executions, and hash-linked receipts.
 
-- five tools have explicit schemas and separate responsibilities;
-- no model-callable approval operation exists;
-- execution checks approval and blocks the negative path;
-- human actions and tool calls use the same server control plane;
-- the simulation resets to a deterministic fixture;
-- idempotency, stale-state, expiry, consumption, replay, and partial-failure paths have deterministic tests;
-- D1 persists approvals, executions, and hash-linked receipts;
-- a 50-task model evaluation contract covers seven task categories, including 18 adversarial cases;
-- the five tool definitions and four-call negative path remain inside explicit structural size and call-count budgets.
+Its evaluation contract defines 50 tasks across seven categories, including 18 adversarial cases. Structural budgets cover the five definitions and a four-call negative path. These are inspectable contracts and deterministic checks, not comparative model-performance results.
 
 The repository also documents the standard page layer separately from optional compatibility and transport layers. It does not yet prove that Claude Desktop, Cursor, or another external MCP client can complete the workflow through a bridge.
 
@@ -159,8 +149,6 @@ The repository already contains versioned prompts, fixtures, a grader, a human-l
 
 Screen use remains important. Agents need it for discovery, unfamiliar interfaces, and workflows that do not expose structured operations. WebMCP becomes useful when an application knows which operations matter and wants to make their contracts visible.
 
-The strongest design keeps both views aligned. The human sees evidence, state, and approval controls. The agent gets narrow tools over the same state. The service enforces authorization regardless of which interface initiated the request.
-
-Choose the interface you can support and measure. Use the same service boundary to enforce the action regardless of whether it started with a click or a tool call.
+Keep both views aligned: people see evidence and approval controls; agents get narrow tools over the same state. Choose the interface you can support and measure, with service authorization enforced for both clicks and tool calls.
 
 [The Cheapest AI Model Is Not Always the Cheapest System](/writing/hidden-token-tax-agent-tools/) develops the measurement model for definitions, results, round trips, recovery, and verified outcomes.

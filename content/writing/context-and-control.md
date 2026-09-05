@@ -35,7 +35,7 @@ An agent finds a runbook that names a service owner and recommends rolling back 
 
 Should the rollback run? Better retrieval might correct the stale ownership record. The action service must still check the current caller's permission and the exact change being requested.
 
-That is why context and control need separate responsibilities. Both failures can cause serious harm, but they require different repairs. Improving the evidence does not replace authorization, and enforcing authorization does not make the proposed fix correct.
+A runbook is not a permission slip. Better evidence cannot authorize the rollback, and valid authorization cannot make the fix correct. These failures need different repairs.
 
 The separation is logical. A small application can implement both responsibilities in one service, provided model-visible context cannot rewrite the policy that governs execution.
 
@@ -104,7 +104,7 @@ Scale these checks to the action. A low-risk read may need an automatic authoriz
 
 Teams often draw one large “agent platform” box around retrieval, memory, tools, policy, and orchestration. The diagram looks simple and the operating model becomes unclear.
 
-Keep context and control visible as separate architectural concerns. Give each an owner, interface, evidence set, and failure budget. Connect them through explicit identity and action contracts.
+Give context and control separate owners, interfaces, and evidence. Connect them through explicit identity and action contracts.
 
 For the rollback example, test two failures separately: a stale runbook should produce an uncertain or corrected recommendation; a revoked role should block execution even when the recommendation is sound. Then test them together. A good answer and a valid credential are still insufficient if the requested action exceeds that credential's scope.
 

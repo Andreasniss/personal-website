@@ -35,9 +35,9 @@ series: "Operating Agent Systems"
 seriesOrder: 3
 ---
 
-An AI-built demo says an action requires approval. You approve it, click execute, and see a success receipt. The happy path works. Can someone call the same action directly without approval?
+An AI-built demo says an action requires approval. You approve it, click execute, and see a success receipt. The button is behaving beautifully. Can someone call the same action directly without approval?
 
-That is an illustrative review scenario, not a reported incident. It explains where I start: test the claim at the point where a failure would have consequences. A disabled button is insufficient if the server still accepts the request.
+This illustrative scenario explains where I start: the point where failure has consequences. A disabled button provides no protection if the server accepts the request.
 
 Before I put my name on the work, I need to explain its behavior and the evidence behind it. My decision rule is simple: if I cannot trace a public claim to current code, tests, documentation, or live behavior, I narrow it or remove it.
 
@@ -70,15 +70,7 @@ The same technique works outside security. If I claim bounded retries, I inspect
 
 ## Treat the project as one claim surface
 
-A public project appears in several places:
-
-- implementation and configuration;
-- automated tests and evaluations;
-- security and limitation notes;
-- repository README and metadata;
-- live demo or reviewer fallback;
-- website case study;
-- CV, LinkedIn, and interview explanation.
+Code, tests, documentation, the live demo, and portfolio descriptions make claims about the same project.
 
 These surfaces can contradict each other. A repository may support one provider while the website says three. A test may cover deterministic routing while the README calls it a model-quality evaluation. A live demo may have changed since the screenshot was captured.
 
@@ -99,7 +91,7 @@ Different checks answer different questions.
 
 Green CI is necessary evidence. It is not independent product judgment. A second model can find issues the implementing model missed. It is still an AI-assisted check, not a human reviewer.
 
-The language should preserve those boundaries. I describe deterministic checks as deterministic checks. I name model versions and fixtures when I claim model behavior. I do not turn “another model looked at it” into “independently reviewed.”
+Name the model and fixtures when claiming model behavior. Describe another model's review as an AI-assisted check.
 
 ## When the agent writes its own tests
 
@@ -117,7 +109,7 @@ The expected behavior needs to come from the accepted requirement:
 
 For this simplified example, validity requires `now < expires_at`. These are hand-worked cases, not results from a model experiment or a complete production time-handling design.
 
-The practical check is to ask who chose the expected answer. Compare important assertions with accepted requirements or independently established reference cases. A second model can help challenge a test, and using a second model alone does not establish that its expected answer is correct. If a patch changes the requirement and assertion together, review that as a change of intent.
+Ask who chose the expected answer. Check consequential assertions against accepted requirements or independently established reference cases. A second model can challenge a test but does not establish correctness. Changes to requirement and assertion together need review as a change of intent.
 
 Andrew Ng makes a related point in his [guide to using coding agents](https://charonhub.deeplearning.ai/the-ai-engineering-skills-map-in-detail-using-coding-agents/): developers need to evaluate whether the tests match their aims. The expiry example shows one specific reason to do that.
 
@@ -139,8 +131,6 @@ For an agentic demo, I look for blocked actions, invalid tool names, malformed i
 
 Limitations should also distinguish what the project intentionally omits. A session-bound server approval can demonstrate digest, version, expiry, consumption, and replay controls. It still does not prove workforce identity or human presence. A synthetic policy document can demonstrate grounding behavior and still say nothing about enterprise retrieval quality.
 
-Visible limitations increase credibility because they define the boundary of the claim.
-
 When a check finds a real problem, my preferred follow-through is to fix the implementation, rerun the relevant verification, and add a regression check when it can protect that failure mechanism. I also re-read the public description. Sometimes the honest fix is a narrower claim because the broader behavior has not been built or evaluated.
 
 ## Keep AI attribution precise
@@ -148,8 +138,6 @@ When a check finds a real problem, my preferred follow-through is to fix the imp
 My public repositories use a short ownership statement:
 
 I own the project intent, architecture, requirements, evaluation criteria, risk decisions, and release decisions, and I review merged changes. AI tools assist with implementation and documentation.
-
-That statement avoids two misleading extremes. It does not hide substantial AI assistance. It also does not imply that a model owns decisions or provides human accountability.
 
 Raw private sessions and internal reasoning do not belong in the repository. The public evidence should be the code, tests, documented decisions, and reviewed result.
 
@@ -169,23 +157,16 @@ Narrowing a claim cannot excuse a broken control that the remaining scope still 
 
 Before I publish or feature a project, I expect:
 
-1. a clean setup path from the repository;
-2. deterministic tests and relevant evaluations passing;
-3. security, secrets, dependencies, and public data reviewed;
-4. a guided reviewer path with expected results and a fallback;
-5. architecture and important control boundaries documented;
-6. claims linked to proof;
-7. limitations stated in direct language;
-8. README, live demo, website, and repository metadata synchronized;
-9. required CI and review conversations resolved;
-10. enough understanding to explain and debug every major path.
+- a reproducible setup and guided reviewer path, including expected results and a fallback;
+- passing required checks and relevant evaluations, with security, secrets, dependencies, and public data reviewed;
+- documented architecture, proof for the claims, and explicit limitations;
+- consistent README, demo, website, and repository metadata, with required review conversations resolved;
+- enough understanding to explain and debug every major path.
 
 The last condition is personal. If I cannot explain the architecture and failure behavior without asking the coding agent, the project is not a credible representation of my work.
 
 ## The human remains on the release decision
 
-AI-assisted development changes how quickly implementation and review can happen. It does not remove the need for an accountable owner.
-
-The human owner does not need to type every line. They must be able to defend every public claim, explain the major failure paths, and decide which limitations are acceptable. Delegating implementation does not delegate those decisions.
+The owner must defend the public claims, explain the failure paths, and decide which limitations are acceptable. Those responsibilities remain with them even when an agent writes the code.
 
 My companion article, [What Evidence Should an AI-Generated Pull Request Carry?](/writing/evidence-for-ai-generated-pull-requests/), proposes how a pipeline could preserve the revision, checks, findings, and scoped approvals behind that decision. It describes an architecture to implement and evaluate; this article describes the review responsibility that architecture should support.

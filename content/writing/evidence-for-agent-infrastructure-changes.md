@@ -1,6 +1,7 @@
 ---
 title: "When Coding Agents Change Infrastructure: What Evidence Is Enough to Ship?"
 date: 2026-09-05
+lastmod: 2026-09-05
 description: "A hypothetical Kubernetes health-check change shows how to connect configuration review, delayed failure tests, rollout signals, and recovery evidence."
 primaryTopic: "Reliability"
 evidenceLabel: "Architecture analysis"
@@ -30,7 +31,7 @@ draft: false
 
 A coding agent changes a service's liveness check from `/live` to `/ready`. Both endpoints return success during review. The configuration is valid and the deployment completes.
 
-Later, the database slows down. In this hypothetical service, `/ready` checks database connectivity. Enough failed liveness checks now cause the application container to restart, although restarting it cannot repair the database. The configuration change has coupled a dependency problem to application restarts.
+Later, the database slows down. In this hypothetical service, `/ready` checks database connectivity. Enough failed liveness checks now cause the application container to restart, although restarting it cannot repair the database. The restart is enthusiastic and unhelpful. The change has coupled a dependency problem to application restarts.
 
 My release rule is simple: **before shipping an infrastructure change, identify the failure it could introduce, the observation that would reveal it, and the action that would restore service.** Match the evidence to those answers.
 
@@ -76,8 +77,8 @@ After a successful exercise, introduce the change to a limited workload before e
 
 Kubernetes rollout completion and ongoing application health are separate observations. Its Deployment progress deadline reports a stalled rollout; it does not itself perform an automatic rollback. The [Deployment documentation](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) makes that responsibility explicit.
 
-For this example, recovery would restore the previously reviewed probe configuration and verify both service behavior and restart behavior. A successful recovery command alone would be insufficient evidence that requests are healthy again.
+Recovery would restore the reviewed probe configuration, then verify request health and restart behavior. A successful command does not establish that the service recovered.
 
 The example changes a probe configuration. It does not cover data migrations, resource deletion, or changes with irreversible effects. Those need recovery evidence matched to their consequences, which may include restoring data or repairing forward.
 
-The agent can prepare the diff and proposed checks. The release owner still needs to explain why those checks address this change's failure mechanism, and why the remaining uncertainty is acceptable for the proposed exposure.
+The release owner must explain why the agent's proposed checks cover this failure mechanism and why the remaining uncertainty is acceptable.

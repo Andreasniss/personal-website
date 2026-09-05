@@ -38,9 +38,9 @@ series: "Reliable Agent Systems"
 seriesOrder: 6
 ---
 
-An AI system can use fewer tokens and still cost more.
+The model is cheap. Its repair habit is less economical.
 
-For a tool-using agent, the cheapest model is not always the cheapest system. Tool definitions, selection errors, oversized results, extra round trips, and recovery all add cost before the final answer appears.
+Tool definitions, selection errors, oversized results, extra round trips, and recovery all add cost. Fewer tokens in one request can still mean a more expensive completed task.
 
 Use one denominator: cost per verified outcome.
 
@@ -79,21 +79,15 @@ If no run reaches the verified outcome, the efficiency measure is undefined. A f
 
 [Anthropic's agent evaluation guidance](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) recommends tracking task outcomes alongside turns, tool calls, token usage, latency, and errors. That combination is more useful than a token total alone because it reveals whether lower usage came from a better interface or from incomplete work.
 
-## Do not optimize away the contract
+## Keep the information that prevents mistakes
 
-Schemas, precise descriptions, and examples consume context because they carry useful information.
-
-Removing them may lower the visible prompt size and increase malformed calls, wrong-tool selection, or unsafe parameter combinations. The system then pays through retries and lower task success.
-
-The right question is not “How small can the tool definition become?” It is “What is the smallest contract that still produces reliable selection and valid execution for this task class?”
-
-That answer needs evaluation. It cannot be inferred from token count alone.
+Cutting schemas, descriptions, or examples can increase malformed calls and wrong-tool selection. Test the smallest contract that still supports reliable selection and valid execution. Prompt size alone cannot tell you where to stop.
 
 ## Expose fewer tools at a time
 
 Selective tool exposure is one option to test when a large catalog consumes substantial context.
 
-An application may own dozens of operations while a particular task needs only a small subset. A routing layer can first identify the domain, then expose the relevant tools to the model. This can reduce context and narrow the selection problem. It does not revoke access: the service must authorize calls even when a tool was omitted from discovery. Account for any extra routing call, and measure what the provider actually bills after caching or deferred tool loading.
+Expose the tools relevant to the task through a routing layer. This may reduce context and selection errors, but hiding a tool does not revoke access; the service must still authorize calls. Include routing overhead and measure actual billing after caching or deferred loading.
 
 The router itself needs a contract. It should use stable task categories, record why a tool set was selected, and fail safely when the request spans several domains. Dynamic exposure should not become an invisible permission escalation mechanism.
 
@@ -167,6 +161,6 @@ Each optimization changes an assumption. Cache keys need to include the tool ver
 
 ## Start with one measurable change
 
-Choose the largest observed cost source, change one part of the interface, and rerun the same task set. A smaller result schema is useful only if completion quality and policy behavior hold up. A model switch is useful only if the complete route becomes cheaper at the required quality floor.
+Change the largest observed cost source and rerun the same tasks. Keep the change only if the complete route costs less while meeting the same quality and policy requirements.
 
 Publish the unsuccessful attempts with the savings. That is what lets a reader distinguish an efficient system from a cheap-looking request.
