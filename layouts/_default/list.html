@@ -95,7 +95,7 @@
         {{ range .Pages.ByWeight }}
           <article class="entry-card card-body">
             <div class="entry-meta"><span>{{ .Params.format | default .Type }}</span></div>
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <h3><a class="card-primary-link" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <p>{{ .Description }}</p>
             <a class="text-link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">Read more <span aria-hidden="true">→</span></a>
           </article>
@@ -125,7 +125,7 @@
         {{ range .Params.recommendedWorkshops }}
           <article class="entry-card learning-card">
             <div class="entry-meta"><span>{{ .topic }}</span></div>
-            <h3><a href="{{ .url }}" rel="noreferrer">{{ .title }}</a></h3>
+            <h3><a class="card-primary-link" href="{{ .url }}" rel="noreferrer">{{ .title }}</a></h3>
             <p>{{ .description }}</p>
             <a class="text-link" href="{{ .url }}" rel="noreferrer">Open workshop <span aria-hidden="true">↗</span></a>
           </article>

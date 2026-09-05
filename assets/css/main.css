@@ -584,9 +584,36 @@ svg {
   text-decoration: none;
 }
 
-.project-card h3 a::after,
-.entry-card h3 a::after {
-  content: none;
+/* Stretch the primary native link across the card, below secondary links. */
+.card-primary-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius);
+}
+
+.project-card,
+.entry-card {
+  isolation: isolate;
+}
+
+.project-card a:not(.card-primary-link),
+.entry-card a:not(.card-primary-link) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Gaps between actions remain part of the primary card link. */
+.entry-card .proof-actions {
+  position: static;
+  z-index: auto;
+}
+
+.project-card:has(.card-primary-link:focus-visible),
+.entry-card:has(.card-primary-link:focus-visible) {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .proof-actions {
