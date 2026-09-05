@@ -3,7 +3,7 @@ title: "The Model Cellar: A Wine Lover’s Guide to Reading AI Model Cards"
 description: "Compare OpenAI and Anthropic models through capabilities, computer use, long-task reliability, and the cost of a finished result."
 date: 2026-09-05
 tags: [AI, Models, Evaluation]
-draft: true
+draft: false
 featured: false
 origin: "website"
 primaryTopic: "Evaluation"
@@ -17,10 +17,6 @@ keyPoints:
 socialImage: "/images/social/the-model-cellar.png"
 socialImageAlt: "The Model Cellar, a wine lover’s guide to AI model cards, by Andreas Nissen."
 ---
-
-# The Model Cellar: A Wine Lover’s Guide to Reading AI Model Cards
-
-By Andreas Nissen · September 5, 2026
 
 I want a model list that reads a little more like a wine list: provenance, vintage, character, price, and something useful to pair it with.
 
