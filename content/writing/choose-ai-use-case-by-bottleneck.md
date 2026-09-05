@@ -21,7 +21,7 @@ tags:
   - business outcomes
 origin: "website"
 featured: false
-draft: true
+draft: false
 ---
 
 A team proposes an AI assistant that reads incoming requests in two minutes. A person currently needs ten. The demo looks promising.
