@@ -80,6 +80,8 @@ Use the evidence label precisely:
 
 Do not use measured language unless the repository exposes the measurement method and result. A missing benchmark is a limitation to state, not a result to infer.
 
+Related writing: [How I Review AI-Built Public Work Without Outsourcing Judgment](https://andreasnissen.dev/writing/reviewing-ai-built-public-work/) explains the human review standard. [What Evidence Should an AI-Generated Pull Request Carry?](https://andreasnissen.dev/writing/evidence-for-ai-generated-pull-requests/) proposes a pipeline evidence contract; it is architecture analysis, not an implemented feature of this site.
+
 The writing index uses the controlled `primaryTopic` vocabulary from `content/writing/_index.md`. Add a new topic only when several articles need it. Free-form `tags` remain available for narrower discovery.
 
 The private Obsidian vault remains the research backend. Public content is promoted manually into this repository after a confidentiality and claims review.
