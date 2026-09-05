@@ -33,7 +33,7 @@ seriesOrder: 3
 
 An agent says, “I have prepared the mitigation.” The operator sees a green status badge. Does that mean the change was proposed, approved, applied, or verified to have fixed the incident?
 
-An agent-friendly interface needs to answer that question without asking the operator to reconstruct the conversation.
+Green is doing a lot of work here. The interface should name the state without making the operator reconstruct the conversation.
 
 Screen-based agents can use rendered pixels, and some browser clients also inspect the DOM or accessibility information. Structured page tools add another route. Whichever route initiates the work, the application should expose the same proposal, approval state, and recorded outcome to the person responsible.
 
@@ -118,6 +118,6 @@ Runbook Relay binds approval to an anonymous browser session. A real operational
 
 ## Keep the next decision visible
 
-A reviewer should be able to open the page and answer three questions: what is proposed, what has actually happened, and what decision is needed next? That is a useful acceptance test for the interface before adding more agent capabilities.
+Before adding capabilities, ask a reviewer to identify what is proposed, what happened, and what decision is needed next. If they need the chat transcript, the page has more work to do.
 
 [Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) covers when to choose each interaction route. [Why Browser Agent Governance Belongs on the Server](/writing/from-browser-tool-to-governed-workflow/) explains how Runbook Relay enforces the transitions.

@@ -35,7 +35,7 @@ seriesOrder: 3
 
 A support agent may be allowed to read a customer record and send an email. That does not mean it may send every field in that record to any recipient.
 
-The dangerous action can be a sequence of individually plausible steps. A monitor might miss the sequence, and the model might describe it innocently. The consuming application still needs to enforce where the data may go.
+A sequence of plausible steps can still send data to the wrong recipient. A monitor may miss it; the model may explain it innocently. The application must enforce where the data may go.
 
 Recent cyber-capability disclosures make this existing architecture requirement more urgent. They do not establish that every capable model is malicious or that monitoring has no value.
 
@@ -53,7 +53,7 @@ My architectural inference is narrower than a claim about overall alignment: imp
 
 ## Monitoring is telemetry, not authority
 
-Reasoning-trace monitoring can reveal intent, surface suspicious behavior, and help investigators understand a run. It remains valuable.
+Reasoning-trace monitoring can surface suspicious behavior and help investigators understand a run.
 
 A suspicious trace can be a reason to block or escalate. A benign trace must not substitute for checking permission, resource scope, destination, and approval. Monitoring can contribute to the decision; it should not be the sole basis for allowing the effect.
 
@@ -92,7 +92,7 @@ The distinction between catalog and enforcement is especially important. A regis
 
 ## Protect gateways according to the authority they hold
 
-The control plane itself also needs protection.
+The control plane holds the keys. It deserves more attention than a reassuring box in the diagram.
 
 [Microsoft documented observed compromises](https://www.microsoft.com/en-us/security/blog/2026/08/26/when-ai-infrastructure-becomes-target-securing-gateways-control-points/) involving internet-facing LiteLLM, RAGFlow, and Kestra environments. The affected workloads served different purposes, yet attackers pursued similar assets: model-provider credentials, database connection strings, workflow execution, container access, persistence, and compute resources.
 
@@ -148,9 +148,7 @@ Low-risk, reversible actions can remain highly autonomous. Consequential actions
 
 The recent research is promising and still early. AgentFlow reports strong results on policy-visible benchmark attacks, including reducing confirmed compromise to zero in two evaluated suites. The authors clearly limit the claim to mediated actions and modeled policy paths. It does not cover host compromise, covert channels, implementation vulnerabilities, or actions that bypass the reference monitor.
 
-That limitation reinforces the central point. No single monitor, registry, gateway, hook, or policy language makes an agent trustworthy.
-
-Trust comes from an enforceable path in which the model can propose actions without controlling the limits on its own authority.
+The requirement is an enforceable path: the model can propose actions without controlling the limits on its own authority.
 
 For a smaller inspectable example, [Runbook Relay's server control plane](/writing/from-browser-tool-to-governed-workflow/) binds approval to an exact synthetic action and records its outcome. It does not implement enterprise information-flow control, but it shows how to keep a concrete execution decision outside the model.
 

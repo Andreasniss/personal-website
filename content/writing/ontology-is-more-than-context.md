@@ -29,7 +29,7 @@ imageAlt: "A stream of temporary evidence resolving into a structured network of
 
 “Who owns this account?” looks like a retrieval question until three systems return three different answers.
 
-In the CRM, the owner is the salesperson. In the cloud account inventory, it is the team paying the bill. In the access system, it may be an administrator. Adding all three records to a prompt gives the agent more evidence without resolving which relationship the user means.
+In the CRM, the owner is the salesperson. In the cloud account inventory, it is the team paying the bill. In the access system, it may be an administrator. Three owners. Still no answer. Adding the records to a prompt does not resolve which relationship the user means.
 
 An ontology helps when that ambiguity repeats across workflows. It defines shared concepts and relationships so that `commercialOwner`, `billingOwner`, and `administrator` remain distinct. Context supplies the records relevant to this request. The domain model supplies their meaning.
 
@@ -106,6 +106,4 @@ Do not start by modeling the entire enterprise. Begin with one decision or workf
 6. Compare with a simpler retrieval baseline on the same questions, including conflicting owners and missing relationships.
 7. Expand the ontology only when another use case earns the complexity.
 
-The useful unit is not the biggest graph. It is the smallest shared model that makes an important decision more reliable.
-
-Keep the model only if it resolves recurring ambiguity well enough to justify maintaining it. The [context and control companion](/writing/context-and-control/) explains the separate execution boundary.
+Keep the smallest model that resolves the recurring ambiguity well enough to justify maintaining it. The [context and control companion](/writing/context-and-control/) explains the separate execution boundary.

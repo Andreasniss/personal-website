@@ -1,6 +1,7 @@
 ---
 title: "What Evidence Should an AI-Generated Pull Request Carry?"
 date: 2026-09-05
+lastmod: 2026-09-05
 description: "A practical design for binding tests, AI review, and human approval to the exact software change, with explicit rules for missing evidence and blocked releases."
 primaryTopic: "Evaluation"
 evidenceLabel: "Architecture analysis"
@@ -34,7 +35,7 @@ An AI-generated pull request should carry enough evidence for a reviewer to answ
 
 Consider a refund service. An agent changes the calculation, the tests pass, and a reviewer approves the pull request. Then another commit changes the authorization check. The original approval still appears in the conversation, beside a reassuring summary of the earlier tests.
 
-The release question is now specific: did anyone verify the authorization behavior in the new revision?
+The checks are green. For a different revision. Did anyone verify the authorization behavior in the code about to ship?
 
 My proposed decision rule is simple: **a change can proceed only when its required evidence is complete, applies to the current candidate, and satisfies an explicit policy.** Model confidence can help direct review effort. It cannot waive those conditions.
 
@@ -42,7 +43,7 @@ My proposed decision rule is simple: **a change can proceed only when its requir
 
 [Rafael Ramos's Attestation Model](https://www.linkedin.com/pulse/attestation-model-continuous-integration-ai-native-sdlc-rafael-ramos-sviwf/) proposes combining automated checks, AI verification, and human judgment into a structured record. It also recognizes that verification depends on specification quality and that agent confidence needs empirical calibration.
 
-That is a useful starting point. I would make the next step an evidence contract: define what each producer must record and what the consumer must verify before authorizing a merge or deployment.
+I would turn that into an evidence contract: what each producer records and what the consumer verifies before authorizing merge or deployment.
 
 Existing attestation systems already address part of this problem. [GitHub artifact attestations](https://docs.github.com/en/actions/concepts/security/artifact-attestations) associate signed provenance with a build's workflow, repository, commit, and other identity information. GitHub explicitly warns that an attestation does not guarantee an artifact is secure and that consumers must verify attestations for them to provide a security benefit.
 
@@ -86,7 +87,7 @@ I would also keep the authority to sign and publish trusted evidence outside the
 
 ## Use explicit gates before considering confidence
 
-A single weighted score hides conditions that should stop a change. Passing many routine checks should not compensate for a failed authorization test.
+A failed authorization test must block the change regardless of how many routine checks pass.
 
 I would implement the decision in this order:
 
@@ -145,6 +146,6 @@ Seeded defects can test a known failure mechanism. They do not establish product
 
 I would begin with one repository and one consequential class of change. Preserve existing required checks and human approval while producing the record alongside them. Ask whether a reviewer can trace every release condition to evidence for the current candidate.
 
-The first success criterion is inspectability. Does the record expose a missing check, a stale approval, or an unresolved finding that a green status summary would hide? Any claim about faster review or better defect detection comes later, after measurement.
+First ask whether the record exposes a missing check, stale approval, or unresolved finding hidden by the status summary. Faster review and better defect detection remain claims to measure.
 
 This complements [how I review AI-built public work](/writing/reviewing-ai-built-public-work/): the person owns the requirement, the acceptable risk, and the release decision. The pipeline's job is to make the evidence for that decision current, specific, and difficult to misrepresent.

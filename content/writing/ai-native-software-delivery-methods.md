@@ -37,13 +37,11 @@ A coding agent can produce a clean diff that solves the wrong requirement. Anoth
 
 Those failures call for different repairs. I use three lenses to read current guidance from Anthropic, AWS, and OpenAI: durable handoffs, delivery governance, and the agent's execution environment. The methods overlap; these are useful emphases, not exclusive vendor categories.
 
-The useful decision is not which vendor method wins. It is which failure you need to prevent:
+Choose by the failure you need to prevent:
 
 - Lost intent across people or agent sessions: use durable artifact handoffs.
 - Unmanaged complexity across components and controls: use lifecycle governance and decomposition.
 - Unreliable execution inside the repository: engineer the agent harness.
-
-Combine only the methods that address the project's observed failure modes.
 
 ## Anthropic: make every handoff an artifact
 
@@ -55,7 +53,7 @@ This creates a shared interface between people and agents. The product owner can
 
 The method is deliberately modular. Teams can adopt individual plays and keep humans focused on the gates that require judgment. Anthropic's [security guidance for its AI-native SDLC](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle) adds an important qualification: higher velocity requires risk-tiered automation, hard identity and access boundaries, deterministic and agentic review, logged approvals, and human review for critical code.
 
-The strength of this approach is continuity. It gives an agent enough durable state to continue the work without relying on one long chat. Its risk is ceremony. A small reversible change does not need four documents. The artifact chain earns its cost when ambiguity, duration, coordination, or consequence makes handoff quality important.
+The strength of this approach is continuity. It gives an agent enough durable state to continue the work without relying on one long chat. Its risk is ceremony. Four documents for a one-line fix can become a very organized way to avoid fixing it. The artifact chain earns its cost when ambiguity, duration, coordination, or consequence makes handoff quality important.
 
 ## AWS: govern the complete delivery lifecycle
 
@@ -94,13 +92,7 @@ Harness engineering focuses on the execution environment. OpenAI's account descr
 | AWS AI-DLC | Lifecycle governance and decomposition | Complex enterprise delivery with multiple components, controls, or teams | Applying the full method to small reversible work |
 | OpenAI harness engineering | Agent execution environment and feedback loops | Any repository where coding agents must operate reliably over time | Treating instructions as enforcement instead of adding tests and boundaries |
 
-For work that needs all three, I would combine them in this order:
-
-1. Use AWS to decide the delivery depth, decomposition, and governance that the outcome requires.
-2. Use Anthropic's artifact handshake where intent, specification, plan, and evidence must survive across people or agent sessions.
-3. Use harness engineering to make the repository executable: clear instructions, bounded tools, fast verification, observable failures, and feedback encoded close to the code.
-
-Then define authority once. Deterministic controls should enforce stable invariants. Agents should handle reviewable exploration and implementation. Humans should retain product judgment, material risk acceptance, and irreversible release decisions.
+When all three are useful, choose the delivery depth first, preserve the handoffs that matter, and make the repository executable. Define authority once. Deterministic controls should enforce stable invariants. Agents should handle reviewable exploration and implementation. Humans should retain product judgment, material risk acceptance, and irreversible release decisions.
 
 ## Choose the next repair before adopting a method
 

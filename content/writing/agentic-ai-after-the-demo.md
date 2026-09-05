@@ -34,7 +34,7 @@ lastmod: 2026-09-05
 
 An agent finds the right incident, chooses a plausible fix, and calls the tool successfully. Then the tool times out on the next run. The team cannot tell whether the change happened, and the agent tries again.
 
-The successful demo did not answer the question that now matters: which component owns the uncertain outcome?
+The demo worked. The retry is where the plot thickens: which component owns the uncertain outcome?
 
 Agents combine familiar distributed-system failures with model-dependent decisions. A run can contain repeated model calls, tools, memory, and handoffs. Production readiness depends on understanding that complete path, including what happens when only part of it succeeds.
 
@@ -44,17 +44,7 @@ The [AWS Well-Architected Agentic AI Lens](https://docs.aws.amazon.com/wellarchi
 
 A successful demo usually answers a narrow question: can the model, prompt, tools, and data produce a useful result in a controlled scenario?
 
-Production asks a larger set of questions:
-
-- What happens when a tool is slow, unavailable, or returns stale state?
-- Which identity performs an action, and where is authorization enforced?
-- How do we test behavior that is useful without being perfectly deterministic?
-- How do we trace a multi-step run across model calls, memory, tools, and handoffs?
-- When should a human approve, interrupt, or recover the workflow?
-- How do we limit reasoning loops and make cost visible per outcome?
-- Which artifacts change agent behavior, and how are those changes reviewed and rolled back?
-
-These are architecture and operating-model questions. A better prompt alone will not answer them.
+Production requires evidence for the whole run: who may act, how failures are detected and recovered, and what a useful outcome costs. It also needs a way to review and reverse changes to the artifacts that shape agent behavior. A better prompt cannot supply those operating controls.
 
 ## Responsible AI belongs in every pillar
 
@@ -62,13 +52,11 @@ The Agentic AI Lens places responsible AI across its architectural practices. Th
 
 Bounded autonomy is a security and reliability concern. Transparency depends on operational tracing. Human oversight must match the consequence and reversibility of an action. Goal alignment requires evaluation that measures whether the system achieves the intended outcome, not only whether a response sounds plausible.
 
-This makes responsible AI concrete. The discussion moves from broad principles to interfaces, policies, tests, traces, escalation paths, and evidence.
-
 ## Two practical ways to use the lens
 
-The first is to read it as a design guide. Each pillar helps a team identify the questions it should answer before the system reaches users. This is useful early, when architecture decisions are still inexpensive to change.
+Use it early as a design guide, while architecture decisions are inexpensive to change.
 
-The second is to review an existing workload. AWS documents how to download the Agentic AI custom lens from its public repository and import it into the Well-Architected Tool. Record each finding against a component, an owner, and a verification step. Completing a questionnaire is the start of the improvement work, not evidence that the risk is resolved.
+For an existing workload, use it as a review framework. AWS documents how to download the Agentic AI custom lens from its public repository and import it into the Well-Architected Tool. Record each finding against a component, an owner, and a verification step. Completing a questionnaire is the start of the improvement work, not evidence that the risk is resolved.
 
 A review should still be grounded in the workload. Not every practice has the same priority for every agent. A read-only research assistant and an agent that changes customer data need different controls. The value of the framework is that it makes those decisions explicit.
 

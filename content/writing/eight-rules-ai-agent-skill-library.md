@@ -34,11 +34,11 @@ lastmod: 2026-09-05
 
 Building an agent skill is cheap. Importing one is even cheaper.
 
-That is why skill libraries tend to grow faster than the discipline required to operate them. You end up with a folder full of instructions and no clear view of what half of them do, when they trigger, whether they overlap, or what they can execute.
+Soon you have a folder full of instructions and a small constitutional crisis over who owns the task. Which skill should trigger? Where do they overlap? What can each execute?
 
 When I first published these rules, I had spent seven months running roughly 100 skills across multiple agent harnesses. The useful shift was to give each workflow an owner, an activation boundary, and evidence that it still worked. The count describes that period, not the current size of my library.
 
-The surface changes. The same discipline applies to coding agents, productivity agents, and personal agents. These are the eight rules that survived in my own setup.
+These eight rules survived across the coding, productivity, and personal agents in my setup.
 
 > ## 01 · Maintenance is the product
 >
@@ -120,9 +120,7 @@ The surface changes. The same discipline applies to coding agents, productivity 
 
 ## The operating model
 
-These rules point to one conclusion: the quality of a skill library is not measured by how many files it contains.
-
-It is measured by whether the right skill is selected, whether its instructions are current, whether shared knowledge stays consistent, whether risky behavior is visible, and whether the library becomes easier to operate as it grows.
+Judge the library by whether the right workflow runs with current instructions and appropriate authority. File count is a poor substitute.
 
 Start with one failure: the wrong skill loaded, a reference was missing, or a requested draft triggered a sending workflow. Reproduce it, repair the responsible boundary, and keep the case as a regression check. The [routing companion](/writing/skill-routing-is-reliability/) shows how to evaluate those decisions without rewarding unnecessary activation.
 

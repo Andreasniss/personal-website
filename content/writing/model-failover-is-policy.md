@@ -40,7 +40,7 @@ A model failure does not automatically justify another model call.
 
 The next action could be a bounded retry, a switch to an approved backup, a degraded deterministic path, or a safe stop. Choosing among them is a policy decision because every path changes the system's risk, capability, cost, and evidence.
 
-Treating failover as “catch exception, call model B” hides those changes behind resilience code.
+“Catch exception, call model B” gives the resilience code a promotion to policy owner.
 
 ## Start with the failure, not the provider
 
@@ -130,6 +130,6 @@ Build the failover table before the router. For example, these are proposed poli
 
 Use one overall deadline and attempt budget across the model SDK, router, and tool client. Nested retries must not multiply beyond the limit the user-facing request was given.
 
-For every task class, list the expected failures, allowed next routes, retry budget, compatible models, data boundary, evaluation evidence, disclosure requirement, and stop condition. Test the negative paths as deliberately as the successful switch.
+For each task class, record allowed routes, compatible models, data boundaries, evaluation evidence, disclosure, and stop conditions. Test those stops as deliberately as the successful switch.
 
-The goal is not to always return a model answer. The goal is to keep the system inside its reliability and governance boundary when the preferred model is no longer available.
+A safe stop can be the correct outcome when the preferred model is unavailable.

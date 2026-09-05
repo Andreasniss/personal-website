@@ -1,6 +1,7 @@
 ---
 title: "How to Choose an Enterprise AI Use Case by Its Workflow Bottleneck"
 date: 2026-09-05
+lastmod: 2026-09-05
 description: "A synthetic request-processing example compares faster extraction, shorter waits, and human exception workload before deciding what to automate."
 primaryTopic: "Operating practice"
 evidenceLabel: "Architecture analysis"
@@ -24,7 +25,7 @@ featured: false
 draft: false
 ---
 
-A team proposes an AI assistant that reads incoming requests in two minutes. A person currently needs ten. The demo looks promising.
+A team proposes an AI assistant that reads incoming requests in two minutes. A person currently needs ten. The demo is fast. The queue has not noticed.
 
 But each request also waits four hours before a reviewer opens it. If that wait stays the same, faster reading removes eight minutes from a process that takes four hours and forty minutes.
 
@@ -54,7 +55,7 @@ This distinction connects to Andrew Ng's [discussion of changing team bottleneck
 
 Suppose a second proposal could reduce the reviewer wait from 240 minutes to 120. Holding other stages fixed, elapsed time would become 160 minutes, a reduction of approximately 42.9%.
 
-That arithmetic establishes the size of the assumed change, not its feasibility. It does not prove that routing software, an AI agent, or another reviewer would produce that reduction.
+That is the size of the assumed improvement. Whether routing software, an AI agent, or another reviewer could deliver it remains untested.
 
 Ask why requests wait. Perhaps ownership is unclear. Perhaps incomplete information forces the reviewer to chase the requester. Perhaps requests arrive faster than the team can process them. Each cause suggests a different intervention.
 
@@ -78,7 +79,7 @@ These totals are aggregate labor across the team. They do not determine elapsed 
 
 ## Define the pilot around completed outcomes
 
-For this workflow, I would compare the proposed intervention with the current process and a simpler alternative. Keep the quality requirement constant and include incomplete, ambiguous, and difficult requests in the evaluation.
+Compare the intervention with today's process and a simpler alternative, at the same quality requirement. Include incomplete, ambiguous, and difficult requests.
 
 Measure time from arrival to correct completion, including a high percentile that makes long waits visible. Track correctly completed requests per period, human minutes per request, exception frequency, and errors discovered after completion. Distinguish a model's draft being accepted from the requester's problem being resolved.
 

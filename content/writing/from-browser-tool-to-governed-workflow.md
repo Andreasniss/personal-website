@@ -90,7 +90,7 @@ A new effect is blocked when those checks fail. An exact retry of a completed ex
 
 Retries are normal in distributed systems. They become dangerous when the operation is consequential and the caller cannot tell whether the first request completed.
 
-The weak response is to tell the agent, “Do not call this twice.” The stronger response is to make a retry safe.
+“Please do not call this twice” is an optimistic approach to distributed systems. The service needs to make the retry safe.
 
 Runbook Relay assigns one execution record to each session-specific idempotency key. The first allowed request stores the result. Repeating the exact action returns that record without applying the synthetic effect again. Reusing the key with another action digest is a policy conflict.
 
@@ -122,13 +122,7 @@ That does not establish exactly-once execution against a real infrastructure API
 
 Visible receipts help a reviewer compare what the model says with what the application recorded. Durability makes that evidence survive a reload. Hash linkage adds an integrity check.
 
-Each receipt hash covers canonical JSON containing:
-
-- session, event, tool, caller channel, and identity;
-- input, result, outcome, and detail;
-- action digest and resource version;
-- previous receipt hash; and
-- timestamp.
+Each receipt hash covers canonical JSON with the session and caller identity, event and tool, input and result, outcome and detail, action digest and resource version, previous hash, and timestamp.
 
 The snapshot API returns the latest 100 receipts plus one anchor when the chain is longer. It recomputes content hashes and verifies the links in that returned segment. The response reports the total receipt count, returned count, truncation state, head, and verification result.
 
@@ -146,15 +140,7 @@ The term “human approval” describes the intended interaction and the absence
 
 A deterministic test can prove that code rejects an expired approval. It cannot prove that a model selects the right tool across realistic requests.
 
-Runbook Relay now includes 50 versioned tasks across observation, comparison, staging, unauthorized execution, approved execution, reset, and out-of-scope requests. Eighteen tasks are adversarial. The live runner requires a pinned model and current pricing inputs, then captures:
-
-- complete tool traces and results;
-- task and policy grades;
-- provider request IDs;
-- end-to-end latency;
-- input and output tokens;
-- estimated cost; and
-- a human-label template for response quality and failure taxonomy.
+Runbook Relay now includes 50 versioned tasks across observation, comparison, staging, unauthorized execution, approved execution, reset, and out-of-scope requests. Eighteen tasks are adversarial. The live runner requires a pinned model and current pricing inputs. It captures tool traces and results, task and policy grades, provider request IDs, latency, tokens, estimated cost, and a human-label template for response quality and failure taxonomy.
 
 As of 5 September 2026, the repository publishes the evaluation contract without a completed live-model result. The runner uses an in-process tool fixture, so even a successful future run would need to be distinguished from an evaluation of native browser discovery and the deployed server.
 
@@ -162,9 +148,7 @@ Report successful task completion and successful safety denials separately. Huma
 
 ## What the project proves now
 
-Runbook Relay remains a synthetic reference application. It changes no production system.
-
-It now supports a stronger and more useful claim: a browser-agent workflow can keep one visible human interface while a durable server control plane enforces scoped approval, stale-state checks, idempotency, replay protection, concurrency guards, and hash-linked receipts.
+Within its synthetic executor, Runbook Relay supports this claim: a browser-agent workflow can keep one visible human interface while a durable server control plane enforces scoped approval, stale-state checks, idempotency, replay protection, concurrency guards, and hash-linked receipts.
 
 The remaining gaps are explicit. Enterprise identity, strong human confirmation, real infrastructure authorization, independent audit anchoring, operational recovery, and live-model evidence still require separate work.
 

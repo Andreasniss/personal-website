@@ -2,6 +2,7 @@
 title: "The Model Cellar: A Wine Lover’s Guide to Reading AI Model Cards"
 description: "Compare OpenAI and Anthropic models through capabilities, computer use, long-task reliability, and the cost of a finished result."
 date: 2026-09-05
+lastmod: 2026-09-05
 tags: [AI, Models, Evaluation]
 draft: false
 featured: false
@@ -27,8 +28,6 @@ With AI, the evening might involve a browser, a codebase, and a spreadsheet that
 My view: choose models by the work they help you finish. The label starts the conversation. The result earns the repeat order.
 
 This is a source-backed reading of public model documentation and system cards, checked on September 5, 2026. It is not a hands-on benchmark. The wine descriptions are my editorial analogy, not measured model personalities.
-
-Three things to take away: compare exact versions and operating conditions; judge long-task reliability separately from context capacity; and calculate the cost of an accepted result, including your own repair work.
 
 ## First, read both sides of the label
 
@@ -147,9 +146,9 @@ My engineering conclusion is to verify observable actions and results, and to ma
 
 Read the label. Record the vintage. Choose the pairing. Check the bill.
 
-For a first tasting, I would use the same small set of real tasks: one sourced research answer, one code change with meaningful checks, one spreadsheet edit, one interrupted long task, and one deliberate permission boundary. Repeat the tests enough to see inconsistent behavior. Record correctness, interventions, time, cost, and whether the agent claims success accurately.
+For a first tasting, use five real tasks: a sourced answer, a checked code change, a spreadsheet edit, an interrupted long task, and a permission boundary. Repeat to expose inconsistency. Record correctness, interventions, time, cost, and whether reported success matches the result.
 
-Where feasible, hide the model names while judging the outputs. Keep the evaluation rubric visible.
+Hide the model names where feasible. Keep the rubric visible.
 
 I enjoy the releases, the specifications, and the occasional extravagant tasting note. My allegiance is to the work that comes out of the bottle.
 

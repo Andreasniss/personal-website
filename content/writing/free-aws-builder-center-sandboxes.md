@@ -32,7 +32,7 @@ lastmod: 2026-09-05
 
 Want to go hands-on with Amazon Bedrock, agentic AI workflows, or AWS Transform custom without first setting up an AWS account and payment method?
 
-Eligible AWS Builder Center workshops offer free, pre-provisioned sandbox environments without requiring a personal AWS account or credit card. The important planning detail is when the session starts: the eight-hour clock begins when you are notified that the environment is ready.
+Eligible AWS Builder Center workshops offer free, pre-provisioned sandbox environments without requiring a personal AWS account or credit card. The eight-hour clock begins when you are notified that the environment is ready. It does not wait for your coffee.
 
 The [AWS announcement](https://builder.aws.com/content/3GCjkXGc1Qrs5jGsWI5fkTLNWzU/introducing-sandbox-environments-on-aws-builder-center), rechecked on 5 September 2026, states:
 
@@ -78,6 +78,6 @@ This is a proposed learning exercise, not a claim that every sandbox workshop ex
 
 For a team session, check sandbox eligibility and provisioning with the workshop instructions before inviting participants to request environments. Avoid consuming the weekly allowance on a setup rehearsal that leaves no time for the actual exercise.
 
-The key is to position the sandbox correctly. It is a learning environment, not a production proof. It helps someone understand a service, test a workshop path, and form better questions. A later proof of concept still needs the customer's real security, networking, data, cost, and operational requirements.
+A completed workshop establishes learning, not production readiness. A later proof of concept still needs the customer's security, networking, data, cost, and operational requirements.
 
 Choose the workshop by the question you want to answer. The useful result is something you can reproduce and explain after the temporary account is gone. Browse [AWS Builder Center workshops](https://builder.aws.com/build/workshops) for the current options.
