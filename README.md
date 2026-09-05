@@ -150,3 +150,5 @@ For every new original LinkedIn post:
 If a deployment is temporarily unavailable, complete step 1 in this repository and keep the article review-ready. Do not claim that a new website article is public before its deployment succeeds.
 
 Navigation cards use the heading link across their full surface. Secondary actions remain independent native links, and keyboard focus outlines the card. This shared pattern covers article, project, reference, and workshop cards without JavaScript click handlers.
+
+Article cards show reading metadata without social-version labels. Verified LinkedIn and X version links appear at the bottom of the article, preserving the original-publication attribution for imported writing.
