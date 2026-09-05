@@ -9,7 +9,7 @@ lastVerified: 2026-09-05
 lastmod: 2026-09-05
 keyPoints:
   - "Every public claim must trace to current code, tests, documentation, or live behavior."
-  - "Review a concrete failure path and confirm that checks and approval cover the current revision."
+  - "Keep generated work within review capacity, and bind checks and approval to the current revision."
   - "Automated and AI-assisted checks provide evidence; accountability remains human-owned."
 proofLinks:
   - label: "Inspect the personal website repository"
@@ -112,6 +112,18 @@ For this simplified example, validity requires `now < expires_at`. These are han
 Ask who chose the expected answer. Check consequential assertions against accepted requirements or independently established reference cases. A second model can challenge a test but does not establish correctness. Changes to requirement and assertion together need review as a change of intent.
 
 Andrew Ng makes a related point in his [guide to using coding agents](https://charonhub.deeplearning.ai/the-ai-engineering-skills-map-in-detail-using-coding-agents/): developers need to evaluate whether the tests match their aims. The expiry example shows one specific reason to do that.
+
+## Keep generated work within review capacity
+
+An agent can finish another change while the previous one is still waiting for review. The terminal looks productive. The reviewer has acquired a second inbox.
+
+In his [pi talk, Mario Zechner recommends capping the generated code that needs review](https://www.youtube.com/watch?v=RjfbvDXpFls&t=1041s). My practical extension is to limit work in progress by the consequential changes a person can understand and verify, rather than by how many agents can run.
+
+Return to the approval example. Suppose three agents change expiry handling, replay protection, and the execution endpoint at once. Each patch may look reasonable alone. Together, they could disagree about when an approval becomes invalid. Splitting the work into smaller, sequential changes lets the reviewer trace that shared behavior after each step. This is an illustrative dependency problem, not a measured comparison of agent workflows.
+
+When changes wait longer for review, require repeated explanation, or depend on unreviewed patches, pause new dependent work. Finish the review, reduce scope, or separate the changes at a real boundary. A line-count limit alone misses the point: a one-line authorization change can deserve more attention than generated documentation.
+
+Parallel work still makes sense for independent tasks with clear acceptance checks. The limit should follow review capacity and consequence. More generated code is useful only when someone can establish what it does.
 
 ## Review the revision that will ship
 

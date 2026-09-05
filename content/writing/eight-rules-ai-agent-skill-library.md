@@ -9,7 +9,7 @@ lastVerified: 2026-09-05
 keyPoints:
   - "A skill library is an operated system, not a collection of instruction files."
   - "Routing descriptions, freshness, and source trust determine reliability."
-  - "Consolidate overlapping skills when routing tests show that the change helps."
+  - "Retire obsolete model workarounds while preserving required permissions and safeguards."
 proofLinks:
   - label: "View the original LinkedIn carousel"
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7467132017814433793/"
@@ -44,9 +44,15 @@ These eight rules survived across the coding, productivity, and personal agents 
 >
 > A skill can become stale even when its file has not changed. Review the tools, references, and permissions it depends on. File age is a triage signal: an old stable workflow may need less attention than a recently edited integration whose API changed yesterday.
 >
+> Model upgrades deserve the same attention. [Clare Liguori describes revisiting steering instructions as models improve](https://www.youtube.com/watch?v=pqlWNihgdjI&t=506s): a workaround for yesterday's model can become unnecessary context for today's. A skill library should not become a museum of bugs the model no longer has.
+>
+> My proposed retirement rule: record which failure an instruction addresses, compare representative cases with and without it on the new model, and remove it only when the relevant behavior holds. Keep the failing case for future checks. One successful response is weak evidence for an intermittent problem.
+>
+> For example, a repeated formatting reminder might become redundant. A requirement to obtain approval before sending a message remains an authority boundary, even when the model usually asks correctly. Better behavior is not permission to remove the rule or its enforcement. This is a suggested maintenance method, not a reported result from my library.
+>
 > **Try this**
 >
-> `List skills whose dependencies, permissions, or canonical references changed. Use file age as a secondary signal and recommend the next review.`
+> `Identify instructions tied to older model failures. Propose a bounded comparison for one candidate, preserving permissions, security boundaries, and required checks. Recommend retirement only when the evidence supports it.`
 
 > ## 02 · Automate with hooks
 >
