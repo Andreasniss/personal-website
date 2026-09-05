@@ -1,6 +1,6 @@
 ---
 title: "Writing"
-description: "Evidence-led writing on enterprise AI architecture, agent reliability, evaluation, tool interfaces, and controlled execution."
+description: "Practical guidance on designing AI systems, evaluating agents, and deciding what they may do."
 topics:
   - Agent architecture
   - Evaluation
@@ -12,4 +12,4 @@ topics:
 
 Start with the decision you need to make: how much authority to give an agent, how to evaluate its work, which tool interface to expose, or when a model fallback is allowed.
 
-Each article identifies its evidence type, links to supporting work, and separates tested behavior from architectural proposals. This site holds the maintained version. Where a social version has been published, the article links to it.
+Each article starts with the main takeaways and explains what supports the argument: tested code, architecture analysis, operating experience, or public sources. Follow the links to inspect the evidence or read a published social version.

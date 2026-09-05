@@ -21,7 +21,7 @@
   {{ if and (eq .Section "about") .Params.connectLinks }}
     <section class="shell connect-panel" aria-labelledby="connect-heading">
       <p class="eyebrow warm">Connect</p>
-      <h2 id="connect-heading">Connect, follow, or subscribe.</h2>
+      <h2 id="connect-heading">Let’s talk about the work.</h2>
       <div class="connect-grid">
         {{ range .Params.connectLinks }}
           <a class="connect-link" href="{{ .url }}" rel="noreferrer">
@@ -40,10 +40,10 @@
       </div>
     {{ else if eq .Section "writing" }}
       <div class="writing-tools" data-writing-tools>
-        <label for="writing-search">Search the writing</label>
+        <label for="writing-search">Search articles</label>
         <input id="writing-search" type="search" aria-label="Search titles, topics, and summaries" autocomplete="off" data-writing-search>
         <div class="topic-filters" aria-label="Filter writing by topic">
-          <button type="button" class="topic-filter is-active" data-topic-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="topic-filter is-active" data-topic-filter="all" aria-pressed="true">All topics</button>
           {{ range .Params.topics }}
             <button type="button" class="topic-filter" data-topic-filter="{{ . | urlize }}" aria-pressed="false">{{ . }}</button>
           {{ end }}
@@ -53,7 +53,7 @@
       <div class="entry-list" data-writing-list>
         {{ range .Pages.ByDate.Reverse }}{{ partial "article-card.html" . }}{{ end }}
       </div>
-      <noscript><p class="writing-noscript">Search and topic filters require JavaScript. Every article remains available in the list above.</p></noscript>
+      <noscript><p class="writing-noscript">Browse all articles above. Turn on JavaScript to search or filter by topic.</p></noscript>
     {{ else if eq .Section "work-i-love" }}
       <div class="entry-list">
         {{ range .Pages.ByWeight }}{{ partial "reference-card.html" . }}{{ end }}
@@ -65,7 +65,7 @@
             <div class="entry-meta"><span>{{ .Params.format | default .Type }}</span></div>
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <p>{{ .Description }}</p>
-            <a class="text-link" href="{{ .RelPermalink }}">View details <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">Read more <span aria-hidden="true">→</span></a>
           </article>
         {{ end }}
       </div>
@@ -79,7 +79,7 @@
           <p class="eyebrow warm">AWS-authored learning</p>
           <h2 id="aws-learning-heading">{{ .Params.learningTitle }}</h2>
           <p>{{ .Params.learningDescription }}</p>
-          <p class="learning-disclosure">I did not design or publish these AWS workshops. I have worked through each one myself and recommend them because they cover topics closely related to workshops I have helped run live.</p>
+          <p class="learning-disclosure">These workshops were created by AWS. I have completed each one and recommend them for further practice on topics related to sessions I have helped run. My own workshop contribution is described above.</p>
         </div>
         <div class="learning-actions">
           {{ range .Params.learningLinks }}

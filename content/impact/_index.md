@@ -1,6 +1,6 @@
 ---
 title: "Selected Impact"
-description: "Public proof and professional scope across applied AI engineering, enterprise adoption, and technical enablement."
+description: "The AI systems I have designed, the workshop material I have built and taught, and the enterprise decisions I help teams make."
 socialImage: "/images/social/selected-impact.png"
 socialImageAlt: "Selected impact by Andreas Nissen across enterprise AI architecture, public reference systems, and technical workshops."
 ---

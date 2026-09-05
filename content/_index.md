@@ -1,5 +1,5 @@
 ---
 title: "Andreas Nissen"
-description: "Andreas Nissen on enterprise AI architecture, agent evaluation, and controlled execution, with inspectable projects and practical technical writing."
+description: "Andreas Nissen, Senior Solutions Architect at AWS in Munich. Explore personal AI projects, evaluation methods, and practical architecture guidance."
 ---
 

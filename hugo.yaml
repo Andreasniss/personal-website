@@ -38,7 +38,7 @@ outputFormats:
     permalinkable: false
 
 params:
-  description: "Enterprise AI architecture, agent reliability, evaluation, and governed execution."
+  description: "Practical AI architecture, agent evaluation, and enterprise adoption, with projects and writing by Andreas Nissen."
   author: "Andreas Nissen"
   socialImage: "/images/social/homepage-v2.png"
   socialImageAlt: "Andreas Nissen. AI Architecture. Projects, Demos, and Writing. andreasnissen.dev."
