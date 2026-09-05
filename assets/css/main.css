@@ -1195,7 +1195,31 @@ svg {
 }
 
 .collection-content .writing-card .card-media {
-  display: none;
+  display: block;
+}
+
+.writing-card .card-media {
+  aspect-ratio: 1200 / 630;
+  background: var(--paper);
+}
+
+.writing-card .card-media img {
+  aspect-ratio: 1200 / 630;
+  object-fit: contain;
+}
+
+.editorial-cover {
+  max-width: 920px;
+  margin: 0 0 42px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.editorial-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .writing-card[hidden] {

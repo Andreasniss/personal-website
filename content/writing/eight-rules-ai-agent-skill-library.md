@@ -25,8 +25,10 @@ draft: false
 skillCards: true
 image: "/images/articles/agent-skill-library.svg"
 imageAlt: "Eight operating rules for an AI agent skill library, arranged as a compact card system."
-socialImage: "/images/social/agent-skill-library.png"
-socialImageAlt: "8 Rules for Running an AI Agent Skill Library by Andreas Nissen."
+editorialImage: "/images/editorial/eight-rules-ai-agent-skill-library-v1.webp"
+editorialAlt: "An orderly card catalogue contains an avalanche of loose instructions."
+socialImage: "/images/social/eight-rules-ai-agent-skill-library-editorial-v1.png"
+socialImageAlt: "An orderly card catalogue contains an avalanche of loose instructions."
 series: "Operating Agent Systems"
 seriesOrder: 1
 lastmod: 2026-09-05

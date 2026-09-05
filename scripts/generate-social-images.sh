@@ -56,24 +56,8 @@ make_card "runbook-relay.png" "Project case study" "Runbook Relay" "Durable serv
 make_card "mistral-reliability-lab.png" "Project case study" "Agent Reliability Lab" "Bounded tools, deterministic evaluations, and privacy-first telemetry."
 make_card "safe-model-failover.png" "Project" "Safe Model Failover Learning Lab" "Bounded retries, policy-safe fallback, and circuit breaking."
 make_card "7dayfocus.png" "Project" "7DayFocus AI Delivery Lab" "A public reference with proposal-only AI assistance."
-make_card "agentic-ai-after-demo.png" "Article" "The Hard Part Starts After the Demo" "A production architecture for agentic AI."
-make_card "context-and-control.png" "Article" "Why Enterprise AI Agents Need Separate Context and Control Layers" "Better information does not replace execution boundaries." "#45aaa2" "46"
-make_card "agent-control-plane.png" "Article" "When AI Agents Become Cyber-Capable" "The control plane must sit outside the model." "#45aaa2" "52"
-make_card "governed-tools.png" "Article" "When AI Agents Need Governed Tools, Not Just Screenshots" "What WebMCP changes about high-consequence interfaces." "#45aaa2" "50"
-make_card "ontology-context.png" "Article" "When AI Agents Need an Ontology, Not Just More Context" "How shared meaning becomes an operational boundary." "#45aaa2" "50"
-make_card "agent-skill-library.png" "Article" "8 Rules for Running an AI Agent Skill Library" "How to keep agent skills maintainable, routable, and trustworthy."
-make_card "builder-sandboxes.png" "Article" "Try AWS Builder Center Sandbox Workshops Without an AWS Account" "Free, pre-provisioned environments remove account and payment setup." "#45aaa2" "46"
-make_card "ai-native-delivery-methods.png" "Article" "Three AI Delivery Methods for Three Different Failure Modes" "Choose the method by the failure it prevents." "#45aaa2" "50"
-make_card "screen-use-vs-webmcp.png" "Article" "Screen Use vs WebMCP" "What changes when an agent gets governed tools."
-make_card "browser-tool-governed-workflow.png" "Article" "Why Browser Agent Governance Belongs on the Server" "Move policy, approval, replay protection, and evidence to the server boundary." "#45aaa2" "52"
-make_card "model-failover-policy.png" "Article" "Model Failover Is a Policy Decision" "Retry, switch, degrade, or stop inside an explicit boundary."
-make_card "hidden-token-tax.png" "Article" "The Cheapest AI Model Is Not Always the Cheapest System" "Measure cost per verified outcome, not cost per token." "#45aaa2" "50"
-make_card "reviewing-ai-built-work.png" "Article" "Review AI-Built Work Without Outsourcing Judgment" "Evidence informs. The human owner decides what ships."
-make_card "pr-evidence.png" "Article" "What Evidence Should an AI-Generated Pull Request Carry?" "Bind checks and approval to the exact change." "#45aaa2" "50"
-make_card "skill-routing-reliability.png" "Article" "Skill Routing Is a Reliability Problem" "Test positive, negative, overlap, and stale routes."
-make_card "evidence-for-agent-infrastructure-changes.png" "Article" "When Coding Agents Change Infrastructure" "What evidence is enough to ship?" "#45aaa2" "52"
-make_card "choose-ai-use-case-by-bottleneck.png" "Article" "Choose an AI Use Case by Its Workflow Bottleneck" "Measure the whole process, including waits and exceptions." "#45aaa2" "50"
 
-make_card "the-model-cellar.png" "Article" "The Model Cellar" "A wine lover’s guide to reading AI model cards."
+
+python3 "$repo_root/scripts/generate-editorial-images.py"
 
 identify "$output_dir"/*.png

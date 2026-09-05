@@ -21,8 +21,10 @@ proofLinks:
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md"
   - label: "Inspect the runtime layers"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/architecture.md"
-socialImage: "/images/social/screen-use-vs-webmcp.png"
-socialImageAlt: "Screen Use vs WebMCP: What Changes When an Agent Gets Governed Tools, an article by Andreas Nissen."
+editorialImage: "/images/editorial/screen-use-vs-webmcp-v1.webp"
+editorialAlt: "A magnifying glass and a fitted tool offer different ways to approach one machine."
+socialImage: "/images/social/screen-use-vs-webmcp-editorial-v1.png"
+socialImageAlt: "A magnifying glass and a fitted tool offer different ways to approach one machine."
 tags:
   - WebMCP
   - browser agents

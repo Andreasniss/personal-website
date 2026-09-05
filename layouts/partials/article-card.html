@@ -1,5 +1,5 @@
 <article class="entry-card writing-card" data-search="{{ printf "%s %s %s" .Title .Description (delimit .Params.tags " ") | lower }}" data-topic="{{ .Params.primaryTopic | urlize }}">
-  {{ with .Params.image }}<a class="card-media" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . | relURL }}" alt="" loading="lazy"></a>{{ end }}
+  {{ with (.Params.editorialImage | default .Params.image) }}<a class="card-media" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . | relURL }}" alt="" width="1200" height="630" loading="lazy"></a>{{ end }}
   <div class="card-body">
   <div class="entry-meta">
     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>

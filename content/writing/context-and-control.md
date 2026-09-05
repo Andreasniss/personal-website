@@ -14,8 +14,10 @@ keyPoints:
 proofLinks:
   - label: "Review the 7DayFocus case study"
     url: "/projects/7dayfocus-ai-delivery-lab/"
-socialImage: "/images/social/context-and-control.png"
-socialImageAlt: "Why Enterprise AI Agents Need Separate Context and Control Layers, an article by Andreas Nissen."
+editorialImage: "/images/editorial/context-and-control-v1.webp"
+editorialAlt: "A detailed map sits beside a locked gate and a separate key."
+socialImage: "/images/social/context-and-control-editorial-v1.png"
+socialImageAlt: "A detailed map sits beside a locked gate and a separate key."
 tags:
   - agent architecture
   - context

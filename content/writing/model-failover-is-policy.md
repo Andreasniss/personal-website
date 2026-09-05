@@ -16,8 +16,10 @@ proofLinks:
     url: "https://model-failover-learning-lab.andreas-nissen.chatgpt.site"
   - label: "Review the website case study"
     url: "/projects/safe-model-failover-learning-lab/"
-socialImage: "/images/social/model-failover-policy.png"
-socialImageAlt: "Model Failover Is a Policy Decision, Not a Retry Strategy, an article by Andreas Nissen."
+editorialImage: "/images/editorial/model-failover-is-policy-v1.webp"
+editorialAlt: "A trail junction offers different bridges and a place to stop."
+socialImage: "/images/social/model-failover-is-policy-editorial-v1.png"
+socialImageAlt: "A trail junction offers different bridges and a place to stop."
 tags:
   - model routing
   - resilience

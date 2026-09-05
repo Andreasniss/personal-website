@@ -16,8 +16,10 @@ proofLinks:
     url: "https://github.com/Andreasniss/runbook-relay-webmcp"
   - label: "Review its contract tests"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/app-contract.test.mjs"
-socialImage: "/images/social/governed-tools.png"
-socialImageAlt: "When AI Agents Need Governed Tools, Not Just Screenshots, an article by Andreas Nissen."
+editorialImage: "/images/editorial/from-screenshots-to-governed-tools-v1.webp"
+editorialAlt: "One green light overlooks several distinct stages of a paper airplane's journey."
+socialImage: "/images/social/from-screenshots-to-governed-tools-editorial-v1.png"
+socialImageAlt: "One green light overlooks several distinct stages of a paper airplane's journey."
 tags:
   - WebMCP
   - tool design

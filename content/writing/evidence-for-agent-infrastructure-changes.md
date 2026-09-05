@@ -18,8 +18,10 @@ proofLinks:
     url: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
   - label: "Andrew Ng on different rates of coding-agent acceleration"
     url: "https://www.linkedin.com/posts/andrewyng_coding-agents-are-accelerating-different-activity-7457457387671764992-peCP"
-socialImage: "/images/social/evidence-for-agent-infrastructure-changes.png"
-socialImageAlt: "When Coding Agents Change Infrastructure: What Evidence Is Enough to Ship?, an article by Andreas Nissen."
+editorialImage: "/images/editorial/evidence-for-agent-infrastructure-changes-v1.webp"
+editorialAlt: "A restart crank cannot repair a disconnected supply pipe."
+socialImage: "/images/social/evidence-for-agent-infrastructure-changes-editorial-v1.png"
+socialImageAlt: "A restart crank cannot repair a disconnected supply pipe."
 tags:
   - infrastructure
   - coding agents

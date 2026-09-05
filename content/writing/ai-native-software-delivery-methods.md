@@ -18,8 +18,10 @@ proofLinks:
     url: "https://claude.com/blog/the-ai-native-sdlc-playbook"
   - label: "Read the AWS AI-DLC guide"
     url: "https://awslabs.github.io/aidlc-workflows/guide/00-introduction/"
-socialImage: "/images/social/ai-native-delivery-methods.png"
-socialImageAlt: "Three AI Delivery Methods for Three Different Failure Modes, an article by Andreas Nissen."
+editorialImage: "/images/editorial/ai-native-software-delivery-methods-v1.webp"
+editorialAlt: "A blueprint, conductor's baton, and clamp represent three different ways to organize delivery."
+socialImage: "/images/social/ai-native-software-delivery-methods-editorial-v1.png"
+socialImageAlt: "A blueprint, conductor's baton, and clamp represent three different ways to organize delivery."
 tags:
   - AI-DLC
   - software delivery

@@ -20,8 +20,10 @@ proofLinks:
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/agent-efficiency.test.mjs"
   - label: "Read the related tool-interface analysis"
     url: "/writing/screen-use-vs-webmcp/"
-socialImage: "/images/social/hidden-token-tax.png"
-socialImageAlt: "The Cheapest AI Model Is Not Always the Cheapest System, an article by Andreas Nissen."
+editorialImage: "/images/editorial/hidden-token-tax-agent-tools-v1.webp"
+editorialAlt: "A small espresso comes with an unexpectedly long receipt."
+socialImage: "/images/social/hidden-token-tax-agent-tools-editorial-v1.png"
+socialImageAlt: "A small espresso comes with an unexpectedly long receipt."
 tags:
   - token efficiency
   - MCP

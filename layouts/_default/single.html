@@ -21,6 +21,11 @@
         </div>
       {{ end }}
     </header>
+    {{ with .Params.editorialImage }}
+      <figure class="editorial-cover">
+        <img src="{{ . | relURL }}" width="1200" height="630" alt="{{ $.Params.editorialAlt }}" fetchpriority="high">
+      </figure>
+    {{ end }}
     <div class="detail-layout{{ if not (or (ge (len .Fragments.Identifiers) 2) .Params.evidenceReady) }} no-outline{{ end }}">
       {{ partial "page-outline.html" . }}
       <div class="detail-main">

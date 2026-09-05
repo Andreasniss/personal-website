@@ -15,8 +15,10 @@ proofLinks:
     url: "https://builder.aws.com/content/3GCjkXGc1Qrs5jGsWI5fkTLNWzU/introducing-sandbox-environments-on-aws-builder-center"
   - label: "Browse AWS workshops"
     url: "https://builder.aws.com/build/workshops"
-socialImage: "/images/social/builder-sandboxes.png"
-socialImageAlt: "Try AWS Builder Center Sandbox Workshops Without an AWS Account, an article by Andreas Nissen."
+editorialImage: "/images/editorial/free-aws-builder-center-sandboxes-v1.webp"
+editorialAlt: "A ready-to-use workshop sits in a sandbox beside a running hourglass."
+socialImage: "/images/social/free-aws-builder-center-sandboxes-editorial-v1.png"
+socialImageAlt: "A ready-to-use workshop sits in a sandbox beside a running hourglass."
 tags:
   - AWS
   - hands-on learning

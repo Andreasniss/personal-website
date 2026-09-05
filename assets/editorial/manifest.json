@@ -1,0 +1,95 @@
+{
+  "style": "Create ONE original editorial illustration, landscape aspect ratio 1200:630 (about 1.9:1). Use case illustration-story. For Andreas Nissen's dark Curious Engineer website article previews and opening images. Hand-drawn pen-and-ink engraving, confident imperfect strokes, delicate crosshatching, tactile warm cream paper objects on a uniform very dark forest green #101b18 background, restrained muted teal #80c6b5 and burnt orange #e6ab75 accents. Thoughtful dry humor, visually clear single focal idea, sophisticated magazine illustration, generous breathing room. The scene must read clearly as a small 360px thumbnail. Keep all meaningful objects within central 85%, bottom 8% quiet dark background reserved for editable author footer. No lettering, captions, logos, watermark, robots, glowing brains, generic circuitry, dashboard, corporate clip art, stock-photo look, or fake benchmark. Scene: ",
+  "articles": [
+    {
+      "slug": "agentic-ai-after-the-demo",
+      "concept": "A tiny polished theater stage displays a beautiful clockwork delivery machine. Behind its curtain is a much larger backstage tangle of loose belts and gears, with a mechanic's workbench and wrench ready for the real work. The theater curtain reveals the gap between a successful demo and operating reliably. No people needed.",
+      "alt": "A polished clockwork stage conceals a tangled backstage mechanism."
+    },
+    {
+      "slug": "ai-native-software-delivery-methods",
+      "concept": "Three distinct useful workshop tools neatly spaced on one old carpenter's bench: a rolled blueprint tied with string, a conductor's baton resting on a score, and a sturdy woodworking clamp securing a small mechanism. Three different problems require different methods. Make the objects expressive and purposeful, not a dashboard or diagram.",
+      "alt": "A blueprint, conductor's baton, and clamp represent three different ways to organize delivery."
+    },
+    {
+      "slug": "choose-ai-use-case-by-bottleneck",
+      "concept": "An absurdly fast little paper airplane carrying a document arrives at the back of a very long queue of envelopes waiting at a tiny closed service hatch. A small clock hangs above the hatch. The faster arrival did not shorten the queue. Wry, restrained observational humor.",
+      "alt": "A fast paper airplane joins a long queue at a closed service hatch."
+    },
+    {
+      "slug": "context-and-control",
+      "concept": "An open, beautifully detailed travel guide and folded map lie beside a locked gate with a separate brass key on its own hook. A paper traveler has excellent directions but the guidebook cannot unlock the gate. The contrast is knowledge versus permission, not hostility.",
+      "alt": "A detailed map sits beside a locked gate and a separate key."
+    },
+    {
+      "slug": "eight-rules-ai-agent-skill-library",
+      "concept": "A charming old library card catalogue with carefully organized drawers, surrounded by a small avalanche of loose instruction papers. A feather duster, repair tools and one neatly repaired drawer suggest that maintaining the collection is the actual job. Whimsical but professional, no text on drawers.",
+      "alt": "An orderly card catalogue contains an avalanche of loose instructions."
+    },
+    {
+      "slug": "evidence-for-agent-infrastructure-changes",
+      "concept": "A little clockwork engine sits on a workbench, a very large restart crank conspicuously attached. Beside it a disconnected water supply pipe drips slowly into a cup. Turning the engine's crank cannot repair the separate blocked supply. Wry engineering illustration, no real machinery claims.",
+      "alt": "A restart crank cannot repair a disconnected supply pipe."
+    },
+    {
+      "slug": "evidence-for-ai-generated-pull-requests",
+      "concept": "Two nearly identical parcels on an inspector's desk. A green approval seal is securely attached to the older parcel, while a freshly patched parcel next to it has an empty seal spot. A magnifying glass notices that the approved package and the shipping package differ. No readable numbers or labels.",
+      "alt": "An approval seal belongs to an older parcel, while the revised parcel awaits inspection."
+    },
+    {
+      "slug": "free-aws-builder-center-sandboxes",
+      "concept": "A delightful miniature workshop inside a shallow wooden sandbox, tools ready to use and a generous hourglass already running beside an untouched espresso. A little open entrance and no payment desk. The temporary learning environment is ready, and the clock will not wait for coffee. No logos or cloud vendor marks.",
+      "alt": "A ready-to-use workshop sits in a sandbox beside a running hourglass."
+    },
+    {
+      "slug": "from-browser-tool-to-governed-workflow",
+      "concept": "A flimsy theater-prop checkpoint painted on a sheet of glass in the foreground, with a real sturdy mechanical gate and a receipt-spooling mechanism anchored behind it. The gate has its own lock and foundations. The scene conveys that an attractive surface is not where permission should be enforced.",
+      "alt": "A painted checkpoint stands in front of an anchored gate and receipt spool."
+    },
+    {
+      "slug": "from-screenshots-to-governed-tools",
+      "concept": "One large green traffic light illuminating a desk cluttered with four visibly different stages of the same paper airplane: sketch, folded paper, completed plane, and plane safely landed in a tray. A small human inspection magnifying glass beside them. A single green signal cannot explain what actually happened. No diagram arrows or text.",
+      "alt": "One green light overlooks several distinct stages of a paper airplane's journey."
+    },
+    {
+      "slug": "hidden-token-tax-agent-tools",
+      "concept": "A tiny inexpensive espresso cup with a modest coin beside it, attached to a comically long curling receipt that snakes across a desk past repair tools, extra cups and a return arrow stamped on a small blank ticket. The cheap starting price hides the full cost of finishing. Restrained warm humor.",
+      "alt": "A small espresso comes with an unexpectedly long receipt."
+    },
+    {
+      "slug": "model-failover-is-policy",
+      "concept": "A travelerless pair of walking boots at a mountain trail junction. One path crosses a solid bridge, another leads to a visibly unsuitable rope bridge, and a small comfortable stopping bench offers a legitimate third choice. A compass and checklist in the foreground. Continuing is a decision, not an automatic reflex. No written signs.",
+      "alt": "A trail junction offers different bridges and a place to stop."
+    },
+    {
+      "slug": "ontology-is-more-than-context",
+      "concept": "Three different keyrings, each confidently pointing toward the same small house-shaped box: a shopkeeper's key, a maintenance wrench-key, and a bank-style key. An open reference book carefully sorts the three types into distinct compartments. One word can hide different relationships. No written labels.",
+      "alt": "Different keys and a reference book describe relationships to the same house."
+    },
+    {
+      "slug": "reviewing-ai-built-public-work",
+      "concept": "A human hand holds a magnifying glass over a small handmade mechanical bridge while a rubber stamp with an unused green ink pad rests to one side. An automatic paper feeder has produced an optimistic stack of check sheets, but the inspector is looking at the actual loose bolt. No face, no signature, no readable text.",
+      "alt": "A human reviewer inspects a loose bridge bolt beside an unused approval stamp."
+    },
+    {
+      "slug": "screen-use-vs-webmcp",
+      "concept": "Two approaches to the same small machine on a workbench: on the left a magnifying glass studies a picture of its controls; on the right a clearly shaped dedicated socket and fitting wrench provide a direct operation. Both routes meet the same sturdy locked mechanism. A tangible editorial still life, not a technical diagram.",
+      "alt": "A magnifying glass and a fitted tool offer different ways to approach one machine."
+    },
+    {
+      "slug": "skill-routing-is-reliability",
+      "concept": "A beautifully packed specialist toolbox has arrived at the wrong door: delicate chef's utensils waiting outside a bicycle repair workshop with a wheel hanging in the window. A small winding postal trail leads to the wrong doorstep. Excellent instructions, wrong destination. No readable street names or signs.",
+      "alt": "A specialist toolkit arrives at the wrong workshop."
+    },
+    {
+      "slug": "the-model-cellar",
+      "concept": "A warm still life of three distinct wine bottles, a tasting glass and an open tasting notebook, with a tiny computer keyboard subtly beside the notebook. A magnifying glass examines the back of a bottle rather than its grand front label. Elegant wine cellar curiosity as a metaphor for reading model documentation. Blank labels, no brand names.",
+      "alt": "Wine bottles, a tasting notebook, and a magnifying glass invite a closer reading of model labels."
+    },
+    {
+      "slug": "when-ai-agents-become-cyber-capable",
+      "concept": "A clever multi-tool lies inside a transparent display box with its lock and key firmly outside the box, held by a sturdy external bracket. A small observation lens watches from above but is clearly separate from the lock. Capability can be observed while permission is enforced elsewhere. Serious, calm, no villain imagery.",
+      "alt": "A multi-tool sits inside a transparent enclosure whose lock and key remain outside."
+    }
+  ]
+}
