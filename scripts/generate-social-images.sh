@@ -71,5 +71,7 @@ make_card "hidden-token-tax.png" "Article" "The Cheapest AI Model Is Not Always 
 make_card "reviewing-ai-built-work.png" "Article" "Review AI-Built Work Without Outsourcing Judgment" "Evidence informs. The human owner decides what ships."
 make_card "pr-evidence.png" "Article" "What Evidence Should an AI-Generated Pull Request Carry?" "Bind checks and approval to the exact change." "#45aaa2" "50"
 make_card "skill-routing-reliability.png" "Article" "Skill Routing Is a Reliability Problem" "Test positive, negative, overlap, and stale routes."
+make_card "evidence-for-agent-infrastructure-changes.png" "Article" "When Coding Agents Change Infrastructure" "What evidence is enough to ship?" "#45aaa2" "52"
+make_card "choose-ai-use-case-by-bottleneck.png" "Article" "Choose an AI Use Case by Its Workflow Bottleneck" "Measure the whole process, including waits and exceptions." "#45aaa2" "50"
 
 identify "$output_dir"/*.png

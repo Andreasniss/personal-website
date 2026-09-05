@@ -18,6 +18,33 @@ Treat the title and description as one editorial pair. The title must name the c
 
 The description should explain the scope or evidence instead of repeating the title. Reject a title that depends on a vague metaphor, a generic category label, an unsupported superlative, or curiosity that the article does not satisfy. If the intended reader cannot tell what they will learn and why it matters from the title and description together, revise them before creating social derivatives.
 
+## Accessible technical teaching
+
+Apply this editorial pass to new articles and substantive rewrites:
+
+1. Name the reader's question and the decision the article helps them make.
+2. State the conclusion early and introduce one concrete example before abstract terminology. Reuse that example as the argument develops.
+3. Explain a mechanism through observable behavior: what was requested, what could fail, what the system checks, and what the reader should inspect.
+4. Define unfamiliar terms at first use. Keep one main idea per paragraph and remove repeated statements of the thesis.
+5. Give one reusable decision rule, an important exception, and a useful next step. Keep evidence boundaries beside the claims they qualify.
+6. Label reported experience, sourced observation, inference, and illustrative numbers accurately. Never turn an influential author's experience into a universal benchmark.
+7. Make the article useful on its own. A LinkedIn adaptation carries one complete lesson; the website provides deeper evidence and alternatives.
+
+This teaching direction is informed by [Andrew Ng's writing](https://www.andrewng.org/writing), particularly his [coding-agent workflow explanation](https://charonhub.deeplearning.ai/the-ai-engineering-skills-map-in-detail-using-coding-agents/). Adapt the instructional mechanism in Andreas's voice. It is an editorial preference, not a demonstrated engagement lift.
+
+## Website discovery principles
+
+The review of [Andrew Ng's homepage](https://www.andrewng.org/), [Writing](https://www.andrewng.org/writing), and [Courses](https://www.andrewng.org/courses) on 5 September 2026 supports these choices for this portfolio:
+
+- Keep the existing reader-first homepage and five-minute project tour. Ng's biography-led homepage serves an established public figure; Andreas's site should help a new reader understand and inspect his work immediately.
+- Offer a small number of question-led reading routes, connecting an explanation to a relevant demo or evidence page. Use the existing writing index and topic filters before adding a new navigation section.
+- Keep selected starting points distinct from chronological discovery. Ng's Writing page emphasizes the latest letter; its Courses page separates featured foundations from recent offerings. Here, curated reading routes can sit above the dated article archive.
+- Explain each destination's practical value in one sentence. Preserve the existing clear separation between Andreas's projects and attributed external work.
+- Give returning readers an obvious subscription route using the existing RSS feed. A new newsletter, course platform, or personal AI avatar requires a separately justified product decision.
+- Preserve the current visual identity and evidence depth. Sparse hierarchy and readable explanations are the transferable qualities; a visual imitation or biography expansion is not required.
+
+These are source-backed design judgments, not usability-test results. Check an unfamiliar reader's ability to choose an article and explain its decision rule before claiming improved comprehension or conversion.
+
 ## Definition of done
 
 A substantive original publishing package is complete only when:

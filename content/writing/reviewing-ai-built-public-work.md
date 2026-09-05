@@ -35,15 +35,11 @@ series: "Operating Agent Systems"
 seriesOrder: 3
 ---
 
-Before I put my name on AI-built work, I need to explain what it does, show evidence for the claim, and understand how it fails. Passing tests contribute to that decision. They do not make it for me.
+An AI-built demo says an action requires approval. You approve it, click execute, and see a success receipt. The happy path works. Can someone call the same action directly without approval?
 
-That accountability remains mine: I define what the project is for, which architecture I accept, what evidence is sufficient, which risks remain, and whether the result is ready to carry my name.
+That is an illustrative review scenario, not a reported incident. It explains where I start: test the claim at the point where a failure would have consequences. A disabled button is insufficient if the server still accepts the request.
 
-My decision rule is simple: if I cannot trace a public claim to current code, tests, documentation, or live behavior, I narrow it or remove it.
-
-Consider a demo that claims an action requires approval. Its happy path works: approve the action, click execute, see a success receipt. That proves one allowed path. It leaves the important review question unanswered: can the same action execute without approval, after the proposal changes, or after an approval has already been consumed?
-
-That is an illustrative review scenario, not a reported incident. It shows why I start with the consequence of a broken claim.
+Before I put my name on the work, I need to explain its behavior and the evidence behind it. My decision rule is simple: if I cannot trace a public claim to current code, tests, documentation, or live behavior, I narrow it or remove it.
 
 ## Start with the claim the project must support
 
@@ -105,7 +101,25 @@ Green CI is necessary evidence. It is not independent product judgment. A second
 
 The language should preserve those boundaries. I describe deterministic checks as deterministic checks. I name model versions and fixtures when I claim model behavior. I do not turn “another model looked at it” into “independently reviewed.”
 
-I also check how the expected answer was chosen. An agent can write an implementation and a test that agree with each other while both misunderstand the requirement. For a material behavior change, I compare the assertion with the accepted requirement. If the patch changes the requirement and the assertion together, that deserves a separate decision about intent.
+## When the agent writes its own tests
+
+An implementation and its tests can agree while both misunderstand the requirement. Consider a second illustrative example: an approval expires at 12:00 UTC, and the accepted requirement says it is invalid from that instant onward.
+
+Suppose the implementation accepts requests when `now <= expires_at`. A test copied from that condition expects approval at exactly 12:00. It passes and preserves the mistake.
+
+The expected behavior needs to come from the accepted requirement:
+
+| Request time | Required result | What it checks |
+|---|---|---|
+| 11:59:59 UTC | Approval is still valid | The ordinary allowed path |
+| 12:00:00 UTC | Reject expired approval | The exact expiry boundary |
+| 12:00:01 UTC | Reject expired approval | The expired path |
+
+For this simplified example, validity requires `now < expires_at`. These are hand-worked cases, not results from a model experiment or a complete production time-handling design.
+
+The practical check is to ask who chose the expected answer. Compare important assertions with accepted requirements or independently established reference cases. A second model can help challenge a test, and using a second model alone does not establish that its expected answer is correct. If a patch changes the requirement and assertion together, review that as a change of intent.
+
+Andrew Ng makes a related point in his [guide to using coding agents](https://charonhub.deeplearning.ai/the-ai-engineering-skills-map-in-detail-using-coding-agents/): developers need to evaluate whether the tests match their aims. The expiry example shows one specific reason to do that.
 
 ## Review the revision that will ship
 
