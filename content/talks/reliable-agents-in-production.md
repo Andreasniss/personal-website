@@ -10,7 +10,6 @@ tags:
   - agent reliability
   - evaluation
   - architecture
-lastmod: 2026-09-05
 ---
 
 ## The question

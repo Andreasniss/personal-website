@@ -89,7 +89,6 @@ limitations:
   - "Receipt hashes detect inconsistent records in the returned segment; they cannot expose a rewrite of both records and hashes by someone controlling the store."
   - "The 50-task runner uses an in-process tool fixture and has no published live-model result. It does not evaluate native browser discovery or establish model performance."
   - "The labeled simulator proves application behavior, not native browser discovery; no MCP-B bridge has been tested."
-lastmod: 2026-09-05
 ---
 
 ## Start with the no-setup demo

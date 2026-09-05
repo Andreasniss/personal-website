@@ -7,7 +7,6 @@ affiliation: "WorkOS"
 sourceURL: "https://zackproser.com/"
 why: "Useful when I want to connect an AI engineering idea to a working system, a practical demonstration, or a workshop someone else can follow."
 weight: 80
-lastmod: 2026-09-05
 ---
 
 Technical essays and project write-ups by Zachary Proser.

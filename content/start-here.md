@@ -3,7 +3,6 @@ title: "Start Here"
 description: "A five-minute path through my applied AI work, public evidence, and operating approach."
 socialImage: "/images/social/homepage-v2.png"
 socialImageAlt: "Andreas Nissen. AI Architecture. Projects, Demos, and Writing. andreasnissen.dev."
-lastmod: 2026-09-05
 ---
 
 For a five-minute review, start with one working path and follow its claim to the evidence.

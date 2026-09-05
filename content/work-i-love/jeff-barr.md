@@ -8,7 +8,6 @@ sourceURL: "https://aws.amazon.com/blogs/aws/author/jbarr/"
 xURL: "https://x.com/jeffbarr"
 why: "A reference for explaining a service launch through the builder problem, a concrete walkthrough, and the details someone needs to try it."
 weight: 25
-lastmod: 2026-09-05
 ---
 
 The AWS News Blog archive by AWS Chief Evangelist Jeff Barr.

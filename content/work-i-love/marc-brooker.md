@@ -7,7 +7,6 @@ affiliation: "AWS"
 sourceURL: "https://brooker.co.za/blog/"
 why: "I turn to Marc for reasoning about retries, latency, consistency, and failure. The useful part is how an assumption changes the system design."
 weight: 20
-lastmod: 2026-09-05
 ---
 
 Technical writing from an AWS Distinguished Engineer and Vice President.

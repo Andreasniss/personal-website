@@ -3,7 +3,6 @@ title: "Selected Impact"
 description: "Public proof and professional scope across applied AI engineering, enterprise adoption, and technical enablement."
 socialImage: "/images/social/selected-impact.png"
 socialImageAlt: "Selected impact by Andreas Nissen across enterprise AI architecture, public reference systems, and technical workshops."
-lastmod: 2026-09-05
 ---
 
 My work connects enterprise AI decisions with the engineering evidence needed to make them. I bring more than 15 years across technology, architecture, and customer-facing delivery, with a current focus on applied and agentic AI.

@@ -18,7 +18,6 @@ connectLinks:
     detail: "New long-form articles without another social feed"
     url: "/writing/index.xml"
     icon: "/icons/rss.svg"
-lastmod: 2026-09-05
 ---
 
 I am a Senior Solutions Architect at AWS in Munich, with more than 15 years across technology, architecture, and customer-facing delivery. I help organizations turn an AI use case into an evaluation plan, a system design, and a decision about how to adopt it in a regulated environment.

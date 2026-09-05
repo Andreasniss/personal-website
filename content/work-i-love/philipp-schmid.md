@@ -7,7 +7,6 @@ affiliation: "Google DeepMind"
 sourceURL: "https://www.philschmid.de/"
 why: "I use these guides to move from a model or API announcement to an implementation I can inspect, especially for tool use, managed agents, and evaluation."
 weight: 70
-lastmod: 2026-09-05
 ---
 
 Applied AI engineering notes by Philipp Schmid.

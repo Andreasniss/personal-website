@@ -18,7 +18,6 @@ socialImage: "/images/social/safe-model-failover.png"
 socialImageAlt: "Safe Model Failover Learning Lab, an interactive reliability lab by Andreas Nissen."
 relatedArticleURL: "/writing/model-failover-is-policy/"
 relatedArticleTitle: "Model Failover Is a Policy Decision"
-lastmod: 2026-09-05
 ---
 
 ## The problem

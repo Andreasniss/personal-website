@@ -84,7 +84,6 @@ limitations:
   - "The lifecycle adapts selected Anthropic guidance. It is not an Anthropic standard, certification, endorsement, or compliance claim."
   - "An earlier Tauri Android proof reached Android Studio and emulator testing but was not production-launched; Android installation and Google Play are not claimed."
   - "The standalone product is no longer an active goal because agent-to-Todoist connectors now solve the personal workflow more directly."
-lastmod: 2026-09-05
 ---
 
 ## The problem

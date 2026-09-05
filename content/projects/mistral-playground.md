@@ -80,7 +80,6 @@ limitations:
   - "The employee policy is fictional and deliberately small; retrieval uses transparent token overlap rather than a vector database."
   - "Preview mode does not call a provider or fabricate live weather. Connected behavior requires Mistral credentials or a local Ollama model."
   - "The FastAPI authentication pattern is suitable for a local reference, not a public multi-tenant service."
-lastmod: 2026-09-05
 ---
 
 ## The problem

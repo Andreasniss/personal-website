@@ -27,7 +27,6 @@ recommendedWorkshops:
     url: "https://catalog.workshops.aws/promptfoo/"
     description: "Compare and evaluate model behavior systematically instead of relying on a few successful prompts."
     topic: "Evaluation"
-lastmod: 2026-09-05
 ---
 
 I build practical sessions around agent evaluation, policy decisions, and failure handling. The goal is to give participants a way to examine a system and identify the evidence needed for its next deployment decision.

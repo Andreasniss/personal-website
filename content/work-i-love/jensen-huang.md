@@ -7,7 +7,6 @@ affiliation: "NVIDIA"
 sourceURL: "https://www.nvidia.com/gtc/events/"
 why: "Useful for connecting hardware, software, and workload requirements across the AI stack. I treat keynote claims as a starting point for checking the supporting technical evidence."
 weight: 35
-lastmod: 2026-09-05
 ---
 
 Official NVIDIA archive of GTC keynotes by founder and CEO Jensen Huang.

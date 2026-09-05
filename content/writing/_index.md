@@ -8,7 +8,6 @@ topics:
   - Tool interfaces
   - Operating practice
   - Learning
-lastmod: 2026-09-05
 ---
 
 Start with the decision you need to make: how much authority to give an agent, how to evaluate its work, which tool interface to expose, or when a model fallback is allowed.
