@@ -22,6 +22,7 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 - Page-specific 1200 by 630 Open Graph images generated from one reproducible visual system
 - Shared GitHub profile mark used in the header, browser icon, Apple touch icon, and social metadata
 - Persistent creator attribution linking to Andreas's verified GitHub profile
+- Shared desktop page edges, compact collection headers, and readable detail columns with section navigation (expanded on desktop, collapsible on narrow screens)
 - No external theme, web font, JavaScript framework, analytics, or CMS dependency
 
 ## Run locally
@@ -41,6 +42,8 @@ hugo --minify
 ```
 
 The generated site is written to `public/`.
+
+For a dependency-free preview of that exact build, run `npm run dev`. It serves only `public/` on port 4173 and accepts `--host`, `--port`, and `--strictPort` for browser review environments. Rebuild with Hugo after source changes.
 
 ## Deployment
 

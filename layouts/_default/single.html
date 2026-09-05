@@ -1,7 +1,7 @@
 {{ define "main" }}
   <article class="shell article-shell{{ if .Params.skillCards }} skill-article{{ end }}">
     <header class="article-header">
-      <p class="eyebrow">{{ .Section | default .Type }}</p>
+      {{ with .Section }}<p class="eyebrow">{{ . }}</p>{{ end }}
       <h1>{{ .Title }}</h1>
       {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
       {{ if eq .Section "writing" }}
@@ -31,6 +31,9 @@
         </div>
       {{ end }}
     </header>
+    <div class="detail-layout{{ if not (or (ge (len .Fragments.Identifiers) 2) .Params.evidenceReady) }} no-outline{{ end }}">
+      {{ partial "page-outline.html" . }}
+      <div class="detail-main">
     {{ if eq .Section "writing" }}
       <aside class="article-brief" aria-labelledby="article-brief-title">
         <p class="eyebrow warm" id="article-brief-title">The short version</p>
@@ -89,5 +92,7 @@
         {{ range . }}<a href="{{ printf "tags/%s/" (. | urlize) | relURL }}">{{ . }}</a>{{ end }}
       </footer>
     {{ end }}
+      </div>
+    </div>
   </article>
 {{ end }}

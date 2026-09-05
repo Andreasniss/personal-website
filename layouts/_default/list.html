@@ -1,21 +1,51 @@
 {{ define "main" }}
-  <section class="page-hero shell{{ if ne .Section "about" }} narrow{{ else }} about-hero{{ end }}">
-    <div>
-      <p class="eyebrow{{ if eq .Section "talks" }} warm{{ end }}">{{ if eq .Section "work-i-love" }}Curated references{{ else }}{{ .Section | default "Index" }}{{ end }}</p>
+  {{ if eq .Section "impact" }}
+    <article class="shell article-shell">
+      <header class="article-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+      </header>
+      <div class="detail-layout">
+        {{ partial "page-outline.html" . }}
+        <div class="detail-main"><div class="prose">{{ .Content }}</div></div>
+      </div>
+    </article>
+  {{ else }}
+  <section class="page-hero shell{{ if eq .Section "about" }} about-hero{{ else }} collection-hero{{ end }}">
+    <div class="page-heading">
       {{ if eq .Section "work-i-love" }}
+        <p class="eyebrow">Curated references</p>
         <h1 aria-label="Work I love">Work I <span class="heart-mark" aria-hidden="true">♥</span></h1>
       {{ else }}
         <h1>{{ .Title }}</h1>
       {{ end }}
-      {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
-      {{ if eq .Section "projects" }}<p class="project-disclaimer">{{ site.Params.projectDisclaimer }}</p>{{ end }}
-      {{ with .Content }}<div class="prose intro-copy">{{ . }}</div>{{ end }}
+      {{ if eq .Section "about" }}
+        {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+        {{ with .Content }}<div class="prose intro-copy">{{ . }}</div>{{ end }}
+      {{ end }}
     </div>
-    {{ with .Params.portrait }}
-      <figure class="about-portrait">
-        <img src="{{ . | relURL }}" alt="{{ $.Params.portraitAlt }}">
-        <figcaption>Andreas Nissen</figcaption>
-      </figure>
+    {{ if eq .Section "about" }}
+      {{ with .Params.portrait }}
+        <figure class="about-portrait">
+          <img src="{{ . | relURL }}" width="800" height="800" alt="{{ $.Params.portraitAlt }}">
+          <figcaption>Andreas Nissen</figcaption>
+        </figure>
+      {{ end }}
+    {{ else }}
+      <div class="collection-intro">
+        {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+        {{ if eq .Section "projects" }}
+          <p class="project-disclaimer">{{ site.Params.projectDisclaimer }}</p>
+          {{ with .Content }}
+            <details class="collection-context">
+              <summary>How to review these projects</summary>
+              <div class="prose intro-copy">{{ . }}</div>
+            </details>
+          {{ end }}
+        {{ else }}
+          {{ with .Content }}<div class="prose intro-copy">{{ . }}</div>{{ end }}
+        {{ end }}
+      </div>
     {{ end }}
   </section>
 
@@ -34,7 +64,8 @@
     </section>
   {{ end }}
 
-  <section class="shell section-space">
+  {{ if .Pages }}
+  <section class="shell collection-content">
     {{ if eq .Section "projects" }}
       <div class="project-grid">
         {{ range .Pages.ByWeight }}{{ partial "project-card.html" . }}{{ end }}
@@ -62,7 +93,7 @@
     {{ else }}
       <div class="entry-list">
         {{ range .Pages.ByWeight }}
-          <article class="entry-card">
+          <article class="entry-card card-body">
             <div class="entry-meta"><span>{{ .Params.format | default .Type }}</span></div>
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <p>{{ .Description }}</p>
@@ -72,6 +103,8 @@
       </div>
     {{ end }}
   </section>
+
+  {{ end }}
 
   {{ if and (eq .Section "talks") .Params.recommendedWorkshops }}
     <section class="shell section-space learning-section" aria-labelledby="aws-learning-heading">
@@ -100,5 +133,6 @@
       </div>
       <p class="learning-note">Check each workshop's prerequisites, setup and cleanup instructions, and possible AWS service costs before starting in your own account.</p>
     </section>
+  {{ end }}
   {{ end }}
 {{ end }}

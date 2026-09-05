@@ -2,7 +2,7 @@
   "name": "andreas-nissen-hugo-site",
   "private": true,
   "scripts": {
-    "check": "node scripts/check-content.mjs"
+    "check": "node scripts/check-content.mjs",
+    "dev": "node scripts/preview.mjs"
   }
 }
-

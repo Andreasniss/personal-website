@@ -32,7 +32,7 @@ html {
 }
 
 body {
-  min-width: 320px;
+  min-width: 0;
   margin: 0;
   color: var(--ink);
   background: var(--paper);
@@ -52,7 +52,9 @@ a:hover {
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 4px;
   border-radius: 4px;
@@ -487,6 +489,10 @@ svg {
   flex-shrink: 0;
 }
 
+.project-card .card-media img {
+  object-fit: contain;
+}
+
 .project-actions {
   display: grid;
   justify-items: start;
@@ -778,7 +784,155 @@ svg {
 }
 
 .page-hero {
-  padding-block: clamp(70px, 10vw, 130px) clamp(50px, 7vw, 90px);
+  padding-block: clamp(36px, 5vw, 64px) 36px;
+}
+
+/* Inner pages share the homepage edges; prose keeps a readable measure. */
+.collection-hero {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+
+.collection-intro .lead {
+  margin-top: 0;
+}
+
+.collection-intro .prose {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.collection-intro .prose h2 {
+  margin-top: 1.5em;
+  font-size: 1.25rem;
+}
+
+.collection-content {
+  padding-block: 12px 72px;
+}
+
+.collection-context {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.collection-context summary,
+.page-outline summary {
+  min-height: 44px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.collection-context summary::marker,
+.page-outline summary::marker {
+  color: var(--accent);
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 800px) minmax(200px, 1fr);
+  gap: 48px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+.detail-main {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.detail-main > :first-child {
+  margin-top: 0;
+}
+
+.detail-main .prose,
+.detail-main .article-brief,
+.detail-main .related-evidence,
+.detail-main .article-series {
+  max-width: none;
+}
+
+.detail-main .prose > :first-child {
+  margin-top: 0;
+}
+
+.detail-main > .prose:not(:first-child) {
+  margin-top: 36px;
+}
+
+.page-outline {
+  position: sticky;
+  top: 24px;
+  grid-column: 2;
+  grid-row: 1;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
+}
+
+.page-outline ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-outline ul ul {
+  padding-left: 12px;
+}
+
+.page-outline li + li {
+  margin-top: 3px;
+}
+
+.page-outline a {
+  display: block;
+  padding-block: 7px;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.page-outline a:hover {
+  color: var(--accent-light);
+  text-decoration: underline;
+}
+
+.detail-layout.no-outline {
+  display: block;
+  max-width: 800px;
+}
+
+.prose h2,
+.prose h3,
+[id] {
+  scroll-margin-top: 24px;
+}
+
+.article-shell .article-header .lead {
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.article-shell .prose {
+  overflow-wrap: break-word;
+}
+
+.project-proof-grid a {
+  padding: 16px;
+}
+
+.project-proof-grid span {
+  font-size: 0.82rem;
 }
 
 .about-hero {
@@ -795,6 +949,7 @@ svg {
 .about-portrait img {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 1;
   object-fit: cover;
   border: 1px solid var(--line);
@@ -814,8 +969,11 @@ svg {
 
 .page-hero h1,
 .article-header h1 {
-  max-width: 15ch;
-  font-size: clamp(3rem, 7vw, 5.8rem);
+  max-width: 26ch;
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  overflow-wrap: break-word;
 }
 
 .intro-copy {
@@ -823,12 +981,12 @@ svg {
 }
 
 .article-shell {
-  max-width: 900px;
-  padding-block: clamp(70px, 9vw, 120px);
+  max-width: var(--max);
+  padding-block: clamp(36px, 5vw, 64px) 72px;
 }
 
 .article-header {
-  padding-bottom: 38px;
+  padding-bottom: 28px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -873,7 +1031,7 @@ svg {
 }
 
 .article-shell .prose {
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 .article-brief {
@@ -999,6 +1157,10 @@ svg {
   font-size: 0.82rem;
 }
 
+.collection-content .writing-card .card-media {
+  display: none;
+}
+
 .writing-card[hidden] {
   display: none;
 }
@@ -1086,8 +1248,8 @@ svg {
 }
 
 .project-proof-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1px;
   overflow: hidden;
   margin-top: 18px;
@@ -1097,6 +1259,7 @@ svg {
 }
 
 .project-proof-grid a {
+  flex: 1 1 130px;
   min-width: 0;
   padding: 20px;
   color: var(--ink);
@@ -1352,12 +1515,12 @@ svg {
 }
 
 .prose h2 {
-  margin: 2.7em 0 0.7em;
+  margin: 1.8em 0 0.65em;
   font-size: 1.65em;
 }
 
 .prose h3 {
-  margin: 2em 0 0.6em;
+  margin: 1.5em 0 0.6em;
   font-size: 1.2em;
 }
 
@@ -1576,10 +1739,40 @@ svg {
   }
 
   .hero,
+  .collection-hero,
   .workshop-callout,
   .impact-callout,
   .about-hero {
     grid-template-columns: 1fr;
+  }
+
+  .detail-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .detail-main {
+    width: 100%;
+  }
+
+  .page-outline {
+    position: static;
+    width: 100%;
+    max-height: none;
+    padding: 16px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+
+  .page-outline details[open] nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 20px;
+  }
+
+  .page-outline nav ul ul {
+    display: none;
   }
 
   .about-portrait {
@@ -1601,9 +1794,7 @@ svg {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .project-proof-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+
 
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1658,8 +1849,6 @@ svg {
   }
 
   .hero h1,
-  .page-hero h1,
-  .article-header h1,
   .error-page h1 {
     font-size: clamp(2.7rem, 15vw, 4.4rem);
   }
@@ -1693,8 +1882,8 @@ svg {
     gap: 4px;
   }
 
-  .project-proof-grid {
-    grid-template-columns: 1fr;
+  .project-proof-grid a {
+    flex-basis: calc(50% - 1px);
   }
 
   .reviewer-path li {
@@ -1727,6 +1916,14 @@ svg {
   body {
     color: black;
     background: white;
+  }
+
+  .page-outline {
+    display: none;
+  }
+
+  .detail-layout {
+    display: block;
   }
 
   .article-shell {

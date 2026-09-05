@@ -37,9 +37,13 @@ const htmlFiles = walk(publicRoot).filter((file) => file.endsWith(".html"));
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, "utf8");
   const relative = path.relative(publicRoot, file);
+  const ids = new Set([...html.matchAll(/\bid=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/g)].map((match) => match[1] || match[2] || match[3]));
 
   for (const match of html.matchAll(/(?:href|src)=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/g)) {
     const reference = match[1] || match[2] || match[3];
+    if (reference.startsWith("#") && reference.length > 1 && !ids.has(decodeURIComponent(reference.slice(1)))) {
+      failures.push(`Broken page section link in ${relative}: ${reference}`);
+    }
     const target = localTarget(reference);
     if (target && !fs.existsSync(target)) failures.push(`Broken internal reference in ${relative}: ${reference}`);
   }
