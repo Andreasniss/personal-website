@@ -17,7 +17,7 @@
         <p class="eyebrow">Curated references</p>
         <h1 aria-label="Work I love">Work I <span class="heart-mark" aria-hidden="true">♥</span></h1>
       {{ else }}
-        <h1>{{ .Title }}</h1>
+        {{ if eq .Section "about" }}<p class="eyebrow warm">About Andreas</p><h1>Curiosity gets me started.<br>Testing keeps me honest.</h1>{{ else }}<p class="eyebrow warm">The Curious Engineer</p><h1>{{ .Title }}</h1>{{ end }}
       {{ end }}
       {{ if eq .Section "about" }}
         {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}

@@ -98,6 +98,12 @@ The private Obsidian vault remains the research backend. Public content is promo
 
 Each public talk needs a title, question or abstract, audience, verified delivery scope, discussion path, participant outcome, and at least one inspectable artifact such as slides, a recording, an event page, code, a demo, or a related article. The page must distinguish the larger event from the material Andreas personally owned. Hypothetical formats and unreviewed drafts stay unpublished.
 
+## The Curious Engineer design
+
+The site uses a dark forest palette, warm serif headings, teal actions, and restrained orange accents. Shared styles live in `assets/css/main.css`; Hugo templates preserve the article evidence, project review paths, and machine-readable outputs.
+
+The homepage illustrations in `static/images/theme/` were created with AI image assistance and reviewed for the selected design. They are decorative artwork, not screenshots or evidence. The portrait is the original `static/images/about/andreas-nissen-linkedin.png`, cropped into a circle using CSS. Replace that file to update the photograph. No generated face is used.
+
 ## Social preview images
 
 Published articles, projects, talks, About, Talks, and Selected Impact carry page-specific 1200 by 630 PNG metadata. Run `scripts/generate-social-images.sh` after changing a title or visual label, commit the generated assets, and verify that the built HTML includes the absolute image URL, dimensions, alt text, and `summary_large_image` card type.

@@ -24,6 +24,10 @@ I'm Andreas, a Senior Solutions Architect at AWS in Munich. I've spent more than
 
 My focus is the work between a promising demo and a system a team can use and operate. That means understanding the workflow, testing the failure cases, and deciding which actions an agent may take.
 
+## Away from the architecture diagram
+
+Travel, Latin music, and good food and wine all hold my attention. I like discovering how other people see things. Sometimes that leads to a useful analogy in an article. Sometimes it just leads to dinner. Both are reasonable outcomes.
+
 ## How I work with teams
 
 - **Define the problem:** agree on the workflow, baseline, success criteria, and cases where the system must stop or ask for help.

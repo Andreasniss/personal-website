@@ -1,34 +1,24 @@
-# Design QA
+# The Curious Engineer design review
 
-Date: 2026-08-31
+Reviewed 5 September 2026 against the selected dark homepage mockup.
 
-## Visual target
+The implementation preserves the approved hero wording, laptop/checklist/mug/paper-airplane artwork, warm serif headings, dark forest palette, teal actions, paired project/article entry points, and circular portrait. The original portrait file is used without facial alteration. Existing Start Here navigation, project evidence, and the broader portfolio remain accessible beyond the compact mockup.
 
-The existing dark LinkedIn-aligned portfolio system is the selected target: charcoal surfaces, warm ivory type, petrol teal, restrained orange, and the red heart accent. This release extends that system without changing its navigation, type scale, radius, or spacing language.
+## Browser evidence
 
-## Compared views
+Desktop viewport screenshots were inspected for the homepage hero, featured pair, About snippet, article header and brief, project verification snapshot, and 404 page. Narrow layouts were inspected using real pages embedded in 390px browser frames: homepage, Model Cellar article, Runbook Relay project, About, Work I Love, and 404. The first three report 375px content width and 375px scroll width, with no horizontal overflow (15px frame scrollbar).
 
-- Projects index before and after at desktop width
-- Writing index before and after at desktop width
-- Context and Control article at desktop width
-- About and Work I Love structure through the deployed DOM
+Article search for `cellar` displayed one article. Search and filter controls remain semantic inputs and buttons. Focus indication was visible on the search field. A subsequent filter click hit a browser protocol timeout, so that interaction is not claimed as verified. No filter JavaScript was changed.
 
-## Results
+Screenshots were returned in the implementation conversation. Full-page capture and synthetic scrolling encountered browser protocol timeouts; viewport captures and direct anchor navigation were used instead.
 
-- Article cards now use approved LinkedIn or vault visuals, with consistent media framing and no missing images.
-- The Context and Control SVG renders at its native 1080 by 1350 dimensions and retains accessible alt text.
-- Public project cards use clean repository proof images; the private 7DayFocus repository is not exposed.
-- Case study, live demo, repository, related article, and related project destinations are visibly distinct and keyboard-focusable.
-- The About links use labeled destination cards with familiar service icons.
-- Runbook Relay is titled as a WebMCP demo in the index, page title, and metadata.
-- The Agent Reliability Lab case study uses an exact architecture visual, linked proof statistics, a guided reviewer path, a claim-to-proof matrix, and explicit limitations.
-- Desktop navigation and content hierarchy remain consistent with the selected baseline.
-- Hugo build, content validation, and the GitHub Actions deployment passed.
+## Findings and resolution
 
-## Remaining polish
+- P2: The Writing introduction delayed access to the articles. Shortened it while preserving question-based entry links, RSS, and attribution.
+- P2: Footer introduction wrapped three messages into one desktop row. Changed it to a vertical reading order.
+- P2: Preview server lacked an explicit WebP MIME type. Added it for the three optimized illustrations.
+- No remaining observed P0/P1 issues in the inspected layouts.
 
-- The private 7DayFocus card intentionally has no visual proof image until an approved public-safe demo asset exists.
-- Article visuals are deliberately editorial rather than forced into identical crops on detail pages.
-- The Agent Reliability Lab card intentionally omits a preview image because no current application screenshot matches the capability-led name. Generated interface imagery is not used as a substitute.
+## Build gates
 
-final result: passed
+Hugo 0.165.0 Extended. Content validation, production build, internal-reference checks, sharing metadata, JSON-LD, and machine-discovery validation run before publication. No external font, theme package, framework, or analytics dependency added. The temporary responsive review page is excluded from publication.

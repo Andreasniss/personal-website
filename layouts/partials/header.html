@@ -4,7 +4,7 @@
   <div class="shell header-inner">
     <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="Andreas Nissen, home">
       <img class="brand-mark" src="{{ "images/profile-mark.png" | relURL }}" width="42" height="42" alt="">
-      <span class="brand-name">Andreas Nissen</span>
+      <span class="brand-name">Andreas Nissen<small>The Curious Engineer</small></span>
     </a>
     <nav class="main-nav" aria-label="Main navigation">
       {{ range site.Menus.main }}
@@ -18,7 +18,7 @@
         <a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ else if $active }} class="is-active"{{ end }}>{{ .Name }}</a>
       {{ end }}
     </nav>
-    <a class="header-cta" href="{{ "contact/" | relURL }}"{{ if eq .RelPermalink ("contact/" | relURL) }} aria-current="page"{{ end }}>Contact</a>
+    <a class="header-cta" href="{{ "contact/" | relURL }}"{{ if eq .RelPermalink ("contact/" | relURL) }} aria-current="page"{{ end }}>Say hello <span aria-hidden="true">↗</span></a>
   </div>
   {{ with $activeGroup }}
     <nav class="shell section-nav" aria-label="About and related pages">
