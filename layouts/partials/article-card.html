@@ -8,7 +8,7 @@
     {{ with .Params.linkedinURL }}<span>LinkedIn version</span>{{ end }}
     {{ with .Params.xURL }}<span>X version</span>{{ end }}
   </div>
-  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <h3><a class="card-primary-link" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
   <p>{{ .Description }}</p>
   <a class="action-link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}"><img src="{{ "icons/article.svg" | relURL }}" alt="">Read article</a>
   </div>

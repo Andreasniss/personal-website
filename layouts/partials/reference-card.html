@@ -17,7 +17,7 @@
       <span>By {{ .Params.creator }}</span>
       <span class="affiliation-chip">{{ .Params.affiliation }}</span>
     </div>
-    <h3><a href="{{ $sourceURL }}">{{ .Title }}</a></h3>
+    <h3><a class="card-primary-link" href="{{ $sourceURL }}">{{ .Title }}</a></h3>
     {{ with .Params.why }}<p class="reference-note">{{ . }}</p>{{ else }}<p class="reference-note">{{ .Description }}</p>{{ end }}
     <div class="proof-actions">
       <a class="action-link" href="{{ $sourceURL }}" rel="noreferrer" aria-label="{{ $sourceLabel }}: {{ .Title }}"><img src="{{ $sourceIcon | relURL }}" alt="">{{ $sourceLabel }}</a>
