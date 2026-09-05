@@ -10,6 +10,10 @@ topics:
   - Learning
 ---
 
-Start with the decision you need to make: how much authority to give an agent, how to evaluate its work, which tool interface to expose, or when a model fallback is allowed.
+Choose a question, then follow the explanation to a working example:
 
-Each article starts with the main takeaways and explains what supports the argument: tested code, architecture analysis, operating experience, or public sources. Follow the links to inspect the evidence or read a published social version.
+- **What should an agent be allowed to do?** Read [Context and Control](/writing/context-and-control/), then inspect the approval boundary in [Runbook Relay](/projects/runbook-relay/).
+- **How do I check AI-built work?** Start with [the review standard](/writing/reviewing-ai-built-public-work/), then explore [what evidence a pull request should carry](/writing/evidence-for-ai-generated-pull-requests/).
+- **How do I handle a model failure?** Read [the failover decision guide](/writing/model-failover-is-policy/), then try the [interactive learning lab](/projects/safe-model-failover-learning-lab/).
+
+Every article explains what supports its argument and where the evidence stops. Browse by topic below, or [subscribe through RSS](/writing/index.xml) for new writing.
