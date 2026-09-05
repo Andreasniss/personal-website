@@ -5,9 +5,10 @@ description: "Agent-friendly interfaces should expose structured operations with
 primaryTopic: "Tool interfaces"
 evidenceLabel: "Tested project analysis"
 evidenceBoundary: "Runbook Relay tests bounded tool contracts, durable server policy, scoped approval, replay protection, and receipts over a synthetic incident. It does not benchmark screen use against WebMCP or demonstrate enterprise identity and production authorization."
-lastVerified: 2026-09-01
+lastVerified: 2026-09-05
+lastmod: 2026-09-05
 keyPoints:
-  - "Screens expose pixels; governed tools expose typed operations and policy intent."
+  - "A shared interface should distinguish proposed, approved, applied, and recovered states."
   - "The human interface should remain the shared place for approval and evidence."
   - "Negative-path tests matter more than a smooth happy-path demonstration."
 proofLinks:
@@ -30,13 +31,11 @@ series: "Reliable Agent Systems"
 seriesOrder: 3
 ---
 
-An agent can use a website by looking at pixels, clicking controls, and reading the result. That is powerful because it works without changing the application.
+An agent says, “I have prepared the mitigation.” The operator sees a green status badge. Does that mean the change was proposed, approved, applied, or verified to have fixed the incident?
 
-It is also the least explicit way to automate a consequential interface.
+An agent-friendly interface needs to answer that question without asking the operator to reconstruct the conversation.
 
-The agent has to infer what a chart means, which control maps to which action, whether the page changed, and whether an approval actually exists. The human sees a visual interface. The agent reconstructs a hidden API from appearance and behavior.
-
-For high-consequence workflows, the page should expose a better contract.
+Screen-based agents can use rendered pixels, and some browser clients also inspect the DOM or accessibility information. Structured page tools add another route. Whichever route initiates the work, the application should expose the same proposal, approval state, and recorded outcome to the person responsible.
 
 ## The interface should remain shared
 
@@ -64,6 +63,23 @@ For an incident workflow, a useful tool set could be:
 
 The verbs reveal the control model. Reading, staging, approving, and executing are different transitions. If one tool accepts arbitrary commands and performs all four, the interface may be machine-readable while the control boundary remains weak.
 
+## Show the decision the operator is being asked to make
+
+In an incident workflow, an approval view should name the affected service, current state, proposed change, expected consequence, and what remains uncertain. “Approve mitigation” carries too little information if the selected mitigation can change after the page renders.
+
+Runbook Relay uses predefined synthetic options. Its interface separates a staged mitigation from execution and distinguishes an applied action from an incident that has recovered. That distinction prevents a successful tool call from becoming a claim that service health is restored.
+
+For a production version, I would make four states explicit:
+
+| State | What the operator should be able to establish |
+|---|---|
+| Proposed | Exact resource and change, with the evidence behind it |
+| Approved | Who authorized that change, against which state, and until when |
+| Applied | What the service recorded as executed |
+| Verified | Whether observed results meet the stated recovery criteria |
+
+Keep predicted improvement visibly separate from observed results. If the underlying resource or proposal changes, invalidate the pending approval and show the new decision.
+
 ## Human approval must be a system state
 
 “Ask the user first” is not enough. A model can misunderstand the answer, use approval from the wrong context, or treat silence as consent.
@@ -78,15 +94,15 @@ The system should reject the action and record the rejection. If the model merel
 
 ## Receipts create a shared evidence trail
 
-Every tool call should produce a durable receipt the human can inspect. At minimum, record:
+Record consequential proposals, approvals, execution attempts, and outcomes so the human can inspect them. Capture enough evidence to explain the decision without turning the receipt store into a second copy of sensitive source data. Useful fields include:
 
 - tool name and caller;
-- structured input;
-- policy outcome;
-- structured result;
+- selected or redacted input fields;
+- policy outcome and reason;
+- result status and a reference to the affected record;
 - timestamp and relevant state version.
 
-Runbook Relay stores these receipts in D1 and hash-links their canonical contents. This does not replace a signed or independently anchored production audit system. It makes the interaction understandable and exposes mismatches between what the model claims and what the service recorded.
+Runbook Relay stores its synthetic event receipts in D1 and hash-links their canonical contents. Rejected attempts must remain distinguishable from receipts that assert a committed change. This does not replace a signed or independently anchored production audit system. It makes the interaction understandable and exposes mismatches between what the model claims and what the service recorded.
 
 ## Design the fallback honestly
 
@@ -94,12 +110,14 @@ Emerging browser capabilities are not available everywhere. A demo can include a
 
 That distinction matters. A convincing simulation is useful evidence when it states exactly what it proves.
 
-## The broader principle
+## A page click does not prove human presence
 
-Agent-friendly design is not about removing the interface. It is about making supported operations explicit while preserving human comprehension and control.
+Keeping approval visible is a useful interaction design choice. It does not establish who clicked. A browser agent with general page controls may be able to press the same button even when no approval tool is exposed.
 
-Pixels remain valuable. They show context, trends, alternatives, and consequences. Structured tools add contracts. Policy and approval bound the action. Receipts connect the machine path back to the shared page.
+Runbook Relay binds approval to an anonymous browser session. A real operational workflow also needs authenticated identity, action-specific authorization, and confirmation appropriate to the consequence. The page should make those guarantees understandable, and the service must enforce them.
 
-The result is not a website that an agent can secretly operate. It is a control surface where a human and an agent can work from the same evidence.
+## Keep the next decision visible
 
-The companion project for this article is [Runbook Relay](/projects/runbook-relay/).
+A reviewer should be able to open the page and answer three questions: what is proposed, what has actually happened, and what decision is needed next? That is a useful acceptance test for the interface before adding more agent capabilities.
+
+[Screen Use vs WebMCP](/writing/screen-use-vs-webmcp/) covers when to choose each interaction route. [Why Browser Agent Governance Belongs on the Server](/writing/from-browser-tool-to-governed-workflow/) explains how Runbook Relay enforces the transitions.

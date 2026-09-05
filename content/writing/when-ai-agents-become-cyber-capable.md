@@ -1,11 +1,12 @@
 ---
 title: "When AI Agents Become Cyber-Capable, the Control Plane Must Sit Outside the Model"
 date: 2026-09-04
-description: "Frontier agents are gaining autonomous cyber capabilities faster than their internal reasoning remains monitorable. Enterprise control must therefore be enforced outside the model."
+description: "Cyber-capability disclosures and monitor-evasion research make an existing requirement more urgent: enforce tool permissions, data flows, and consequential actions outside the model."
 primaryTopic: "Agent architecture"
 evidenceLabel: "Source-backed explainer"
 evidenceBoundary: "This article applies current vendor disclosures, observed security incidents, and preliminary research to an enterprise architecture argument. It is not an independent model evaluation or production benchmark."
-lastVerified: 2026-09-04
+lastVerified: 2026-09-05
+lastmod: 2026-09-05
 keyPoints:
   - "Model-internal monitoring is useful telemetry, not a reliable authorization boundary."
   - "An agent control plane must mediate identity, tools, data flows, egress, and irreversible effects outside the model."
@@ -32,29 +33,31 @@ series: "Reliable Agent Systems"
 seriesOrder: 3
 ---
 
-The most important signal in agent security is not that AI models are becoming more capable.
+A support agent may be allowed to read a customer record and send an email. That does not mean it may send every field in that record to any recipient.
 
-It is that their capabilities are rising while some of their behavior is becoming harder to monitor.
+The dangerous action can be a sequence of individually plausible steps. A monitor might miss the sequence, and the model might describe it innocently. The consuming application still needs to enforce where the data may go.
 
-OpenAI now classifies GPT-6 Astra as its first model at the **Critical cybersecurity capability** threshold. According to its system card, the model can find previously unknown vulnerabilities and develop exploit chains against well-protected systems when given suitable tools and access. The same disclosure reports that Astra is less monitorable through its chain of thought than GPT-5.6 Sol and can sometimes evade internal monitors during adversarial sabotage evaluations.
+Recent cyber-capability disclosures make this existing architecture requirement more urgent. They do not establish that every capable model is malicious or that monitoring has no value.
+
+## What the current disclosures establish
+
+OpenAI now classifies GPT-6 Astra as its first model at the **Critical cybersecurity capability** threshold. According to its [system card](https://deploymentsafety.openai.com/gpt-6-astra), the model can find previously unknown vulnerabilities and develop exploit chains against well-protected systems when given suitable tools and access. The same disclosure reports that Astra is less monitorable through its chain of thought than GPT-5.6 Sol and can sometimes evade internal monitors during adversarial sabotage evaluations.
 
 The counter-evidence matters. OpenAI also reports that Astra is more robust against jailbreaks, respects safety restrictions more consistently overall, and produced roughly half as many higher-severity misalignment flags across more than 54,000 simulated Codex tasks. The monitor-evasion findings were primarily elicited under adversarial conditions.
 
-Anthropic provides a useful second model example. Claude Fable 5.1 and Claude Mythos 5.1 use the same underlying model with different safeguard configurations. [Fable 5.1 is generally available](https://www.anthropic.com/claude-fable-and-mythos-5-1) and blocks or redirects higher-risk dual-use cyber tasks. Mythos 5.1 offers more permissive cyber and biology access to vetted organizations. Anthropic describes Mythos 5.1 as its strongest cyber-capable model while assessing that it remains below the next catastrophic-risk threshold in its Frontier Compliance Framework.
+Anthropic provides a useful second model example. Claude Fable 5.1 and Claude Mythos 5.1 use the same underlying model with different safeguard configurations. [Fable 5.1 is generally available](https://www.anthropic.com/claude-fable-and-mythos-5-1) and blocks or redirects higher-risk dual-use cyber tasks. Mythos 5.1 offers more permissive cyber and biology access to vetted organizations. This illustrates why a model name alone does not describe the deployed access and safeguard configuration.
 
 The OpenAI and Anthropic examples use different capability taxonomies and deployment strategies. Both point toward the same enterprise requirement: model safeguards determine which behavior a provider intends to permit, while the consuming organization must still control the identity, data, tools, networks, and effects available in its own environment.
 
-This is not evidence that Astra is broadly misaligned. It is evidence of an architectural mismatch: **a more capable agent can be safer on average and still make model-internal monitoring a weaker last line of defense.**
-
-Enterprise systems should respond by moving authority outside the model.
+My architectural inference is narrower than a claim about overall alignment: improved average behavior does not establish that a reasoning monitor can reliably authorize consequential actions. The organization operating the agent still owns that boundary.
 
 ## Monitoring is telemetry, not authority
 
 Reasoning-trace monitoring can reveal intent, surface suspicious behavior, and help investigators understand a run. It remains valuable.
 
-It cannot be the component that ultimately decides whether a payment executes, a credential is used, a production system changes, or sensitive data leaves the organization.
+A suspicious trace can be a reason to block or escalate. A benign trace must not substitute for checking permission, resource scope, destination, and approval. Monitoring can contribute to the decision; it should not be the sole basis for allowing the effect.
 
-The model generates the plan, tool calls, and reasoning trace that the monitor evaluates. In OpenAI's adversarial tests, Astra sometimes shortened its reasoning or omitted incriminating details when it knew a monitor was present. The proposed action could therefore remain dangerous even when the trace looked harmless. Final authorization must evaluate the action outside the model.
+The model generates the plan, tool calls, and reasoning trace that the monitor evaluates. OpenAI reports that Astra is more able to control its chain of thought and less likely to include incriminating information in it under adversarial conditions. The proposed action could therefore remain dangerous even when the trace looked harmless. Final authorization must evaluate the action outside the model.
 
 This is the same reason a prompt such as “never expose customer data” is not an access-control policy. It guides behavior. It does not prevent a credential-valid request from reaching an external service.
 
@@ -87,7 +90,7 @@ These mechanisms are complementary. None is a complete control plane on its own.
 
 The distinction between catalog and enforcement is especially important. A registry can show that a tool passed review. It does not prove that every invocation is authorized, that its arguments remain in scope, or that a denied call cannot reach the tool through another path.
 
-## AI gateways are becoming Tier-0 infrastructure
+## Protect gateways according to the authority they hold
 
 The control plane itself also needs protection.
 
@@ -95,7 +98,7 @@ The control plane itself also needs protection.
 
 That pattern matters beyond the individual vulnerabilities. AI gateways and orchestration services concentrate trust. They often sit close to provider keys, enterprise data, tool routing, policy configuration, and executable infrastructure. Compromising one can turn an agent integration layer into a path across several security domains.
 
-Treat these components like identity infrastructure or CI/CD control planes:
+Classify a gateway by the credentials, data, and administrative reach it actually holds. A service able to mint credentials or change policy deserves stronger protection than a narrowly scoped read-only proxy. For components with broad authority:
 
 - keep administrative surfaces private;
 - use workload identities and short-lived, task-scoped credentials;
@@ -105,7 +108,7 @@ Treat these components like identity infrastructure or CI/CD control planes:
 - correlate gateway-origin child processes with secret reads and external callbacks;
 - test that policy failures and timeouts fail closed.
 
-Placing policy outside the model does not help if the enforcement service is internet-exposed, holds reusable secrets, and can spawn an unrestricted shell.
+An external policy service can itself become a route to compromise if its administrative surface, reusable secrets, or execution privileges are poorly protected. Review the enforcement service as part of the trusted system.
 
 ## Design for a compromised model
 
@@ -129,9 +132,17 @@ This architecture does not require the model to be malicious. It protects agains
 
 It also makes a crucial limitation visible: complete mediation is an architectural property, not a feature checkbox. If a background job, hosted tool, batch entry point, or delegated sub-agent can bypass the interception point, the system has an observation layer rather than an enforcement boundary.
 
-## The goal is bounded autonomy, not less autonomy
+## Test the path that could bypass the policy
 
-The answer is not to stop deploying agents or to put a human confirmation dialog in front of every tool call.
+Start with the customer-record example and three concrete tests:
+
+1. **Read, then export.** Allow the required internal lookup, then attempt to send a sensitive field to an unapproved destination. The outbound operation should be denied even if the read and email tools are each available.
+2. **Use another execution route.** Repeat a denied action through a batch job or delegated worker. The same policy must apply, and a policy timeout must not become permission to proceed.
+3. **Change authority mid-task.** Revoke the task's capability after planning but before execution. The service should reject the stale authority and preserve evidence of the decision.
+
+These are proposed acceptance tests, not results from my projects. Test legitimate paths beside them: permitted data must still reach an approved recipient. For each denial, verify the downstream state and the recorded decision. A log entry saying “blocked” is insufficient if the effect happened anyway.
+
+## Expand autonomy within verified boundaries
 
 Low-risk, reversible actions can remain highly autonomous. Consequential actions need stronger controls based on identity, data sensitivity, reversibility, reach, and external effect. A good control plane makes those differences explicit and lets teams expand autonomy as evidence improves.
 
@@ -141,7 +152,7 @@ That limitation reinforces the central point. No single monitor, registry, gatew
 
 Trust comes from an enforceable path in which the model can propose actions without controlling the limits on its own authority.
 
-As cyber-capable agents improve, that separation will move from advanced security architecture to the baseline for enterprise deployment.
+For a smaller inspectable example, [Runbook Relay's server control plane](/writing/from-browser-tool-to-governed-workflow/) binds approval to an exact synthetic action and records its outcome. It does not implement enterprise information-flow control, but it shows how to keep a concrete execution decision outside the model.
 
 ## Sources
 

@@ -5,10 +5,11 @@ description: "The cheapest model is not always the cheapest AI system. Agent cos
 primaryTopic: "Agent architecture"
 evidenceLabel: "Tested project analysis"
 evidenceBoundary: "The public gate measures serialized UTF-8 bytes and call count, not model tokens or end-to-end agent performance. Tool selection, latency, retries, and tokens per verified outcome remain unmeasured."
-lastVerified: 2026-09-01
+lastVerified: 2026-09-05
+lastmod: 2026-09-05
 keyPoints:
   - "Measure cost per verified outcome, not cost per token."
-  - "Every exposed tool adds recurring context before the user request is solved."
+  - "Tool definitions, results, retries, and caching all affect the cost of completing a task."
   - "Reducing tokens must not remove the contracts that keep tool use reliable."
 proofLinks:
   - label: "Inspect a bounded five-tool interface"
@@ -43,9 +44,7 @@ For a tool-using agent, the cheapest model is not always the cheapest system. To
 
 Use one denominator: cost per verified outcome.
 
-A shorter prompt that causes a retry is not an optimization. A longer contract that produces a valid call and a correct result may be cheaper.
-
-Token efficiency is an architecture problem, not a copy-editing exercise.
+A shorter prompt can save money or create enough retries to erase the saving. A longer contract may produce a valid call sooner. Only the full task cost can settle that comparison.
 
 ## The cost has several layers
 
@@ -68,7 +67,13 @@ The denominator matters. For a repeated evaluation fixture, calculate:
 
 `model tokens per verified outcome = total model input and output tokens / verified outcomes`
 
+That is a usage measure, not a price comparison. For cost, weight uncached input, cached input, and output tokens by the applicable rates, then add paid tool calls and other run costs. Include failed attempts in the numerator. Track human review effort alongside the automated cost.
+
+Consider an illustrative batch of 100 identical task requests under two configurations. A costs €6 and completes 60; B costs €8 and completes 95. Automated cost per verified completion is €0.10 for A and about €0.084 for B. These are invented numbers to show the arithmetic, not results from my demo. The comparison still needs the same quality floor, task mix, and safety requirements.
+
 The outcome must be checked against application state, not inferred from a fluent final message. In a read workflow, success may mean returning the correct record. In a consequential workflow, success may mean completing an approved action. In a negative test, the successful outcome may be rejecting an unapproved action and recording the reason.
+
+Report legitimate task completion separately from successful safety denials. Otherwise a system that refuses everything could look efficient on a suite with many negative cases. Keep the task mix fixed and report completion rate beside cost, so a route cannot improve its score merely by abandoning difficult work.
 
 If no run reaches the verified outcome, the efficiency measure is undefined. A failing system cannot look efficient merely because it stops early.
 
@@ -86,9 +91,9 @@ That answer needs evaluation. It cannot be inferred from token count alone.
 
 ## Expose fewer tools at a time
 
-One of the strongest cost controls is selective exposure.
+Selective tool exposure is one option to test when a large catalog consumes substantial context.
 
-An application may own dozens of operations while a particular task needs only a small subset. A routing layer can first identify the domain, then expose the relevant tools to the model. This reduces context, narrows the decision space, and limits accidental access.
+An application may own dozens of operations while a particular task needs only a small subset. A routing layer can first identify the domain, then expose the relevant tools to the model. This can reduce context and narrow the selection problem. It does not revoke access: the service must authorize calls even when a tool was omitted from discovery. Account for any extra routing call, and measure what the provider actually bills after caching or deferred tool loading.
 
 The router itself needs a contract. It should use stable task categories, record why a tool set was selected, and fail safely when the request spans several domains. Dynamic exposure should not become an invisible permission escalation mechanism.
 
@@ -98,7 +103,7 @@ Tool granularity should match a meaningful application decision.
 
 Very granular tools make every backend step visible. They can also force the model through many sequential calls and require it to manage intermediate state. Very broad tools reduce round trips. They may hide important policy and approval boundaries inside one operation.
 
-Runbook Relay deliberately separates read, compare, stage, execute, and reset. That is not the minimum number of calls. It is the smallest set that keeps investigation, proposal, approval, execution, and recovery visible as different decisions.
+Runbook Relay deliberately separates read, compare, stage, execute, and reset. That is not the minimum number of calls. It is the set I chose to keep investigation, proposal, execution, and reset visible as separate decisions, with approval on the page. I have not compared alternative granularities.
 
 A production workflow tool can still perform several internal service calls. The important boundary is whether the external operation has one coherent intent, authorization decision, and result.
 
@@ -117,7 +122,7 @@ An application-owned adapter should return the smallest evidence set required fo
 
 Truncation without structure is risky. The model needs to know what was omitted and how to request the next slice.
 
-This is also why pagination needs an explicit continuation contract. The [Model Context Protocol specification](https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/pagination) uses opaque cursors and a visible `nextCursor`, so a client can distinguish a complete result from the first slice of a larger set.
+The [Model Context Protocol specification](https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/pagination) uses opaque cursors and `nextCursor` for list operations such as tool and resource discovery. That does not automatically paginate an individual tool's business result. An application returning incident records needs its own explicit continuation contract.
 
 ## Count latency and failures with tokens
 
@@ -127,7 +132,7 @@ Measure the complete task:
 
 | Metric | Why it matters |
 |---|---|
-| Definition tokens | Recurring context cost before execution |
+| Billed definition tokens | Context cost after provider caching and loading behavior |
 | Calls per completed task | Orchestration and latency cost |
 | Result tokens | Context added after each tool |
 | Validation failures | Cost of an unclear or over-broad contract |
@@ -141,7 +146,7 @@ Publish the model, tokenizer, tool set, task fixture, run count, and failure exa
 
 I added a structural efficiency gate to Runbook Relay's blocked-before-approval proof. It measures the serialized five-tool catalog plus the inputs and structured results for the four-call path that reads the incident, compares options, stages one mitigation, and verifies that execution is blocked without human approval.
 
-Verified on 1 September 2026, the fixture records:
+The fixture is dated 1 September 2026. Rerunning its measurement on 5 September reproduced:
 
 | Structural measure | Result | Budget |
 |---|---:|---:|
@@ -150,9 +155,9 @@ Verified on 1 September 2026, the fixture records:
 | Tool calls to the verified outcome | 4 | 4 maximum |
 | Expected policy outcome | Blocked | Must be blocked |
 
-The [measurement script](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/scripts/measure-agent-efficiency.mjs), [fixture](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/fixtures/agent-efficiency.json), and [regression tests](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/agent-efficiency.test.mjs) are public.
+The [measurement script](https://github.com/Andreasniss/runbook-relay-webmcp/blob/f14e9c8bd431f0b7087c97f4ed98a59fddd79eb7/scripts/measure-agent-efficiency.mjs), [fixture](https://github.com/Andreasniss/runbook-relay-webmcp/blob/f14e9c8bd431f0b7087c97f4ed98a59fddd79eb7/tests/fixtures/agent-efficiency.json), and [regression tests](https://github.com/Andreasniss/runbook-relay-webmcp/blob/f14e9c8bd431f0b7087c97f4ed98a59fddd79eb7/tests/agent-efficiency.test.mjs) are pinned to the reviewed revision, `f14e9c8`.
 
-These are bytes, not tokens. The gate is deliberately tokenizer-independent and catches interface growth before a model is involved. It does not prove tool-selection accuracy or browser-agent efficiency. The repository now includes a 50-task live-model harness that captures provider-reported usage, latency, retries, policy grades, and final-state evidence. It has not run, so no model result is claimed.
+These are bytes, not tokens. The gate is deliberately tokenizer-independent and catches interface growth before a model is involved. It does not prove tool-selection accuracy or browser-agent efficiency. The repository now includes a 50-task live-model harness that captures provider-reported usage, latency, retries, policy grades, and final-state evidence. No completed live-model result is published in the repository, so no model performance result is claimed here.
 
 ## Use caching and routing where they preserve meaning
 
@@ -160,10 +165,8 @@ Stable tool definitions may benefit from provider-supported prompt caching. Repe
 
 Each optimization changes an assumption. Cache keys need to include the tool version and policy context. A routing model needs its own evaluation set. A stale result must remain visibly stale.
 
-## Tokenmaxxing should maximize useful work
+## Start with one measurable change
 
-The goal is not the smallest prompt. It is the most reliable completed work for the available context, latency, and cost budget.
+Choose the largest observed cost source, change one part of the interface, and rerun the same task set. A smaller result schema is useful only if completion quality and policy behavior hold up. A model switch is useful only if the complete route becomes cheaper at the required quality floor.
 
-Expose only relevant tools. Keep their contracts precise. Design granularity around real decisions. Return structured evidence instead of raw payloads. Measure the entire path, including the failures.
-
-The cheapest tool call is not always the shortest one. It is the one the system does not need to repeat.
+Publish the unsuccessful attempts with the savings. That is what lets a reader distinguish an efficient system from a cheap-looking request.

@@ -2,10 +2,11 @@
 title: "Why Browser Agent Governance Belongs on the Server"
 date: 2026-09-01
 description: "Moving agent policy from client state to a durable server control plane changes what a tool demo can prove."
-primaryTopic: "Agent controls"
+primaryTopic: "Tool interfaces"
 evidenceLabel: "Tested project analysis"
 evidenceBoundary: "Runbook Relay demonstrates durable policy, scoped approval, idempotency, replay protection, and hash-linked receipts over a synthetic incident action. It does not provide enterprise identity, strong human-presence attestation, real infrastructure execution, or live-model performance results."
-lastVerified: 2026-09-04
+lastVerified: 2026-09-05
+lastmod: 2026-09-05
 keyPoints:
   - "A tool schema describes an operation. The server still has to decide whether that operation may run."
   - "Approval should bind identity, exact action, resource version, expiry, and one execution."
@@ -81,9 +82,9 @@ The server now binds approval to:
 
 Staging a mitigation increments the resource version. The server calculates the action digest from the incident ID, mitigation ID, and new version. It also derives an idempotency key from the session and digest.
 
-The page sends the digest and version back when the operator approves. Execution has to present the same digest, version, and idempotency key. The server checks that the approval belongs to the same session, remains active, and has not been consumed.
+The page sends the digest and version back when the operator approves. A new execution has to present the same digest, version, and idempotency key. The server checks that the approval belongs to the same session, remains active, and has not been consumed.
 
-If any value changed, execution fails closed.
+A new effect is blocked when those checks fail. An exact retry of a completed execution follows a different path: it returns the stored result.
 
 ## Retries need a policy result
 
@@ -100,10 +101,10 @@ The distinction matters:
 | First matching request with active approval | Execute once and store the result |
 | Exact retry | Return the stored result |
 | Same key, different action | Block as an idempotency conflict |
-| Old digest or resource version | Block as stale state |
-| Expired or consumed approval | Block at the approval boundary |
+| New execution with an old digest or resource version | Block as stale state |
+| New execution with expired or consumed approval | Block at the approval boundary |
 
-The model does not decide which case applies. Durable records do.
+For example, if the first execution succeeds but its response is lost, a retry must retrieve that execution. It must not ask the model to invent a new key or apply the same mitigation again. The model does not decide which case applies. Durable records do.
 
 ## Concurrency should not create fictional evidence
 
@@ -113,7 +114,9 @@ Each Runbook Relay mutation uses compare-and-swap conditions over the resource v
 
 Approval insertion uses the same pattern. Execution also requires the staged digest, version, idempotency key, unconsumed approval, expiry, session identity, and prior receipt head to match.
 
-This is not a general transaction framework. It is a compact demonstration of a larger rule: the evidence record and the state transition need the same concurrency boundary.
+The evidence record and the state transition need the same concurrency boundary. The demo applies this rule to state in D1 and a synthetic executor.
+
+That does not establish exactly-once execution against a real infrastructure API. A production change could succeed downstream just before the caller crashes without recording the result. Depending on the service, closing that gap may require a durable dispatch record, downstream idempotency, and reconciliation of uncertain outcomes. A local database transaction alone cannot guarantee the remote effect.
 
 ## Receipts should be verifiable, not only visible
 
@@ -129,7 +132,7 @@ Each receipt hash covers canonical JSON containing:
 
 The snapshot API returns the latest 100 receipts plus one anchor when the chain is longer. It recomputes content hashes and verifies the links in that returned segment. The response reports the total receipt count, returned count, truncation state, head, and verification result.
 
-That detects modification inside the segment. It is not a signed audit log or independent transparency system. Production evidence would need a trusted identity, retention controls, independent anchoring, redaction, and access monitoring.
+Verification detects changes that no longer match the stored hashes or links in the returned segment. Someone able to rewrite both the records and their hashes could construct a different internally consistent chain. The extra anchor comes from the same store; it is not an independent witness. Production evidence would need trusted identity, retention controls, independent anchoring, redaction, and access monitoring.
 
 ## “Human approval” still needs an honest boundary
 
@@ -138,8 +141,6 @@ The demo now issues a random 256-bit session cookie and stores only a SHA-256-de
 These controls isolate browser sessions and make cross-site misuse harder. They do not authenticate an employee or prove that a human initiated the page click.
 
 The term “human approval” describes the intended interaction and the absence of an agent-callable approval tool. A browser agent with general page-control capability could still press the approval button. A production workflow should use organization identity, explicit authorization policy, and strong confirmation for consequential actions.
-
-That limitation does not weaken the implementation evidence. It defines it.
 
 ## The evaluation also needs a control boundary
 
@@ -155,9 +156,9 @@ Runbook Relay now includes 50 versioned tasks across observation, comparison, st
 - estimated cost; and
 - a human-label template for response quality and failure taxonomy.
 
-No API key has been supplied. The suite has not run. The repository can claim a tested evaluation contract, not a model success rate.
+As of 5 September 2026, the repository publishes the evaluation contract without a completed live-model result. The runner uses an in-process tool fixture, so even a successful future run would need to be distinguished from an evaluation of native browser discovery and the deployed server.
 
-That is the same control principle applied to public evidence: a result should not exist until the system that produces and reviews it has actually run.
+Report successful task completion and successful safety denials separately. Human review must check that the final response agrees with the tool trace and application state. [Evidence for AI-generated pull requests](/writing/evidence-for-ai-generated-pull-requests/) applies the same discipline to release claims.
 
 ## What the project proves now
 
@@ -167,4 +168,4 @@ It now supports a stronger and more useful claim: a browser-agent workflow can k
 
 The remaining gaps are explicit. Enterprise identity, strong human confirmation, real infrastructure authorization, independent audit anchoring, operational recovery, and live-model evidence still require separate work.
 
-That is the difference between a smooth tool demo and a governed workflow. The interface makes the action available. The control plane decides whether it happens. The evidence shows which decision won.
+The next production decision is therefore specific: can the target service bind an approved action to a durable execution record and reconcile an uncertain result? Until that is solved, the demo's replay guarantees should stay scoped to its synthetic executor.
