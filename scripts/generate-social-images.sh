@@ -74,4 +74,6 @@ make_card "skill-routing-reliability.png" "Article" "Skill Routing Is a Reliabil
 make_card "evidence-for-agent-infrastructure-changes.png" "Article" "When Coding Agents Change Infrastructure" "What evidence is enough to ship?" "#45aaa2" "52"
 make_card "choose-ai-use-case-by-bottleneck.png" "Article" "Choose an AI Use Case by Its Workflow Bottleneck" "Measure the whole process, including waits and exceptions." "#45aaa2" "50"
 
+make_card "the-model-cellar.png" "Article" "The Model Cellar" "A wine lover’s guide to reading AI model cards."
+
 identify "$output_dir"/*.png
