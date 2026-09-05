@@ -287,7 +287,16 @@ for (const socialSurface of ["rel=\"icon\"", "rel=\"apple-touch-icon\"", "og:ima
 
 const config = fs.readFileSync(path.join(root, "hugo.yaml"), "utf8");
 if (!config.includes('baseURL: "https://andreasnissen.dev/"')) failures.push("Production base URL is missing or incorrect");
-if (!config.includes('socialImage: "/images/social/default.png"')) failures.push("Default social image is missing or incorrect");
+const defaultSocialImage = config.match(/^\s+socialImage:\s*"([^"]+)"/m)?.[1];
+const defaultSocialPath = defaultSocialImage && path.join(root, "static", defaultSocialImage.replace(/^\//, ""));
+if (!defaultSocialPath || !fs.existsSync(defaultSocialPath)) {
+  failures.push("Default social image is missing or incorrect");
+} else {
+  const dimensions = pngDimensions(defaultSocialPath);
+  if (!dimensions || dimensions.width !== 1200 || dimensions.height !== 630) {
+    failures.push("Default social image must be a 1200x630 PNG");
+  }
+}
 if (!config.includes('sourceURL: "https://github.com/Andreasniss/personal-website"')) failures.push("Verified public source URL is missing or incorrect");
 for (const [surface, content] of [["footer", footer], ["Person metadata", head]]) {
   if (/https:\/\/(?:www\.)?x\.com\//i.test(content) || /\.?site\.params\.xurl/i.test(content)) {

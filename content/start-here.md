@@ -1,8 +1,8 @@
 ---
 title: "Start Here"
 description: "A five-minute path through my applied AI work, public evidence, and operating approach."
-socialImage: "/images/social/default.png"
-socialImageAlt: "Andreas Nissen, enterprise AI architecture, agent reliability, evaluation, and governed execution."
+socialImage: "/images/social/homepage-v2.png"
+socialImageAlt: "Andreas Nissen. AI Architecture. Projects, Demos, and Writing. andreasnissen.dev."
 ---
 
 Choose the route that matches what you need to evaluate. Each path leads to public evidence, explicit ownership, and the limits of what I claim.
