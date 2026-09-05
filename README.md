@@ -13,6 +13,7 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 - Case studies as the primary project-card action, with demo and source links secondary
 - Personal-project and employer non-affiliation disclosure on the homepage, project index, and case studies
 - Evidence-led writing archive with article search, controlled topic filters, proof links, verification dates, and series navigation
+- Question-led reading routes connecting introductory explanations to demos and deeper evidence, with RSS for new articles
 - Project pages grounded in verified public repositories or owned live demos
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
 - A Selected Impact page that separates public proof, professional scope, and personally owned workshop material
