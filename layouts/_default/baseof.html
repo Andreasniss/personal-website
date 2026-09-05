@@ -14,6 +14,12 @@
       {{ $script := . | minify | fingerprint }}
       <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
     {{ end }}
+    {{ if or (ge (len .Fragments.Identifiers) 2) .Params.evidenceReady }}
+      {{ with resources.Get "js/page-outline.js" }}
+        {{ $outline := . | minify | fingerprint }}
+        <script src="{{ $outline.RelPermalink }}" integrity="{{ $outline.Data.Integrity }}" defer></script>
+      {{ end }}
+    {{ end }}
     {{ if eq .Section "writing" }}
       {{ with resources.Get "js/writing-filter.js" }}
         {{ $filter := . | minify | fingerprint }}

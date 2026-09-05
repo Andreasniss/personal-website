@@ -1,0 +1,26 @@
+{{- $hasOutline := or (ge (len .Fragments.Identifiers) 2) .Params.evidenceReady -}}
+{{- if $hasOutline -}}
+<aside class="page-outline" aria-label="Page sections">
+  <details open>
+    <summary>On this page</summary>
+    {{ if .Params.evidenceReady }}
+      <nav aria-label="Project evidence sections">
+        <ul>
+          <li><a href="#verification-snapshot">Verification snapshot</a></li>
+          <li><a href="#reviewer-path-title">Try it step by step</a></li>
+          <li><a href="#project-architecture">Architecture</a></li>
+        </ul>
+      </nav>
+    {{ end }}
+    {{ .TableOfContents }}
+    {{ if .Params.evidenceReady }}
+      <nav aria-label="Project checks and limits">
+        <ul>
+          <li><a href="#evidence-matrix-title">Source and tests</a></li>
+          <li><a href="#project-limitations-title">Scope and limitations</a></li>
+        </ul>
+      </nav>
+    {{ end }}
+  </details>
+</aside>
+{{- end -}}

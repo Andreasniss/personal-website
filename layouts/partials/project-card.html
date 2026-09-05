@@ -1,5 +1,5 @@
 <article class="project-card">
-  {{ with .Params.image }}<a class="card-media wide" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . | relURL }}" alt="" loading="lazy"></a>{{ end }}
+  {{ with (.Params.image | default .Params.architectureImage) }}<a class="card-media wide" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . | relURL }}" alt="" loading="lazy"></a>{{ end }}
   <div class="card-body">
   <div class="project-topline">
     <span>{{ .Params.year }}</span>

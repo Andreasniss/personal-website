@@ -1,7 +1,7 @@
 {{- $page := .page -}}
 {{- $phase := .phase -}}
 {{- if and $page.Params.evidenceReady (eq $phase "lead") -}}
-  <section class="project-proof" aria-label="Project verification snapshot">
+  <section id="verification-snapshot" class="project-proof" aria-label="Project verification snapshot">
     <div class="project-proof-heading">
       <p class="eyebrow warm">Verification snapshot</p>
       {{ with $page.Params.lastVerified }}<span>Checked {{ time.Format "02 January 2006" . }}</span>{{ end }}
@@ -39,7 +39,7 @@
   </section>
 
   {{ with $page.Params.architectureImage }}
-    <figure class="architecture-visual">
+    <figure id="project-architecture" class="architecture-visual">
       <img src="{{ . | relURL }}" alt="{{ $page.Params.architectureAlt }}">
       {{ with $page.Params.architectureCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
     </figure>
