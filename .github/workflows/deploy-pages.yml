@@ -43,7 +43,8 @@ jobs:
 
       - name: Validate production URLs
         run: |
-          if grep -R -F "/personal-website/" public; then
+          # Match retired site URLs and root-relative paths, not GitHub source links.
+          if grep -R -E 'https?://(andreasnissen\.dev|andreasniss\.github\.io)/personal-website/|(^|[^[:alnum:]_.:/-])/personal-website/' public; then
             echo "Generated site still contains the retired GitHub Pages subpath."
             exit 1
           fi
