@@ -10,6 +10,10 @@ topics:
   - Learning
 ---
 
+I write because I’m curious. Exploring ideas in writing helps me learn and sharpen my thinking. I share that process here so others can find something useful, unexpected, or simply fun, and perhaps leave with an idea of their own.
+
+These are personal projects and opinions. They do not represent my employer and are not affiliated with or endorsed by it. Have a different perspective or an idea to share? [Get in touch](/contact/). I’d enjoy the conversation.
+
 Choose a question, then follow the explanation to a working example:
 
 - **What should an agent be allowed to do?** Read [Context and Control](/writing/context-and-control/), then inspect the approval boundary in [Runbook Relay](/projects/runbook-relay/).
