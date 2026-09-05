@@ -12,7 +12,7 @@
         </div>
         <div class="article-evidence-meta" aria-label="Article evidence">
           <span>{{ .Params.evidenceLabel }}</span>
-          <span>Verified {{ time.Format "02 January 2006" .Params.lastVerified }}</span>
+          <span>Evidence checked {{ time.Format "02 January 2006" .Params.lastVerified }}</span>
         </div>
         {{ if eq .Params.origin "linkedin" }}
           <p class="article-origin">
@@ -37,7 +37,7 @@
         <ul>
           {{ range .Params.keyPoints }}<li>{{ . }}</li>{{ end }}
         </ul>
-        <p class="article-boundary"><strong>Evidence boundary</strong>{{ .Params.evidenceBoundary }}</p>
+        <p class="article-boundary"><strong>What supports this article</strong>{{ .Params.evidenceBoundary }}</p>
         {{ with .Params.proofLinks }}
           <div class="proof-actions" aria-label="Article proof links">
             {{ range . }}<a class="action-link" href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} rel="noreferrer"{{ end }}>{{ .label }}</a>{{ end }}
@@ -72,12 +72,12 @@
     {{ if eq .Section "projects" }}{{ partial "project-evidence.html" (dict "page" . "phase" "details") }}{{ end }}
     {{ if or .Params.relatedProjectURL .Params.relatedArticleURL .Params.repoURL .Params.demoURL }}
       <aside class="related-evidence" aria-label="Related evidence">
-        <p class="eyebrow warm">Continue with proof</p>
+        <p class="eyebrow warm">Explore related work</p>
         <div class="proof-actions">
           {{ with .Params.relatedProjectURL }}<a class="action-link" href="{{ . | relURL }}"><img src="{{ "icons/external-link.svg" | relURL }}" alt="">{{ $.Params.relatedProjectTitle }}</a>{{ end }}
           {{ with .Params.relatedArticleURL }}<a class="action-link" href="{{ . | relURL }}"><img src="{{ "icons/article.svg" | relURL }}" alt="">{{ $.Params.relatedArticleTitle }}</a>{{ end }}
-          {{ with .Params.demoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/demo.svg" | relURL }}" alt="">Open {{ $.Params.demoLabel | default "live demo" }}</a>{{ end }}
-          {{ with .Params.repoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/github.svg" | relURL }}" alt="">Inspect repository</a>{{ end }}
+          {{ with .Params.demoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/demo.svg" | relURL }}" alt="">{{ $.Params.demoLabel | default "Open live demo" }}</a>{{ end }}
+          {{ with .Params.repoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/github.svg" | relURL }}" alt="">View source on GitHub</a>{{ end }}
         </div>
       </aside>
     {{ end }}

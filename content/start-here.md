@@ -1,6 +1,6 @@
 ---
 title: "Start Here"
-description: "A five-minute path through my applied AI work, public evidence, and operating approach."
+description: "Try a demo, inspect a design decision, and see how I review AI-assisted work in five minutes."
 socialImage: "/images/social/homepage-v2.png"
 socialImageAlt: "Andreas Nissen. AI Architecture. Projects, Demos, and Writing. andreasnissen.dev."
 ---

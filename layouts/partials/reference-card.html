@@ -2,10 +2,10 @@
 {{- $sourceLabel := "Visit site" -}}
 {{- $sourceIcon := "icons/globe.svg" -}}
 {{- if strings.Contains $sourceURL "x.com/" -}}
-  {{- $sourceLabel = "Visit X" -}}
+  {{- $sourceLabel = "View X profile" -}}
   {{- $sourceIcon = "icons/x-twitter.svg" -}}
 {{- else if strings.Contains $sourceURL "github.com/" -}}
-  {{- $sourceLabel = "Visit GitHub" -}}
+  {{- $sourceLabel = "View repository" -}}
   {{- $sourceIcon = "icons/github.svg" -}}
 {{- else if strings.Contains (lower .Params.format) "blog" -}}
   {{- $sourceLabel = "Visit blog" -}}

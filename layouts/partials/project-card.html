@@ -11,9 +11,9 @@
     {{ range first 3 .Params.tags }}<span>{{ . }}</span>{{ end }}
   </div>
   <div class="proof-actions" aria-label="Project links">
-    <a class="action-link" href="{{ .RelPermalink }}" aria-label="View {{ .Title }}"><img src="{{ "icons/article.svg" | relURL }}" alt="">Case study</a>
+    <a class="action-link" href="{{ .RelPermalink }}" aria-label="Read the {{ .Title }} case study"><img src="{{ "icons/article.svg" | relURL }}" alt="">Case study</a>
     {{ with .Params.demoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/demo.svg" | relURL }}" alt="">{{ $.Params.demoLabel | default "Live demo" }}</a>{{ end }}
-    {{ with .Params.repoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/github.svg" | relURL }}" alt="">Repository</a>{{ end }}
+    {{ with .Params.repoURL }}<a class="action-link" href="{{ . }}" rel="noreferrer"><img src="{{ "icons/github.svg" | relURL }}" alt="">Source on GitHub</a>{{ end }}
   </div>
   </div>
 </article>

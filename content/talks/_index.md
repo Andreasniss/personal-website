@@ -1,10 +1,10 @@
 ---
 title: "Talks & Workshops"
-description: "Verified workshop experience and practical material on evaluation, policy controls, and reliable enterprise agents."
+description: "My workshop contributions and resources for practicing agent evaluation, policy controls, and failure handling."
 socialImage: "/images/social/talks.png"
 socialImageAlt: "Talks and workshops by Andreas Nissen on reliable enterprise AI."
 learningTitle: "Learn and build with AWS"
-learningDescription: "Use these official AWS resources to build your skills independently or facilitate a hands-on session with your own team."
+learningDescription: "Practice agent development, evaluation, and operational controls with these official AWS workshops."
 learningLinks:
   - label: "Explore AWS Builder Center Learn"
     url: "https://builder.aws.com/learn"
@@ -35,4 +35,4 @@ I build practical sessions around agent evaluation, policy decisions, and failur
 
 I helped run an Amazon Bedrock AgentCore Immersion Day for more than 100 participants. Within that program, I designed and delivered an evaluation and policy module extension for about 30 participants.
 
-The workshop page distinguishes that personal contribution from the wider event and links related public reference work. The official AWS resources below provide separate self-directed learning options.
+Explore the module topics and related public material below, then choose an AWS workshop for further practice.

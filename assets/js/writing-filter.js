@@ -19,7 +19,9 @@
       card.hidden = !show;
       if (show) visible += 1;
     }
-    count.textContent = `${visible} ${visible === 1 ? "article" : "articles"}`;
+    count.textContent = visible === 0
+      ? "No articles match. Try a different search or choose All topics."
+      : `${visible} ${visible === 1 ? "article" : "articles"}`;
   };
 
   search.addEventListener("input", applyFilters);

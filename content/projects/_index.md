@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-description: "Personal AI projects with guided review paths, source code where public, dated verification, and explicit limits."
+description: "Explore how I design agent permissions, validate model proposals, and handle failures through working demos and code."
 ---
 
 Choose a project by the boundary you want to inspect: server approval in Runbook Relay, model-proposal validation in 7DayFocus, tool execution in Agent Reliability Lab, or failover decisions in the interactive learning lab.
