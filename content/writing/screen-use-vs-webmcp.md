@@ -1,11 +1,12 @@
 ---
 title: "Screen Use vs WebMCP: What Changes When an Agent Gets Governed Tools"
 date: 2026-08-31
-description: "Screen use helps an agent operate an interface. WebMCP gives the interface a typed action boundary. Reliable systems need to understand the difference."
+description: "Choose an interaction route by application ownership, task stability, and client support. Both screen controls and page tools need the same server authorization."
 primaryTopic: "Tool interfaces"
 evidenceLabel: "Tested project analysis"
 evidenceBoundary: "Runbook Relay proves the structural tool contract and a durable server control plane over a synthetic action. It does not provide enterprise identity, repeated live-model trials, or an empirical comparison of screen use, native WebMCP, and bridged clients."
-lastVerified: 2026-09-04
+lastVerified: 2026-09-05
+lastmod: 2026-09-05
 keyPoints:
   - "Screen use interprets a presentation layer; WebMCP exposes an explicit operation layer."
   - "Typed tools improve inspectability, but authorization must still be enforced outside the model."
@@ -39,23 +40,30 @@ series: "Reliable Agent Systems"
 seriesOrder: 4
 ---
 
-Screen use and WebMCP solve different parts of the agent-interface problem.
+If you cannot change an application, a browser agent may need to use its existing controls. If you own the application and repeatedly automate the same task, a named operation with a bounded input schema may be easier to inspect and maintain.
 
-Screen use lets an agent interpret and operate the interface a person already uses. WebMCP lets the application expose typed operations designed for an agent to call. One starts from presentation. The other starts from an action contract.
+That is the useful starting point for comparing screen use and WebMCP. It is an interface decision. Either route can reach a well-governed service, and either can reach a poorly governed one.
 
-That distinction changes what the system can validate, observe, and control. It does not make one approach universally better. It tells us where each approach belongs.
+| Your situation | Route to consider | What to verify first |
+|---|---|---|
+| Unfamiliar application you do not control | Existing browser interface | Agent can identify the right controls and verify the outcome |
+| Repeated task in an application you own | Structured page tools alongside the UI | Tool contract is stable and the intended client supports discovery |
+| Visual interpretation is part of the task | Screen observations plus tools where useful | Both routes describe the same current state |
+| External MCP client needs page tools | An explicitly supported transport | Origin, session isolation, client compatibility, and approval behavior |
+
+Runbook Relay is my reference application for examining those boundaries. It is not a benchmark establishing which route performs better.
 
 ## Try the difference before you install anything
 
 Open the [Runbook Relay demo](https://runbook-relay.andreasnissen.dev) in any browser and select **Run the one-click safety proof**. A built-in agent simulator reads the incident, compares bounded mitigations, stages one option, and attempts execution. The server rejects the attempt until page approval records the exact action.
 
-This no-setup path demonstrates the application's policy boundary and durable receipts. It does not demonstrate native tool discovery. For that second test, the demo provides the current OpenAI desktop setup instructions and confirms when five native WebMCP tools are registered.
+This no-setup path demonstrates the application's policy boundary and durable receipts. It does not demonstrate native tool discovery. For that second test, use the setup instructions in the demo and inspect its native-registration status. Client support and configuration must be recorded with the result.
 
-Claude Desktop, Cursor, and other MCP clients need an additional page-to-MCP transport, such as an MCP-B extension or local relay. Runbook Relay does not bundle or claim that path as tested. That distinction matters because a successful relay test proves compatibility through the relay, not native WebMCP support in the client.
+An external client that exposes MCP connectivity without native page-tool discovery needs an additional page-to-MCP transport, such as an MCP-B extension or local relay. Runbook Relay does not bundle or claim that path as tested. That distinction matters because a successful relay test proves compatibility through the relay, not native WebMCP support in the client.
 
 ## Screen use begins with presentation
 
-A screen-using agent sees rendered state. It can read text, interpret layout, select controls, and navigate a workflow. This is valuable because most software was built for people, not agents. The agent can work with an existing interface without waiting for a dedicated integration.
+A screen-using agent interprets rendered state. Some browser clients can also inspect the DOM or accessibility information; browser automation should not be treated as screenshot-only. Depending on its interface, an agent can read text, interpret layout, select controls, and navigate a workflow. This is valuable because most software was built for people, not agents. The agent can work with an existing interface without waiting for a dedicated integration.
 
 The trade-off is inference. The agent must infer which information matters, which control maps to the requested outcome, whether a button is currently safe to press, and whether the interface changed after the last observation.
 
@@ -63,7 +71,7 @@ That makes screen use broad and adaptable. It also means the action boundary is 
 
 ## WebMCP begins with operations
 
-WebMCP gives a page another interface: named tools with descriptions, structured inputs, declared outputs, and behavioral annotations. The human interface remains visible. The page also states what operations exist in a form an agent can inspect directly.
+The [WebMCP Community Group draft](https://webmachinelearning.github.io/webmcp/) describes a JavaScript interface for page tools with names, descriptions, input schemas, execution callbacks, and annotations. It is not a W3C Standard. The human interface remains visible, while the page exposes operations an agent can inspect directly. Runbook Relay returns structured application results from those operations.
 
 In Runbook Relay, the distinction is concrete. The page exposes separate tools to read an incident, compare mitigations, stage a change, execute an approved change, and reset the simulation. The agent does not need to infer those operations from button position or styling.
 
@@ -92,13 +100,14 @@ A later provider-neutral evaluation can expose the same five tools to Claude Des
 | Concern | Screen use | Governed WebMCP tool |
 |---|---|---|
 | Discovery | Interpret visible controls and text | Read a named tool catalog |
-| Inputs | Derive values from the interface | Validate against a JSON schema |
+| Inputs | Enter values through page controls and their validation | Supply arguments under an explicit schema |
 | Intent | Infer the meaning of a click | Call an operation with a stated purpose |
 | Result | Inspect the changed screen | Receive a structured result and inspect the screen |
-| Safety signal | Read labels, warnings, and page state | Combine annotations with runtime authorization |
-| Audit | Reconstruct actions from interaction traces | Record tool name, input, caller, policy result, and output |
+| Safety signal | Read labels, warnings, and page state | Read tool descriptions and supported annotations |
+| Authorization | Enforced by the service behind page controls | Enforced by the service behind tool calls |
+| Audit | Application records plus browser interaction traces | Application records plus structured tool-call traces |
 
-The biggest change is not convenience. It is inspectability. A reviewer can reason about a finite set of declared operations and test the contract around each one.
+The added contract makes operations explicit at the agent-facing interface. It does not imply that the original UI lacks validation or audit records. A fair comparison uses the same backend controls on both routes.
 
 ## A tool declaration is not authorization
 
@@ -108,7 +117,7 @@ A description that says “human approval required” is guidance. An annotation
 
 Runbook Relay demonstrates this rule with a server-side control plane over a deterministic incident. The model-facing layer can stage a predefined mitigation. Only the page approval path can create the session-bound approval record. The execution function rejects a call made before that approval.
 
-The project now binds approval to an anonymous session identity, exact action digest, resource version, five-minute expiry, and one execution. Production still requires authenticated workforce identity, explicit authorization, strong human confirmation, and independently anchored audit evidence.
+The project binds approval to an anonymous session, exact action, resource version, expiry, and one execution. A browser agent may still be able to click the page approval button, so this does not prove human presence. The [server-governance article](/writing/from-browser-tool-to-governed-workflow/) explains the enforcement and production limitations.
 
 ## What the project proves, and what it does not
 
@@ -126,11 +135,11 @@ The public repository and contract tests prove a narrow set of properties:
 
 The repository also documents the standard page layer separately from optional compatibility and transport layers. It does not yet prove that Claude Desktop, Cursor, or another external MCP client can complete the workflow through a bridge.
 
-The [agent-interface measurement](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md) reports serialized UTF-8 bytes rather than model tokens. That makes it a reproducible regression guard for contract growth, not a claim that WebMCP is faster than screen use. The 50-task harness is now implemented, and it has not run with a live model. It also does not turn an anonymous browser session into authenticated human authorization.
+The [agent-interface measurement](https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/docs/agent-efficiency.md) reports serialized UTF-8 bytes rather than model tokens. That makes it a reproducible regression guard for contract growth, not a claim that WebMCP is faster than screen use. The implemented 50-task harness has no published live-model result. It also does not turn an anonymous browser session into authenticated human authorization.
 
 ## How I would compare the approaches empirically
 
-A useful evaluation should hold the task and evidence constant, then vary only the interface path. For each run, record:
+A useful evaluation should hold the task, initial application state, model version, reasoning settings, authorization, and overall budget constant, then vary the interface path. Repeat matched cases and alternate run order to reduce ordering effects. If the clients cannot use the same model, report a comparison of complete configurations rather than attributing the difference to WebMCP alone. For each run, record:
 
 1. task completion and final-state correctness;
 2. number of observations and actions;
@@ -142,9 +151,9 @@ A useful evaluation should hold the task and evidence constant, then vary only t
 
 The interface matrix should also record whether each run used native WebMCP, a polyfill, or an MCP-B transport. Client, browser, transport, and version belong in the result. Otherwise a successful relay test can be mistaken for native browser support.
 
-The efficiency comparison should divide total model tokens by verified outcomes, not by calls. That prevents a short failed run from looking better than a longer run that reaches the correct final state. For this incident workflow, the grader should treat a blocked pre-approval execution as a successful safety outcome.
+Report cost and model usage per verified task completion, with all failed attempts included. Show completion rate alongside that denominator. Report blocked pre-approval execution separately as a successful safety outcome; mixing denials with completed operational tasks can hide a system that refuses legitimate work.
 
-The versioned prompts, fixtures, automatic grader, human-label rubric, and result schema now exist in the repository. A publishable run still requires a pinned model, API credential, current pricing, all 50 traces, complete human labels, and representative failures. Until then, the defensible conclusion remains structural: governed tools make the operation boundary explicit and testable.
+The repository already contains versioned prompts, fixtures, a grader, a human-label rubric, and a result schema. Its runner uses an in-process tool fixture. It does not yet implement the matched screen, native-browser, and bridge experiment described above. That comparison requires additional adapters and repeated live runs before any interface advantage can be claimed.
 
 ## Use both layers deliberately
 
@@ -152,6 +161,6 @@ Screen use remains important. Agents need it for discovery, unfamiliar interface
 
 The strongest design keeps both views aligned. The human sees evidence, state, and approval controls. The agent gets narrow tools over the same state. The service enforces authorization regardless of which interface initiated the request.
 
-The goal is not to remove the screen. It is to stop making pixels carry the entire control contract.
+Choose the interface you can support and measure. Use the same service boundary to enforce the action regardless of whether it started with a click or a tool call.
 
 [The Cheapest AI Model Is Not Always the Cheapest System](/writing/hidden-token-tax-agent-tools/) develops the measurement model for definitions, results, round trips, recovery, and verified outcomes.

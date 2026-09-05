@@ -5,7 +5,8 @@ description: "An agent needs enough context to reason and enough control to act 
 primaryTopic: "Agent architecture"
 evidenceLabel: "Architecture analysis"
 evidenceBoundary: "This is an architecture argument, not a comparative benchmark. The 7DayFocus project shows one inspected implementation of the proposal, validation, and approval boundary."
-lastVerified: 2026-08-31
+lastVerified: 2026-09-05
+lastmod: 2026-09-05
 keyPoints:
   - "Context determines what the agent can understand."
   - "Control determines which actions the system will permit."
@@ -30,11 +31,13 @@ series: "Reliable Agent Systems"
 seriesOrder: 2
 ---
 
-Enterprise AI agents need context and control.
+An agent finds a runbook that names a service owner and recommends rolling back a deployment. The recommendation fits the incident. The named owner changed teams last week.
 
-Context without control is unsafe. Control without context is blind.
+Should the rollback run? Better retrieval might correct the stale ownership record. The action service must still check the current caller's permission and the exact change being requested.
 
-They belong in the same architecture, and they should not collapse into the same layer. A missing relationship degrades an answer. A missing authorization check can trigger an action the user never permitted. Those failures have different consequences, owners, and tests.
+That is why context and control need separate responsibilities. Both failures can cause serious harm, but they require different repairs. Improving the evidence does not replace authorization, and enforcing authorization does not make the proposed fix correct.
+
+The separation is logical. A small application can implement both responsibilities in one service, provided model-visible context cannot rewrite the policy that governs execution.
 
 ## Context answers what the agent should know
 
@@ -50,9 +53,9 @@ Good context design helps an agent answer questions such as:
 - What changed since the last decision?
 - Which entities and events are related?
 
-A knowledge graph or ontology can make these relationships explicit. Retrieval can add relevant evidence at runtime. Tool calls can fetch current state. Each mechanism improves the agent's picture of the world.
+A knowledge graph or ontology can make these relationships explicit. Retrieval can add relevant evidence at runtime. Tool calls can fetch current state. Each mechanism can improve the agent's picture of the world when its sources and freshness are appropriate.
 
-None of them grants permission to change that world.
+None of them grants permission to change that world. An identity attribute in a retrieved document or prompt is evidence to examine. The authorization decision must use trusted identity and policy data, checked at execution time.
 
 ## Control answers what the agent may do
 
@@ -95,7 +98,7 @@ When an agent may take action, design the flow in explicit stages:
 6. **Execute with preconditions.** Revalidate state, enforce idempotency, and fail closed when assumptions changed.
 7. **Verify and record the result.** Report what happened and preserve an audit trail.
 
-This sequence is slower than letting the model call a broad administrative API. That friction is the product when the action is consequential.
+Scale these checks to the action. A low-risk read may need an automatic authorization check and a source timestamp. A production rollback may need a staged diff, current resource version, and explicit approval. Measure the overhead; the architecture alone does not establish a latency penalty.
 
 ## Keep the distinction visible
 
@@ -103,4 +106,6 @@ Teams often draw one large “agent platform” box around retrieval, memory, to
 
 Keep context and control visible as separate architectural concerns. Give each an owner, interface, evidence set, and failure budget. Connect them through explicit identity and action contracts.
 
-The agent becomes more useful when it understands the situation. It becomes trustworthy when the system still controls what happens next.
+For the rollback example, test two failures separately: a stale runbook should produce an uncertain or corrected recommendation; a revoked role should block execution even when the recommendation is sound. Then test them together. A good answer and a valid credential are still insufficient if the requested action exceeds that credential's scope.
+
+The [7DayFocus case study](/projects/7dayfocus-ai-delivery-lab/) shows a smaller version of this boundary: a model proposes a change, and the application validates the proposal and checks state before applying an approved transition.

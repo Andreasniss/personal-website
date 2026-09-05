@@ -5,7 +5,8 @@ description: "Retrying or switching models changes capability, cost, latency, an
 primaryTopic: "Reliability"
 evidenceLabel: "Tested project analysis"
 evidenceBoundary: "The learning lab tests deterministic policy and evidence-store behavior. It does not call live models, benchmark providers, or demonstrate a production routing service."
-lastVerified: 2026-08-31
+lastVerified: 2026-09-05
+lastmod: 2026-09-05
 keyPoints:
   - "Retry, fallback, degraded operation, and stop are different policy outcomes."
   - "A backup model is safe only when capability, data, tools, and governance remain compatible."
@@ -47,10 +48,12 @@ Different failures need different responses.
 
 | Failure | Likely response | Reason |
 |---|---|---|
-| Transient transport error | Bounded retry | The requested capability and policy boundary remain unchanged |
+| Transient transport error before any effect | Bounded retry | Retry only when the request is safe to repeat |
 | Rate limit | Backoff, queue, or approved alternate capacity | Immediate retries can amplify the problem |
 | Provider outage | Approved backup or degraded path | Availability changed, and compatibility still needs proof |
-| Invalid or unsafe output | Repair once, switch strategy, or stop | Repeating the same request may reproduce the same failure |
+| Malformed structured output | Bounded repair or a tested compatible route | Validate before downstream execution |
+| Safety refusal or policy-violating output | Stop the unsafe path; escalate if appropriate | Do not switch models to circumvent safeguards |
+| Timeout after a possible tool effect | Reconcile the recorded action first | An error response does not prove the action failed |
 | Tool or schema incompatibility | Stop or use a compatible route | A response is not useful if the downstream contract breaks |
 | Policy restriction | Stop | Failover must not route around a control decision |
 
@@ -77,6 +80,14 @@ The shared budget is important. Three attempts on model A followed by three atte
 
 For agentic workflows, retry behavior must also respect idempotency. A model request may be safe to repeat while a tool action is not. The orchestrator needs to know which stage failed and whether any external state changed before trying again.
 
+## A timeout does not prove failure
+
+Suppose an agent submits an approved service change. The service applies it, but the response is lost. The orchestrator sees a timeout and asks a backup model to try again.
+
+The second model cannot infer whether the change happened from the missing response. The safe next step is to query the action record using the original request identifier. If execution completed, return the stored result. If it did not start and the approval remains valid, retry through the same idempotency contract. If the outcome is unknown, suspend further effects and reconcile or escalate.
+
+Switching models does not reset that uncertainty. Nor should it create a fresh action identifier that turns a retry into a second change. [Runbook Relay's server control plane](/writing/from-browser-tool-to-governed-workflow/) demonstrates the narrower stored-result pattern over synthetic effects.
+
 ## A backup is not equivalent capacity
 
 Two models that both accept text prompts are not necessarily interchangeable. They may differ in tool-call format, context limits, supported regions, safety behavior, output consistency, latency, or evaluation performance.
@@ -97,7 +108,7 @@ Degraded operation should be designed in advance. A vague apology after all mode
 
 Reliable systems need an explicit terminal state.
 
-Stop when the request violates policy, the evidence is insufficient for the required decision, all approved routes exceed their budget, a tool action may already have changed state, or the remaining models have not passed the task-specific quality floor.
+Stop when the request violates policy, the evidence is insufficient for the required decision, all approved routes exceed their budget, or the remaining models have not passed the task-specific quality floor. When an effect is uncertain, stop further mutations while allowing authorized read-only reconciliation.
 
 Stopping is not the opposite of reliability. It prevents the system from converting an availability problem into a correctness or governance problem.
 
@@ -109,7 +120,15 @@ The lab does not call live models or benchmark providers. It demonstrates the de
 
 ## The practical design rule
 
-Build the failover table before the router.
+Build the failover table before the router. For example, these are proposed policies for three distinct task classes:
+
+| Task | Allowed fallback | Stop condition |
+|---|---|---|
+| Summarize approved internal text | A tested backup within the same data boundary | No eligible route meets the quality floor or deadline |
+| Plan a production change | Save a draft for review | Backup has not passed the relevant planning evaluations |
+| Execute an approved change | Retrieve the receipt or safely retry the original action | Execution state cannot be reconciled |
+
+Use one overall deadline and attempt budget across the model SDK, router, and tool client. Nested retries must not multiply beyond the limit the user-facing request was given.
 
 For every task class, list the expected failures, allowed next routes, retry budget, compatible models, data boundary, evaluation evidence, disclosure requirement, and stop condition. Test the negative paths as deliberately as the successful switch.
 
