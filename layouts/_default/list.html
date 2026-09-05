@@ -93,7 +93,7 @@
     {{ else }}
       <div class="entry-list">
         {{ range .Pages.ByWeight }}
-          <article class="entry-card">
+          <article class="entry-card card-body">
             <div class="entry-meta"><span>{{ .Params.format | default .Type }}</span></div>
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <p>{{ .Description }}</p>
