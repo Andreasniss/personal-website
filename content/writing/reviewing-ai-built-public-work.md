@@ -4,11 +4,12 @@ date: 2026-08-31
 description: "AI can write code, propose tests, and draft documentation. The human owner still decides what is claimed, what counts as evidence, which risks remain, and whether it ships."
 primaryTopic: "Operating practice"
 evidenceLabel: "Operating experience"
-evidenceBoundary: "This is an operating standard demonstrated across public repositories. It does not claim independent human review, production readiness, or the absence of undiscovered defects."
-lastVerified: 2026-09-01
+evidenceBoundary: "This describes my public-project review standard and links existing repository evidence. Worked review scenarios are illustrative; they are not reported incidents, a defect-detection benchmark, or a claim that every control is automated."
+lastVerified: 2026-09-05
+lastmod: 2026-09-05
 keyPoints:
   - "Every public claim must trace to current code, tests, documentation, or live behavior."
-  - "A project is one claim surface across code, tests, README, demo, and portfolio."
+  - "Review a concrete failure path and confirm that checks and approval cover the current revision."
   - "Automated and AI-assisted checks provide evidence; accountability remains human-owned."
 proofLinks:
   - label: "Inspect the personal website repository"
@@ -28,27 +29,48 @@ draft: false
 image: "/images/articles/reviewing-ai-built-work.svg"
 imageAlt: "A human-owned release decision receives evidence from code, tests, security checks, documentation, and a live verification path."
 repoURL: "https://github.com/Andreasniss/personal-website"
+relatedArticleURL: "writing/evidence-for-ai-generated-pull-requests/"
+relatedArticleTitle: "What Evidence Should an AI-Generated Pull Request Carry?"
 series: "Operating Agent Systems"
 seriesOrder: 3
 ---
 
-AI can write code, propose tests, inspect diffs, and draft documentation. It still cannot be accountable for the public claim attached to the result.
+Before I put my name on AI-built work, I need to explain what it does, show evidence for the claim, and understand how it fails. Passing tests contribute to that decision. They do not make it for me.
 
 That accountability remains mine: I define what the project is for, which architecture I accept, what evidence is sufficient, which risks remain, and whether the result is ready to carry my name.
 
 My decision rule is simple: if I cannot trace a public claim to current code, tests, documentation, or live behavior, I narrow it or remove it.
 
-As agents complete more of a software change, this boundary keeps speed from turning into borrowed confidence.
+Consider a demo that claims an action requires approval. Its happy path works: approve the action, click execute, see a success receipt. That proves one allowed path. It leaves the important review question unanswered: can the same action execute without approval, after the proposal changes, or after an approval has already been consumed?
+
+That is an illustrative review scenario, not a reported incident. It shows why I start with the consequence of a broken claim.
 
 ## Start with the claim the project must support
 
 Before implementation, I define the shortest sentence a skeptical reviewer should be able to verify.
 
-For Runbook Relay, the claim is not “a production incident system.” It is that a deterministic WebMCP demo can expose bounded tools, keep approval outside the model tool surface, enforce the decision in durable server state, fail closed before approval, and make the action trail inspectable.
+For [Runbook Relay](/projects/runbook-relay/), I keep the claim scoped to a deterministic WebMCP demo: bounded tools, approval outside the model tool surface, enforcement in durable server state, and an inspectable action trail. Its reviewer path must make the blocked action visible as well as the approved one.
 
-For the Agent Reliability Lab, the claim is not “Mistral is safe” or “the application is production ready.” It is that a compact reference can demonstrate allow-listed tools, bounded retries, metadata-only telemetry, credential-free regression tests, and a deterministic evaluation contract.
+For the [Agent Reliability Lab](https://github.com/Andreasniss/Mistral-playground), the claim covers allow-listed tools, bounded retries, metadata-only telemetry, credential-free regression tests, and a deterministic evaluation contract. Its README explicitly distinguishes those checks from model-quality benchmarking. I preserve that distinction when describing the project elsewhere.
 
 The narrower claim makes the evidence testable. It also prevents the README from drifting into marketing language the repository cannot support.
+
+## Turn the claim into a review question
+
+“Check the code” is too vague to be a useful review instruction. I want the intended behavior, the consequence of failure, and the boundary that should enforce it.
+
+For the approval example, I would work through this table:
+
+| Claim | Evidence I would inspect | Reason to stop |
+|---|---|---|
+| Execution requires approval | Enforcement at the server entry point and a direct unapproved request | Only the interface disables the button |
+| Approval covers this proposal | Binding between approval and the exact action, arguments, and relevant state | The proposal changes while the approval remains usable |
+| Approval permits one execution | Consumption or replay control and a repeated request | The same approval authorizes a second effect |
+| The receipt explains the outcome | Recorded decision and observable state after a blocked or completed action | The interface reports success without evidence of the effect |
+
+This is the inspection I would apply to that class of claim. It is not a report that every project implements every control.
+
+The same technique works outside security. If I claim bounded retries, I inspect the exhaustion path. If I claim privacy-preserving telemetry, I inspect what enters logs when a request fails. A successful response tells me little about either boundary.
 
 ## Treat the project as one claim surface
 
@@ -83,6 +105,18 @@ Green CI is necessary evidence. It is not independent product judgment. A second
 
 The language should preserve those boundaries. I describe deterministic checks as deterministic checks. I name model versions and fixtures when I claim model behavior. I do not turn “another model looked at it” into “independently reviewed.”
 
+I also check how the expected answer was chosen. An agent can write an implementation and a test that agree with each other while both misunderstand the requirement. For a material behavior change, I compare the assertion with the accepted requirement. If the patch changes the requirement and the assertion together, that deserves a separate decision about intent.
+
+## Review the revision that will ship
+
+Evidence has a scope and a lifetime. A green run on an earlier commit is historical evidence. An approval for one set of arguments does not automatically cover a changed proposal.
+
+My release standard is to identify the candidate revision, inspect the relevant checks for that revision, resolve findings, and confirm that the final change still fits the approved scope. A later edit means checking which evidence needs to be renewed. The deployed page or application then needs a live check because a successful build alone does not establish what users received.
+
+This website offers a small, inspectable example. Its [deployment workflow](https://github.com/Andreasniss/personal-website/blob/main/.github/workflows/deploy-pages.yml) runs a content validator, a Hugo build, and a built-site validator. Those checks can establish that the site meets encoded structural requirements. They cannot establish that my architectural argument is sound or that a cited source supports the sentence attached to it.
+
+For an article, I therefore review the source claim as well as the generated page. For a demo, I inspect a consequential negative path as well as the successful one. The evidence I ask for follows the claim I am making.
+
 ## Make failure visible
 
 The most useful review question is often: what happened when the safe path did not work?
@@ -93,6 +127,8 @@ Limitations should also distinguish what the project intentionally omits. A sess
 
 Visible limitations increase credibility because they define the boundary of the claim.
 
+When a check finds a real problem, my preferred follow-through is to fix the implementation, rerun the relevant verification, and add a regression check when it can protect that failure mechanism. I also re-read the public description. Sometimes the honest fix is a narrower claim because the broader behavior has not been built or evaluated.
+
 ## Keep AI attribution precise
 
 My public repositories use a short ownership statement:
@@ -102,6 +138,18 @@ I own the project intent, architecture, requirements, evaluation criteria, risk 
 That statement avoids two misleading extremes. It does not hide substantial AI assistance. It also does not imply that a model owns decisions or provides human accountability.
 
 Raw private sessions and internal reasoning do not belong in the repository. The public evidence should be the code, tests, documented decisions, and reviewed result.
+
+## Decide what the evidence permits
+
+I separate three outcomes:
+
+| Outcome | When I use it |
+|---|---|
+| Release within the stated scope | Required checks pass, material findings are resolved, and I can defend the remaining limitations |
+| Narrow the claim or scope | The work supports a useful, smaller promise and that boundary is explicit across the public surfaces |
+| Hold the release | Required evidence is missing, a material defect remains, or I cannot explain the consequential behavior |
+
+Narrowing a claim cannot excuse a broken control that the remaining scope still requires. A missing model-quality benchmark may be an honest limitation of a deterministic learning lab. An approval bypass contradicts a demo whose purpose is controlled execution.
 
 ## Use a release gate
 
@@ -124,6 +172,6 @@ The last condition is personal. If I cannot explain the architecture and failure
 
 AI-assisted development changes how quickly implementation and review can happen. It does not remove the need for an accountable owner.
 
-The human owner does not need to type every line. They must be able to defend every public claim, explain the major failure paths, and decide which limitations are acceptable.
+The human owner does not need to type every line. They must be able to defend every public claim, explain the major failure paths, and decide which limitations are acceptable. Delegating implementation does not delegate those decisions.
 
-That is not a ceremonial approval at the end. It is the architecture of the entire workflow.
+My companion article, [What Evidence Should an AI-Generated Pull Request Carry?](/writing/evidence-for-ai-generated-pull-requests/), proposes how a pipeline could preserve the revision, checks, findings, and scoped approvals behind that decision. It describes an architecture to implement and evaluate; this article describes the review responsibility that architecture should support.
