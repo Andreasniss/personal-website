@@ -45,6 +45,16 @@ The review of [Andrew Ng's homepage](https://www.andrewng.org/), [Writing](https
 
 These are source-backed design judgments, not usability-test results. Check an unfamiliar reader's ability to choose an article and explain its decision rule before claiming improved comprehension or conversion.
 
+## Article discussion links
+
+When an article's LinkedIn post is live, open and verify that exact post, confirm it belongs to Andreas and corresponds to the article, and add its canonical post URL to the article's `linkedinURL` frontmatter. Use the exact post permalink, never a profile, activity feed, search result, draft, or scheduled-post URL. Do this as part of the same publishing session, even if another channel is still pending.
+
+Republish the website after recording the URL. The shared article template then adds this invitation at the bottom, after the article and related reading: "Have a question or a different perspective? Join the conversation on LinkedIn." The linked words must lead directly to the verified post so readers know where to leave a comment.
+
+Show the LinkedIn invitation only when `linkedinURL` exists. Keep social-version labels out of cards and article headers. Preserve original-publication attribution for verified LinkedIn imports at the bottom. If `xURL` also exists, show it as a secondary discussion link there.
+
+Before completing the publishing task, verify the deployed article contains the invitation, its link opens the intended live post, and no invitation appears for an article without a verified LinkedIn URL. A prepared or scheduled post does not qualify. If the post is deleted or unavailable, remove or correct its URL and invitation instead of leaving a broken discussion route.
+
 ## Definition of done
 
 A substantive original publishing package is complete only when:
@@ -57,7 +67,8 @@ A substantive original publishing package is complete only when:
 - the website version has been published, or is explicitly marked review-ready while the site has no live host;
 - the final LinkedIn version is live;
 - the final X version is live; and
-- the website frontmatter contains both verified social URLs in `linkedinURL` and `xURL`.
+- the website frontmatter contains both verified social URLs in `linkedinURL` and `xURL`; and
+- the deployed article ends with a working discussion invitation linked to its exact LinkedIn post.
 
 Reposts, comments, reactions, replies, and private messages are outside this contract.
 
@@ -70,6 +81,7 @@ Reposts, comments, reactions, replies, and private messages are outside this con
 5. Publish the website article.
 6. Derive distinct LinkedIn and X versions from the verified argument.
 7. Publish each version in its channel-native format.
-8. Add the live URLs to `linkedinURL` and `xURL`, then republish the site metadata.
+8. After each social version goes live, verify its exact post URL and record it in `linkedinURL` or `xURL`.
+9. Republish the site and verify the article-bottom discussion invitation and its exact destination.
 
 Never infer publication from a draft, schedule, or prepared asset. Verify the live website, LinkedIn, and X URLs.

@@ -151,4 +151,4 @@ If a deployment is temporarily unavailable, complete step 1 in this repository a
 
 Navigation cards use the heading link across their full surface. Secondary actions remain independent native links, and keyboard focus outlines the card. This shared pattern covers article, project, reference, and workshop cards without JavaScript click handlers.
 
-Article cards show reading metadata without social-version labels. Verified LinkedIn and X version links appear at the bottom of the article, preserving the original-publication attribution for imported writing.
+Article cards show reading metadata without social-version labels. Once its exact LinkedIn post URL is verified and stored in `linkedinURL`, an article ends with an invitation to join the conversation on that post. X is a secondary discussion link when available. Imported writing keeps its original-publication attribution there. Follow the verification and republishing steps in `PUBLISHING.md`.
