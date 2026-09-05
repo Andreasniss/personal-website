@@ -5,8 +5,9 @@ creator: "Werner Vogels"
 format: "Technical blog"
 affiliation: "Amazon"
 sourceURL: "https://www.allthingsdistributed.com/"
-why: "Werner combines durable distributed-systems principles with practical architectural judgment at internet scale."
+why: "I return to this writing for distributed-systems principles that remain useful across new platforms, especially failure, resilience, and the consequences of architectural choices."
 weight: 30
+lastmod: 2026-09-05
 ---
 
 Werner Vogels's personal technical blog.

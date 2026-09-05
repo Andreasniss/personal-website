@@ -1,6 +1,6 @@
 ---
 title: "Agent Reliability Lab"
-description: "An inspectable Python reference for bounded tool use, provider switching, resilience, observability, and deterministic evaluation."
+description: "Inspect how a Python agent validates tool calls, stops bounded loops, and records operational metadata. A credential-free preview separates application checks from live-model behavior."
 role: "Creator and repository owner"
 year: 2026
 weight: 30
@@ -80,17 +80,30 @@ limitations:
   - "The employee policy is fictional and deliberately small; retrieval uses transparent token overlap rather than a vector database."
   - "Preview mode does not call a provider or fabricate live weather. Connected behavior requires Mistral credentials or a local Ollama model."
   - "The FastAPI authentication pattern is suitable for a local reference, not a public multi-tenant service."
+lastmod: 2026-09-05
 ---
 
 ## The problem
 
 A model API quickstart proves that a request can return text. It does not prove that tool execution is bounded, failures are handled deliberately, model behavior is testable, or dependency risk is visible.
 
+## My role and key decision
+
+I own the intent, architecture, requirements, evaluation criteria, risk, and release decisions, and review merged changes. AI tools assisted with implementation and documentation. I kept the provider boundary small so that tool validation, retry behavior, and telemetry could be inspected independently of the model.
+
 ## What I built
 
 Agent Reliability Lab is a modular Python reference with a reviewer-first Streamlit interface, a FastAPI surface, opt-in OpenTelemetry tracing, and support for both Mistral's API and local Ollama models. Its credential-free preview lets a reviewer inspect the interaction model without supplying an API key.
 
 The model boundary centralizes calls and implements bounded retry behavior for transient failures. Tool execution uses an explicit allow-list and bounded loops. The interface exposes tool names, arguments, results, and multi-turn history while operational logs and traces exclude prompt, response, and tool-result content by default.
+
+## What to inspect first
+
+Start with the supplied vacation-policy question in credential-free preview. Check that the answer names the fictional source and the interface makes the absence of a provider call visible. Then try a request outside the preview's supported scope. It should state its limit rather than invent live information.
+
+Connected mode uses Mistral or local Ollama and lets the model propose tool calls. The application validates the tool name and arguments, executes an allowed operation, and returns its result for the next model turn. The four-round ceiling bounds that loop. It does not guarantee a correct answer within four rounds.
+
+The repository's verification snapshot is dated 31 August 2026. Its 26 credential-free tests and six deterministic cases cover application behavior; they are not a comparison of the two providers. A useful next evaluation would hold tasks and grading criteria constant across pinned models and retain the failed runs.
 
 ## What it demonstrates
 

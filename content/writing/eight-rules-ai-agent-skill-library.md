@@ -5,11 +5,11 @@ description: "What seven months of operating roughly 100 agent skills taught me 
 primaryTopic: "Operating practice"
 evidenceLabel: "Operating experience"
 evidenceBoundary: "These rules come from sustained personal operation of an approximately 100-skill library. They are not the result of a controlled comparison across agent harnesses."
-lastVerified: 2026-08-31
+lastVerified: 2026-09-05
 keyPoints:
   - "A skill library is an operated system, not a collection of instruction files."
   - "Routing descriptions, freshness, and source trust determine reliability."
-  - "A smaller coherent library usually outperforms a larger overlapping one."
+  - "Consolidate overlapping skills when routing tests show that the change helps."
 proofLinks:
   - label: "View the original LinkedIn carousel"
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7467132017814433793/"
@@ -29,29 +29,30 @@ socialImage: "/images/social/agent-skill-library.png"
 socialImageAlt: "8 Rules for Running an AI Agent Skill Library by Andreas Nissen."
 series: "Operating Agent Systems"
 seriesOrder: 1
+lastmod: 2026-09-05
 ---
 
 Building an agent skill is cheap. Importing one is even cheaper.
 
 That is why skill libraries tend to grow faster than the discipline required to operate them. You end up with a folder full of instructions and no clear view of what half of them do, when they trigger, whether they overlap, or what they can execute.
 
-After seven months running roughly 100 skills across multiple agent harnesses, the biggest shift was simple: stop treating skills as files you write. Treat them as a system you operate.
+When I first published these rules, I had spent seven months running roughly 100 skills across multiple agent harnesses. The useful shift was to give each workflow an owner, an activation boundary, and evidence that it still worked. The count describes that period, not the current size of my library.
 
 The surface changes. The same discipline applies to coding agents, productivity agents, and personal agents. These are the eight rules that survived in my own setup.
 
 > ## 01 · Maintenance is the product
 >
-> A skill nobody checks becomes a liability. Its instructions drift, referenced tools change, and examples stop matching the current workflow. Track freshness and review skills on a cadence, not only when one visibly breaks.
+> A skill can become stale even when its file has not changed. Review the tools, references, and permissions it depends on. File age is a triage signal: an old stable workflow may need less attention than a recently edited integration whose API changed yesterday.
 >
 > **Try this**
 >
-> `Audit my skills folder. Flag every SKILL.md not updated in 90+ days and list them oldest first.`
+> `List skills whose dependencies, permissions, or canonical references changed. Use file age as a secondary signal and recommend the next review.`
 
 > ## 02 · Automate with hooks
 >
 > Do not depend on the agent remembering every supporting step. Hooks can react to events such as a saved file or a tool call, then trigger validation, logging, or another bounded action automatically.
 >
-> The skill describes the workflow. The hook makes important parts of that workflow reliable.
+> Check what the hook actually guarantees. Does it block execution or only report it? Does every relevant entry point invoke it? If it fails, does the protected action stop? A hook is useful only within the paths and failure behavior the harness supports.
 >
 > **Try this**
 >
@@ -59,13 +60,13 @@ The surface changes. The same discipline applies to coding agents, productivity 
 
 > ## 03 · The description is the router
 >
-> The agent usually chooses a skill from its name and one-line description before it reads the full instructions. A vague description therefore creates a routing problem, even when the skill itself is excellent.
+> In a system that selects skills before loading their instructions, the name and short description form the first routing interface. A vague description can select the wrong workflow before its detailed safeguards are even read.
 >
 > Specific beats long. State when to use the skill, the signals that should trigger it, and the nearby cases it should not own.
 >
 > **Try this**
 >
-> `Review each skill's description. Add explicit trigger phrases and “use instead of X” boundaries.`
+> `Test each description with an in-scope request, a similar out-of-scope request, and a request that overlaps another skill. Revise the boundary where routing fails.`
 
 > ## 04 · One source of truth
 >
@@ -85,13 +86,13 @@ The surface changes. The same discipline applies to coding agents, productivity 
 >
 > **Try this**
 >
-> `Split any SKILL.md over 500 lines: short overview up front, details in files loaded on demand.`
+> `Identify details that are rarely needed and can move to linked references. Keep mandatory scope, permission, and failure rules in the main workflow.`
 
 > ## 06 · When in doubt, cut
 >
-> A lean library the agent can route through reliably beats a sprawling one full of near-duplicates. Overlapping skills compete for the same task, create inconsistent behavior, and make every future change harder.
+> Near-duplicates make ownership ambiguous. Compare routes before and after consolidation; fewer files alone do not establish a better system.
 >
-> Merge skills that share a purpose. Delete skills that no longer earn their place.
+> Merge shared responsibilities when that clarifies ownership. Check references and scheduled dependencies before archiving an unused skill.
 >
 > **Try this**
 >
@@ -115,7 +116,7 @@ The surface changes. The same discipline applies to coding agents, productivity 
 >
 > **Try this**
 >
-> `Before I add a third-party skill, scan it for scripts, network calls, or secret access, and flag anything risky.`
+> `Review the source revision, executable code, network destinations, dependencies, and requested permissions. Test with synthetic data and minimal access before adoption.`
 
 ## The operating model
 
@@ -123,6 +124,6 @@ These rules point to one conclusion: the quality of a skill library is not measu
 
 It is measured by whether the right skill is selected, whether its instructions are current, whether shared knowledge stays consistent, whether risky behavior is visible, and whether the library becomes easier to operate as it grows.
 
-If you have imported dozens of skills but edited none of them, you probably do not have a skill library yet. You have a pile of bookmarks.
+Start with one failure: the wrong skill loaded, a reference was missing, or a requested draft triggered a sending workflow. Reproduce it, repair the responsible boundary, and keep the case as a regression check. The [routing companion](/writing/skill-routing-is-reliability/) shows how to evaluate those decisions without rewarding unnecessary activation.
 
 The original [13-card LinkedIn carousel](https://www.linkedin.com/feed/update/urn:li:activity:7467132017814433793/) contains the compact version of these rules. This article is the durable, expanded version.

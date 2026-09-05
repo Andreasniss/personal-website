@@ -3,28 +3,25 @@ title: "Start Here"
 description: "A five-minute path through my applied AI work, public evidence, and operating approach."
 socialImage: "/images/social/homepage-v2.png"
 socialImageAlt: "Andreas Nissen. AI Architecture. Projects, Demos, and Writing. andreasnissen.dev."
+lastmod: 2026-09-05
 ---
 
-Choose the route that matches what you need to evaluate. Each path leads to public evidence, explicit ownership, and the limits of what I claim.
+For a five-minute review, start with one working path and follow its claim to the evidence.
 
-## Evaluate a working system
+## See a controlled action
 
-Start with [Runbook Relay](/projects/runbook-relay/). Review the problem, architecture, tests, threat boundaries, live demo, source, and current limitations in one guided path.
+Open [Runbook Relay](/projects/runbook-relay/) and run the one-click safety proof. The simulator stages a synthetic incident mitigation, attempts execution without approval, and shows the server's rejection. Then inspect the case study's approval, retry, and identity limits.
 
-## Assess scope and impact
+## Inspect a design decision
 
-[Review selected impact](/impact/) to see how architecture, evaluation, delivery, teaching, and enterprise decisions connect across more than 15 years of work.
+Choose [7DayFocus](/projects/7dayfocus-ai-delivery-lab/) for model proposals that cannot directly change planner state, or [Agent Reliability Lab](/projects/mistral-playground/) for bounded Python tool execution and metadata-only telemetry. Both have a credential-free local path and linked tests.
 
-## Browse technical judgment
+## Understand my role
 
-[Open the writing archive](/writing/) for practical arguments about reliable agents, evaluation, controls, context, and enterprise adoption. Each article makes its evidence boundary visible.
+[Selected Impact](/impact/) distinguishes my professional scope, public engineering evidence, and workshop delivery. [About](/about/) explains the enterprise decisions I work on and how I approach them.
 
-## Review method
+## Read the review standard
 
-Start with the stated problem and limitations. Try the live path or its fallback. Inspect the repository and tests. Then compare each claim with the public artifact that supports it.
+[How I Review AI-Built Public Work](/writing/reviewing-ai-built-public-work/) explains how I compare claims with source, tests, behavior, and release evidence. I own the architecture, evaluation criteria, risk, and release decisions; AI tools assist with implementation and documentation.
 
-[See all inspectable projects](/projects/).
-
-## Context and contact
-
-I use AI to accelerate implementation and verification. I own the architecture, evaluation criteria, risk, and release decisions. [About](/about/) explains my background, [Talks and workshops](/talks/) shows my teaching work, and [LinkedIn](https://www.linkedin.com/in/andreasnissen) is the direct professional contact route.
+Browse [all projects](/projects/) or the [writing archive](/writing/), and [connect on LinkedIn](https://www.linkedin.com/in/andreasnissen) to discuss related work.

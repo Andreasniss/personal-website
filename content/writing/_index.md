@@ -8,6 +8,9 @@ topics:
   - Tool interfaces
   - Operating practice
   - Learning
+lastmod: 2026-09-05
 ---
 
-These articles turn recurring architecture and delivery questions into reusable decision rules. Each page states what supports the argument, where that evidence stops, when it was last checked, and where a related project, repository, or primary source can be inspected. The owned site is the canonical home; LinkedIn and X carry channel-native adaptations rather than identical cross-posts.
+Start with the decision you need to make: how much authority to give an agent, how to evaluate its work, which tool interface to expose, or when a model fallback is allowed.
+
+Each article identifies its evidence type, links to supporting work, and separates tested behavior from architectural proposals. This site holds the maintained version. Where a social version has been published, the article links to it.

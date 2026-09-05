@@ -1,6 +1,6 @@
 ---
 title: "7DayFocus AI Delivery Lab"
-description: "A completed AI-delivery learning lab: a local-first weekly planner with bounded model proposals, deterministic evaluations, human approval, and an honest product-discovery conclusion."
+description: "Review an AI-proposed weekly plan before it changes any task. This completed local lab tests proposal validation, stale-state rejection, and explicit approval."
 role: "Creator and repository owner"
 year: 2026
 weight: 20
@@ -84,11 +84,16 @@ limitations:
   - "The lifecycle adapts selected Anthropic guidance. It is not an Anthropic standard, certification, endorsement, or compliance claim."
   - "An earlier Tauri Android proof reached Android Studio and emulator testing but was not production-launched; Android installation and Google Play are not claimed."
   - "The standalone product is no longer an active goal because agent-to-Todoist connectors now solve the personal workflow more directly."
+lastmod: 2026-09-05
 ---
 
 ## The problem
 
 An AI planner should not silently rewrite a person's week. Model output can be malformed, stale, or incompatible with real scheduling limits, and an API key should not become application data.
+
+## My role and key decision
+
+I own the product intent, architecture, requirements, evaluation criteria, risk, and release decisions, and review merged work. AI tools assisted with implementation and documentation. The central design decision was to let the model propose a limited change while application code validates and applies it.
 
 ## What I built
 
@@ -108,7 +113,7 @@ The environment then changed. In my current personal workflow, Claude and ChatGP
 
 That conclusion is part of the project evidence. AI-native product work is not only about shipping more features. It also means recognizing when platform capabilities remove the original need and stopping deliberately. The standalone app is now a completed learning lab, not an active product roadmap.
 
-I may still install the Android build on my own phone as a personal completion exercise. Any Google Play attempt is optional and capped at three hours. If Google's testing, identity, policy, or engineering gates require more effort, I will stop and retain the documented proof of concept.
+The public repository remains a completed learning reference. Android installation and store distribution are not part of the demonstrated result.
 
 ## How the Anthropic method works here
 
@@ -116,7 +121,7 @@ Anthropic's [AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc
 
 This repository adapts that artifact handshake with one folder per change, a provider-neutral `AGENTS.md`, explicit review severities, and a concise evidence ledger. Those are project choices, not Anthropic requirements. The [P05 publication packet](https://github.com/Andreasniss/7dayfocus-ai-delivery-lab/tree/main/docs/ai-dlc/changes/P05-publication) records the final release boundary.
 
-For larger enterprise delivery, AWS offers a more comprehensive [AI-Driven Development Life Cycle](https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/) and open-source [AI-DLC Workflows](https://awslabs.github.io/aidlc-workflows/guide/00-introduction/). AWS adds Inception, Construction, and Operations phases, Units and Bolts, adaptive workflow depth, explicit state, and broader governance. The methods are related and can be layered without treating them as identical.
+For delivery with more components and approval owners, [AWS AI-DLC Workflows](https://awslabs.github.io/aidlc-workflows/guide/00-introduction/) provides decomposition, Units and Bolts, adaptive workflow depth, and lifecycle governance. The [delivery-method comparison](/writing/ai-native-software-delivery-methods/) explains the current guidance and where the methods overlap. This lab implements selected artifact handoffs, not the complete AWS lifecycle.
 
 ## What it demonstrates
 
@@ -128,8 +133,8 @@ For larger enterprise delivery, AWS offers a more comprehensive [AI-Driven Devel
 
 ## Evidence and current boundary
 
-The reviewed public reference passes 244 automated tests, including 24 named proposal-evaluation cases, plus lint, type checking, production build, clean-copy reproduction, and a zero-vulnerability dependency audit. Provider-adapter tests use mocked responses; no real credential was used and live-provider behavior is not claimed.
+The repository's documented 1 September 2026 snapshot records 244 automated tests and 24 named deterministic proposal cases. The linked evidence records the verification performed for that revision. Provider-adapter tests use mocked responses, so adapter coverage is not evidence of live-provider quality, availability, or data handling. Dependency-audit results are dated checks, not a continuing guarantee.
 
 This is an independent reference project, not a production service and not affiliated with or endorsed by Anthropic, OpenAI, OpenRouter, AWS, Todoist, or my employer.
 
-The final product decision is intentional: preserve the working proof, artifact chain, tests, and lessons; use the stronger agent-plus-Todoist architecture in daily life; and resume standalone development only if a new learning goal justifies it.
+The product lesson is to compare the custom application with the workflow it replaces. For my own use, existing task tools connected to an agent met the need more directly. I kept the lab because its proposal and approval boundary remains useful to inspect; more standalone features would not strengthen that conclusion.

@@ -1,6 +1,6 @@
 ---
 title: "Safe Model Failover Learning Lab"
-description: "A beginner-friendly tutorial for retrying, switching to an approved backup, or stopping safely when an AI model fails."
+description: "Practice deciding whether a failed model request may be retried, sent to an approved backup, or stopped. The browser-local lab uses deterministic scenarios and no live model calls."
 role: "Creator and release owner"
 year: 2026
 weight: 40
@@ -18,6 +18,7 @@ socialImage: "/images/social/safe-model-failover.png"
 socialImageAlt: "Safe Model Failover Learning Lab, an interactive reliability lab by Andreas Nissen."
 relatedArticleURL: "/writing/model-failover-is-policy/"
 relatedArticleTitle: "Model Failover Is a Policy Decision"
+lastmod: 2026-09-05
 ---
 
 ## The problem
@@ -26,15 +27,25 @@ Model outages are not one failure mode. A 429 can signal quota or rate-limit pre
 
 For tool-using agents, retrying is more consequential still. A tool may already have changed state before the model call failed. Replaying that work without an idempotency key or execution ledger can duplicate an email, transaction, or other side effect.
 
+## My role and key decision
+
+I own the learning goals, scenario requirements, policy rules, verification criteria, risk, and release decisions, and review the work. AI tools assisted with implementation. I chose deterministic scenarios so learners can inspect why a route is permitted without supplying credentials or causing an external effect.
+
 ## What I built
 
-The Safe Model Failover Learning Lab is a browser-local tutorial for choosing exactly one action: wait and retry, use an approved backup, or stop safely. It now teaches the decision in plain language before asking learners to practise it. A simple request, failure, and decision walkthrough leads into a glossary, a guided incident, short exercises, and an optional knowledge check.
+The Safe Model Failover Learning Lab is a browser-local tutorial for choosing exactly one action: wait and retry, use an approved backup, or stop safely. It teaches the decision in plain language before asking learners to practice it. A simple request, failure, and decision walkthrough leads into a glossary, a guided incident, short exercises, and an optional knowledge check.
 
 Exercises save answers and scores locally without asking learners to estimate confidence.
 
 The tutorial compares provider-managed capacity and model-routing features across AWS, Google Cloud, Microsoft Azure, OCI, and IBM Cloud. It makes the ownership boundary explicit: managed routing may reduce failures, but the application still owns its retry budget, backup approvals, tool state, and recovery of dependent services.
 
 The deterministic policy honors provider delay signals such as `Retry-After`. A fallback is allowed only when its model, Region, and tools are allow-listed and its safety controls, output schema, capability, and data boundary remain compatible. State-changing tool work blocks retry and fallback unless idempotency protection is explicit.
+
+## Try the decision path
+
+Open the lab, follow the request-and-failure walkthrough, then complete the guided incident. Before choosing an action, identify the failure type, remaining retry budget, approved backup, and whether a tool may already have changed state. Compare your choice with the policy reason the lab returns.
+
+Use the exercises to test the boundary: a temporary outage may justify another attempt, while an incompatible data boundary should prevent a model switch. Export your learning record if you want to keep it, or use the reset control to clear local progress. These are simulated decisions; the lab does not dispatch a real request.
 
 ## Deployment choice
 
@@ -50,8 +61,8 @@ The interactive tutorial is hosted on ChatGPT Sites to provide a zero-setup lear
 
 ## Verification and research basis
 
-The current version passes 50 deterministic policy and evidence-store tests plus its production build. The lab contains no credentials, analytics, backend calls, remote fonts, or model-provider calls. Learning evidence stays in browser storage and can be exported or reset.
+The August 2026 project verification recorded 50 deterministic policy and evidence-store tests and a production build. This page links a hosted tutorial, not a public source repository, so those tests are not independently reproducible from the materials published here. The visible scenarios demonstrate the teaching model; they do not benchmark provider availability.
 
-The August 2026 tutorial upgrade reviewed 60 Exa search results across eight provider-focused searches, then validated the final guidance against ten current first-party documentation pages from AWS, Google Cloud, Microsoft Azure, OCI, and IBM Cloud. The linked sources are available inside the lab.
+Learning evidence stays in browser storage and can be exported or reset. The lab makes no model-provider calls. Provider comparisons link to first-party documentation inside the tutorial; check the relevant service's current supported models, regions, and data policies before applying a pattern to a real system.
 
 This is a demo learning lab for understanding production model failover patterns. It is not a production router, availability benchmark, or service endorsed by AWS, OpenAI, Microsoft, Google, Oracle, IBM, or any model provider.

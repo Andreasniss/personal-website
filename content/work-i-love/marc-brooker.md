@@ -5,8 +5,9 @@ creator: "Marc Brooker"
 format: "Technical blog"
 affiliation: "AWS"
 sourceURL: "https://brooker.co.za/blog/"
-why: "Marc connects deep systems reasoning to real design tradeoffs, especially around distributed systems, resilience, and agentic AI infrastructure."
+why: "I turn to Marc for reasoning about retries, latency, consistency, and failure. The useful part is how an assumption changes the system design."
 weight: 20
+lastmod: 2026-09-05
 ---
 
 Technical writing from an AWS Distinguished Engineer and Vice President.

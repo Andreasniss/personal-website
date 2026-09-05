@@ -5,8 +5,9 @@ creator: "Boris Cherny"
 format: "X profile"
 affiliation: "Anthropic"
 sourceURL: "https://x.com/bcherny"
-why: "Boris shares unusually direct product and engineering lessons from creating Claude Code and operating an agentic development tool at scale."
+why: "Useful for examining which development practices belong in the workflow around a coding agent, especially feedback, review, and how the tool is used in practice."
 weight: 100
+lastmod: 2026-09-05
 ---
 
 Product and engineering notes from Boris Cherny.

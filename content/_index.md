@@ -1,5 +1,6 @@
 ---
 title: "Andreas Nissen"
-description: "Enterprise AI architecture, agent reliability, evaluation, and governed execution."
+description: "Andreas Nissen on enterprise AI architecture, agent evaluation, and controlled execution, with inspectable projects and practical technical writing."
+lastmod: 2026-09-05
 ---
 

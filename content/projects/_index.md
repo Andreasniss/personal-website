@@ -1,8 +1,11 @@
 ---
 title: "Projects"
-description: "Personal technical labs where I test emerging AI technologies, build complete systems, and make the engineering evidence inspectable."
+description: "Personal AI projects with guided review paths, source code where public, dated verification, and explicit limits."
+lastmod: 2026-09-05
 ---
 
-These are projects I build outside confidential company work to stay hands-on. They are where I turn new ideas into working software, test reliability and control boundaries, and show the depth of implementation behind my architecture work.
+Choose a project by the boundary you want to inspect: server approval in Runbook Relay, model-proposal validation in 7DayFocus, tool execution in Agent Reliability Lab, or failover decisions in the interactive learning lab.
 
-This website is the canonical record for each project. Some interactive experiences run on ChatGPT Sites when that product surface is part of the experiment or provides a useful zero-setup learning path. Each case study identifies that choice directly, while source, architecture, tests, limitations, and my review decisions remain the evidence of what I built.
+I own the intent, architecture, requirements, evaluation criteria, risk, and release decisions, and review merged work. AI tools assist with implementation and documentation. These personal projects use public-safe or synthetic material outside confidential company work.
+
+Each case study explains what runs, how to try it, and what the evidence supports. The three public codebases include source and deterministic checks. The hosted failover tutorial provides an interactive learning path without a public source repository.

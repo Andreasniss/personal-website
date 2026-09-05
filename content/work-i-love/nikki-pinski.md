@@ -5,8 +5,9 @@ creator: "Nikki Pinski"
 format: "Personal site"
 affiliation: "Safety Cybersecurity"
 sourceURL: "https://nikkipin.ski/"
-why: "Nikki is a useful reference for technical storytelling that keeps the engineering substance while remaining approachable."
+why: "Useful for explaining agentic engineering through actual interactions: what the instruction meant, what the agent did, and what the mismatch teaches."
 weight: 90
+lastmod: 2026-09-05
 ---
 
 Writing and technical communication by Nikki Pinski.

@@ -5,8 +5,9 @@ creator: "Thibault Sottiaux"
 format: "X profile"
 affiliation: "OpenAI"
 sourceURL: "https://x.com/thsottiaux"
-why: "Tibo shares a close-to-the-product view of how coding agents and ChatGPT capabilities become usable tools."
+why: "I follow these product and engineering observations to understand how Codex and ChatGPT capabilities are exposed to users, then check the behavior against the available tools and documentation."
 weight: 50
+lastmod: 2026-09-05
 ---
 
 Selected short-form observations from Thibault Sottiaux.

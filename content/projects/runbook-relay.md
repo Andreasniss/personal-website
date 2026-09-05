@@ -1,6 +1,6 @@
 ---
 title: "Runbook Relay WebMCP Demo"
-description: "See how a browser agent investigates an incident while the server blocks execution until the exact action is approved in the page. The live simulator needs no setup."
+description: "Stage an incident mitigation, try it without approval, then inspect the server rejection and receipt. A no-setup simulator makes the synthetic workflow easy to review."
 role: "Creator and repository owner"
 year: 2026
 weight: 10
@@ -44,7 +44,7 @@ reviewerPath:
     action: "Use native Site tools when available, or the labeled simulator, to compare options and stage Restore database pool limit."
     expected: "The server increments the resource version and binds the proposal to an action digest and idempotency key."
   - title: "Prove the negative path"
-    action: "Attempt execution before approving, or select Run the blocked-action proof."
+    action: "Attempt execution before approving, or select Run the one-click safety proof."
     expected: "Execution fails closed and a durable blocked receipt appears."
   - title: "Approve, execute, and replay"
     action: "Approve the exact staged action in the page, execute it, then repeat the execution request."
@@ -66,7 +66,7 @@ evidenceRows:
     implementation: "The record includes session identity, SHA-256 action digest, resource version, five-minute expiry, and consumption time"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/db/control-plane.ts"
     linkLabel: "Inspect the control plane"
-  - claim: "Retries cannot duplicate the action"
+  - claim: "Exact retries do not duplicate the synthetic effect"
     implementation: "A session-specific idempotency key returns the stored result for an exact replay and rejects conflicting reuse"
     url: "https://github.com/Andreasniss/runbook-relay-webmcp/blob/main/tests/control-plane.test.mjs"
     linkLabel: "Review the policy tests"
@@ -86,9 +86,10 @@ limitations:
   - "The external action changes a deterministic incident fixture, not production infrastructure."
   - "The server-issued session is an anonymous scoped capability, not authenticated workforce identity or an enterprise role."
   - "The approval endpoint binds exact state, but it cannot independently prove that a human rather than browser automation initiated the page click."
-  - "Receipt hashes are not signed or anchored in an independent transparency system."
-  - "The 50-task live-model runner is implemented but has not run, so there is no model success-rate, latency, token, or cost claim."
+  - "Receipt hashes detect inconsistent records in the returned segment; they cannot expose a rewrite of both records and hashes by someone controlling the store."
+  - "The 50-task runner uses an in-process tool fixture and has no published live-model result. It does not evaluate native browser discovery or establish model performance."
   - "The labeled simulator proves application behavior, not native browser discovery; no MCP-B bridge has been tested."
+lastmod: 2026-09-05
 ---
 
 ## Start with the no-setup demo
@@ -97,7 +98,7 @@ Open the [live Runbook Relay demo](https://runbook-relay.andreasnissen.dev) in a
 
 This path needs no ChatGPT or Claude setup, account, extension, or local MCP server. It proves the application's server-side policy and durable evidence path. It does not prove that a browser or external client discovered the native WebMCP tools.
 
-To test native WebMCP, use the optional OpenAI desktop instructions shown in the demo. Claude Desktop, Cursor, and other MCP clients currently need a separate page-to-MCP transport such as an MCP-B extension or local relay. Runbook Relay does not bundle or claim that compatibility path as tested.
+To test native WebMCP, use the setup instructions shown in the demo and inspect its registration status. An external MCP client without native page-tool discovery needs a compatible transport. Runbook Relay does not bundle or claim a tested MCP-B bridge.
 
 ## The problem
 
@@ -105,11 +106,15 @@ Agent tool demos often place the most important policy in the same client state 
 
 Runbook Relay makes those questions inspectable in one synthetic incident workflow.
 
+## My role and key decision
+
+I own the intent, architecture, requirements, evaluation criteria, risk, and release decisions, and review merged changes. AI tools assisted with implementation and documentation. The key architectural change was moving approval and execution state from the browser into a durable server service, so all interaction routes face the same policy checks.
+
 ## What I built
 
 The page exposes five bounded WebMCP tools for reading an incident, comparing three predefined mitigations, staging one action, requesting execution, and resetting the fixture. Native WebMCP calls, the labeled simulator, and human page controls all use the same `/api/control-plane` endpoint.
 
-Cloudflare D1 stores four record types: session state, approvals, executions, and receipts. Staging increments the resource version, calculates an immutable action digest, and derives a session-specific idempotency key. Approval binds that exact state for five minutes. Execution fails closed if identity, digest, version, expiry, consumption, or replay state does not match.
+Cloudflare D1 stores four record types: session state, approvals, executions, and receipts. Staging increments the resource version, calculates an immutable action digest, and derives a session-specific idempotency key. Approval binds that exact state for five minutes. A new execution is blocked if session identity, digest, version, expiry, consumption, or replay state does not match.
 
 The exact retry returns the first stored result. A conflicting key is rejected. Compare-and-swap guards prevent a stale request from appending a receipt for a mutation it did not win. The latest returned receipt-chain segment is checked for both link continuity and content-hash integrity.
 
@@ -117,13 +122,13 @@ The exact retry returns the first stored result. A conflicting key is rejected. 
 
 The repository includes 50 versioned live-model tasks across observation, comparison, staging, unauthorized execution, approved execution, reset, and out-of-scope requests. Eighteen are adversarial. The runner requires an explicit API key, pinned model, and current pricing inputs, then records tool traces, request IDs, latency, tokens, cost, automatic policy grades, and a human-label template.
 
-The harness is public evidence. Live model behavior is not. No key has been supplied and no result has been manufactured, so the project does not yet claim a model success rate or browser-agent efficiency result.
+The task definitions and runner are inspectable. No completed live-model result is published. The runner uses an in-process fixture; a native browser comparison would require additional adapters and live runs. Report successful operational tasks separately from successful safety denials.
 
 ## Why the boundary matters
 
 A tool description that says “human approval required” is guidance. Runbook Relay moves the decision to server state the model cannot create through its tool catalog. A chat message claiming approval does not change that state.
 
-The remaining identity limitation is equally important. The demo binds approval to an anonymous browser session, not to an authenticated employee role, and it cannot independently attest human presence. That is sufficient to demonstrate scoped state, expiry, idempotency, replay, and evidence design. It is not production authorization.
+The demo binds approval to an anonymous browser session. A browser agent with page controls could still press the approval button. Production authorization needs authenticated identity and confirmation appropriate to the action. Likewise, a stored synthetic result does not establish exactly-once behavior against an external infrastructure API; that requires downstream idempotency and reconciliation of uncertain outcomes.
 
 ## Deployment choice
 
