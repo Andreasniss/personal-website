@@ -7,6 +7,7 @@ Senior Solutions Architect (AWS, Munich) working on agent reliability, evaluatio
 ## About
 
 - [Start Here]({{ (printf "%sstart-here/" site.BaseURL) }}): A five-minute route through the projects, design decisions, and review approach.
+- [Contact]({{ (printf "%scontact/" site.BaseURL) }}): Professional contact through LinkedIn and project questions through GitHub.
 - [About]({{ (printf "%sabout/" site.BaseURL) }}): Background, focus areas, and contact links.
 - [Selected Impact]({{ (printf "%simpact/" site.BaseURL) }}): Public project evidence, professional scope, and workshop contributions.
 

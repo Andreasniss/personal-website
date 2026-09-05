@@ -8,6 +8,7 @@
         <h1>{{ .Title }}</h1>
       {{ end }}
       {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+      {{ if eq .Section "projects" }}<p class="project-disclaimer">{{ site.Params.projectDisclaimer }}</p>{{ end }}
       {{ with .Content }}<div class="prose intro-copy">{{ . }}</div>{{ end }}
     </div>
     {{ with .Params.portrait }}

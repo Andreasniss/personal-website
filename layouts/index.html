@@ -5,8 +5,8 @@
       <h1>I help teams design, evaluate, and adopt AI systems.</h1>
       <p class="hero-lead">I’m a Senior Solutions Architect at AWS in Munich. I work with teams on the decisions that turn a promising model into a useful system: what to build, how to test it, and what it needs to operate reliably.</p>
       <div class="hero-actions">
-        <a class="button primary" href="{{ "start-here/" | relURL }}">Explore my work</a>
-        <a class="button secondary" href="{{ "projects/" | relURL }}">Browse projects</a>
+        <a class="button primary" href="{{ "start-here/" | relURL }}">Take the 5-minute project tour</a>
+        <a class="text-link" href="{{ "writing/" | relURL }}">Read the articles <span aria-hidden="true">→</span></a>
       </div>
       <p class="hero-ownership"><strong>About the projects here:</strong> I own the architecture, evaluation criteria, risk, and release decisions, and review merged work. AI tools assist with implementation and documentation.</p>
     </div>
@@ -35,6 +35,7 @@
       <div><p class="eyebrow">Selected work</p><h2>Systems you can inspect</h2></div>
       <a class="text-link" href="{{ "projects/" | relURL }}">All projects <span aria-hidden="true">→</span></a>
     </div>
+    <p class="project-disclaimer">{{ site.Params.projectDisclaimer }}</p>
     <div class="project-grid">
       {{ $projects := where (site.GetPage "/projects").Pages "Params.featured" true }}
       {{ range first 3 $projects.ByWeight }}{{ partial "project-card.html" . }}{{ end }}

@@ -1,3 +1,5 @@
+{{- $page := . -}}
+{{- $activeGroup := false -}}
 <header class="site-header">
   <div class="shell header-inner">
     <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="Andreas Nissen, home">
@@ -6,15 +8,27 @@
     </a>
     <nav class="main-nav" aria-label="Main navigation">
       {{ range site.Menus.main }}
-        <a href="{{ .URL }}"{{ if eq .Name "Work I Love" }} aria-label="Work I love"{{ end }}{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>
-          {{- if eq .Name "Work I Love" -}}
-            Work I <span class="heart-mark" aria-hidden="true">♥</span>
-          {{- else -}}
-            {{ .Name }}
-          {{- end -}}
-        </a>
+        {{ $current := $page.IsMenuCurrent "main" . }}
+        {{ $active := or $current ($page.HasMenuCurrent "main" .) }}
+        {{ with .Page }}{{ if .IsAncestor $page }}{{ $active = true }}{{ end }}{{ end }}
+        {{ range .Children }}
+          {{ with .Page }}{{ if .IsAncestor $page }}{{ $active = true }}{{ end }}{{ end }}
+        {{ end }}
+        {{ if and .HasChildren $active }}{{ $activeGroup = . }}{{ end }}
+        <a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ else if $active }} class="is-active"{{ end }}>{{ .Name }}</a>
       {{ end }}
     </nav>
-    <a class="header-cta" href="{{ site.Params.linkedinURL }}" rel="me noreferrer" aria-label="Connect on LinkedIn">LinkedIn</a>
+    <a class="header-cta" href="{{ "contact/" | relURL }}"{{ if eq .RelPermalink ("contact/" | relURL) }} aria-current="page"{{ end }}>Contact</a>
   </div>
+  {{ with $activeGroup }}
+    <nav class="shell section-nav" aria-label="About and related pages">
+      <a href="{{ .URL }}"{{ if $page.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>About me</a>
+      {{ range .Children }}
+        {{ $current := $page.IsMenuCurrent "main" . }}
+        {{ $active := false }}
+        {{ with .Page }}{{ $active = .IsAncestor $page }}{{ end }}
+        <a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ else if $active }} class="is-active"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+    </nav>
+  {{ end }}
 </header>

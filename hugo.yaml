@@ -45,6 +45,7 @@ params:
   githubURL: "https://github.com/Andreasniss"
   linkedinURL: "https://www.linkedin.com/in/andreasnissen"
   sourceURL: "https://github.com/Andreasniss/personal-website"
+  projectDisclaimer: "These are personal projects, not affiliated with or endorsed by my employer, AWS. Views and opinions are my own."
   viewsDisclaimer: "Personal projects and views are my own and do not represent AWS."
 
 markup:
@@ -56,21 +57,28 @@ markup:
 
 menus:
   main:
+    - name: "Start Here"
+      pageRef: "/start-here"
+      weight: 5
     - name: "Projects"
       pageRef: "/projects"
       weight: 10
     - name: "Writing"
       pageRef: "/writing"
       weight: 20
-    - name: "Talks"
+    - name: "Talks & Workshops"
+      parent: "about"
       pageRef: "/talks"
       weight: 30
-    - name: "Impact"
+    - name: "Selected Impact"
+      parent: "about"
       pageRef: "/impact"
       weight: 35
     - name: "Work I Love"
+      parent: "about"
       pageRef: "/work-i-love"
       weight: 40
     - name: "About"
+      identifier: "about"
       pageRef: "/about"
       weight: 50
