@@ -1021,6 +1021,16 @@ svg {
   margin-top: 30px;
 }
 
+.article-discussion {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.article-discussion > p:first-child {
+  margin: 0;
+}
+
 .article-origin {
   margin: 14px 0 0;
   color: var(--ink-soft);
