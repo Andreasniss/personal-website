@@ -96,6 +96,8 @@ svg {
 .header-inner {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  padding-block: 12px;
   min-height: 72px;
   gap: 28px;
 }
@@ -128,7 +130,8 @@ svg {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: clamp(18px, 3vw, 34px);
+  flex-wrap: wrap;
+  gap: 6px clamp(18px, 3vw, 34px);
   margin-right: auto;
 }
 
@@ -163,11 +166,13 @@ svg {
 }
 
 .main-nav a[aria-current="page"],
+.main-nav a.is-active,
 .main-nav a:hover {
   color: var(--ink);
 }
 
-.main-nav a[aria-current="page"]::after {
+.main-nav a[aria-current="page"]::after,
+.main-nav a.is-active::after {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -175,6 +180,29 @@ svg {
   height: 2px;
   background: var(--accent-warm);
   content: "";
+}
+
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  padding-block: 10px 14px;
+  border-top: 1px solid var(--line);
+}
+
+.section-nav a {
+  padding-block: 10px;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
+.section-nav a:hover,
+.section-nav a[aria-current="page"],
+.section-nav a.is-active {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-warm);
 }
 
 .hero {
@@ -230,6 +258,7 @@ svg {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 36px;
+  align-items: center;
 }
 
 .hero-ownership {
@@ -442,6 +471,59 @@ svg {
 
 .reference-card .reference-note {
   margin-bottom: 0;
+}
+
+.project-card,
+.project-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .card-body {
+  flex: 1;
+}
+
+.project-card .card-media {
+  flex-shrink: 0;
+}
+
+.project-actions {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.project-actions .button {
+  gap: 12px;
+}
+
+.project-secondary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 18px;
+}
+
+.project-secondary-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.project-secondary-actions a:hover {
+  color: var(--accent-light);
+}
+
+.project-disclaimer {
+  max-width: 740px;
+  margin: 24px 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .card-body {
@@ -1477,6 +1559,22 @@ svg {
 }
 
 @media (max-width: 900px) {
+  .header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 12px;
+  }
+
+  .main-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .header-cta {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
   .hero,
   .workshop-callout,
   .impact-callout,
@@ -1528,7 +1626,6 @@ svg {
     width: 100%;
     gap: 18px;
     margin-right: 0;
-    overflow-x: auto;
   }
 
   .learning-grid {

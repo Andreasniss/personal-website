@@ -1,6 +1,7 @@
 {{- $pages := where site.RegularPages "Section" "in" (slice "writing" "projects" "talks" "work-i-love") -}}
 {{- $pages = $pages | append (site.GetPage "/impact") -}}
 {{- $pages = $pages | append (site.GetPage "/start-here") -}}
+{{- $pages = $pages | append (site.GetPage "/contact") -}}
 [
   {{- range $index, $page := $pages.ByDate.Reverse -}}
     {{- if $index }},{{ end }}

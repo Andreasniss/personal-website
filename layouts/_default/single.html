@@ -45,7 +45,10 @@
         {{ end }}
       </aside>
     {{ end }}
-    {{ if eq .Section "projects" }}{{ partial "project-evidence.html" (dict "page" . "phase" "lead") }}{{ end }}
+    {{ if eq .Section "projects" }}
+      <p class="project-disclaimer">{{ site.Params.projectDisclaimer }}</p>
+      {{ partial "project-evidence.html" (dict "page" . "phase" "lead") }}
+    {{ end }}
     {{ if not .Params.hideDetailImage }}
       {{ with .Params.image }}
         <figure class="article-visual">

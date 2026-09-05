@@ -7,13 +7,17 @@ A Hugo portfolio and long-form writing site for Andreas Nissen, deployed automat
 ## What is included
 
 - Homepage with positioning, selected projects, and selected writing
-- Five-minute Start Here route for technical and hiring reviewers
+- Five-minute Start Here route for technical and hiring reviewers, accessible from every page
+- Main navigation: Start Here, Projects, Writing, and About, with a separate Contact link
+- Talks, Selected Impact, and Work I Love grouped in the About section navigation
+- Case studies as the primary project-card action, with demo and source links secondary
+- Personal-project and employer non-affiliation disclosure on the homepage, project index, and case studies
 - Evidence-led writing archive with article search, controlled topic filters, proof links, verification dates, and series navigation
 - Project pages grounded in verified public repositories or owned live demos
 - A clearly separated "Work I Love" collection for attributed external articles, blogs, and repositories
 - A Selected Impact page that separates public proof, professional scope, and personally owned workshop material
 - A reviewed workshop page with public-safe artifacts, explicit ownership boundaries, AWS learning entry points, and a personally completed shortlist of AWS-authored AI workshops
-- About page, RSS, sitemap support, social metadata, 404 page, and responsive styles
+- About and Contact pages, with LinkedIn as the professional contact route, RSS, sitemap support, social metadata, 404 page, and responsive styles
 - Page-specific 1200 by 630 Open Graph images generated from one reproducible visual system
 - Shared GitHub profile mark used in the header, browser icon, Apple touch icon, and social metadata
 - Persistent creator attribution linking to Andreas's verified GitHub profile
