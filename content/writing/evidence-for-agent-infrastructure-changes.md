@@ -25,7 +25,7 @@ tags:
   - verification
 origin: "website"
 featured: false
-draft: true
+draft: false
 ---
 
 A coding agent changes a service's liveness check from `/live` to `/ready`. Both endpoints return success during review. The configuration is valid and the deployment completes.
