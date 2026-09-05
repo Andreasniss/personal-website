@@ -94,6 +94,8 @@ Each public talk needs a title, question or abstract, audience, verified deliver
 
 Published articles, projects, talks, About, Talks, and Selected Impact carry page-specific 1200 by 630 PNG metadata. Run `scripts/generate-social-images.sh` after changing a title or visual label, commit the generated assets, and verify that the built HTML includes the absolute image URL, dimensions, alt text, and `summary_large_image` card type.
 
+The homepage uses a simpler brand card with large type for small link previews. Its reviewed 1200 by 630 source is `assets/social/homepage.png`, created with AI image assistance and checked for wording, palette, and thumbnail readability. The generator copies it to `static/images/social/homepage-v2.png` and the legacy `default.png` URL. `hugo.yaml` uses the versioned URL so social crawlers can discover the replacement. When revising this card, update the source, exported copies, config URL, and alt text together. Article and project cards retain their existing generated layout.
+
 ## Evidence-ready project contract
 
 A featured project may set `evidenceReady: true` only when its page gives a skeptical reviewer a short, verifiable path through the work. The page must include:

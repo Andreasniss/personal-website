@@ -44,7 +44,10 @@ make_card() {
   rm -r "$work_dir"
 }
 
-make_card "default.png" "Enterprise AI" "Reliable systems, inspectable evidence" "Architecture, evaluation, policy controls, and governed execution."
+# The homepage uses an intentionally simpler, thumbnail-first brand card.
+# Preserve the reviewed source instead of regenerating it with the article layout.
+cp "$repo_root/assets/social/homepage.png" "$output_dir/homepage-v2.png"
+cp "$repo_root/assets/social/homepage.png" "$output_dir/default.png"
 make_card "about.png" "About" "Andreas Nissen" "Senior Solutions Architect focused on reliable enterprise AI."
 make_card "selected-impact.png" "Selected impact" "Outcomes, with the boundary visible" "Public systems, enterprise AI delivery, and technical workshops." "#ff9d3d"
 make_card "talks.png" "Talks and workshops" "Make the architecture discussable" "Evaluation, policy controls, and reliable enterprise agents." "#ff9d3d"

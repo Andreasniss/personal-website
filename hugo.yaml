@@ -40,8 +40,8 @@ outputFormats:
 params:
   description: "Enterprise AI architecture, agent reliability, evaluation, and governed execution."
   author: "Andreas Nissen"
-  socialImage: "/images/social/default.png"
-  socialImageAlt: "Andreas Nissen, enterprise AI architecture, agent reliability, evaluation, and governed execution."
+  socialImage: "/images/social/homepage-v2.png"
+  socialImageAlt: "Andreas Nissen. AI Architecture. Projects, Demos, and Writing. andreasnissen.dev."
   githubURL: "https://github.com/Andreasniss"
   linkedinURL: "https://www.linkedin.com/in/andreasnissen"
   sourceURL: "https://github.com/Andreasniss/personal-website"
