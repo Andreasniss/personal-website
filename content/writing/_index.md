@@ -10,14 +10,8 @@ topics:
   - Learning
 ---
 
-I write because I’m curious. Exploring ideas in writing helps me learn and sharpen my thinking. I share that process here so others can find something useful, unexpected, or simply fun, and perhaps leave with an idea of their own.
+Writing is how I find the gaps in my thinking. Occasionally the gap has been running the whole demo.
 
-These are personal projects and opinions. They do not represent my employer and are not affiliated with or endorsed by it. Have a different perspective or an idea to share? [Get in touch](/contact/). I’d enjoy the conversation.
+Choose a question: [what may an agent do?](/writing/context-and-control/), [how do I review AI-built work?](/writing/reviewing-ai-built-public-work/), or [what happens when a model fails?](/writing/model-failover-is-policy/). Each article explains its evidence and where that evidence stops.
 
-Choose a question, then follow the explanation to a working example:
-
-- **What should an agent be allowed to do?** Read [Context and Control](/writing/context-and-control/), then inspect the approval boundary in [Runbook Relay](/projects/runbook-relay/).
-- **How do I check AI-built work?** Start with [the review standard](/writing/reviewing-ai-built-public-work/), then explore [what evidence a pull request should carry](/writing/evidence-for-ai-generated-pull-requests/).
-- **How do I handle a model failure?** Read [the failover decision guide](/writing/model-failover-is-policy/), then try the [interactive learning lab](/projects/safe-model-failover-learning-lab/).
-
-Every article explains what supports its argument and where the evidence stops. Browse by topic below, or [subscribe through RSS](/writing/index.xml) for new writing.
+These are personal projects and opinions, independent of my employer. [Disagree? Tell me.](/contact/) Or [follow along through RSS](/writing/index.xml).
