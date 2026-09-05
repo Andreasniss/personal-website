@@ -16,4 +16,4 @@ Choose a question, then follow the explanation to a working example:
 - **How do I check AI-built work?** Start with [the review standard](/writing/reviewing-ai-built-public-work/), then explore [what evidence a pull request should carry](/writing/evidence-for-ai-generated-pull-requests/).
 - **How do I handle a model failure?** Read [the failover decision guide](/writing/model-failover-is-policy/), then try the [interactive learning lab](/projects/safe-model-failover-learning-lab/).
 
-Every article explains what supports its argument and where the evidence stops. Browse by topic below, or [subscribe through RSS](/index.xml) for new writing.
+Every article explains what supports its argument and where the evidence stops. Browse by topic below, or [subscribe through RSS](/writing/index.xml) for new writing.
